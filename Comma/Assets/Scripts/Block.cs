@@ -6,6 +6,11 @@ public class Block : MonoBehaviour
 {
     bool _isMove = false;
     int _h, _w;
+    private bool _isFirst = true; // 처음 조작하는 부분인지 확인
+    public bool IsFirst
+    {
+        get { return _isFirst; }
+    }
     
     void Start()
     {
@@ -17,30 +22,42 @@ public class Block : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
-    {
-        if(_isMove)
-        {
-            transform.position += new Vector3(_w, _h, 0);
-            if(!VaildMove())
-            {
-                transform.position -= new Vector3(_w, _h, 0);
-                AddToGrid();
-                this.enabled = false;
-                GameManager.Instance.check_delete_grid();
-            }
-        }
-    }
+    // private void FixedUpdate()
+    // {
+    //     if(_isMove)
+    //     {
+    //         if(!VaildMove())
+    //         {
+    //             transform.position -= new Vector3(_w, _h, 0);
+    //             AddToGrid();
+    //             this.enabled = false;
+    //             GameManager.Instance.check_delete_grid();
+    //             stop();
+    //         }
+    //     }
+    // }
+
     public void move(int h, int w)
     {
         _isMove = true;
         _h = h;
         _w = w;
+        transform.position += new Vector3(_w, _h, 0);
+        // 범위 안 벗어나는 지 확인
+        if(!VaildMove())
+        {
+            transform.position -= new Vector3(_w, _h, 0);
+            AddToGrid();
+            this.enabled = false;
+            GameManager.Instance.check_delete_grid();
+            stop();
+        }
     }
 
     public void stop()
     {
         _isMove = false;
+        _isFirst = false;
     }
 
     public void turn()
