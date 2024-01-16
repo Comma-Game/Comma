@@ -4,31 +4,65 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    static Player _instance;
+    public static Player Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    
+    int _hp;
+    bool _isInvincible;
     StageController _stageController;
+    
     void Start()
     {
+        init();
         _stageController = StageController.Instance;
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Portal")) triggerPortal();
-        else if (other.gameObject.CompareTag("Ground")) triggerGround();
+        if (other.gameObject.CompareTag("Portal")) TriggerPortal();
+        else if (other.gameObject.CompareTag("Ground")) TriggerGround();
+        else if (other.gameObject.CompareTag("AccelerationZone")) _stageController.SetAcceleration();
     }
 
-    void triggerPortal()
+    void init()
     {
-        _stageController.Destroy_Stage();
+        _instance = transform.GetComponent<Player>();
+        _hp = 100;
+        _isInvincible = false;
     }
 
-    void triggerGround()
+    void TriggerPortal()
     {
-        Destroy(transform.gameObject);
-        _stageController.Game_Over();
+        StartCoroutine(Invincible());
+    }
+
+    void TriggerGround()
+    {
+        _stageController.DestroyStage();
+        Damage(80);
+    }
+    
+    public void Damage(int damage)
+    {
+        if (!_isInvincible) _hp -= damage;
+        Debug.Log("HP : " + _hp);
+    }
+
+    IEnumerator Invincible()
+    {
+        _isInvincible = true;
+        yield return new WaitForSeconds(0.5f);
+        _isInvincible = false;
     }
 }

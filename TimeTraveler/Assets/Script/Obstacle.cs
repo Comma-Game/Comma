@@ -13,4 +13,13 @@ public class Obstacle : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.gameObject.CompareTag("Player"))
+        {
+            Player.Instance.Damage(10);
+            Destroy(transform.gameObject);
+        }
+    }
 }

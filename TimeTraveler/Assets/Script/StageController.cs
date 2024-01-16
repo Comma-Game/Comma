@@ -9,23 +9,60 @@ public class StageController : MonoBehaviour
     {
         get
         {
-            init();
+            Init_Instance();
             return _instance;
         }
     }
 
-    static GameObject _stageController;
+    [SerializeField]
+    private float _speed = 10f;
+    public float Speed
+    {
+        get
+        {
+            return _speed;
+        }
+        set
+        {
+            _speed = value;
+        }
+    }
 
+    private float _accSpeed = 2f;
+    public float AccSpeed
+    {
+        get
+        {
+            return _accSpeed;
+        }
+        set
+        {
+            _accSpeed = value;
+        }
+    }
+
+    [SerializeField]
+    private float _maxSpeed = 100f;
+    public float MaxSpeed
+    {
+        get
+        {
+            return _maxSpeed;
+        }
+        set
+        {
+            _maxSpeed = value;
+        }
+    }
+
+    static GameObject _stageController;
     GameObject[] _stagePrefab;
     GameObject _stage, _nextStage, _parent;
 
     void Start()
     {
-        init();
-        _stagePrefab = Resources.LoadAll<GameObject>("Stage");
-        _parent = GameObject.Find("Stage");
-        instantiateStage(90);
-        instantiateStage(0);
+        Init_Instance();
+        Init();
     }
 
     void Update()
@@ -33,7 +70,7 @@ public class StageController : MonoBehaviour
         
     }
 
-    static void init()
+    static void Init_Instance()
     {
         _stageController = GameObject.Find("StageController");
         if(!_stageController)
@@ -47,7 +84,15 @@ public class StageController : MonoBehaviour
         _instance = _stageController.GetComponent<StageController>();
     }
 
-    void instantiateStage(int y)
+    void Init()
+    {
+        _stagePrefab = Resources.LoadAll<GameObject>("Stage");
+        _parent = GameObject.Find("Stage");
+        InstantiateStage(110);
+        InstantiateStage(0);
+    }
+
+    void InstantiateStage(int y)
     {
         int next_stage_num = Random.Range(0, _stagePrefab.Length);
 
@@ -57,16 +102,21 @@ public class StageController : MonoBehaviour
         _nextStage.transform.SetParent(_parent.transform);
     }
 
-    public void Destroy_Stage()
+    public void DestroyStage()
     {
+        UnsetAcceleration();
         Destroy(_stage);
-        instantiateStage(-10);
+        InstantiateStage(-10);
     }
 
-    public void Game_Over()
+    public void SetAcceleration()
     {
-        //어떻게 구성할 지 생각 필요
-        //Destroy(_parent);
-        //_instance.GetComponent<StageController>().enabled = false;
+        _stage.GetComponent<GateMovement>().SetAcceleration();
+        _nextStage.GetComponent<GateMovement>().SetAcceleration();
+    }
+
+    public void UnsetAcceleration()
+    {
+        _nextStage.GetComponent<GateMovement>().UnsetAcceleration();
     }
 }
