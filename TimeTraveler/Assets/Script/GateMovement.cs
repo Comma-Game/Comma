@@ -10,11 +10,15 @@ public class GateMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    void FixedUpdate()
     {
         Vector3 movement = transform.up * speed * Time.deltaTime;
         GetComponent<Rigidbody>().MovePosition(transform.position + movement);
