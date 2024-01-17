@@ -10,6 +10,12 @@ public class PlayerData
     public int stage1;
     public int stage2;
     public int stage3;
+    public int hp;
+
+    public PlayerData()
+    {
+        hp = 100;
+    }
 }
 
 public enum DataType
@@ -17,13 +23,28 @@ public enum DataType
     playerCoin,
     stage1,
     stage2,
-    stage3
+    stage3,
+    hp
 }
 
 public class SaveLoadManager : MonoBehaviour
 {
     private string savePath;
-    private PlayerData playerData = null;
+    private PlayerData playerData;
+    public PlayerData PlayerData
+    {
+        get
+        {
+            if(playerData == null)
+            {
+                playerData = LoadPlayerData();
+                SavePlayerData(playerData);
+
+            }
+
+            return playerData;
+        }
+    }
 
     private static SaveLoadManager instance;
     // singleton
@@ -51,7 +72,15 @@ public class SaveLoadManager : MonoBehaviour
     {
         // Application.persistentDataPath는 각 플랫폼에 따라 저장될 수 있는 영구적인 데이터 경로를 제공합니다.
         savePath = Path.Combine(Application.persistentDataPath, "playerData.json");
-        LoadData();
+        //LoadData();
+    }
+
+    public void SavePlayer(int hp, int playerCoin)
+    {
+        playerData.playerCoin = playerCoin;
+        playerData.hp = hp;
+        SavePlayerData(playerData);
+        Debug.Log("플레이어 정보 저장 완료!");
     }
 
     public void SaveData(DataType dataType, int num){
@@ -90,6 +119,7 @@ public class SaveLoadManager : MonoBehaviour
             Debug.Log("stage1 : " + loadedData.stage1);
             Debug.Log("stage2 : " + loadedData.stage2);
             Debug.Log("stage3 : " + loadedData.stage3);
+            Debug.Log("hp : " + loadedData.hp);
             playerData = loadedData;
         }else{
             var player = new PlayerData();
@@ -97,6 +127,7 @@ public class SaveLoadManager : MonoBehaviour
             player.stage1 = 0;
             player.stage2 = 0;
             player.stage3 = 0;
+            player.hp = 100;
             playerData = player;
         }
     }
@@ -124,8 +155,22 @@ public class SaveLoadManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Save file not found.");
-            return null;
+            Debug.Log("새로운 파일 생성");
+            playerData = new PlayerData();
+
+            return playerData;
         }
+    }
+
+    public void SaveGameData()
+    {
+        SavePlayerData(playerData);
+        Debug.Log("저장 완료");
+    }
+
+    private void OnApplicationQuit()
+    {
+        string jsonData = File.ReadAllText(savePath);
+        if (File.Exists(jsonData)) SaveGameData();
     }
 }

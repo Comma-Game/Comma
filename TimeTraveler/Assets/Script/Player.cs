@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     void init()
     {
         _instance = transform.GetComponent<Player>();
-        _hp = 100;
+        _hp = SaveLoadManager.Instance.PlayerData.hp;
         _isInvincible = false;
     }
 
@@ -74,5 +74,10 @@ public class Player : MonoBehaviour
         _isInvincible = true;
         yield return new WaitForSeconds(0.5f);
         _isInvincible = false;
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveLoadManager.Instance.SavePlayer(_hp, 0);
     }
 }
