@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     int _hp;
     bool _isInvincible;
     StageController _stageController;
-    
+    Coroutine coroutine;
+
     void Start()
     {
         init();
@@ -32,7 +33,16 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Portal")) TriggerPortal();
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
-        else if (other.gameObject.CompareTag("AccelerationZone")) _stageController.SetAcceleration();
+        else if (other.gameObject.CompareTag("AccelerationZone"))
+        {
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                _isInvincible = false;
+            }
+
+            _stageController.SetAcceleration();
+        }
     }
 
     void init()
@@ -44,7 +54,7 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        StartCoroutine(Invincible());
+        coroutine = StartCoroutine(Invincible());
     }
 
     void TriggerGround()

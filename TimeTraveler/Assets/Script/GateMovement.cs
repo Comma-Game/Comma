@@ -12,7 +12,6 @@ public class GateMovement : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _movement = transform.up * StageController.Instance.Speed;
         Move();
     }
 
@@ -24,12 +23,14 @@ public class GateMovement : MonoBehaviour
     
     void FixedUpdate()
     {
+        _movement = transform.up * StageController.Instance.Speed;
         if (_isAcceleration) _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
         CheckMaxSpeed();
     }
 
     public void Move()
     {
+        if(_movement.y == 0) _movement = transform.up * StageController.Instance.Speed;
         _rigidbody.AddForce(_movement, ForceMode.VelocityChange);
     }
 
