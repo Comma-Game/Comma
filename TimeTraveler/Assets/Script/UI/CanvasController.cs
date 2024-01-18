@@ -57,4 +57,16 @@ public class CanvasController : MonoBehaviour
         playerStatPanelCS.DownEnergy(Amount);
     }
 
+    public void ChangeCoinText(float coin){
+        playerStatPanelCS.ChangeCoinText(coin);
+    }
+
+    public void ChangeScoreText(float score){
+        playerStatPanelCS.ChangeScoreText(score);
+    }
+
+    public void ChangeState(float stage){
+        gamePanelCS.ChangeStageText(stage);
+    }
+
 }
