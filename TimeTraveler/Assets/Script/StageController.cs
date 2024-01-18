@@ -28,6 +28,7 @@ public class StageController : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _accSpeed = 2f;
     public float AccSpeed
     {

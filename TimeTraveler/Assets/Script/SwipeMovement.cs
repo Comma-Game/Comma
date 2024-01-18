@@ -34,7 +34,7 @@ public class SwipeMovement : MonoBehaviour
             swipeDelta = swipeDelta / 100;
 
             Vector3 swipeForce = new Vector3(swipeDelta.x * swipeSpeed, 0, swipeDelta.y * swipeSpeed);
-            rb.AddForce(swipeForce);
+            rb.AddForce(-swipeForce);
         }
 
         // 모바일 테스트 할 때
@@ -65,6 +65,7 @@ public class SwipeMovement : MonoBehaviour
                     isSwiping = false;
                 }
             }
+        
         }
     }
 }

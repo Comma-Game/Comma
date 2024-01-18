@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     bool _isInvincible;
     StageController _stageController;
     Coroutine coroutine;
+    RaycastHit _hit;
+    string _obstacle;
 
     void Start()
     {
@@ -26,7 +28,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        
+    }
 
+    private void FixedUpdate()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out _hit))
+        {
+            if (_hit.transform.gameObject.CompareTag("Obstacle"))
+            {
+                _obstacle = _hit.transform.gameObject.name;
+                Debug.Log("Å¸°Ù : " + _obstacle);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Ãæµ¹ : " + collision.gameObject.name);
+        if(_obstacle.Equals(collision.gameObject.name))
+        {
+            Damage(10);
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
