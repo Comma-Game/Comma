@@ -101,6 +101,9 @@ public class StageController : MonoBehaviour
         Vector3 pos = new Vector3(0, y, 0);
         _nextStage = Instantiate(_stagePrefab[next_stage_num], pos, Quaternion.identity);
         _nextStage.transform.SetParent(_parent.transform);
+
+        int nextAngle = Random.Range(0, 360);
+        _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
     }
 
     public void DestroyStage()

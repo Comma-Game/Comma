@@ -33,12 +33,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.DrawRay(transform.position, transform.forward * 5, Color.red);
         if (Physics.Raycast(transform.position, transform.forward, out _hit))
         {
+            Debug.Log("°¨Áö : " + _hit.transform.gameObject.name);
             if (_hit.transform.gameObject.CompareTag("Obstacle"))
             {
                 _obstacle = _hit.transform.gameObject.name;
-                Debug.Log("Å¸°Ù : " + _obstacle);
             }
         }
     }
@@ -55,7 +56,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Portal")) TriggerPortal();
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            Debug.Log("Æ÷Å» Åë°ú : " + _hp);
+            TriggerPortal();
+        }
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
@@ -78,7 +83,8 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        coroutine = StartCoroutine(Invincible());
+        _isInvincible = true;
+        coroutine = StartCoroutine(InvincibleTime(0.5f));
     }
 
     void TriggerGround()
@@ -86,17 +92,19 @@ public class Player : MonoBehaviour
         _stageController.DestroyStage();
         Damage(80);
     }
-    
+
     public void Damage(int damage)
     {
-        if (!_isInvincible) _hp -= damage;
-        Debug.Log("HP : " + _hp);
+        if (!_isInvincible)
+        {
+            _hp -= damage;
+            Debug.Log("HP : " + _hp);
+        }
     }
 
-    IEnumerator Invincible()
+    IEnumerator InvincibleTime(float t)
     {
-        _isInvincible = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(t);
         _isInvincible = false;
     }
 
