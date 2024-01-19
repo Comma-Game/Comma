@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class StoryPanel : MonoBehaviour
+{
+    [Header("put Story")]
+    [SerializeField] public string mytitleText;
+    [SerializeField] public Sprite mystroy1Img;
+    [SerializeField] public Sprite mystroy2Img;
+    [SerializeField] public Sprite mystroy3Img;
+    [SerializeField] public string mystroy1TitleText;
+    [SerializeField] public string mystroy2TitleText;
+    [SerializeField] public string mystroy3TitleText;
+    [SerializeField] public string mystroy1Text;
+    [SerializeField] public string mystroy2Text;
+    [SerializeField] public string mystroy3Text;
+
+    [Header("Story Panels")]
+    [SerializeField] public Text titleText;
+    [SerializeField] public Image[] stroyImg;    
+    [SerializeField] public TextMeshProUGUI[] stroyTitleText;
+    [SerializeField] public TextMeshProUGUI[] stroyText;
+
+    private bool[] isStoryLock = new bool[] { false, true, true };
+    
+    void Start()
+    {
+        titleText.text = mytitleText;
+
+        stroyImg[0].sprite = mystroy1Img;
+        stroyImg[1].sprite = mystroy2Img;
+        stroyImg[2].sprite = mystroy3Img;
+
+        stroyTitleText[0].text = mystroy1TitleText;
+        stroyTitleText[1].text = mystroy2TitleText;
+        stroyTitleText[2].text = mystroy3TitleText;
+
+        stroyText[0].text = mystroy1Text;
+        stroyText[1].text = mystroy2Text;
+        stroyText[2].text = mystroy3Text;
+        
+        SettingStory();
+    }
+
+    public void SettingStory(){
+        for(int i=0; i<3; i++){
+            if(isStoryLock[i]){
+                stroyImg[i].color = Color.black;
+                stroyText[i].enabled = true;
+            }else{
+                stroyImg[i].color = Color.white;
+                stroyText[i].enabled = false;
+            }
+        }
+    }
+}
