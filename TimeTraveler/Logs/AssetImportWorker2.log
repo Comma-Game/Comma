@@ -1,0 +1,372 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.16f1 (d2c21f0ef2f1) revision 13812255'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 16169 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+2380
+Successfully changed project path to: C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
+C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [20580] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 2653020002 [EditorId] 2653020002 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [20580] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 2653020002 [EditorId] 2653020002 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 21.16 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2191)
+    Vendor:   NVIDIA
+    VRAM:     5991 MB
+    Driver:   30.0.15.1278
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56624
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.041194 seconds.
+- Loaded All Assemblies, in  0.634 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.512 seconds
+Domain Reload Profiling: 1136ms
+	BeginReloadAssembly (204ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (135ms)
+	LoadAllAssembliesAndSetupDomain (222ms)
+		LoadAssemblies (198ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (218ms)
+			TypeCache.Refresh (216ms)
+				TypeCache.ScanAssembly (195ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (513ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (426ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (125ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (184ms)
+			ProcessInitializeOnLoadMethodAttributes (108ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.138 seconds
+Refreshing native plugins compatible for Editor in 8.27 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.903 seconds
+Domain Reload Profiling: 2013ms
+	BeginReloadAssembly (220ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (73ms)
+	RebuildNativeTypeToScriptingClass (34ms)
+	initialDomainReloadingComplete (202ms)
+	LoadAllAssembliesAndSetupDomain (579ms)
+		LoadAssemblies (517ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (210ms)
+			TypeCache.Refresh (189ms)
+				TypeCache.ScanAssembly (170ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (905ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (640ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (40ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (383ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (69ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (45ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 11.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3121 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (57.3 KB). Loaded Objects now: 3586.
+Memory consumption went from 136.8 MB to 136.8 MB.
+Total: 3.461000 ms (FindLiveObjects: 0.237400 ms CreateObjectMapping: 0.175000 ms MarkObjects: 2.951000 ms  DeleteObjects: 0.096900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 741050.029152 seconds.
+  path: Assets/Laterns and candles/Materials
+  artifactKey: Guid(7d92f46ffecd16e42bc3d6ac7157bed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Materials using Guid(7d92f46ffecd16e42bc3d6ac7157bed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee17616ad28ac1d39b39f7abf26eec0e') in 0.009780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.067040 seconds.
+  path: Assets/Laterns and candles/Materials/Candle3_colormap.mat
+  artifactKey: Guid(768f45aaec716d3429b83b2b7e673f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Materials/Candle3_colormap.mat using Guid(768f45aaec716d3429b83b2b7e673f23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd88b551737ab65d711eb7b8ba2136c2a') in 0.308845 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 2.981615 seconds.
+  path: Assets/Laterns and candles/Meshes/Latern4.fbx
+  artifactKey: Guid(66dd512dabeec684ab0f4b135d4a43ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Meshes/Latern4.fbx using Guid(66dd512dabeec684ab0f4b135d4a43ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87964a3c43d5389c9c2dd17f28b87a57') in 0.163717 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 32
+========================================================================
+Received Import Request.
+  Time since last request: 1.259046 seconds.
+  path: Assets/Laterns and candles/Prefabs/Latern4.prefab
+  artifactKey: Guid(263b26f2316871f46a4bda232a61ec44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Prefabs/Latern4.prefab using Guid(263b26f2316871f46a4bda232a61ec44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd735ce3875952a09f29663dfb1ec77d0') in 0.153723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 70
+========================================================================
+Received Import Request.
+  Time since last request: 3.411524 seconds.
+  path: Assets/Laterns and candles/Sprites/red_flame.tif
+  artifactKey: Guid(e467a7f7b7a4a714db7da4a6ada82425) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Sprites/red_flame.tif using Guid(e467a7f7b7a4a714db7da4a6ada82425) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd1e86f32a82c41d9caf12ad2efcc93b') in 0.169221 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 34
+========================================================================
+Received Import Request.
+  Time since last request: 1.097132 seconds.
+  path: Assets/Laterns and candles/textures/Candle3 [Albedo].png
+  artifactKey: Guid(6d4c95f2ed44b624bba9035788c5f883) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/textures/Candle3 [Albedo].png using Guid(6d4c95f2ed44b624bba9035788c5f883) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a39f2da9074f35f641bb939a37c36fcf') in 0.087763 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Laterns and candles/textures/Latern4 [Albedo].png
+  artifactKey: Guid(c7e6f1cbc617b3d40a9aa26d6f57d886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/textures/Latern4 [Albedo].png using Guid(c7e6f1cbc617b3d40a9aa26d6f57d886) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3d4cf5f77d904b2db5f469bb176de3d') in 0.054875 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Laterns and candles/textures/Candle3_Emission.png
+  artifactKey: Guid(e021051f746d881459b36adb6f6f4622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/textures/Candle3_Emission.png using Guid(e021051f746d881459b36adb6f6f4622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd8cbbd7bf7471d40309a4f8d31bedb6') in 0.038785 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 3.220898 seconds.
+  path: Assets/Laterns and candles/Meshes/Materials/Latern_glass1.001.mat
+  artifactKey: Guid(fc889371424ef1b4096f2506b36d2740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Laterns and candles/Meshes/Materials/Latern_glass1.001.mat using Guid(fc889371424ef1b4096f2506b36d2740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5382460847182d10a8782937478f32b5') in 0.023788 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 3.409916 seconds.
+  path: Assets/Concrete textures pack/pattern 01
+  artifactKey: Guid(f0735385fa6a2204eb09b5a0192f7680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Concrete textures pack/pattern 01 using Guid(f0735385fa6a2204eb09b5a0192f7680) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec79343bf4a8689b87c5e1912901b34b') in 0.000921 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.072239 seconds.
+  path: Assets/Concrete textures pack/pattern 01/Concrete pattern 01.mat
+  artifactKey: Guid(9447935ca27fed54c9c28112b77d5908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Concrete textures pack/pattern 01/Concrete pattern 01.mat using Guid(9447935ca27fed54c9c28112b77d5908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42f2dc0032e22883846953c558d13546') in 0.085839 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 26.227223 seconds.
+  path: Assets/Map/PipeMap/Material
+  artifactKey: Guid(d70269432e69aa44e9b30f72412692a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/PipeMap/Material using Guid(d70269432e69aa44e9b30f72412692a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '779e3c02b1d955bb7818c48cb323bc94') in 0.000706 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.343450 seconds.
+  path: Assets/Prefab/Lake.prefab
+  artifactKey: Guid(c19a0b0bfc98c8a458ed95da9c6060c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Lake.prefab using Guid(c19a0b0bfc98c8a458ed95da9c6060c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e8ce01c7773a91c147448915da65f2f') in 0.766441 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 40.523172 seconds.
+  path: Assets/Map/PipeMap1
+  artifactKey: Guid(5b383e90df4ae5b47a5468cbf49b803c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/PipeMap1 using Guid(5b383e90df4ae5b47a5468cbf49b803c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25a4b6dd14c11f21c4907f4cedb41332') in 0.000847 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 35.387151 seconds.
+  path: Assets/Map/PipeMap1/Prefab
+  artifactKey: Guid(bab163fc29b095a4093eef7d563f0ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/PipeMap1/Prefab using Guid(bab163fc29b095a4093eef7d563f0ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f49ea73fdef784f5b47f89b931f0319') in 0.001268 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 78.558026 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes
+  artifactKey: Guid(f46edf1bf4e59c94aa22535b4b59fe39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes using Guid(f46edf1bf4e59c94aa22535b4b59fe39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '653c34f15e74793c531d34f5469a6abe') in 0.002038 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.138993 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe01.fbx
+  artifactKey: Guid(2c11ab0b14445cb4b82d19e8dba1bb62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe01.fbx using Guid(2c11ab0b14445cb4b82d19e8dba1bb62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e30e5d3cfe4c0034f378b7b0f8b68b0') in 0.025504 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe16.fbx
+  artifactKey: Guid(2118850dbff659d4d917b8f320f36465) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe16.fbx using Guid(2118850dbff659d4d917b8f320f36465) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc82e2aefba89d71cc748f707ab2c5a') in 0.044143 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe27.fbx
+  artifactKey: Guid(d5fc8d977a1d3cc4483538d340ecea16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe27.fbx using Guid(d5fc8d977a1d3cc4483538d340ecea16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd154596b0ab5b439d956bc5245164429') in 0.035336 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe49.fbx
+  artifactKey: Guid(d034f4a6244adb9439cc149a2247bddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe49.fbx using Guid(d034f4a6244adb9439cc149a2247bddc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00ae16d0986610cc68711231f4a25da5') in 0.026886 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe43.fbx
+  artifactKey: Guid(fcd00646256b64d4985e645c936c129f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe43.fbx using Guid(fcd00646256b64d4985e645c936c129f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13baa35ce2ee1746ee1d7981c53aeb32') in 0.030084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe51.fbx
+  artifactKey: Guid(2d419fd790e40c34ab67c0bdbae16c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe51.fbx using Guid(2d419fd790e40c34ab67c0bdbae16c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d69df5e5dfd3bd4ac3513ee5a5b6867') in 0.027321 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe48.fbx
+  artifactKey: Guid(aa3a59f35a6fd1e4f94086e96f66eac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe48.fbx using Guid(aa3a59f35a6fd1e4f94086e96f66eac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46cb1cdcb024be29b7a97f405dc657be') in 0.026369 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

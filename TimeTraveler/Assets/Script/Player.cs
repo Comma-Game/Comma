@@ -38,14 +38,12 @@ public class Player : MonoBehaviour
             if (_hit.transform.gameObject.CompareTag("Obstacle"))
             {
                 _obstacle = _hit.transform.gameObject.name;
-                Debug.Log("Å¸°Ù : " + _obstacle);
             }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Ãæµ¹ : " + collision.gameObject.name);
         if(_obstacle.Equals(collision.gameObject.name))
         {
             Damage(10);
@@ -86,11 +84,14 @@ public class Player : MonoBehaviour
         _stageController.DestroyStage();
         Damage(80);
     }
-    
+
     public void Damage(int damage)
     {
-        if (!_isInvincible) _hp -= damage;
-        Debug.Log("HP : " + _hp);
+        if (!_isInvincible)
+        {
+            _hp -= damage;
+            Debug.Log("HP : " + _hp);
+        }
     }
 
     IEnumerator Invincible()
