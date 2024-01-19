@@ -33,8 +33,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.DrawRay(transform.position, transform.forward * 5, Color.red);
         if (Physics.Raycast(transform.position, transform.forward, out _hit))
         {
+            Debug.Log("감지 : " + _hit.transform.gameObject.name);
             if (_hit.transform.gameObject.CompareTag("Obstacle"))
             {
                 _obstacle = _hit.transform.gameObject.name;
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("충돌 : " + collision.gameObject.name);
         if(_obstacle.Equals(collision.gameObject.name))
         {
             Damage(10);
@@ -53,7 +56,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Portal")) TriggerPortal();
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            Debug.Log("포탈 통과 : " + _hp);
+            TriggerPortal();
+        }
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
@@ -76,7 +83,8 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        coroutine = StartCoroutine(Invincible());
+        _isInvincible = true;
+        coroutine = StartCoroutine(InvincibleTime(0.5f));
     }
 
     void TriggerGround()
@@ -94,10 +102,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator Invincible()
+    IEnumerator InvincibleTime(float t)
     {
-        _isInvincible = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(t);
         _isInvincible = false;
     }
 
