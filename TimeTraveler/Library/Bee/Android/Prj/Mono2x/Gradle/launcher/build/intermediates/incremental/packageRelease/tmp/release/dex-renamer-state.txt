@@ -1,4 +1,4 @@
-#Thu Jan 18 19:37:10 KST 2024
-base.0=C\:\\Users\\user\\Desktop\\Comma\\TimeTraveler\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+#Sun Jan 21 20:15:57 KST 2024
+base.0=C\:\\Users\\LYHo\\Desktop\\GitHub\\Comma\\TimeTraveler\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
