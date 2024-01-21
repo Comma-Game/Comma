@@ -1,6 +1,6 @@
 <lint-module
     format="1"
-    dir="C:\Users\user\Desktop\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher"
+    dir="C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher"
     name=":launcher"
     type="APP"
     maven="Gradle:launcher:"

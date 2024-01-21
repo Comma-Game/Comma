@@ -56,6 +56,11 @@ public class StageController : MonoBehaviour
         }
     }
 
+    string[] _concept =
+    {
+        "PipeMap"
+    };
+
     static GameObject _stageController;
     GameObject[] _stagePrefab;
     GameObject _stage, _nextStage, _parent;
@@ -87,7 +92,7 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
-        _stagePrefab = Resources.LoadAll<GameObject>("Stage");
+        _stagePrefab = Resources.LoadAll<GameObject>("PipeMap");
         _parent = GameObject.Find("Stage");
         InstantiateStage(110);
         InstantiateStage(0);
@@ -110,7 +115,7 @@ public class StageController : MonoBehaviour
     {
         UnsetAcceleration();
         Destroy(_stage);
-        InstantiateStage(-10);
+        InstantiateStage(-20);
     }
 
     public void SetAcceleration()

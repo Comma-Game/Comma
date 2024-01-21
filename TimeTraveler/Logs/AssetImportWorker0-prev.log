@@ -15,7 +15,7 @@ C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-20456
+20886
 Successfully changed project path to: C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
 C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/LYHo/Desktop/GitHub/Comma/TimeTraveler
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [14820] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 3623604328 [EditorId] 3623604328 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [788] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 2686150350 [EditorId] 2686150350 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [14820] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 3623604328 [EditorId] 3623604328 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [788] Host "[IP] 172.30.1.98 [Port] 0 [Flags] 2 [Guid] 2686150350 [EditorId] 2686150350 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-K4781VD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 27.29 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 17.61 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.036781 seconds.
-- Loaded All Assemblies, in  0.624 seconds
+Registered in 0.035695 seconds.
+- Loaded All Assemblies, in  0.574 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.445 seconds
-Domain Reload Profiling: 1057ms
+- Finished resetting the current domain, in  0.399 seconds
+Domain Reload Profiling: 967ms
 	BeginReloadAssembly (194ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (41ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (120ms)
-	LoadAllAssembliesAndSetupDomain (244ms)
-		LoadAssemblies (187ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (116ms)
+	LoadAllAssembliesAndSetupDomain (191ms)
+		LoadAssemblies (188ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (237ms)
-			TypeCache.Refresh (236ms)
-				TypeCache.ScanAssembly (219ms)
+		AnalyzeDomain (187ms)
+			TypeCache.Refresh (185ms)
+				TypeCache.ScanAssembly (168ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (446ms)
+	FinalizeReload (400ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (380ms)
+		SetupLoadedEditorAssemblies (332ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (141ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (109ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (163ms)
-			ProcessInitializeOnLoadMethodAttributes (66ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (150ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 1057ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.173 seconds
-Refreshing native plugins compatible for Editor in 11.04 ms, found 3 plugins.
+- Loaded All Assemblies, in  1.028 seconds
+Refreshing native plugins compatible for Editor in 13.47 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Package Manager log level set to [2]
@@ -126,47 +126,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.771 seconds
-Domain Reload Profiling: 1925ms
-	BeginReloadAssembly (245ms)
+- Finished resetting the current domain, in  0.836 seconds
+Domain Reload Profiling: 1851ms
+	BeginReloadAssembly (234ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (27ms)
-	RebuildCommonClasses (42ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (106ms)
-	LoadAllAssembliesAndSetupDomain (742ms)
-		LoadAssemblies (611ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (76ms)
+	LoadAllAssembliesAndSetupDomain (650ms)
+		LoadAssemblies (552ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (297ms)
-			TypeCache.Refresh (269ms)
-				TypeCache.ScanAssembly (246ms)
-			ScanForSourceGeneratedMonoScriptInfo (18ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (772ms)
+		AnalyzeDomain (255ms)
+			TypeCache.Refresh (222ms)
+				TypeCache.ScanAssembly (197ms)
+			ScanForSourceGeneratedMonoScriptInfo (25ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (837ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (582ms)
+		SetupLoadedEditorAssemblies (622ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (42ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (49ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (123ms)
-			ProcessInitializeOnLoadAttributes (358ms)
-			ProcessInitializeOnLoadMethodAttributes (24ms)
-			AfterProcessingInitializeOnLoad (31ms)
+			BeforeProcessingInitializeOnLoad (114ms)
+			ProcessInitializeOnLoadAttributes (393ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (34ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (16ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 11.14 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (18ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 10.37 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3123 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (57.0 KB). Loaded Objects now: 3589.
+Unloading 32 unused Assets / (57.1 KB). Loaded Objects now: 3589.
 Memory consumption went from 137.0 MB to 136.9 MB.
-Total: 3.016700 ms (FindLiveObjects: 0.258800 ms CreateObjectMapping: 0.235800 ms MarkObjects: 2.420500 ms  DeleteObjects: 0.100700 ms)
+Total: 3.561400 ms (FindLiveObjects: 0.244600 ms CreateObjectMapping: 0.235100 ms MarkObjects: 2.977300 ms  DeleteObjects: 0.103800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -181,812 +181,3 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 907439.825697 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
-  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '0fc74d001f10cb0443d0efba64956b68') in 0.150031 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Hero_General_singles/RM_falling_down/PlayerAnimator.controller
-  artifactKey: Guid(592f3015af1e1044580a33599456e92d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Hero_General_singles/RM_falling_down/PlayerAnimator.controller using Guid(592f3015af1e1044580a33599456e92d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '99bf4be757bde130e04f25b670f10e79') in 0.008212 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Resources/Stage/Map2.prefab
-  artifactKey: Guid(8d231b1a6839fb94c83b3d4891240ce6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Resources/Stage/Map2.prefab using Guid(8d231b1a6839fb94c83b3d4891240ce6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5ba13d67c2d2c80728069fde7f4c71e3') in 0.106826 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 934
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
-  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e26809f9919e3a7c921c408d4ee29e94') in 0.093879 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Map/PipeMap/Stylize Tile Texture/Materials/Stylize Water.mat
-  artifactKey: Guid(c6d38711520119c4e89ddf1ea6adc007) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Stylize Tile Texture/Materials/Stylize Water.mat using Guid(c6d38711520119c4e89ddf1ea6adc007) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a9f510788b7cc79e0e0843cff4ea9917') in 0.372684 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Script/GameManager.cs
-  artifactKey: Guid(66d404556c3466944b7e9623d5ad7bb4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Script/GameManager.cs using Guid(66d404556c3466944b7e9623d5ad7bb4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '08019d1dc66e0080d1ede5255736b7ab') in 0.007963 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Resources/Stage/Map1.prefab
-  artifactKey: Guid(f6a2fb44b1c0aa84f8e434d08d4a47fe) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Resources/Stage/Map1.prefab using Guid(f6a2fb44b1c0aa84f8e434d08d4a47fe) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e71227d9ebfe6a965255edccaaecb196') in 0.037442 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 671
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Prefab/Stage1.prefab
-  artifactKey: Guid(c1f1332fc64046649bebd1813ef995a8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefab/Stage1.prefab using Guid(c1f1332fc64046649bebd1813ef995a8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6d0b1a976a49d339dd77825d83b96735') in 0.008550 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 28
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Prefab/Player.prefab
-  artifactKey: Guid(44f544f62fd642c40b4676d8b4c685fc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefab/Player.prefab using Guid(44f544f62fd642c40b4676d8b4c685fc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '591a9c743f42d17831ae1a8057c1037e') in 0.015574 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 155
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Script/Obstacle.cs
-  artifactKey: Guid(ec0bb5d9377db514398b62d5d58754e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Script/Obstacle.cs using Guid(ec0bb5d9377db514398b62d5d58754e9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd561604ee2e4b5335f21c107796cb088') in 0.007219 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Map/PipeMap/Material/InfiniteLook.mat
-  artifactKey: Guid(67edaf4c6e65f284a9784be7dc39cc9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Material/InfiniteLook.mat using Guid(67edaf4c6e65f284a9784be7dc39cc9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5c2b3d4101af982f05b9e05e909bbf82') in 0.015107 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_Sprite.shader
-  artifactKey: Guid(cf81c85f95fe47e1a27f6ae460cf182c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_Sprite.shader using Guid(cf81c85f95fe47e1a27f6ae460cf182c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6b579a6422cc15e8a18242c94263303c') in 0.011749 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
-  artifactKey: Guid(381dcb09d5029d14897e55f98031fca5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt using Guid(381dcb09d5029d14897e55f98031fca5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8761ad6840e2aefff2f533326cfe58dd') in 0.005649 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Map/PipeMap/Material/Crack.png
-  artifactKey: Guid(c6e0c51074159ee4fbfbdbcbc5f69714) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Material/Crack.png using Guid(c6e0c51074159ee4fbfbdbcbc5f69714) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '671febb62e5091b52675b0f39d2660ab') in 0.058235 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
-  artifactKey: Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader using Guid(dd89cf5b9246416f84610a006f916af7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '731caf61827d0ea497b7eb53e93fe682') in 0.011140 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Hero_General_singles/RM_falling_down/textures/hero_specular.tif
-  artifactKey: Guid(4d51151ec6711e744b5bf72c7aea4d51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Hero_General_singles/RM_falling_down/textures/hero_specular.tif using Guid(4d51151ec6711e744b5bf72c7aea4d51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '07d049a43b9c9030eca8c98a0b72f9bc') in 0.078445 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Panels/WindowPopUpSmall.anim
-  artifactKey: Guid(64ed56917d3cec841914cae9cada2149) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Panels/WindowPopUpSmall.anim using Guid(64ed56917d3cec841914cae9cada2149) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '2603df2e86231bbb00b6009de16f59f4') in 0.024181 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Elements/HighlightFade.controller
-  artifactKey: Guid(f4f43775b058eee41abe03f631fe83a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Elements/HighlightFade.controller using Guid(f4f43775b058eee41abe03f631fe83a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7d91c9a8bfb2e299669f519a96dd7c1b') in 0.010473 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 4
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 7 64px.png
-  artifactKey: Guid(bb68dcd7f20bb1648895423d047d4252) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 7 64px.png using Guid(bb68dcd7f20bb1648895423d047d4252) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'dd7aa304122fc32002a0be641e59e936') in 0.095312 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 3 256px.png
-  artifactKey: Guid(2a11849d78988a3489d6ffa83d159ecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 3 256px.png using Guid(2a11849d78988a3489d6ffa83d159ecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e8c0848a63b6db9fb8452664a7007008') in 0.066491 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Thumbnails/CleanMenu 256px.jpg
-  artifactKey: Guid(fe0f74aea79125a45bcceb45d8d7b43e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Thumbnails/CleanMenu 256px.jpg using Guid(fe0f74aea79125a45bcceb45d8d7b43e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '39817b1e6b5532b5bfd09e05db13d855') in 0.050253 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Camera/MenuCamPos2.anim
-  artifactKey: Guid(31c7aa033cec5e24ea90edc627167f6c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Camera/MenuCamPos2.anim using Guid(31c7aa033cec5e24ea90edc627167f6c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f4b1a003aefb2fc3cf524259393e16b2') in 0.008972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Camera/MenuCamPos1.anim
-  artifactKey: Guid(b76126072d190ec48a87cfb4172e4f3f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Camera/MenuCamPos1.anim using Guid(b76126072d190ec48a87cfb4172e4f3f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '18b30c85bed0b83df9706d378dd45f9d') in 0.007381 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 4 256px.png
-  artifactKey: Guid(2323cb669376e8c449c3c32670900315) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 4 256px.png using Guid(2323cb669376e8c449c3c32670900315) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd31fbd6eb673e5ef70c53d06bde0873f') in 0.047610 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000065 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Misc/LoadingHighlight 512px.png
-  artifactKey: Guid(b6f33d10c75334f4884f8d7baddc69f4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Misc/LoadingHighlight 512px.png using Guid(b6f33d10c75334f4884f8d7baddc69f4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'dab6cc07f93115d858456cb73471f23b') in 0.049047 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Icons/Gear 128px.png
-  artifactKey: Guid(373b2985ce5bf2d4e9087e510d761960) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Icons/Gear 128px.png using Guid(373b2985ce5bf2d4e9087e510d761960) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8e59a6cc867c366c793dd9acffc74e9d') in 0.045558 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Audio/Clicks/SFX_Click_Whoosh.mp3
-  artifactKey: Guid(c12d40421acc84a4b90823d6080bbad1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Audio/Clicks/SFX_Click_Whoosh.mp3 using Guid(c12d40421acc84a4b90823d6080bbad1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '3ac1270d424c4db4b35653250f29d58e') in 0.080815 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000073 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo2MobileSettings.lighting
-  artifactKey: Guid(608a4d11ce90a7142a3375dfd2ef297d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo2MobileSettings.lighting using Guid(608a4d11ce90a7142a3375dfd2ef297d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) LightingSettings: switching bake backend from 1 to 0.
-Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f55310b1e853a6e86d9c18f9d24f06f6') in 0.021667 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scripts/ThemeEditor/ThemedUIElement.cs
-  artifactKey: Guid(e4870c7d0bdddd644a64ab8bc98f83ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scripts/ThemeEditor/ThemedUIElement.cs using Guid(e4870c7d0bdddd644a64ab8bc98f83ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'bbf24c2513787685221db78da8620c22') in 0.006189 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000112 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scripts/Misc/ResetDemo.cs
-  artifactKey: Guid(20d87ca15c8067e45b85954ff9ed137d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scripts/Misc/ResetDemo.cs using Guid(20d87ca15c8067e45b85954ff9ed137d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '96620b1662bda7e2bf855456e2ea137f') in 0.007223 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000097 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Prefabs/Buttons/Btn_MainMenu.prefab
-  artifactKey: Guid(817319833dd713d45af5c2121e9649c7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Prefabs/Buttons/Btn_MainMenu.prefab using Guid(817319833dd713d45af5c2121e9649c7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'b493edeebf39b9b3d35c5b639b04751f') in 0.108624 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Buttons/Button Frame Press 256px.png
-  artifactKey: Guid(e5a390d359542f845bd18b3970c5eff3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Buttons/Button Frame Press 256px.png using Guid(e5a390d359542f845bd18b3970c5eff3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '32d4e4c4c916b322b570d79b7bdc057b') in 0.074722 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Frames/Panel 1920x1080px.png
-  artifactKey: Guid(ebf9e47b2a26f544aa2fa9cb3a11190b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Frames/Panel 1920x1080px.png using Guid(ebf9e47b2a26f544aa2fa9cb3a11190b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '556102e2538a27cbf19659445e1aaf93') in 0.068503 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Elements/HighlightFade.anim
-  artifactKey: Guid(8e7e1ea2cd9147645a7352b9f511df2b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Elements/HighlightFade.anim using Guid(8e7e1ea2cd9147645a7352b9f511df2b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '0350b4094d051d2c3da4e57ff0f406c9') in 0.008932 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 4 64px.png
-  artifactKey: Guid(c37a3cd6aac5ac24d90f974c7e86407a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 4 64px.png using Guid(c37a3cd6aac5ac24d90f974c7e86407a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '05a0ab1e4f68aff12cabf764941c4011') in 0.042835 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000055 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo1Settings.lighting
-  artifactKey: Guid(8fbf084e5d01545419b4acf966ede8db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo1Settings.lighting using Guid(8fbf084e5d01545419b4acf966ede8db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8cb5611cee5a28aea8c621653effa09a') in 0.010509 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
-  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'b10a620f09acc86d44b6660daf639c2b') in 0.031830 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
-  artifactKey: Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset using Guid(f952c082cb03451daed3ee968ac6c63e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f703f5906e6dbddbb6ca90586c59565f') in 0.006053 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Resources/Stage/Map3.prefab
-  artifactKey: Guid(f1fb6fdfda33ca4498651d4aa7a307f5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Resources/Stage/Map3.prefab using Guid(f1fb6fdfda33ca4498651d4aa7a307f5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f4aabcca9eaf54be6c56c442eddcb4ba') in 0.018893 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scripts/ThemeEditor/ThemedUI.cs
-  artifactKey: Guid(d61d4d0e3c8671743b1dc985afa043fb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scripts/ThemeEditor/ThemedUI.cs using Guid(d61d4d0e3c8671743b1dc985afa043fb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '85b09fabd25363e67022f85e07664a04') in 0.005979 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000090 seconds.
-  path: Assets/Map/PipeMap/Stylize Tile Texture/Textures/Vol_36_5_Height.png
-  artifactKey: Guid(ef65c313b280a3245b7badb32cdc1c56) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Stylize Tile Texture/Textures/Vol_36_5_Height.png using Guid(ef65c313b280a3245b7badb32cdc1c56) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '566812d1a40586313228b7747ab4d871') in 0.077876 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 1 64px.png
-  artifactKey: Guid(7825633d016559249ade03ab1979c7b6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Cursors/Cursor 1 64px.png using Guid(7825633d016559249ade03ab1979c7b6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f18d59de394589e92427982d965253c3') in 0.128420 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000060 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Camera/MainMenuCam.controller
-  artifactKey: Guid(e1270baf4fb10bc43b7694b66604eb68) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Camera/MainMenuCam.controller using Guid(e1270baf4fb10bc43b7694b66604eb68) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'dd1fc15d0d0b98f66e5eb187844a55b7') in 0.017860 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
-  artifactKey: Guid(1e3b057af24249748ff873be7fafee47) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader using Guid(1e3b057af24249748ff873be7fafee47) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '728dc15e99e5126f721840d320bae211') in 0.010584 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
-  artifactKey: Guid(c41005c129ba4d66911b75229fd70b45) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset using Guid(c41005c129ba4d66911b75229fd70b45) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '818fbdaaa459e6a9bc9d4a95864deb4a') in 0.025221 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Script/SwipeMovement.cs
-  artifactKey: Guid(6e7eec056ba998344bbdaadf2421568f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Script/SwipeMovement.cs using Guid(6e7eec056ba998344bbdaadf2421568f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '4275385085f9047cc3e7ac642adf977e') in 0.009558 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Audio/Mixer.mixer
-  artifactKey: Guid(204ae77320b536d459d12c2126255a73) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Audio/Mixer.mixer using Guid(204ae77320b536d459d12c2126255a73) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Refreshing native plugins compatible for Editor in 10.52 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8816cb3b52cec9968f4dc5dba88905fe') in 0.026099 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 9
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo2Mobile.unity
-  artifactKey: Guid(b84379738a0ecc2449178df5547a202c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo2Mobile.unity using Guid(b84379738a0ecc2449178df5547a202c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1dbcd12b14b1161700a9cc87d2183217') in 0.003907 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Script/UI/CanvasController.cs
-  artifactKey: Guid(0e94468ee5e3e6944b0dbe6a47a814a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Script/UI/CanvasController.cs using Guid(0e94468ee5e3e6944b0dbe6a47a814a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6138797c166ea1fd62c273fad8d16ed7') in 0.004742 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 1 256px.png
-  artifactKey: Guid(05f659001c09bec428a6bf8899b37df6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Misc/Detail 1 256px.png using Guid(05f659001c09bec428a6bf8899b37df6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'eba375500b02cdd68bf7169a59a53e32') in 0.051850 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe51.fbx
-  artifactKey: Guid(2d419fd790e40c34ab67c0bdbae16c61) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe51.fbx using Guid(2d419fd790e40c34ab67c0bdbae16c61) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '2b4f1abd549234fd9b85fb7739a3d9c5') in 0.049195 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.002751 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe43.fbx
-  artifactKey: Guid(fcd00646256b64d4985e645c936c129f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe43.fbx using Guid(fcd00646256b64d4985e645c936c129f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '92f18c745415f2decae77657b80f1c6d') in 0.023392 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe47.fbx
-  artifactKey: Guid(73723c1b3a4797b45aeb4a9994d746f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe47.fbx using Guid(73723c1b3a4797b45aeb4a9994d746f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd0cf6e8d0037aeec925051ea11bc9373') in 0.019051 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras/PipeExtras31.fbx
-  artifactKey: Guid(0d4e6eede6f3a4c49bb06e37a1cb52db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras/PipeExtras31.fbx using Guid(0d4e6eede6f3a4c49bb06e37a1cb52db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8f81139ac6d932eebf3f4dca5e926e94') in 0.042859 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras/PipeExtras10.fbx
-  artifactKey: Guid(d740f54f07a1b0745a2a8f999bd4ca0b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras/PipeExtras10.fbx using Guid(d740f54f07a1b0745a2a8f999bd4ca0b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '48ae5977407cc267bd01d23843e4034b') in 0.019544 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe49.fbx
-  artifactKey: Guid(d034f4a6244adb9439cc149a2247bddc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe49.fbx using Guid(d034f4a6244adb9439cc149a2247bddc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '962a701096fd9fadde1eeaf37a056a96') in 0.044998 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/Meshes/Materials/Latern_glass1.001.mat
-  artifactKey: Guid(fc889371424ef1b4096f2506b36d2740) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/Meshes/Materials/Latern_glass1.001.mat using Guid(fc889371424ef1b4096f2506b36d2740) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '2ffd6c72fad1885b06758c3a4bf3dab7') in 0.006609 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe40.fbx
-  artifactKey: Guid(1e4fda7468b8e924ca450d4c1944566b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe40.fbx using Guid(1e4fda7468b8e924ca450d4c1944566b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '79d54fc58a2ac2fe608c97345aa1f4b5') in 0.019529 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe31.fbx
-  artifactKey: Guid(326d1a3e32726864cb21e36f513fa43e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe31.fbx using Guid(326d1a3e32726864cb21e36f513fa43e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '96f966e7829961b50a46fb486132748b') in 0.019146 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Materials/Textures/Concrete2k/Pipe02_DefaultMaterial_Emission.png
-  artifactKey: Guid(273944c79e5112c4f89291209a947ff6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Materials/Textures/Concrete2k/Pipe02_DefaultMaterial_Emission.png using Guid(273944c79e5112c4f89291209a947ff6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '74821a7bd45be2a0751af933ceb41d00') in 0.056238 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000073 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/textures/Latern4 [Albedo].png
-  artifactKey: Guid(c7e6f1cbc617b3d40a9aa26d6f57d886) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/textures/Latern4 [Albedo].png using Guid(c7e6f1cbc617b3d40a9aa26d6f57d886) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '800195645cae7185c8ae94866c142eb5') in 0.052499 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Prefab/Gate2.prefab
-  artifactKey: Guid(f54b0a5fe80cea14f80156bc1ffb5cae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefab/Gate2.prefab using Guid(f54b0a5fe80cea14f80156bc1ffb5cae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd3d7dac8140ba3750afbb25734be7c9b') in 0.012210 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 92
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
-  artifactKey: Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc using Guid(3997e2241185407d80309a82f9148466) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '88e1ca409288c18b4721a5882dac05cc') in 0.004466 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Fonts/RUBIK-LIGHT SDF.asset
-  artifactKey: Guid(0b65c99348f068b49bef5db0bb76a6e4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Fonts/RUBIK-LIGHT SDF.asset using Guid(0b65c99348f068b49bef5db0bb76a6e4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7f0b51fb60f0ed1f81a823a5d59ed159') in 0.055314 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Audio/Clicks/SFX_Click_Mechanical.mp3
-  artifactKey: Guid(1e7a587164fcbef45b40536469e6c432) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Audio/Clicks/SFX_Click_Mechanical.mp3 using Guid(1e7a587164fcbef45b40536469e6c432) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'b210354a8c4f24029ee464a585b67385') in 0.073232 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Prefab/Player_1.prefab
-  artifactKey: Guid(9b75c90c8fe2c0341bd1214d01339796) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Prefab/Player_1.prefab using Guid(9b75c90c8fe2c0341bd1214d01339796) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1198eda3dbd35320bcb7f2470a71491c') in 0.011539 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics/Buttons/Handle Outline 256px.png
-  artifactKey: Guid(5048c204ee8605c46920ac591af3c87b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics/Buttons/Handle Outline 256px.png using Guid(5048c204ee8605c46920ac591af3c87b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '317b6f9c909301795e7e2c69fb5bc48d') in 0.048496 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000043 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe38.fbx
-  artifactKey: Guid(bce9b8a957af26a4081d447584113c0d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes/Pipe38.fbx using Guid(bce9b8a957af26a4081d447584113c0d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '775d9a69619b9c524dd48853280ccf2b') in 0.021440 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Map/PipeMap/Stylize Tile Texture/Materials/Stylize Dirty water.mat
-  artifactKey: Guid(0d9545b90b032c149a4a13fdb19d7d12) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Stylize Tile Texture/Materials/Stylize Dirty water.mat using Guid(0d9545b90b032c149a4a13fdb19d7d12) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'c409b40e809a5578369510a04150e9ae') in 0.152268 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 1.483064 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Animations/Panels
-  artifactKey: Guid(7dc8493319a18b14cb0de7852c6ae92c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Animations/Panels using Guid(7dc8493319a18b14cb0de7852c6ae92c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'd8361bf295542d8ac67ea93ebbda73dc') in 0.005918 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Graphics
-  artifactKey: Guid(5d609832c6740fb45bad813c275ab225) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Graphics using Guid(5d609832c6740fb45bad813c275ab225) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1fe1391f7f17a4471ae80b08515b617d') in 0.004513 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Map/PipeMap/Stylize Tile Texture/Materials
-  artifactKey: Guid(209ce2cc239b48140aebb8fb17df9bac) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Stylize Tile Texture/Materials using Guid(209ce2cc239b48140aebb8fb17df9bac) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8788a1ccc62656e48a78faf063cbab76') in 0.006544 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/Sprites
-  artifactKey: Guid(4bb7246c90630364eaca09fbeb2108d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/Sprites using Guid(4bb7246c90630364eaca09fbeb2108d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '766d8a220f6a210da230199a219f8395') in 0.004356 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000085 seconds.
-  path: Assets/Hero_General_singles/RM_falling_down
-  artifactKey: Guid(253fdfd16ba1bc84d922f95b5015b836) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Hero_General_singles/RM_falling_down using Guid(253fdfd16ba1bc84d922f95b5015b836) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9d24b31dffadcb15583f4dd6e2dc72bb') in 0.005804 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/Meshes
-  artifactKey: Guid(6eeb935bf4c10024d9563ab2c6b65ea2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/Meshes using Guid(6eeb935bf4c10024d9563ab2c6b65ea2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '30c00eefb42f39a786e3f8d28f387ba9') in 0.004245 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/Prefabs
-  artifactKey: Guid(e71a5c32b134c864bb03b3b183e4d4f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/Prefabs using Guid(e71a5c32b134c864bb03b3b183e4d4f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'ad6181084817415e96d44b38c01c7024') in 0.005045 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Map/PipeMap/Laterns and candles/textures
-  artifactKey: Guid(5b1abcd09e2a0df40be5618a1a4385d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Laterns and candles/textures using Guid(5b1abcd09e2a0df40be5618a1a4385d1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'cab1c5c81d069daf628b0381941bc86c') in 0.005068 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/Map/PipeMap/Stylize Tile Texture/Textures
-  artifactKey: Guid(0bb9069e7671ef5478c05ced680352db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Stylize Tile Texture/Textures using Guid(0bb9069e7671ef5478c05ced680352db) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '800a55ee833847059bfaeaa1b69fbb76') in 0.004217 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras
-  artifactKey: Guid(7479fdd649bf61846bd3a545e9babe94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/PipesExtras using Guid(7479fdd649bf61846bd3a545e9babe94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e7752e3141bdfa4000e3d25ba463c5f8') in 0.004416 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/SlimUI/Editor
-  artifactKey: Guid(88df4e9be82bffb49889dbf796562f17) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Editor using Guid(88df4e9be82bffb49889dbf796562f17) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '2a45cb73906114932ea6c4daa7b5aa17') in 0.004408 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/Map/PipeMap
-  artifactKey: Guid(934a516ec6b394d4fba21d8104dcbaed) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap using Guid(934a516ec6b394d4fba21d8104dcbaed) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '546d9d958758cf9df65e28a9ab05c390') in 0.004783 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Map/PipeMap/Concrete textures pack
-  artifactKey: Guid(3aff6fd247ce1254bbd49ef372fba324) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Concrete textures pack using Guid(3aff6fd247ce1254bbd49ef372fba324) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '6de1944dafa2f359f28e52a1373f4b89') in 0.004917 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Script/UI
-  artifactKey: Guid(79a50c80f28444f438ba07cedc2beb03) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Script/UI using Guid(79a50c80f28444f438ba07cedc2beb03) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8776785ee606ea0ccfd971dae5a8409a') in 0.004447 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes
-  artifactKey: Guid(f46edf1bf4e59c94aa22535b4b59fe39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Models/Pipes using Guid(f46edf1bf4e59c94aa22535b4b59fe39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '84397b0ea6991b1f48d5bd45df6a1c66') in 0.004625 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/SlimUI/Modern Menu 1/Scripts
-  artifactKey: Guid(e417b2d8bfe6b964eb44397f0ba98190) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/SlimUI/Modern Menu 1/Scripts using Guid(e417b2d8bfe6b964eb44397f0ba98190) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '184006e6f0a9b0b3f93c4fc0a2229b86') in 0.004112 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Resource
-  artifactKey: Guid(4960679016b76ce4dbb1042f2afa6e2d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Resource using Guid(4960679016b76ce4dbb1042f2afa6e2d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '48cfc5854fe453e7b7b2913c6275fb8b') in 0.003694 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Materials/Textures
-  artifactKey: Guid(2ff5c29280b4c104282237e7e9a2db54) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/#OnePotatoKingdom_PipeDream/Materials/Textures using Guid(2ff5c29280b4c104282237e7e9a2db54) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9dc4eb688966f78cc5668ee4acc2dda3') in 0.004213 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Map/PipeMap/Material
-  artifactKey: Guid(d70269432e69aa44e9b30f72412692a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Material using Guid(d70269432e69aa44e9b30f72412692a7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a25069009f9d71971105c087d0b85772') in 0.005318 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Map/PipeMap/Prefab
-  artifactKey: Guid(bab163fc29b095a4093eef7d563f0ad8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Map/PipeMap/Prefab using Guid(bab163fc29b095a4093eef7d563f0ad8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f703e005d35b043c8649d58dc0d3d018') in 0.004651 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0

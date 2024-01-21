@@ -48,7 +48,7 @@
             android:hardwareAccelerated="false"
             android:launchMode="singleTask"
             android:resizeableActivity="false"
-            android:screenOrientation="landscape"
+            android:screenOrientation="userLandscape"
             android:theme="@style/UnityThemeSelector" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -62,12 +62,6 @@
             <meta-data
                 android:name="notch_support"
                 android:value="true" />
-
-            <layout
-                android:defaultHeight="960px"
-                android:defaultWidth="1600px"
-                android:minHeight="480px"
-                android:minWidth="800px" />
         </activity>
     </application>
 
