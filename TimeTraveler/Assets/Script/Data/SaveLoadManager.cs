@@ -4,67 +4,65 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class PlayerData
+public class GameData
 {
-    public int playerCoin;
-    public int stage1;
-    public int stage2;
-    public int stage3;
-    public int hp;
+    public int high_score;
+    public int coin;
+    public int upgrade_hp;
 
-    public PlayerData()
+    public GameData()
     {
-        hp = 100;
+        high_score = 0;
+        coin = 0;
+        upgrade_hp = 0;
     }
-}
-
-public enum DataType
-{
-    playerCoin,
-    stage1,
-    stage2,
-    stage3,
-    hp
 }
 
 public class SaveLoadManager : MonoBehaviour
 {
     private string savePath;
-    private PlayerData playerData;
-    public PlayerData PlayerData
+    private GameData _gameData;
+    public GameData GameData
     {
         get
         {
-            if(playerData == null)
+            if(_gameData == null)
             {
-                playerData = LoadPlayerData();
-                SavePlayerData(playerData);
-
+                _gameData = LoadData();
+                SaveData();
             }
 
-            return playerData;
+            return _gameData;
         }
     }
 
-    private static SaveLoadManager instance;
+    private static SaveLoadManager _instance;
     // singleton
     public static SaveLoadManager Instance
     {
         get
         {
-            // 인스턴스가 없으면 생성
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SaveLoadManager>();
+            Init_Instance();
+            return _instance;
+        }
+    }
 
-                // 만약 Scene에 GameManager가 없으면 새로 생성
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject("SaveLoadManager");
-                    instance = obj.AddComponent<SaveLoadManager>();
-                }
+    static void Init_Instance()
+    {
+        // 인스턴스가 없으면 생성
+        if (!_instance)
+        {
+            GameObject gameData = GameObject.Find("SaveLoadManager");
+            // 만약 Scene에 GameManager가 없으면 새로 생성
+            if (!gameData)
+            {
+                gameData = new GameObject();
+                gameData.name = "SaveLoadManager";
+                gameData.AddComponent<SaveLoadManager>();
             }
-            return instance;
+
+            _instance = gameData.GetComponent<SaveLoadManager>();
+            DontDestroyOnLoad(gameData);
         }
     }
 
@@ -72,105 +70,59 @@ public class SaveLoadManager : MonoBehaviour
     {
         // Application.persistentDataPath는 각 플랫폼에 따라 저장될 수 있는 영구적인 데이터 경로를 제공합니다.
         savePath = Path.Combine(Application.persistentDataPath, "playerData.json");
-        //LoadData();
     }
 
-    public void SavePlayer(int hp, int playerCoin)
+    private void Start()
     {
-        playerData.playerCoin = playerCoin;
-        playerData.hp = hp;
-        SavePlayerData(playerData);
-        Debug.Log("플레이어 정보 저장 완료!");
+        Init_Instance();
     }
 
-    public void SaveData(DataType dataType, int num){
-        switch(dataType)
-        {
-            case DataType.playerCoin:
-                playerData.playerCoin = num;
-                break;
-            case DataType.stage1:
-                playerData.stage1 = num;
-                break;
-            case DataType.stage2:
-                playerData.stage2 = num;
-                break;
-            case DataType.stage3:
-                playerData.stage3 = num;
-                break;
-            default:
-                break;
-        }
-        SavePlayerData(playerData);
-    }
-
-    // public void SaveData(string propertyName, int num){
-    //     typeof(PlayerData).GetProperty(propertyName)?.SetValue(playerData, num);
-    //     SavePlayerData(playerData);
-    // }
-
-    public void LoadData(){
-        // 불러오기 예제
-        SaveLoadManager saveLoadManager = GetComponent<SaveLoadManager>();
-        PlayerData loadedData = saveLoadManager.LoadPlayerData();
-        if (loadedData != null)
-        {
-            Debug.Log("Player Coin : " + loadedData.playerCoin);
-            Debug.Log("stage1 : " + loadedData.stage1);
-            Debug.Log("stage2 : " + loadedData.stage2);
-            Debug.Log("stage3 : " + loadedData.stage3);
-            Debug.Log("hp : " + loadedData.hp);
-            playerData = loadedData;
-        }else{
-            var player = new PlayerData();
-            player.playerCoin = 0;
-            player.stage1 = 0;
-            player.stage2 = 0;
-            player.stage3 = 0;
-            player.hp = 100;
-            playerData = player;
-        }
-    }
-
-    private void SavePlayerData(PlayerData data)
+    public void SaveGameData(int score, int coin, int upgrade_hp)
     {
-        // 데이터를 JSON 형식으로 변환
-        string jsonData = JsonUtility.ToJson(data);
-
-        // JSON 데이터를 파일에 쓰기
-        File.WriteAllText(savePath, jsonData);
+        _gameData.high_score = score;
+        _gameData.coin = coin;
+        _gameData.upgrade_hp = upgrade_hp;
     }
 
-    private PlayerData LoadPlayerData()
+    private GameData LoadData()
     {
+        Debug.Log(savePath);
         if (File.Exists(savePath))
         {
             // 파일에서 JSON 데이터 읽기
             string jsonData = File.ReadAllText(savePath);
 
             // JSON 데이터를 클래스로 변환
-            PlayerData loadedData = JsonUtility.FromJson<PlayerData>(jsonData);
+            GameData loadedData = JsonUtility.FromJson<GameData>(jsonData);
+
+            Debug.Log("Player Coin : " + loadedData.coin);
+            Debug.Log("max_hp : " + loadedData.upgrade_hp);
+            Debug.Log("score : " + loadedData.high_score);
 
             return loadedData;
         }
         else
         {
             Debug.Log("새로운 파일 생성");
-            playerData = new PlayerData();
+            _gameData = new GameData();
 
-            return playerData;
+            return _gameData;
         }
     }
 
-    public void SaveGameData()
+    void SaveData()
     {
-        SavePlayerData(playerData);
+        // 데이터를 JSON 형식으로 변환
+        string jsonData = JsonUtility.ToJson(_gameData);
+
+        // JSON 데이터를 파일에 쓰기
+        File.WriteAllText(savePath, jsonData);
         Debug.Log("저장 완료");
     }
 
     private void OnApplicationQuit()
     {
         string jsonData = File.ReadAllText(savePath);
-        if (File.Exists(jsonData)) SaveGameData();
+        if (File.Exists(jsonData)) SaveData();
     }
 }

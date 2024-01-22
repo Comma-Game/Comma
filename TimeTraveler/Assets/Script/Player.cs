@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    static Player _instance;
-    public static Player Instance
-    {
-        get
-        {
-            return _instance;
-        }
-    }
-    
     int _hp;
     bool _isInvincible;
     StageController _stageController;
@@ -20,9 +11,10 @@ public class Player : MonoBehaviour
     RaycastHit _hit;
     string _obstacle;
 
-    void Start()
+    private void OnEnable()
     {
-        init();
+        transform.gameObject.SetActive(true);
+        Init();
         _stageController = StageController.Instance;
     }
 
@@ -68,10 +60,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void init()
+    void Init()
     {
-        _instance = transform.GetComponent<Player>();
-        _hp = SaveLoadManager.Instance.PlayerData.hp;
+        _hp = 100 + SaveLoadManager.Instance.GameData.upgrade_hp * 20;
         _isInvincible = false;
     }
 
@@ -92,8 +83,16 @@ public class Player : MonoBehaviour
         if (!_isInvincible)
         {
             _hp -= damage;
-            //Debug.Log("HP : " + _hp);
+            Debug.Log("HP : " + _hp);
+
+            if (_hp <= 0) EndGame();
         }
+    }
+
+    void EndGame()
+    {
+        transform.gameObject.SetActive(false);
+        _stageController.EndGame();
     }
 
     IEnumerator InvincibleTime(float t)
@@ -104,6 +103,6 @@ public class Player : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveLoadManager.Instance.SavePlayer(_hp, 0);
+        //SaveLoadManager.Instance.SavePlayer(_hp);
     }
 }

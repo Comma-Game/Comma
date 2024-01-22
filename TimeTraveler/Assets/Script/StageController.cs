@@ -56,6 +56,15 @@ public class StageController : MonoBehaviour
         }
     }
 
+    static int _score;
+    public static int Score
+    {
+        get
+        {
+            return _score;
+        }
+    }
+
     struct StageInfo
     {
         public int concept_index, stage_index;
@@ -78,6 +87,12 @@ public class StageController : MonoBehaviour
     GameObject[][] _stagePrefab;
     GameObject _stage, _nextStage, _parent;
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
+    Coroutine _coroutine;
+
+    private void OnEnable()
+    {
+
+    }
 
     void Start()
     {
@@ -87,7 +102,7 @@ public class StageController : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     static void Init_Instance()
@@ -106,15 +121,18 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
+        _score = 0;
         _stagePrefab = new GameObject[_concept.Length][];
         for(int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
-        _parent = GameObject.Find("Stage");
+        Reset_ConceptObject();
         _queue = new Queue<StageInfo>();
 
         InsertStageToQueue();
         InsertStageToQueue();
         InstantiateConcept(99.5f);
-        InstantiateConcept(-0.5f);
+        InstantiateConcept(-0.5f); 
+        
+        _coroutine = StartCoroutine(ScoreTime());
     }
 
     void InsertStageToQueue()
@@ -155,11 +173,13 @@ public class StageController : MonoBehaviour
         int nextAngle = Random.Range(0, 360);
         _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
 
+        /*
         if(_stage)
         {
             Debug.Log("cur pos : " + _stage.transform.position.y);
             Debug.Log("next pos : " + y);
         }
+        */
     }
 
     public void DestroyStage()
@@ -167,6 +187,18 @@ public class StageController : MonoBehaviour
         UnsetAcceleration();
         Destroy(_stage);
         InstantiateConcept(-0.5f);
+    }
+
+    public void EndGame()
+    {
+        Destroy(_parent);
+        StopCoroutine(_coroutine);
+    }
+
+    void Reset_ConceptObject()
+    {
+        _parent = new GameObject();
+        _parent.name = "Concept";
     }
 
     public void SetAcceleration()
@@ -178,5 +210,20 @@ public class StageController : MonoBehaviour
     public void UnsetAcceleration()
     {
         _nextStage.GetComponent<GateMovement>().UnsetAcceleration();
+    }
+
+    public void ScoreUp(int value)
+    {
+        _score += value;
+    }
+    IEnumerator ScoreTime()
+    {
+        while(true)
+        {
+            _score += 1;
+            //CanvasController.Instance.ChangeScoreText(_score);
+            Debug.Log("Score : " + _score);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

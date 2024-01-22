@@ -9,14 +9,17 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            init();
+            Init_Instance();
             return _instance;
         }
     }
 
+    SaveLoadManager _gameData;
+
     void Start()
     {
-        init();
+        Init_Instance();
+        _gameData = SaveLoadManager.Instance;
         Application.targetFrameRate = 60;
     }
 
@@ -25,7 +28,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    static void init()
+    static void Init_Instance()
     {
         if (!_instance)
         {
