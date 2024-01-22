@@ -62,7 +62,7 @@ public class MainSceneController : MonoBehaviour
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
-                SceneManager.LoadScene("GameScene");
+                //SceneManager.LoadScene(1);
                 mainPanel_Button.SetActive(false);
                 mainPanel_playerStat.SetActive(false);
         }
