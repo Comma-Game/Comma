@@ -378,6 +378,7 @@
 "Assets/Script/TestMovePlayer.cs"
 "Assets/Script/UI/AchievementManager.cs"
 "Assets/Script/UI/CanvasController.cs"
+"Assets/Script/UI/GameOverPanel.cs"
 "Assets/Script/UI/GamePanel.cs"
 "Assets/Script/UI/MainSceneController.cs"
 "Assets/Script/UI/PlayerStatPanel.cs"
