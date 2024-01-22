@@ -126,7 +126,7 @@ public class StageController : MonoBehaviour
     void Init()
     {
         _score = 0;
-        _prevConceptIndex = -1;
+        _prevConcept = -1;
         SetConceptIndex();
 
         _stagePrefab = new GameObject[_concept.Length][];
