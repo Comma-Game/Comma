@@ -15,7 +15,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 30f;
     public float Speed
     {
         get
@@ -29,7 +29,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed = 2f;
+    private float _accSpeed = 0.15f;
     public float AccSpeed
     {
         get
@@ -76,11 +76,13 @@ public class StageController : MonoBehaviour
         }
     }
 
+    //Resources에 있는 파일 이름
     string[] _concept =
     {
-        "TestStage",
+        //"TestStage",
         "PipeMap",
-        "LabMap"
+        //"LabMap"
+        "ToyMap"
     };
 
     static GameObject _stageController;
@@ -88,6 +90,8 @@ public class StageController : MonoBehaviour
     GameObject _stage, _nextStage, _parent;
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
     Coroutine _coroutine;
+    List<int> _conceptIndex;
+    int _prevConcept;
 
     private void OnEnable()
     {
@@ -122,6 +126,9 @@ public class StageController : MonoBehaviour
     void Init()
     {
         _score = 0;
+        _prevConceptIndex = -1;
+        SetConceptIndex();
+
         _stagePrefab = new GameObject[_concept.Length][];
         for(int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
         Reset_ConceptObject();
@@ -129,15 +136,27 @@ public class StageController : MonoBehaviour
 
         InsertStageToQueue();
         InsertStageToQueue();
-        InstantiateConcept(99.5f);
-        InstantiateConcept(-0.5f); 
+        InstantiateStage(400);
+        InstantiateStage(0); 
         
         _coroutine = StartCoroutine(ScoreTime());
     }
 
+    //초기 Concept Index 설정
+    void SetConceptIndex()
+    {
+        _conceptIndex = new List<int>();
+        for (int i = 0; i < _concept.Length; i++) _conceptIndex.Add(i);
+    }
+
+    //맵에 나타날 스테이지를 큐에 넣어주는 과정
     void InsertStageToQueue()
     {
-        int next_concept_num = Random.Range(0, _concept.Length);
+        int conceptIndex = Random.Range(0, _conceptIndex.Count);
+        
+        //컨셉을 뽑고, 이미 통과한 컨셉을 큐에 넣어줌
+        if(_prevConcept != -1) _conceptIndex.Add(_prevConcept);
+        _prevConcept = _conceptIndex[conceptIndex];
 
         //각 컨셉당 Stage의 개수가 3개로 정해져 있기 때문에 {0, 1, 2}로 List를 만듦
         List<int> stageIndex = new List<int>(new int[]{ 0, 1, 2 });
@@ -147,12 +166,16 @@ public class StageController : MonoBehaviour
         for (int i = 3; i > 0; i--)
         {
             int next_stage_num = Random.Range(0, i);
-            _queue.Enqueue(new StageInfo(next_concept_num, stageIndex[next_stage_num]));
+            _queue.Enqueue(new StageInfo(_conceptIndex[conceptIndex], stageIndex[next_stage_num]));
             stageIndex.RemoveAt(next_stage_num);
         }
+
+        //큐에 컨셉을 삽입했으면 List에서 제거
+        _conceptIndex.RemoveAt(conceptIndex);
     }
 
-    void InstantiateConcept(float y)
+    //Scene에 큐에 있는 스테이지를 생성
+    void InstantiateStage(float y)
     {
         StageInfo next_stage_info = _queue.Dequeue(); //큐에서 나올 원소가 새로 생성될 스테이지
         if (_queue.Count <= 3) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
@@ -163,7 +186,7 @@ public class StageController : MonoBehaviour
         if (_nextStage)
         {
             _stage = _nextStage;
-            _stage.transform.position = new Vector3(0, 99.5f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정 
+            _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정 
         }
 
         Vector3 pos = new Vector3(0, y, 0);
@@ -173,40 +196,46 @@ public class StageController : MonoBehaviour
         int nextAngle = Random.Range(0, 360);
         _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
 
-        /*
+        
         if(_stage)
         {
             Debug.Log("cur pos : " + _stage.transform.position.y);
             Debug.Log("next pos : " + y);
         }
-        */
+        
     }
 
+    //스테이지 지나면 호출
     public void DestroyStage()
     {
         UnsetAcceleration();
         Destroy(_stage);
-        InstantiateConcept(-0.5f);
+        InstantiateStage(_stage.transform.position.y - 800);
+        _speed++;
     }
 
+    //HP가 0 이하 일때 호출
     public void EndGame()
     {
         Destroy(_parent);
         StopCoroutine(_coroutine);
     }
 
+    //Stage가 들어갈 부모 설정
     void Reset_ConceptObject()
     {
         _parent = new GameObject();
         _parent.name = "Concept";
     }
 
+    //가속도 설정
     public void SetAcceleration()
     {
         _stage.GetComponent<GateMovement>().SetAcceleration();
         _nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
+    //가속도 해지
     public void UnsetAcceleration()
     {
         _nextStage.GetComponent<GateMovement>().UnsetAcceleration();
