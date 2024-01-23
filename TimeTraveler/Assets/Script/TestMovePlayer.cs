@@ -16,7 +16,7 @@ public class TestMovePlayer : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SetForce();
     }

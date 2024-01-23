@@ -6,36 +6,67 @@ public class MovePlayer : MonoBehaviour
 {
     [SerializeField]
     float _swipeSpeed;
+
     private Vector3 _sTouchPos, _eTouchPos, _force;
     Rigidbody _rigidbody;
     Coroutine _coroutine;
+    bool _move;
+    Player _player;
 
     void Start()
     {
         _swipeSpeed = 150f;
+        _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
+
+        if (_coroutine != null) StopCoroutine(_coroutine);
     }
 
     void Update()
     {
-        SetForce();
+        GetTouch();
     }
 
-    void SetForce()
+    private void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0)) _sTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-        if (Input.GetMouseButtonUp(0))
+        if(_move)
         {
-            if(_coroutine != null) StopCoroutine(_coroutine);
-            _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-            _force = _sTouchPos - _eTouchPos;
-            _force = Vector3.Magnitude(_force) >= 5f ? _force.normalized * 5f : _force;
+            if (_coroutine != null) StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(Move());
+        }
+    }
+
+    void GetTouch()
+    {
+        if(Input.touchCount > 0)
+        {
+            if(Input.touchCount >= 2)
+            {
+                _sTouchPos = Vector3.zero;
+                _eTouchPos = Vector3.zero;
+                _force = Vector3.zero;
+
+                _player.UseSkill();
+            }
+            else
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if(touch.phase == TouchPhase.Began) _sTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+                if(touch.phase == TouchPhase.Ended)
+                {
+                    _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+                    _force = _sTouchPos - _eTouchPos;
+                    _force = Vector3.Magnitude(_force) >= 5f ? _force.normalized * 5f : _force;
+                    _move = true;
+                }
+            }
         }
     }
 
     IEnumerator Move()
     {
+        _move = false;
         _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.Acceleration);
         yield return new WaitForSeconds(1f);
 

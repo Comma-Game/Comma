@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5977545812121868048}
   - component: {fileID: 2291488299884463318}
   - component: {fileID: 4575739311015298847}
+  - component: {fileID: 6909883682518335082}
   m_Layer: 6
   m_Name: ColliderRange
   m_TagString: Player
@@ -83,6 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6909883682518335082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663166488326498183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271b1c94a823fc40be6b0b5dd38d01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: 118d0b957d3e9bb4688623d89146d1ab, type: 2}
+  - {fileID: 2100000, guid: cbe9dad0308a9f74a8814d076b20dc6f, type: 2}
 --- !u!1 &4737397637838919424
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 4737397637838919424}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 210, z: 0}
+  m_LocalPosition: {x: 0, y: 700, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

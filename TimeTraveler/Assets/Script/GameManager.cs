@@ -14,12 +14,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    SaveLoadManager _gameData;
+    SaveLoadManager _saveLoadManager;
+    GameData _gameData;
+    StageController _stageController;
 
     void Start()
     {
         Init_Instance();
-        _gameData = SaveLoadManager.Instance;
+        _saveLoadManager = SaveLoadManager.Instance;
+        _gameData = _saveLoadManager.GameData;
+        _stageController = StageController.Instance;
         Application.targetFrameRate = 60;
     }
 

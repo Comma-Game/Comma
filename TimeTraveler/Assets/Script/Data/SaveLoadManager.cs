@@ -9,12 +9,16 @@ public class GameData
     public int high_score;
     public int coin;
     public int upgrade_hp;
+    public int upgrade_jelly;
+    public int upgrade_energy;
 
     public GameData()
     {
         high_score = 0;
         coin = 0;
         upgrade_hp = 0;
+        upgrade_jelly = 0;
+        upgrade_energy = 0;
     }
 }
 
@@ -52,16 +56,13 @@ public class SaveLoadManager : MonoBehaviour
         // 인스턴스가 없으면 생성
         if (!_instance)
         {
-            GameObject gameData = GameObject.Find("SaveLoadManager");
             // 만약 Scene에 GameManager가 없으면 새로 생성
-            if (!gameData)
-            {
-                gameData = new GameObject();
-                gameData.name = "SaveLoadManager";
-                gameData.AddComponent<SaveLoadManager>();
-            }
 
+            GameObject gameData = new GameObject();
+            gameData.name = "SaveLoadManager";
+            gameData.AddComponent<SaveLoadManager>();
             _instance = gameData.GetComponent<SaveLoadManager>();
+            
             DontDestroyOnLoad(gameData);
         }
     }
@@ -77,11 +78,28 @@ public class SaveLoadManager : MonoBehaviour
         Init_Instance();
     }
 
-    public void SaveGameData(int score, int coin, int upgrade_hp)
+    public void SaveGameData(int score, int coin, int upgrade_hp, int upgrade_jelly, int upgrade_energy)
     {
         _gameData.high_score = score;
         _gameData.coin = coin;
         _gameData.upgrade_hp = upgrade_hp;
+        _gameData.upgrade_jelly = upgrade_jelly;
+        _gameData.upgrade_energy = upgrade_energy;
+    }
+
+    public int GetUpgradeHP()
+    {
+        return _gameData.upgrade_hp;
+    }
+
+    public int GetUpgradeJelly()
+    {
+        return _gameData.upgrade_jelly;
+    }
+
+    public int GetUpgradeEnergy()
+    {
+        return _gameData.upgrade_energy;
     }
 
     private GameData LoadData()
