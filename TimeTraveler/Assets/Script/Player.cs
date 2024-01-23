@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 5, Color.red);
         if (Physics.Raycast(transform.position, transform.forward * 5, out _hit))
         {
-            Debug.Log("Raycast : " + _hit.transform.gameObject.name);
+            //Debug.Log("Raycast : " + _hit.transform.gameObject.name);
             if (_hit.transform.gameObject.CompareTag("Obstacle"))
             {
                 _obstacle = _hit.transform.gameObject.name;
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         if (_obstacle == null) return;
         if(_obstacle.Equals(collision.gameObject.name))
         {
-            Debug.Log("Collision : " + collision.gameObject.name);
+            //Debug.Log("Collision : " + collision.gameObject.name);
             Damage(10);
             collision.gameObject.GetComponent<MeshExploder>().Explode();
             Destroy(collision.gameObject);

@@ -95,9 +95,9 @@ public class SaveLoadManager : MonoBehaviour
             // JSON 데이터를 클래스로 변환
             GameData loadedData = JsonUtility.FromJson<GameData>(jsonData);
 
-            Debug.Log("Player Coin : " + loadedData.coin);
-            Debug.Log("max_hp : " + loadedData.upgrade_hp);
-            Debug.Log("score : " + loadedData.high_score);
+            //Debug.Log("Player Coin : " + loadedData.coin);
+            //Debug.Log("upgrade_hp : " + loadedData.upgrade_hp);
+            //Debug.Log("score : " + loadedData.high_score);
 
             return loadedData;
         }

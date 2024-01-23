@@ -251,7 +251,7 @@ public class StageController : MonoBehaviour
         {
             _score += 1;
             //CanvasController.Instance.ChangeScoreText(_score);
-            Debug.Log("Score : " + _score);
+            //Debug.Log("Score : " + _score);
             yield return new WaitForSeconds(0.5f);
         }
     }
