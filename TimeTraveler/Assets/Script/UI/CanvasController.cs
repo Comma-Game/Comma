@@ -64,12 +64,6 @@ public class CanvasController : MonoBehaviour
             OpenGameOverPanel(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("KeyCode A");
-            ChangeCoinText(7777);
-            SceneManager.LoadScene("MainScene");
-        }
     }
 
     /// ///////////////////////////////////////////////////////////////////
@@ -89,10 +83,6 @@ public class CanvasController : MonoBehaviour
 
     public void PlayerDownEnergy(float Amount){
         playerStatPanelCS.DownEnergy(Amount);
-    }
-
-    public void ChangeCoinText(float coin){
-        playerStatPanelCS.ChangeCoinText(coin);
     }
 
     public void ChangeScoreText(float score){

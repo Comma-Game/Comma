@@ -16,6 +16,10 @@ public class MainSceneController : MonoBehaviour
         [SerializeField]
         public float rotationSpeed = 50f;
 
+        [Header("heart Panel")]
+        [SerializeField] public GameObject heartPanel;
+        [SerializeField] public HeartPanel heartPanelCS;
+
         [Header("player panel 1")]
         [SerializeField] public TextMeshProUGUI coinText_1;
         [SerializeField] public TextMeshProUGUI scoreText_1;
@@ -65,6 +69,10 @@ public class MainSceneController : MonoBehaviour
                 SceneManager.LoadScene("GameScene");
                 mainPanel_Button.SetActive(false);
                 mainPanel_playerStat.SetActive(false);
+                if(heartPanelCS == null){
+                        heartPanelCS = heartPanel.GetComponent<HeartPanel>();
+                }
+                heartPanelCS.MinusHearts(1);
         }
 
         public void StatShop(){

@@ -20,7 +20,7 @@ public class StoryPanel : MonoBehaviour
     [SerializeField] public string mystroy3Text;
 
     [Header("Story Panels")]
-    [SerializeField] public Text titleText;
+    [SerializeField] public TextMeshProUGUI titleText;
     [SerializeField] public Image[] stroyImg;    
     [SerializeField] public TextMeshProUGUI[] stroyTitleText;
     [SerializeField] public TextMeshProUGUI[] stroyText;
@@ -49,11 +49,13 @@ public class StoryPanel : MonoBehaviour
     public void SettingStory(){
         for(int i=0; i<3; i++){
             if(isStoryLock[i]){
-                stroyImg[i].color = Color.black;
-                stroyText[i].enabled = true;
-            }else{
-                stroyImg[i].color = Color.white;
+                stroyImg[i].enabled = false;
                 stroyText[i].enabled = false;
+                stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 잠김";
+            }else{
+                stroyImg[i].enabled = true;
+                stroyText[i].enabled = true;
+                stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 열림";
             }
         }
     }

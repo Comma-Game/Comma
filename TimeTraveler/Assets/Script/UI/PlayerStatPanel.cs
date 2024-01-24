@@ -33,14 +33,11 @@ public class PlayerStatPanel : MonoBehaviour
     [Header("another Settings")]
     [SerializeField]    
     public TextMeshProUGUI scoreText;
-    [SerializeField]
-    public TextMeshProUGUI coinText;
 
     void Start()
     {
         health = maxHealth;
         energy = maxEnergy;
-        ChangeCoinText(100);
         ChangeScoreText(100);
     }
 
@@ -163,10 +160,6 @@ public class PlayerStatPanel : MonoBehaviour
 
     /////////////////////////////////////////////////////////////////////////////////
     ////// 그 밖에
-    
-    public void ChangeCoinText(float coin){
-        coinText.text = "Coin : " + coin.ToString();
-    }
 
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
