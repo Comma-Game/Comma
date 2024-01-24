@@ -15,7 +15,9 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _speed = 30f;
+    private float _firstSpeed;
+    
+    private float _speed;
     public float Speed
     {
         get
@@ -29,7 +31,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed = 0.15f;
+    private float _accSpeed;
     public float AccSpeed
     {
         get
@@ -43,7 +45,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxSpeed = 100f;
+    private float _maxSpeed;
     public float MaxSpeed
     {
         get
@@ -91,7 +93,8 @@ public class StageController : MonoBehaviour
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
     Coroutine _coroutine;
     List<int> _conceptIndex;
-    int _prevConcept;
+    Player _player;
+    int _prevConcept, _stageCount;
 
     private void OnEnable()
     {
@@ -102,11 +105,6 @@ public class StageController : MonoBehaviour
     {
         Init_Instance();
         Init();
-    }
-
-    void Update()
-    {
-
     }
 
     static void Init_Instance()
@@ -125,20 +123,36 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
+        _player = GameObject.Find("Player").GetComponent<Player>();
+
+        _firstSpeed = 30f;
+        _speed = _firstSpeed;
+        _accSpeed = 0.15f;
+        _maxSpeed = 100f;
+
+        _stageCount = 1;
         _score = 0;
         _prevConcept = -1;
+
+        _stage = null;
+        _nextStage = null;
         SetConceptIndex();
 
         _stagePrefab = new GameObject[_concept.Length][];
         for(int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
         Reset_ConceptObject();
-        _queue = new Queue<StageInfo>();
 
+        _queue = new Queue<StageInfo>();
         InsertStageToQueue();
         InsertStageToQueue();
+
         InstantiateStage(400);
-        InstantiateStage(0); 
-        
+        InstantiateStage(0);
+
+        _stage.GetComponent<GateMovement>().enabled = true;
+        SetStagesVelocity();
+
+        if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(ScoreTime());
     }
 
@@ -196,13 +210,13 @@ public class StageController : MonoBehaviour
         int nextAngle = Random.Range(0, 360);
         _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
 
-        
+        /*
         if(_stage)
         {
             Debug.Log("cur pos : " + _stage.transform.position.y);
             Debug.Log("next pos : " + y);
         }
-        
+        */
     }
 
     //스테이지 지나면 호출
@@ -210,14 +224,33 @@ public class StageController : MonoBehaviour
     {
         UnsetAcceleration();
         Destroy(_stage);
+
+        _speed = _firstSpeed + _stageCount;
+        _stageCount++;
+
         InstantiateStage(_stage.transform.position.y - 800);
-        _speed++;
+
+        _stage.GetComponent<GateMovement>().enabled = true;
+        SetStagesVelocity();
+    }
+
+    //Scene에 있는 Stage 속도 설정
+    public void SetStagesVelocity()
+    {
+        _stage.GetComponent<GateMovement>().Move();
+    }
+
+    //현재 스피드 반환
+    public float GetStageVelocity()
+    {
+        return _stage.GetComponent<GateMovement>().GetVelocity();
     }
 
     //HP가 0 이하 일때 호출
     public void EndGame()
     {
         Destroy(_parent);
+        EnableGameOverUI();
         StopCoroutine(_coroutine);
     }
 
@@ -232,27 +265,36 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         _stage.GetComponent<GateMovement>().SetAcceleration();
-        _nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
     //가속도 해지
     public void UnsetAcceleration()
     {
-        _nextStage.GetComponent<GateMovement>().UnsetAcceleration();
+        _stage.GetComponent<GateMovement>().UnsetAcceleration();
     }
 
     public void ScoreUp(int value)
     {
         _score += value;
     }
+
     IEnumerator ScoreTime()
     {
         while(true)
         {
-            _score += 1;
-            //CanvasController.Instance.ChangeScoreText(_score);
-            //Debug.Log("Score : " + _score);
+            _score += 1 + _stageCount / 3;
+            CanvasController.Instance.ChangeScoreText(_score);
+            _player.TimeDamage();
+            _player.ChargeEnergy();
+
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    void EnableGameOverUI()
+    {
+        CanvasController.Instance.OpenGameOverPanel(true);
+        CanvasController.Instance.ChangeResultScoreText(_score);
+        CanvasController.Instance.ChangeResultCoinText(_score / 10);
     }
 }
