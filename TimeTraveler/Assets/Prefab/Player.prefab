@@ -99,6 +99,7 @@ MonoBehaviour:
   _materials:
   - {fileID: 2100000, guid: 118d0b957d3e9bb4688623d89146d1ab, type: 2}
   - {fileID: 2100000, guid: cbe9dad0308a9f74a8814d076b20dc6f, type: 2}
+  - {fileID: 2100000, guid: e08de64da5214c24ab213e5bdba06b23, type: 2}
 --- !u!1 &4737397637838919424
 GameObject:
   m_ObjectHideFlags: 0

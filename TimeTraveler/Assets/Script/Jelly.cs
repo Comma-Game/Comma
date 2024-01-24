@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Jelly : MonoBehaviour
 {
+    [SerializeField]
+    int _healAmount;
+
     void Start()
     {
         
@@ -19,6 +22,7 @@ public class Jelly : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             StageController.Instance.ScoreUp(100);
+            other.transform.GetComponent<Player>().Heal(_healAmount);
             Destroy(transform.gameObject);
         }
     }

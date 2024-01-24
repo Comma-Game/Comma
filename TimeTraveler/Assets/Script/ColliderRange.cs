@@ -12,7 +12,12 @@ public class ColliderRange : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = _materials[1];
     }
 
-    public void ReSetInvincible()
+    public void SetSkill()
+    {
+        gameObject.GetComponent<MeshRenderer>().material = _materials[2];
+    }
+
+    public void ReSetColor()
     {
         gameObject.GetComponent<MeshRenderer>().material = _materials[0];
     }

@@ -8,30 +8,31 @@ public class GateMovement : MonoBehaviour
     Rigidbody _rigidbody;
     Vector3 _movement;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-        Move();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
-    void FixedUpdate()
+    private void Update()
     {
         _movement = transform.up * StageController.Instance.Speed;
+    }
+
+    void FixedUpdate()
+    {
         if (_isAcceleration) _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
         CheckMaxSpeed();
+        //Debug.Log(_rigidbody.velocity);
     }
 
     public void Move()
     {
-        if(_movement.y == 0) _movement = transform.up * StageController.Instance.Speed;
-        _rigidbody.AddForce(_movement, ForceMode.VelocityChange);
+        if(!_rigidbody) _rigidbody = GetComponent<Rigidbody>();
+        if (_movement.y == 0) _movement = transform.up * StageController.Instance.Speed;
+
+        _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
+        //Debug.Log("Movement : " + _movement);
+        //Debug.Log("Speed : " + StageController.Instance.Speed);
+    }
+
+    public float GetVelocity()
+    {
+        return _rigidbody.velocity.y;
     }
 
     public void SetAcceleration()
@@ -43,7 +44,6 @@ public class GateMovement : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         _isAcceleration = false;
-        Move();
     }
 
     void CheckMaxSpeed()

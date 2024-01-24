@@ -1,18 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     int _hp, _maxHp, _energy, _energyChargeSpeed;
-    bool _isInvincible, _isPassPortal, _isCast;
+    bool _isInvincible, _isPassPortal, _isCast, _isHit;
     StageController _stageController;
     SaveLoadManager _saveLoadManager;
     GameData _gameData;
     Coroutine _coroutine;
     RaycastHit _hit;
     ColliderRange _colliderRange;
-
+    float _tempSpeed;
     string _obstacle;
 
     private void Start()
@@ -22,7 +21,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -41,11 +40,11 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (_obstacle == null) return;
-        if(_obstacle.Equals(collision.gameObject.name))
+        if (_obstacle.Equals(collision.gameObject.name))
         {
             //Debug.Log("Collision : " + collision.gameObject.name);
-            Damage(10);
-            collision.gameObject.GetComponent<MeshExploder>().Explode();
+            HitDamage(10);
+            //collision.gameObject.GetComponent<MeshExploder>().Explode();
             Destroy(collision.gameObject);
         }
     }
@@ -56,7 +55,8 @@ public class Player : MonoBehaviour
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
-            StopMyCoroutine();
+            //StopMyCoroutine();
+            if (_isPassPortal) _isPassPortal = false;
             _stageController.SetAcceleration();
         }
     }
@@ -69,18 +69,21 @@ public class Player : MonoBehaviour
         _gameData = _saveLoadManager.GameData;
         _stageController = StageController.Instance;
 
-        _maxHp = 100000 + 20 * _saveLoadManager.GetUpgradeHP();
+        _maxHp = 100 + 20 * _saveLoadManager.GetUpgradeHP();
         _hp = _maxHp;
+        Debug.Log("HP : " + _hp);
 
         _energy = 0;
         _energyChargeSpeed = 2 + 2 * _saveLoadManager.GetUpgradeEnergy();
-        _isCast = false;
 
+        _tempSpeed = 0;
+
+        _isCast = false;
         _isPassPortal = false;
         _isInvincible = false;
 
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
-        _colliderRange.ReSetInvincible();
+        _colliderRange.ReSetColor();
 
         if (_coroutine != null) StopCoroutine(_coroutine);
     }
@@ -95,13 +98,13 @@ public class Player : MonoBehaviour
     void TriggerGround()
     {
         _stageController.DestroyStage();
-        if(!_isPassPortal) Damage(80);
+        GroundDamage(80);
     }
 
     public void ChargeEnergy()
     {
-        if(!_isCast) _energy = _energy + _energyChargeSpeed > 100 ? 100 : _energy + _energyChargeSpeed;
-        Debug.Log("Energy : " + _energy);
+        if (!_isCast) _energy = _energy + _energyChargeSpeed > 100 ? 100 : _energy + _energyChargeSpeed;
+        //Debug.Log("Energy : " + _energy);
     }
 
     public void Heal(int amount)
@@ -112,24 +115,38 @@ public class Player : MonoBehaviour
 
     public void TimeDamage()
     {
-        if (!_isPassPortal)
+        if (!_isPassPortal && !_isInvincible)
         {
             _hp--;
-            Debug.Log("HP : " + _hp);
+            //Debug.Log("HP : " + _hp);
 
             if (_hp <= 0) EndGame();
         }
     }
 
-    public void Damage(int damage)
+    void HitDamage(int damage)
     {
-        if (!_isInvincible)
+        if (!_isHit && !_isInvincible & !_isCast)
+        {
+            _hp -= damage;
+
+            HitObstacle(1);
+
+            Debug.Log("Remain HP : " + _hp);
+
+            if (_hp <= 0) EndGame();
+        }
+    } 
+
+    void GroundDamage(int damage)
+    {
+        if (!_isPassPortal)
         {
             _hp -= damage;
 
             SetInvincible(1);
 
-            Debug.Log("HP : " + _hp);
+            //Debug.Log("HP : " + _hp);
 
             if (_hp <= 0) EndGame();
         }
@@ -137,12 +154,18 @@ public class Player : MonoBehaviour
 
     public void UseSkill()
     {
-        if(_energy == 100)
+        if (_energy == 100)
         {
             StopMyCoroutine();
             _coroutine = StartCoroutine(CastTime(2));
             _energy = 0;
         }
+    }
+
+    void HitObstacle(float time)
+    {
+        StopMyCoroutine();
+        _coroutine = StartCoroutine(HitObstacleTime(time));
     }
 
     public void SetInvincible(float time)
@@ -160,11 +183,9 @@ public class Player : MonoBehaviour
     IEnumerator PortalTime(float t)
     {
         _isPassPortal = true;
-        _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        _colliderRange.ReSetInvincible();
         _isPassPortal = false;
     }
 
@@ -175,7 +196,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        _colliderRange.ReSetInvincible();
+        _colliderRange.ReSetColor();
         _isInvincible = false;
     }
 
@@ -183,13 +204,33 @@ public class Player : MonoBehaviour
     {
         _isCast = true;
         _isInvincible = true;
+        _colliderRange.SetSkill();
+
+        yield return new WaitForSeconds(t);
+
+        _colliderRange.ReSetColor();
+        _isInvincible = false;
+        _isCast = false;
+    }
+
+    IEnumerator HitObstacleTime(float t)
+    {
+        _isHit = true;
+        if(_tempSpeed > 0f) _stageController.Speed += _tempSpeed; ;
+        _tempSpeed = _stageController.GetStageVelocity() / 2;
+        
+        _stageController.Speed -= _tempSpeed;
+        _stageController.SetStagesVelocity();
         _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        _colliderRange.ReSetInvincible();
-        _isInvincible = false;
-        _isCast = false;
+        _stageController.Speed += _tempSpeed;
+        _stageController.SetStagesVelocity();
+        _colliderRange.ReSetColor();
+
+        _tempSpeed = 0f;
+        _isHit = false;
     }
 
     void StopMyCoroutine()
@@ -197,7 +238,15 @@ public class Player : MonoBehaviour
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
-            _colliderRange.ReSetInvincible();
+            if (_isHit)
+            {
+                _stageController.Speed += _tempSpeed;
+                
+                _tempSpeed = 0f;
+                _isHit = false;
+            }
+
+            _colliderRange.ReSetColor();
 
             _isPassPortal = false;
             _isInvincible = false;

@@ -15,7 +15,9 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _speed = 30f;
+    private float _firstSpeed;
+    
+    private float _speed;
     public float Speed
     {
         get
@@ -29,7 +31,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed = 0.15f;
+    private float _accSpeed;
     public float AccSpeed
     {
         get
@@ -43,7 +45,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxSpeed = 100f;
+    private float _maxSpeed;
     public float MaxSpeed
     {
         get
@@ -105,11 +107,6 @@ public class StageController : MonoBehaviour
         Init();
     }
 
-    void Update()
-    {
-
-    }
-
     static void Init_Instance()
     {
         _stageController = GameObject.Find("StageController");
@@ -127,6 +124,11 @@ public class StageController : MonoBehaviour
     void Init()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        _firstSpeed = 30f;
+        _speed = _firstSpeed;
+        _accSpeed = 0.15f;
+        _maxSpeed = 100f;
 
         _stageCount = 1;
         _score = 0;
@@ -146,6 +148,9 @@ public class StageController : MonoBehaviour
 
         InstantiateStage(400);
         InstantiateStage(0);
+
+        _stage.GetComponent<GateMovement>().enabled = true;
+        SetStagesVelocity();
 
         if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(ScoreTime());
@@ -219,10 +224,26 @@ public class StageController : MonoBehaviour
     {
         UnsetAcceleration();
         Destroy(_stage);
+
+        _speed = _firstSpeed + _stageCount;
+        _stageCount++;
+
         InstantiateStage(_stage.transform.position.y - 800);
 
-        _speed++;
-        _stageCount++;
+        _stage.GetComponent<GateMovement>().enabled = true;
+        SetStagesVelocity();
+    }
+
+    //Scene에 있는 Stage 속도 설정
+    public void SetStagesVelocity()
+    {
+        _stage.GetComponent<GateMovement>().Move();
+    }
+
+    //현재 스피드 반환
+    public float GetStageVelocity()
+    {
+        return _stage.GetComponent<GateMovement>().GetVelocity();
     }
 
     //HP가 0 이하 일때 호출
@@ -244,13 +265,12 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         _stage.GetComponent<GateMovement>().SetAcceleration();
-        _nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
     //가속도 해지
     public void UnsetAcceleration()
     {
-        _nextStage.GetComponent<GateMovement>().UnsetAcceleration();
+        _stage.GetComponent<GateMovement>().UnsetAcceleration();
     }
 
     public void ScoreUp(int value)
@@ -274,7 +294,7 @@ public class StageController : MonoBehaviour
     void EnableGameOverUI()
     {
         CanvasController.Instance.OpenGameOverPanel(true);
-        CanvasController.Instance.ChangeResultScoreText(_stageCount);
-        CanvasController.Instance.ChangeResultCoinText(_stageCount / 10);
+        CanvasController.Instance.ChangeResultScoreText(_score);
+        CanvasController.Instance.ChangeResultCoinText(_score / 10);
     }
 }

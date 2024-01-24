@@ -10,7 +10,6 @@ public class MovePlayer : MonoBehaviour
     private Vector3 _sTouchPos, _eTouchPos, _force;
     Rigidbody _rigidbody;
     Coroutine _coroutine;
-    bool _move;
     Player _player;
 
     void Start()
@@ -25,15 +24,6 @@ public class MovePlayer : MonoBehaviour
     void Update()
     {
         GetTouch();
-    }
-
-    private void FixedUpdate()
-    {
-        if(_move)
-        {
-            if (_coroutine != null) StopCoroutine(_coroutine);
-            _coroutine = StartCoroutine(Move());
-        }
     }
 
     void GetTouch()
@@ -58,7 +48,9 @@ public class MovePlayer : MonoBehaviour
                     _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
                     _force = _sTouchPos - _eTouchPos;
                     _force = Vector3.Magnitude(_force) >= 5f ? _force.normalized * 5f : _force;
-                    _move = true;
+                    
+                    if (_coroutine != null) StopCoroutine(_coroutine);
+                    _coroutine = StartCoroutine(Move());
                 }
             }
         }
@@ -66,7 +58,6 @@ public class MovePlayer : MonoBehaviour
 
     IEnumerator Move()
     {
-        _move = false;
         _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.Acceleration);
         yield return new WaitForSeconds(1f);
 
