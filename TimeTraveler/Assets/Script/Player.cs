@@ -45,7 +45,9 @@ public class Player : MonoBehaviour
             //Debug.Log("Collision : " + collision.gameObject.name);
             HitDamage(10);
             //collision.gameObject.GetComponent<MeshExploder>().Explode();
-            Destroy(collision.gameObject);
+            
+            _stageController.AddDisabled(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 
@@ -97,8 +99,8 @@ public class Player : MonoBehaviour
 
     void TriggerGround()
     {
-        _stageController.DestroyStage();
         GroundDamage(80);
+        _stageController.DisableStage();
     }
 
     public void ChargeEnergy()
