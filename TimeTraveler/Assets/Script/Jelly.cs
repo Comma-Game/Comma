@@ -23,7 +23,9 @@ public class Jelly : MonoBehaviour
         {
             StageController.Instance.ScoreUp(100);
             other.transform.GetComponent<Player>().Heal(_healAmount);
-            Destroy(transform.gameObject);
+
+            StageController.Instance.AddDisabled(transform.gameObject);
+            transform.gameObject.SetActive(false);
         }
     }
 }

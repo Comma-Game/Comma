@@ -11,12 +11,12 @@ public class GateMovement : MonoBehaviour
     private void Update()
     {
         _movement = transform.up * StageController.Instance.Speed;
+        CheckMaxSpeed();
     }
 
     void FixedUpdate()
     {
-        if (_isAcceleration) _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
-        CheckMaxSpeed();
+        //if (_isAcceleration) _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
         //Debug.Log(_rigidbody.velocity);
     }
 
@@ -37,13 +37,14 @@ public class GateMovement : MonoBehaviour
 
     public void SetAcceleration()
     {
-         _isAcceleration = true;
+        //_isAcceleration = true;
+        _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
     }
 
     public void UnsetAcceleration()
     {
         _rigidbody.velocity = Vector3.zero;
-        _isAcceleration = false;
+        //_isAcceleration = false;
     }
 
     void CheckMaxSpeed()

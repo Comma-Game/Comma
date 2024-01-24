@@ -95,11 +95,7 @@ public class StageController : MonoBehaviour
     List<int> _conceptIndex;
     Player _player;
     int _prevConcept, _stageCount;
-
-    private void OnEnable()
-    {
-
-    }
+    List<GameObject> _disabled;
 
     void Start()
     {
@@ -135,20 +131,19 @@ public class StageController : MonoBehaviour
 
         _stage = null;
         _nextStage = null;
-        SetConceptIndex();
 
-        _stagePrefab = new GameObject[_concept.Length][];
-        for(int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
+        _disabled = new List<GameObject>();
+
+        SetConceptIndex();
         Reset_ConceptObject();
+        InstantiateStage();
 
         _queue = new Queue<StageInfo>();
         InsertStageToQueue();
         InsertStageToQueue();
 
-        InstantiateStage(400);
-        InstantiateStage(0);
-
-        _stage.GetComponent<GateMovement>().enabled = true;
+        SetNextStage();
+        SetCurrentStage();
         SetStagesVelocity();
 
         if (_coroutine != null) StopCoroutine(_coroutine);
@@ -187,49 +182,66 @@ public class StageController : MonoBehaviour
         _conceptIndex.RemoveAt(conceptIndex);
     }
 
-    //Scene에 큐에 있는 스테이지를 생성
-    void InstantiateStage(float y)
+
+    //현재 스테이지 설정
+    void SetCurrentStage()
+    {
+        _stage = _nextStage;
+
+        int nextAngle = Random.Range(0, 360);
+        _stage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
+        _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+        _stage.SetActive(true);
+
+        SetNextStage();
+    }
+
+    //다음 스테이지 설정
+    void SetNextStage()
     {
         StageInfo next_stage_info = _queue.Dequeue(); //큐에서 나올 원소가 새로 생성될 스테이지
         if (_queue.Count <= 3) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
 
         int concept_index = next_stage_info.concept_index, stage_index = next_stage_info.stage_index;
+        _nextStage = _stagePrefab[concept_index][stage_index];
+    }
 
-        //두번째 스테이지가 있다면 두번째 스테이지를 다음 스테이지로 설정
-        if (_nextStage)
+    //비활성화된 모든 오브젝트 활성화
+    void ReturnDisabledObject()
+    {
+        foreach (GameObject obj in _disabled) obj.SetActive(true);
+        _disabled.Clear();
+    }
+
+    //Scene에 모든 스테이지를 생성 후 비활성화
+    void InstantiateStage()
+    {
+        _stagePrefab = new GameObject[_concept.Length][];
+        for (int i = 0; i < _concept.Length; i++)
         {
-            _stage = _nextStage;
-            _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정 
+            _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
+
+            for (int j = 0; j < 3; j++)
+            {
+                _stagePrefab[i][j] = Instantiate(_stagePrefab[i][j]);
+                _stagePrefab[i][j].transform.SetParent(_parent.transform);
+                _stagePrefab[i][j].SetActive(false);
+            }
         }
-
-        Vector3 pos = new Vector3(0, y, 0);
-        _nextStage = Instantiate(_stagePrefab[concept_index][stage_index], pos, Quaternion.identity);
-        _nextStage.transform.SetParent(_parent.transform);
-
-        int nextAngle = Random.Range(0, 360);
-        _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
-
-        /*
-        if(_stage)
-        {
-            Debug.Log("cur pos : " + _stage.transform.position.y);
-            Debug.Log("next pos : " + y);
-        }
-        */
     }
 
     //스테이지 지나면 호출
-    public void DestroyStage()
+    public void DisableStage()
     {
         UnsetAcceleration();
-        Destroy(_stage);
+        ReturnDisabledObject();
+        _stage.SetActive(false);
+        _stage.transform.position = new Vector3(0, 0, 0);
 
         _speed = _firstSpeed + _stageCount;
         _stageCount++;
 
-        InstantiateStage(_stage.transform.position.y - 800);
-
-        _stage.GetComponent<GateMovement>().enabled = true;
+        SetCurrentStage();
         SetStagesVelocity();
     }
 
@@ -295,5 +307,10 @@ public class StageController : MonoBehaviour
         CanvasController.Instance.OpenGameOverPanel(true);
         CanvasController.Instance.ChangeResultScoreText(_score);
         CanvasController.Instance.ChangeResultCoinText(_score / 10);
+    }
+
+    public void AddDisabled(GameObject gameObject)
+    {
+        _disabled.Add(gameObject);
     }
 }
