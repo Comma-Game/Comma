@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         _hp = _maxHp;
         Debug.Log("HP : " + _hp);
 
-        _energy = 0;
+        _energy = 100;
         _energyChargeSpeed = 2 + 2 * _saveLoadManager.GetUpgradeEnergy();
 
         _tempSpeed = 0;
@@ -103,14 +103,37 @@ public class Player : MonoBehaviour
 
     public void ChargeEnergy()
     {
-        if (!_isCast) _energy = _energy + _energyChargeSpeed > 100 ? 100 : _energy + _energyChargeSpeed;
+        if (!_isCast)
+        {
+            if(_energy + _energyChargeSpeed > 100)
+            {
+                _energy = 100;
+                CanvasController.Instance.PlayerUpEnergy(100 - _energyChargeSpeed);
+            }
+            else
+            {
+                _energy += _energyChargeSpeed;
+                CanvasController.Instance.PlayerUpEnergy(_energyChargeSpeed);
+            }
+        }
+        
         //Debug.Log("Energy : " + _energy);
     }
 
     public void Heal(int amount)
     {
-        _hp = _hp + amount > _maxHp ? _maxHp : _hp + amount;
-        Debug.Log("HP : " + _hp);
+        if (_hp + amount > _maxHp)
+        {
+            _hp = _maxHp;
+            CanvasController.Instance.PlayerRestoreHP(_maxHp - amount);
+        } 
+        else
+        {
+            _hp += amount;
+            CanvasController.Instance.PlayerRestoreHP(amount);
+        }
+
+        //Debug.Log("HP : " + _hp);
     }
 
     public void TimeDamage()
@@ -118,6 +141,8 @@ public class Player : MonoBehaviour
         if (!_isPassPortal && !_isInvincible)
         {
             _hp--;
+            CanvasController.Instance.PlayerGetDamgeHP(1);
+
             //Debug.Log("HP : " + _hp);
 
             if (_hp <= 0) EndGame();
@@ -129,10 +154,11 @@ public class Player : MonoBehaviour
         if (!_isHit && !_isInvincible & !_isCast)
         {
             _hp -= damage;
+            CanvasController.Instance.PlayerGetDamgeHP(damage);
 
             HitObstacle(1);
 
-            Debug.Log("Remain HP : " + _hp);
+            //Debug.Log("Remain HP : " + _hp);
 
             if (_hp <= 0) EndGame();
         }
@@ -143,6 +169,7 @@ public class Player : MonoBehaviour
         if (!_isPassPortal)
         {
             _hp -= damage;
+            CanvasController.Instance.PlayerGetDamgeHP(damage);
 
             SetInvincible(1);
 
@@ -159,6 +186,7 @@ public class Player : MonoBehaviour
             StopMyCoroutine();
             _coroutine = StartCoroutine(CastTime(2));
             _energy = 0;
+            CanvasController.Instance.PlayerDownEnergy(100);
         }
     }
 

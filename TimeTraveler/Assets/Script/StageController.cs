@@ -117,7 +117,6 @@ public class StageController : MonoBehaviour
             _stageController.AddComponent<StageController>();
         }
 
-        DontDestroyOnLoad(_stageController);
         _instance = _stageController.GetComponent<StageController>();
     }
 
