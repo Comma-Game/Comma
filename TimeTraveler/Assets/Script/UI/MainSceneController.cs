@@ -7,8 +7,9 @@ using TMPro;
 public class MainSceneController : MonoBehaviour
 {
         [Header("main Object")]
-        [SerializeField]
-        public GameObject background;
+        [SerializeField] public GameObject blackHoleObj1;
+        [SerializeField] public GameObject blackHoleObj2;
+        [SerializeField] public GameObject background;
         [SerializeField]
         public GameObject mainPanel_Button;
         [SerializeField]
@@ -39,9 +40,9 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public TextMeshProUGUI shopEnergyLVText;
         [SerializeField] public TextMeshProUGUI mysteryBoxBuffText;
 
-        private int hpUpgradeClass = 0;
-        private int statUpgradeClass = 0;
-        private int energyUpgradeClass = 0;
+        private int hpUpgradeClass = 1;
+        private int statUpgradeClass = 1;
+        private int energyUpgradeClass = 1;
 
         private string[] mysteryBox_Buff_Texts = {
                 "HP +50%",
@@ -52,13 +53,17 @@ public class MainSceneController : MonoBehaviour
 
         private int maxGradeNum = 4; // 5 업그레이드 가능하면 -1 해서 4로 설정
         private int[] hpUpgradeCoin = { 100, 200, 300, 400, 500 };
+        private int[] hpUpgradeHp = { 100, 200, 300, 400, 500 };
         private int[] statUpgradeCoin = { 100, 200, 300, 400, 500 };
+        private int[] statUpgradeCrack = { 100, 200, 300, 400, 500 };
+         private int[] statUpgradeMemories = { 100, 200, 300, 400, 500 };
         private int[] energyUpgradeCoin = { 100, 200, 300, 400, 500 };
+        private int[] energyUpgradeEnergy = { 100, 200, 300, 400, 500 };
 
         void Update()
         {
                 // 회전 속도에 따라 물체를 자기 중심으로 회전
-                background.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+                background.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
 
         /// /////////////////////////////////////////////////////////////////
@@ -66,13 +71,23 @@ public class MainSceneController : MonoBehaviour
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
-                SceneManager.LoadScene("GameScene");
+                // 화면 UI 꺼주기
                 mainPanel_Button.SetActive(false);
                 mainPanel_playerStat.SetActive(false);
                 if(heartPanelCS == null){
                         heartPanelCS = heartPanel.GetComponent<HeartPanel>();
                 }
                 heartPanelCS.MinusHearts(1);
+                heartPanel.SetActive(false);
+                // 블랙홀 켜주기
+                blackHoleObj1.SetActive(true);
+                blackHoleObj2.SetActive(true);
+                Invoke("MoveScene", 5f);
+        }
+
+        private void MoveScene()
+        {
+                SceneManager.LoadScene("GameScene");
         }
 
         public void StatShop(){
@@ -115,12 +130,12 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void UpgradeStatHP(){
-                Debug.Log("UpgradeStatHP");
+                Debug.Log("UpgradeStatHP "+hpUpgradeClass);
                 // 스탯 올릴 수 있다면
                 if(hpUpgradeClass < maxGradeNum) {
                         // 실제 스탯에 적용 코드
-                        hpUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeShopHpText(true);
+                        hpUpgradeClass += 1; // 다음 단계 업그레이드
                 }
                 else{ // 없다면
                         ChangeShopHpText(false);
@@ -128,12 +143,12 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeStat(){
-                Debug.Log("UpgradeStat");
+                Debug.Log("UpgradeStat "+statUpgradeClass);
                 // 스탯 올릴 수 있다면
                 if(statUpgradeClass < maxGradeNum) {
                         // 실제 스탯에 적용 코드
-                        statUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeStatText(true);
+                        statUpgradeClass += 1; // 다음 단계 업그레이드
                 }
                 else{ // 없다면
                         ChangeStatText(false);
@@ -142,12 +157,12 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeStatEnergy(){
-                Debug.Log("UpgradeStatEnergy");
+                Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
                 // 스탯 올릴 수 있다면
                 if(energyUpgradeClass < maxGradeNum){
                         // 실제 스탯에 적용 코드
-                        energyUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeEnergyText(true);
+                        energyUpgradeClass += 1; // 다음 단계 업그레이드
                 }
                 else{ // 없다면
                         ChangeEnergyText(false);

@@ -113,7 +113,7 @@ public class HeartPanel : MonoBehaviour
             TimeSpan timeUntilNextHeart = lastFillTime.AddMinutes(fillCooldownMinutes) - DateTime.Now;
             int minutes = timeUntilNextHeart.Minutes - test;
             if(test != 0) test = 0; // test 
-            Debug.Log(timeUntilNextHeart);
+            //Debug.Log(timeUntilNextHeart);
             if(minutes < 1){
                 AddHearts(1);
             }
