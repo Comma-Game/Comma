@@ -76,33 +76,17 @@ public class MainSceneController : MonoBehaviour
         /// game object
         
         public void Start(){
-                // hpUpgradeClass = 30;
-                // statUpgradeClass = 29;
-                // energyUpgradeClass = 4;
-                //Invoke("Check", 3);
                 hpUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeHP();
                 jellyUpgradeClass = SaveLoadManager.Instance.GetUpgradeJelly();
                 energyUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeEnergy();
+                SetMysteryBox(SaveLoadManager.Instance.GetBuff());
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
                 ChangeScoreText(SaveLoadManager.Instance.GetHighScore());
                 SettingClass(hpUpgradeClass, jellyUpgradeClass, energyUpgradeClass);
 
-                if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(100000);
+                if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }
-
-        // public void Check()
-        // {
-        //         hpUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeHP();
-        //         jellyUpgradeClass = SaveLoadManager.Instance.GetUpgradeJelly();
-        //         energyUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeEnergy();
-        //         ChangeCoinText(SaveLoadManager.Instance.GetCoin());
-        //         ChangeScoreText(SaveLoadManager.Instance.GetHighScore());
-        //         SettingClass(hpUpgradeClass, jellyUpgradeClass, energyUpgradeClass);
-
-        //         if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(100000);
-        //         ChangeCoinText(SaveLoadManager.Instance.GetCoin());
-        // }
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
@@ -174,7 +158,8 @@ public class MainSceneController : MonoBehaviour
 
         public void UpgradeStatHP(){
                 // 소지금 확인
-                if(SaveLoadManager.Instance.GetCoin() >= hpUpgradeCoin[hpUpgradeClass])
+                if(hpUpgradeClass < maxGradeNum &&
+                SaveLoadManager.Instance.GetCoin() >= hpUpgradeCoin[hpUpgradeClass])
                 {
                         // 스탯 올릴 수 있다면
                         if((hpUpgradeClass+1) < maxGradeNum) {
@@ -189,6 +174,8 @@ public class MainSceneController : MonoBehaviour
                                 // 돈 소비
                                 MinusCoin(hpUpgradeCoin[hpUpgradeClass]);
                                 hpUpgradeClass += 1; // 마지막 업그레이드
+                                // 실제 스탯에 적용 코드
+                                SaveLoadManager.Instance.UpgradeHP();
                                 ChangeShopHpText(false);
                         }
                 }
@@ -196,7 +183,8 @@ public class MainSceneController : MonoBehaviour
 
         public void UpgradeJelly(){
                 // 소지금 확인
-                if(SaveLoadManager.Instance.GetCoin() >= jellyUpgradeCoin[jellyUpgradeClass]){
+                if(jellyUpgradeClass < maxGradeNum &&
+                SaveLoadManager.Instance.GetCoin() >= jellyUpgradeCoin[jellyUpgradeClass]){
                         // 스탯 올릴 수 있다면
                         if((jellyUpgradeClass+1) < maxGradeNum) {
                                 // 돈 소비
@@ -210,6 +198,8 @@ public class MainSceneController : MonoBehaviour
                                 // 돈 소비
                                 MinusCoin(jellyUpgradeCoin[jellyUpgradeClass]);
                                 jellyUpgradeClass += 1; // 마지막 업그레이드
+                                // 실제 스탯에 적용 코드
+                                SaveLoadManager.Instance.UpgradeJelly();
                                 ChangeJellyText(false);
                         }
                 }                
@@ -217,7 +207,8 @@ public class MainSceneController : MonoBehaviour
 
         public void UpgradeStatEnergy(){
                 // 소지금 확인
-                if(SaveLoadManager.Instance.GetCoin() >= energyUpgradeCoin[energyUpgradeClass]){
+                if(energyUpgradeClass < maxGradeNum &&
+                SaveLoadManager.Instance.GetCoin() >= energyUpgradeCoin[energyUpgradeClass]){
                         // 스탯 올릴 수 있다면
                         if((energyUpgradeClass+1) < maxGradeNum){
                                 // 돈 소비
@@ -231,6 +222,8 @@ public class MainSceneController : MonoBehaviour
                                 // 돈 소비
                                 MinusCoin(energyUpgradeCoin[energyUpgradeClass]);
                                 energyUpgradeClass += 1; // 마지막 업그레이드
+                                // 실제 스탯에 적용 코드
+                                SaveLoadManager.Instance.UpgradeEnergy();
                                 ChangeEnergyText(false);
                         }
                 }
@@ -245,8 +238,22 @@ public class MainSceneController : MonoBehaviour
                 MinusCoin(mysteryBox_coin);
 	}
 
+        public void SetMysteryBox(int Index){
+                Debug.Log("SetMysteryBox");
+                string randomBuffText = "0";
+                if(Index == 0){
+                        randomBuffText = "-";
+                }else{
+                        randomBuffText = mysteryBox_Buff_Texts[Index-1];
+                }
+                mysteryBoxBuffText.text = randomBuffText;
+                ChangeBuffText(randomBuffText);
+                Debug.Log("SetMysteryBox");
+	}
+
         private string GetRandomBuffText(){
                 int randomIndex = Random.Range(0, mysteryBox_Buff_Texts.Length);
+                SaveLoadManager.Instance.SetBuff(randomIndex+1);
                 return mysteryBox_Buff_Texts[randomIndex];
         }
 

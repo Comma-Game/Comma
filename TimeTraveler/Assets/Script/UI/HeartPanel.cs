@@ -64,19 +64,24 @@ public class HeartPanel : MonoBehaviour
 
     private void LoadData()
     {
+        currentHearts = SaveLoadManager.Instance.GetHeart();
+        lastFillTime = SaveLoadManager.Instance.GetExitTime();
+        Debug.Log("currentHearts : " + currentHearts);
+        Debug.Log("lastFillTime : " + lastFillTime);
+        ChangeHeartImg();
         // 저장된 하트 데이터 불러오기
-        currentHearts = PlayerPrefs.GetInt("CurrentHearts", maxHearts);
-        string tempLastFillTime = PlayerPrefs.GetString("LastFillTime", string.Empty);
-        if (!string.IsNullOrEmpty(tempLastFillTime))
-        {
-            lastFillTime = DateTime.FromBinary(long.Parse(tempLastFillTime));
-        }
-        else
-        {
-            // 최초 실행 시, 저장된 값이 없을 때
-            lastFillTime = DateTime.Now;
-        }
-        currentHearts = 5;
+        // currentHearts = PlayerPrefs.GetInt("CurrentHearts", maxHearts);
+        // string tempLastFillTime = PlayerPrefs.GetString("LastFillTime", string.Empty);
+        // if (!string.IsNullOrEmpty(tempLastFillTime))
+        // {
+        //     lastFillTime = DateTime.FromBinary(long.Parse(tempLastFillTime));
+        // }
+        // else
+        // {
+        //     // 최초 실행 시, 저장된 값이 없을 때
+        //     lastFillTime = DateTime.Now;
+        // }
+        // currentHearts = 5;
     }
 
     private void SaveData()
@@ -92,8 +97,10 @@ public class HeartPanel : MonoBehaviour
         // 하트 추가 및 마지막으로 채운 시간 업데이트
         currentHearts = Mathf.Clamp(currentHearts + amount, 0, maxHearts);
         lastFillTime = DateTime.Now;
-        SaveData();
+        //SaveData();
+        SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
+        SaveLoadManager.Instance.PlusHeart();
     }
 
     public void MinusHearts(int amount)
@@ -101,8 +108,10 @@ public class HeartPanel : MonoBehaviour
         // 하트 추가 및 마지막으로 채운 시간 업데이트
         currentHearts = Mathf.Clamp(currentHearts - amount, 0, maxHearts);
         lastFillTime = DateTime.Now;
-        SaveData();
+        //SaveData();
+        if(currentHearts == 4) SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
+        SaveLoadManager.Instance.SubtractHeart();
     }
 
     private void UpdateTimerText()
