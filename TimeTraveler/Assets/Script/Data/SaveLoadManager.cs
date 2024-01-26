@@ -109,9 +109,9 @@ public class SaveLoadManager : MonoBehaviour
         else
         {
             Debug.Log("새로운 파일 생성");
-            _gameData = new GameData();
+            GameData gameData = new GameData();
 
-            return _gameData;
+            return gameData;
         }
     }
 

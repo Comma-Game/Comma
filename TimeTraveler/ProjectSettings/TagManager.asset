@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Ground
   - AccelerationZone
+  - Jelly
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Object
   - 
   - 
   - 
