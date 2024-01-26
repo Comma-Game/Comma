@@ -126,12 +126,13 @@ public class SaveLoadManager : MonoBehaviour
     public int GetCoin() { return GameData.coin; } //DB에 있는 Coin 반환
     public void SetHighScore(int high_score) { GameData.high_score = GameData.high_score > high_score ? GameData.high_score : high_score; } //최대 점수 설정
     public int GetHighScore() { return GameData.high_score; } //최대 점수 반환
-    public int GetHeart() { return GameData.heart; }
-    public DateTime GetExitTime() { return Convert.ToDateTime(GameData.exit_time); }
-    public int GetBuff() { return GameData.buff; }
-    public void SubtractHeart() { GameData.heart--; }
-    public void SetExitTime() { GameData.exit_time = DateTime.Now.ToString(); }
-    public void SetBuff(int buff) { GameData.buff = buff; }
+    public int GetHeart() { return GameData.heart; } //하트 반환
+    public DateTime GetExitTime() { return Convert.ToDateTime(GameData.exit_time); } //종료 시간 반환
+    public int GetBuff() { return GameData.buff; } //버프 인덱스 반환
+    public void PlusHeart() { GameData.heart++; } //하트 하나 더하기
+    public void SubtractHeart() { GameData.heart--; } //하트 하나 빼기
+    public void SetExitTime() { GameData.exit_time = DateTime.Now.ToString(); } //나간 시간 설정
+    public void SetBuff(int buff) { GameData.buff = buff; } //버프 인덱스 설정
 
     void SaveData()
     {
