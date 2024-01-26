@@ -308,11 +308,11 @@ public class Player : MonoBehaviour
 
     float CalculateHP()
     {
-        float step = _saveLoadManager.GetUpgradeHP(), ret = 0, cnt = 0;
+        int step = _saveLoadManager.GetUpgradeHP(), ret = 0, cnt = 0;
 
         while (step > 0)
         {
-            float mul = step > 10 ? 10 : step;
+            int mul = step > 10 ? 10 : step;
             ret += (15 - cnt) * mul;
             step -= 10;
             cnt += 5;
@@ -323,11 +323,12 @@ public class Player : MonoBehaviour
 
     float CalculateEnergy()
     {
-        float step = _saveLoadManager.GetUpgradeEnergy(), ret = 0, cnt = 0;
+        int step = _saveLoadManager.GetUpgradeEnergy();
+        float ret = 0, cnt = 0;
 
         while (step > 0)
         {
-            float mul = step > 10 ? 10 : step;
+            int mul = step > 10 ? 10 : step;
             ret += (0.06f - cnt) * mul;
             step -= 10;
             cnt += 0.02f;
