@@ -40,25 +40,43 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public TextMeshProUGUI shopEnergyLVText;
         [SerializeField] public TextMeshProUGUI mysteryBoxBuffText;
 
-        private int hpUpgradeClass = 1;
-        private int statUpgradeClass = 1;
-        private int energyUpgradeClass = 1;
+        private int hpUpgradeClass = 0;
+        private int statUpgradeClass = 0;
+        private int energyUpgradeClass = 0;
 
         private string[] mysteryBox_Buff_Texts = {
-                "HP +50%",
-                "Coin X1.5",
-                "Score X1.5",
-                "Energy Charger X2"
+                "체력강화 + 50",
+                "스코어 2배",
+                "장애물 충돌피해 50% 감소",
+                "체력감소 15% 느림",
+                "물약 회복량 20% 증가",
+                "가속도 +20%",
+                "기본속도 +20%",
+                "에너지 축적량 감소 -20%"
         };
 
-        private int maxGradeNum = 4; // 5 업그레이드 가능하면 -1 해서 4로 설정
-        private int[] hpUpgradeCoin = { 100, 200, 300, 400, 500 };
-        private int[] hpUpgradeHp = { 100, 200, 300, 400, 500 };
-        private int[] statUpgradeCoin = { 100, 200, 300, 400, 500 };
-        private int[] statUpgradeCrack = { 100, 200, 300, 400, 500 };
-         private int[] statUpgradeMemories = { 100, 200, 300, 400, 500 };
-        private int[] energyUpgradeCoin = { 100, 200, 300, 400, 500 };
-        private int[] energyUpgradeEnergy = { 100, 200, 300, 400, 500 };
+        private int maxGradeNum = 30; // 5 업그레이드 가능하면 -1 해서 4로 설정
+        private int[] hpUpgradeCoin = { 450, 490, 530, 580, 630, 690, 750, 820, 900, 990,
+                                        1215, 1515, 1890, 2340, 2915, 3640, 4540, 5665, 7065, 8815,
+                                        11455, 14875, 19315, 25105, 32635, 42415, 55135, 71665, 93145, 121075 };
+        private int[] hpUpgradeHp = { 115, 130, 145, 160, 175, 190, 205, 220, 235, 250,
+                                        260, 270, 280, 290, 300, 310, 320, 330, 340, 350,
+                                        355, 360, 365, 370, 375, 380, 385, 390, 395, 400 };
+        private int[] statUpgradeCoin = { 500, 550, 600, 660, 720, 790, 860, 940, 1030, 1130,
+                                        1405, 1755, 2180, 2705, 3380, 4205, 5255, 6555, 8180, 10205,
+                                        13265, 17225, 22385, 29075, 37775, 49085, 63785, 82895, 107735, 140045 };
+        private int[] statUpgradeCrack = { 80, 90, 100, 110, 120, 130, 140, 150, 160, 170,
+                                                220, 270, 320, 370, 420, 470, 520, 570, 620, 670,
+                                                770, 870, 970, 1070, 1170, 1270, 1370, 1470, 1570, 1670 };
+         private int[] statUpgradeMemories = { 160, 180, 200, 220, 240, 260, 280, 300, 320, 340,
+                                                440, 540, 640, 740, 840, 940, 1040, 1140, 1240, 1340,
+                                                1540, 1740, 1940, 2140, 2340, 2540, 2740, 2940, 3140, 3340 };
+        private int[] energyUpgradeCoin = { 550, 600, 660, 720, 790, 860, 940, 1030, 1130, 1240,
+                                                1540, 1915, 2390, 2965, 3690, 4590, 5715, 7140, 8915, 11140,
+                                                14470, 18790, 24400, 31720, 41230, 53590, 69640, 90520, 117670, 152950 };
+        private float[] energyUpgradeEnergy = { 2.06f, 2.12f, 2.18f, 2.24f, 2.3f, 2.36f, 2.42f, 2.48f, 2.54f, 2.6f,
+                                                2.64f, 2.68f, 2.72f, 2.76f, 2.8f, 2.84f, 2.88f, 2.92f, 2.96f, 3f,
+                                                3.02f, 3.04f, 3.06f, 3.08f, 3.1f, 3.12f, 3.14f, 3.16f, 3.18f, 3.2f };
 
         void Update()
         {
@@ -68,6 +86,13 @@ public class MainSceneController : MonoBehaviour
 
         /// /////////////////////////////////////////////////////////////////
         /// game object
+        
+        public void Start(){
+                // hpUpgradeClass = 30;
+                // statUpgradeClass = 29;
+                // energyUpgradeClass = 4;
+                SettingClass(hpUpgradeClass, statUpgradeClass, energyUpgradeClass);
+        }
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
@@ -130,41 +155,41 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void UpgradeStatHP(){
-                Debug.Log("UpgradeStatHP "+hpUpgradeClass);
                 // 스탯 올릴 수 있다면
-                if(hpUpgradeClass < maxGradeNum) {
+                if((hpUpgradeClass+1) < maxGradeNum) {
+                        hpUpgradeClass += 1; // 다음 단계 업그레이드
                         // 실제 스탯에 적용 코드
                         ChangeShopHpText(true);
-                        hpUpgradeClass += 1; // 다음 단계 업그레이드
                 }
-                else{ // 없다면
+                else if((hpUpgradeClass+1) == maxGradeNum){ // 없다면
+                        hpUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeShopHpText(false);
                 }
 	}
 
         public void UpgradeStat(){
-                Debug.Log("UpgradeStat "+statUpgradeClass);
                 // 스탯 올릴 수 있다면
-                if(statUpgradeClass < maxGradeNum) {
+                if((statUpgradeClass+1) < maxGradeNum) {
+                        statUpgradeClass += 1; // 다음 단계 업그레이드
                         // 실제 스탯에 적용 코드
                         ChangeStatText(true);
-                        statUpgradeClass += 1; // 다음 단계 업그레이드
                 }
-                else{ // 없다면
+                else if((statUpgradeClass+1) == maxGradeNum) { // 없다면
+                        statUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeStatText(false);
                 }
                 
 	}
 
         public void UpgradeStatEnergy(){
-                Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
                 // 스탯 올릴 수 있다면
-                if(energyUpgradeClass < maxGradeNum){
+                if((energyUpgradeClass+1) < maxGradeNum){
+                        energyUpgradeClass += 1; // 다음 단계 업그레이드
                         // 실제 스탯에 적용 코드
                         ChangeEnergyText(true);
-                        energyUpgradeClass += 1; // 다음 단계 업그레이드
                 }
-                else{ // 없다면
+                else if((energyUpgradeClass+1) == maxGradeNum){ // 없다면
+                        energyUpgradeClass += 1; // 다음 단계 업그레이드
                         ChangeEnergyText(false);
                 }
 	}
@@ -184,21 +209,24 @@ public class MainSceneController : MonoBehaviour
         }
 
         private void ChangeShopHpText(bool canUpgrade){
+                Debug.Log("UpgradeStatHP "+hpUpgradeClass);
                 if(canUpgrade) shopHpText.text = "Upgrade \n" + hpUpgradeCoin[hpUpgradeClass];
                 else shopHpText.text = "Max";
-                shopHpLVText.text = "LV " + (hpUpgradeClass+1).ToString();
+                shopHpLVText.text = "LV " + (hpUpgradeClass).ToString();
         }
 
         private void ChangeStatText(bool canUpgrade){
+                Debug.Log("UpgradeStat "+statUpgradeClass);
                 if(canUpgrade) shopStatText.text = "Upgrade \n" + statUpgradeCoin[statUpgradeClass];
                 else shopStatText.text = "Max";
-                shopStatLVText.text = "LV " + (statUpgradeClass+1).ToString();
+                shopStatLVText.text = "LV " + (statUpgradeClass).ToString();
         }
 
         private void ChangeEnergyText(bool canUpgrade){
+                Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
                 if(canUpgrade) shopEnergyText.text = "Upgrade \n" + energyUpgradeCoin[energyUpgradeClass];
                 else shopEnergyText.text = "Max";
-                shopEnergyLVText.text = "LV " + (energyUpgradeClass+1).ToString();
+                shopEnergyLVText.text = "LV " + (energyUpgradeClass).ToString();
         }
 
         /// /////////////////////////////////////////////////////////////////
