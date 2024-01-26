@@ -292,7 +292,9 @@ public class StageController : MonoBehaviour
     {
         while(true)
         {
-            _score += 10 + _stageCount / 3;
+            int conceptCount = _stageCount / 3;
+            _score += 10 + conceptCount >= 5 ? 10 : conceptCount * 2;
+
             CanvasController.Instance.ChangeScoreText(_score);
             _player.TimeDamage();
             _player.ChargeEnergy();

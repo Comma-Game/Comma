@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 [System.Serializable]
 public class GameData
 {
     public int high_score;
     public int coin;
-    public float upgrade_hp;
+    public int upgrade_hp;
     public int upgrade_jelly;
-    public float upgrade_energy;
+    public int upgrade_energy;
+    public int heart;
+    public string exit_time;
+    public int buff;
 
     public GameData()
     {
@@ -19,6 +23,9 @@ public class GameData
         upgrade_hp = 0;
         upgrade_jelly = 0;
         upgrade_energy = 0;
+        heart = 5;
+        exit_time = "";
+        buff = 0;
     }
 }
 
@@ -73,7 +80,7 @@ public class SaveLoadManager : MonoBehaviour
         savePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
     }
 
-    public void SaveGameData(int score, int coin, float upgrade_hp, int upgrade_jelly, float upgrade_energy)
+    public void SaveGameData(int score, int coin, int upgrade_hp, int upgrade_jelly, int upgrade_energy)
     {
         _gameData.high_score = score;
         _gameData.coin = coin;
@@ -111,20 +118,27 @@ public class SaveLoadManager : MonoBehaviour
     public void UpgradeHP() { GameData.upgrade_hp++; } //호출 시 upgrade_hp 1 증가
     public void UpgradeEnergy() { GameData.upgrade_energy++; } //호출 시 upgrade_energy 1 증가
     public void UpgradeJelly() { GameData.upgrade_jelly++; } //호출 시 upgrade_jelly 1 증가
-    public float GetUpgradeHP() { return GameData.upgrade_hp; } //upgrade_hp 반환
-    public float GetUpgradeEnergy() { return GameData.upgrade_energy; } //upgrade_energy 반환
+    public int GetUpgradeHP() { return GameData.upgrade_hp; } //upgrade_hp 반환
+    public int GetUpgradeEnergy() { return GameData.upgrade_energy; } //upgrade_energy 반환
     public int GetUpgradeJelly() { return GameData.upgrade_jelly; } //upgrade_jelly 반환
     public void PlusCoin(int coin) { GameData.coin += coin; } //Coin 더하기
     public void MinusCoin(int coin) { GameData.coin -= coin; } //Coin 빼기
     public int GetCoin() { return GameData.coin; } //DB에 있는 Coin 반환
     public void SetHighScore(int high_score) { GameData.high_score = GameData.high_score > high_score ? GameData.high_score : high_score; } //최대 점수 설정
     public int GetHighScore() { return GameData.high_score; } //최대 점수 반환
+    public int GetHeart() { return GameData.heart; } //하트 반환
+    public DateTime GetExitTime() { return Convert.ToDateTime(GameData.exit_time); } //종료 시간 반환
+    public int GetBuff() { return GameData.buff; } //버프 인덱스 반환
+    public void PlusHeart() { GameData.heart++; } //하트 하나 더하기
+    public void SubtractHeart() { GameData.heart--; } //하트 하나 빼기
+    public void SetExitTime() { GameData.exit_time = DateTime.Now.ToString(); } //나간 시간 설정
+    public void SetBuff(int buff) { GameData.buff = buff; } //버프 인덱스 설정
 
     void SaveData()
     {
         // 데이터를 JSON 형식으로 변환
         string jsonData = JsonUtility.ToJson(_gameData);
-
+        
         // JSON 데이터를 파일에 쓰기
         File.WriteAllText(savePath, jsonData);
         Debug.Log("저장 완료");
@@ -132,6 +146,7 @@ public class SaveLoadManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SetExitTime();
         SaveData();
     }
 }
