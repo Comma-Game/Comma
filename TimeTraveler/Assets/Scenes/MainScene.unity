@@ -945,6 +945,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106570807}
   m_CullTransparentMesh: 0
+--- !u!1 &109527403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8921703226894790513, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
+  m_PrefabInstance: {fileID: 192617936925144598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &149097633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,6 +3250,8 @@ MonoBehaviour:
   mainPanel_Button: {fileID: 353342135182519155}
   mainPanel_playerStat: {fileID: 1627430631}
   rotationSpeed: 20
+  shopPanel: {fileID: 109527403}
+  AchievementPanel: {fileID: 1544756169}
   heartPanel: {fileID: 22384685}
   heartPanelCS: {fileID: 34752337}
   coinText_1: {fileID: 608448659}
@@ -4557,6 +4564,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3372842077096956982, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
   m_PrefabInstance: {fileID: 192617936925144598}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1544756169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2549869145703091732, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+  m_PrefabInstance: {fileID: 8347576890723467751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1552017003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4857,6 +4869,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1734884209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734884211}
+  - component: {fileID: 1734884210}
+  m_Layer: 0
+  m_Name: SaveLoadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1734884210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734884209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93de6a85d7e0f6409f75238a0482b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1734884211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734884209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 184.95691, y: 808.5901, z: -292.9756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735873767
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,6 +5909,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 882933011}
+    - target: {fileID: 4424709795094454631, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeJelly
+      objectReference: {fileID: 0}
     - target: {fileID: 4634853615094120342, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25897,7 +25957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.5, y: -251}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 585, y: 260}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &575894380119533079
@@ -48363,6 +48423,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 882933011}
+        m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
+        m_MethodName: ClickShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6078808711124515375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49031,6 +49103,18 @@ MonoBehaviour:
           m_StringArgument: IntroCinematic
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 882933011}
+        m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
+        m_MethodName: ClickAchievement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8234221797283771866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49274,6 +49358,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 393194567648219557}
+    - target: {fileID: 1125493593466075096, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "40000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138908615529652693, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "50000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 1316970174402055363, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -49358,10 +49450,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.64228624
       objectReference: {fileID: 0}
+    - target: {fileID: 2015369534778175937, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "30000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 2083990367857513969, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 393194567648219557}
+    - target: {fileID: 2346130486723547356, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "20000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466676683306609230, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "35000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 2549869145703091732, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_Name
       value: Canv_Achievement
@@ -49398,10 +49502,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 335085772315956549}
+    - target: {fileID: 3293514164391294841, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "45000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307530314409607573, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "25000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 3360817064286525482, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 393194567648219557}
+    - target: {fileID: 3414566026240827541, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "60000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 3600391668228562148, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -49418,6 +49534,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 393194567648219557}
+    - target: {fileID: 3851608056168832086, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
+      propertyPath: mytitleText
+      value: "15000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 4068334901097636652, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -50242,3 +50362,4 @@ SceneRoots:
   - {fileID: 1952773024}
   - {fileID: 355529388640465799}
   - {fileID: 5924237623195569942}
+  - {fileID: 1734884211}
