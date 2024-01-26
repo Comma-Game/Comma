@@ -8,9 +8,9 @@ public class GameData
 {
     public int high_score;
     public int coin;
-    public int upgrade_hp;
+    public float upgrade_hp;
     public int upgrade_jelly;
-    public int upgrade_energy;
+    public float upgrade_energy;
 
     public GameData()
     {
@@ -70,36 +70,16 @@ public class SaveLoadManager : MonoBehaviour
     private void Awake()
     {
         // Application.persistentDataPath는 각 플랫폼에 따라 저장될 수 있는 영구적인 데이터 경로를 제공합니다.
-        savePath = Path.Combine(Application.persistentDataPath, "playerData.json");
+        savePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
     }
 
-    private void Start()
-    {
-        Init_Instance();
-    }
-
-    public void SaveGameData(int score, int coin, int upgrade_hp, int upgrade_jelly, int upgrade_energy)
+    public void SaveGameData(int score, int coin, float upgrade_hp, int upgrade_jelly, float upgrade_energy)
     {
         _gameData.high_score = score;
         _gameData.coin = coin;
         _gameData.upgrade_hp = upgrade_hp;
         _gameData.upgrade_jelly = upgrade_jelly;
         _gameData.upgrade_energy = upgrade_energy;
-    }
-
-    public int GetUpgradeHP()
-    {
-        return _gameData.upgrade_hp;
-    }
-
-    public int GetUpgradeJelly()
-    {
-        return _gameData.upgrade_jelly;
-    }
-
-    public int GetUpgradeEnergy()
-    {
-        return _gameData.upgrade_energy;
     }
 
     private GameData LoadData()
@@ -128,6 +108,18 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 
+    public void UpgradeHP() { GameData.upgrade_hp++; } //호출 시 upgrade_hp 1 증가
+    public void UpgradeEnergy() { GameData.upgrade_energy++; } //호출 시 upgrade_energy 1 증가
+    public void UpgradeJelly() { GameData.upgrade_jelly++; } //호출 시 upgrade_jelly 1 증가
+    public float GetUpgradeHP() { return GameData.upgrade_hp; } //upgrade_hp 반환
+    public float GetUpgradeEnergy() { return GameData.upgrade_energy; } //upgrade_energy 반환
+    public int GetUpgradeJelly() { return GameData.upgrade_jelly; } //upgrade_jelly 반환
+    public void PlusCoin(int coin) { GameData.coin += coin; } //Coin 더하기
+    public void MinusCoin(int coin) { GameData.coin -= coin; } //Coin 빼기
+    public int GetCoin() { return GameData.coin; } //DB에 있는 Coin 반환
+    public void SetHighScore(int high_score) { GameData.high_score = GameData.high_score > high_score ? GameData.high_score : high_score; } //최대 점수 설정
+    public int GetHighScore() { return GameData.high_score; } //최대 점수 반환
+
     void SaveData()
     {
         // 데이터를 JSON 형식으로 변환
@@ -140,7 +132,6 @@ public class SaveLoadManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        string jsonData = File.ReadAllText(savePath);
-        if (File.Exists(jsonData)) SaveData();
+        SaveData();
     }
 }

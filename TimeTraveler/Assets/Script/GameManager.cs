@@ -14,17 +14,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    SaveLoadManager _saveLoadManager;
-    GameData _gameData;
-    StageController _stageController;
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
     void Start()
     {
         Init_Instance();
-        _saveLoadManager = SaveLoadManager.Instance;
-        _gameData = _saveLoadManager.GameData;
-        _stageController = StageController.Instance;
-        Application.targetFrameRate = 60;
     }
 
     void Update()

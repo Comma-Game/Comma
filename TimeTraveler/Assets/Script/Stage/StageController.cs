@@ -89,7 +89,7 @@ public class StageController : MonoBehaviour
 
     static GameObject _stageController;
     GameObject[][] _stagePrefab;
-    GameObject _stage, _nextStage, _parent;
+    GameObject _stage, _nextStage, _prevStage, _parent;
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
     Coroutine _coroutine;
     List<int> _conceptIndex;
@@ -131,6 +131,7 @@ public class StageController : MonoBehaviour
 
         _stage = null;
         _nextStage = null;
+        _prevStage = null;
 
         _disabled = new List<GameObject>();
 
@@ -186,6 +187,7 @@ public class StageController : MonoBehaviour
     //현재 스테이지 설정
     void SetCurrentStage()
     {
+        _prevStage = _stage;
         _stage = _nextStage;
 
         int nextAngle = Random.Range(0, 360);
@@ -207,10 +209,13 @@ public class StageController : MonoBehaviour
     }
 
     //비활성화된 모든 오브젝트 활성화
-    void ReturnDisabledObject()
+    void ReturnStage()
     {
         foreach (GameObject obj in _disabled) obj.SetActive(true);
         _disabled.Clear();
+
+        Debug.Log(_prevStage.name);
+        _prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
     //Scene에 모든 스테이지를 생성 후 비활성화
@@ -233,10 +238,7 @@ public class StageController : MonoBehaviour
     //스테이지 지나면 호출
     public void DisableStage()
     {
-        UnsetAcceleration();
-        ReturnDisabledObject();
         _stage.SetActive(false);
-        _stage.transform.position = new Vector3(0, 0, 0);
 
         _speed = _firstSpeed + _stageCount;
         _stageCount++;
@@ -261,8 +263,10 @@ public class StageController : MonoBehaviour
     public void EndGame()
     {
         Destroy(_parent);
-        EnableGameOverUI();
         StopCoroutine(_coroutine);
+        EnableGameOverUI();
+        SaveLoadManager.Instance.PlusCoin(_score);
+        SaveLoadManager.Instance.SetHighScore(_score);
     }
 
     //Stage가 들어갈 부모 설정
@@ -276,12 +280,7 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         _stage.GetComponent<GateMovement>().SetAcceleration();
-    }
-
-    //가속도 해지
-    public void UnsetAcceleration()
-    {
-        _stage.GetComponent<GateMovement>().UnsetAcceleration();
+        if(_prevStage) ReturnStage();
     }
 
     public void ScoreUp(int value)
@@ -293,12 +292,12 @@ public class StageController : MonoBehaviour
     {
         while(true)
         {
-            _score += 1 + _stageCount / 3;
+            _score += 10 + _stageCount / 3;
             CanvasController.Instance.ChangeScoreText(_score);
             _player.TimeDamage();
             _player.ChargeEnergy();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -306,7 +305,7 @@ public class StageController : MonoBehaviour
     {
         CanvasController.Instance.OpenGameOverPanel(true);
         CanvasController.Instance.ChangeResultScoreText(_score);
-        CanvasController.Instance.ChangeResultCoinText(_score / 10);
+        CanvasController.Instance.ChangeResultCoinText(_score);
     }
 
     public void AddDisabled(GameObject gameObject)

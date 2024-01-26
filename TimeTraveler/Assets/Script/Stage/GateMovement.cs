@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GateMovement : MonoBehaviour
 {
-    bool _isAcceleration;
     Rigidbody _rigidbody;
     Vector3 _movement;
 
@@ -12,12 +11,6 @@ public class GateMovement : MonoBehaviour
     {
         _movement = transform.up * StageController.Instance.Speed;
         CheckMaxSpeed();
-    }
-
-    void FixedUpdate()
-    {
-        //if (_isAcceleration) _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
-        //Debug.Log(_rigidbody.velocity);
     }
 
     public void Move()
@@ -37,14 +30,7 @@ public class GateMovement : MonoBehaviour
 
     public void SetAcceleration()
     {
-        //_isAcceleration = true;
         _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
-    }
-
-    public void UnsetAcceleration()
-    {
-        _rigidbody.velocity = Vector3.zero;
-        //_isAcceleration = false;
     }
 
     void CheckMaxSpeed()

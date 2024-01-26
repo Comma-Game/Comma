@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int _hp, _maxHp, _energy, _energyChargeSpeed;
+    float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed;
     bool _isInvincible, _isPassPortal, _isCast, _isHit;
     StageController _stageController;
     SaveLoadManager _saveLoadManager;
-    GameData _gameData;
     Coroutine _coroutine;
     RaycastHit _hit;
     ColliderRange _colliderRange;
-    float _tempSpeed;
     string _obstacle;
+    int _jelly;
 
     private void Start()
     {
@@ -34,6 +33,21 @@ public class Player : MonoBehaviour
             {
                 _obstacle = _hit.transform.gameObject.name;
             }
+            else if (_hit.transform.gameObject.CompareTag("Jelly"))
+            {
+                if (_hit.transform.GetComponent<Jelly>().CheckMemory())
+                {
+                    StageController.Instance.ScoreUp(_jelly * 2);
+                    Heal(10);
+                }
+                else
+                {
+                    StageController.Instance.ScoreUp(_jelly);
+                }
+
+                StageController.Instance.AddDisabled(transform.gameObject);
+                _hit.transform.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -44,8 +58,8 @@ public class Player : MonoBehaviour
         {
             //Debug.Log("Collision : " + collision.gameObject.name);
             HitDamage(10);
-            //collision.gameObject.GetComponent<MeshExploder>().Explode();
-            
+            collision.gameObject.GetComponent<MeshExploder>().Explode();
+
             _stageController.AddDisabled(collision.gameObject);
             collision.gameObject.SetActive(false);
         }
@@ -68,15 +82,18 @@ public class Player : MonoBehaviour
         transform.gameObject.SetActive(true);
 
         _saveLoadManager = SaveLoadManager.Instance;
-        _gameData = _saveLoadManager.GameData;
         _stageController = StageController.Instance;
 
-        _maxHp = 100 + 20 * _saveLoadManager.GetUpgradeHP();
+        _maxHp = 100 + CalculateHP();
         _hp = _maxHp;
         Debug.Log("HP : " + _hp);
 
         _energy = 100;
-        _energyChargeSpeed = 2 + 2 * _saveLoadManager.GetUpgradeEnergy();
+        _energyChargeSpeed = 2 + CalculateEnergy();
+        Debug.Log("Energy : " + _energy);
+
+        _jelly = 70 + CalculateJelly();
+        Debug.Log("Jelly : " + _jelly);
 
         _tempSpeed = 0;
 
@@ -99,7 +116,7 @@ public class Player : MonoBehaviour
 
     void TriggerGround()
     {
-        GroundDamage(80);
+        GroundDamage(20);
         _stageController.DisableStage();
     }
 
@@ -107,7 +124,7 @@ public class Player : MonoBehaviour
     {
         if (!_isCast)
         {
-            if(_energy + _energyChargeSpeed > 100)
+            if (_energy + _energyChargeSpeed > 100)
             {
                 _energy = 100;
                 CanvasController.Instance.PlayerUpEnergy(100 - _energyChargeSpeed);
@@ -118,7 +135,7 @@ public class Player : MonoBehaviour
                 CanvasController.Instance.PlayerUpEnergy(_energyChargeSpeed);
             }
         }
-        
+
         //Debug.Log("Energy : " + _energy);
     }
 
@@ -128,7 +145,7 @@ public class Player : MonoBehaviour
         {
             _hp = _maxHp;
             CanvasController.Instance.PlayerRestoreHP(_maxHp - amount);
-        } 
+        }
         else
         {
             _hp += amount;
@@ -142,7 +159,7 @@ public class Player : MonoBehaviour
     {
         if (!_isPassPortal && !_isInvincible)
         {
-            _hp--;
+            _hp -= 0.9f;
             CanvasController.Instance.PlayerGetDamgeHP(1);
 
             //Debug.Log("HP : " + _hp);
@@ -164,7 +181,7 @@ public class Player : MonoBehaviour
 
             if (_hp <= 0) EndGame();
         }
-    } 
+    }
 
     void GroundDamage(int damage)
     {
@@ -246,9 +263,9 @@ public class Player : MonoBehaviour
     IEnumerator HitObstacleTime(float t)
     {
         _isHit = true;
-        if(_tempSpeed > 0f) _stageController.Speed += _tempSpeed; ;
+        if (_tempSpeed > 0f) _stageController.Speed += _tempSpeed; ;
         _tempSpeed = _stageController.GetStageVelocity() / 2;
-        
+
         _stageController.Speed -= _tempSpeed;
         _stageController.SetStagesVelocity();
         _colliderRange.SetInvincible();
@@ -271,7 +288,7 @@ public class Player : MonoBehaviour
             if (_isHit)
             {
                 _stageController.Speed += _tempSpeed;
-                
+
                 _tempSpeed = 0f;
                 _isHit = false;
             }
@@ -284,13 +301,56 @@ public class Player : MonoBehaviour
         }
     }
 
-    public int GetEnergy()
+    public float GetEnergy()
     {
         return _energy;
     }
 
-    private void OnApplicationQuit()
+    float CalculateHP()
     {
-        //SaveLoadManager.Instance.SavePlayer(_hp);
+        float step = _saveLoadManager.GetUpgradeHP(), ret = 0, cnt = 0;
+
+        while (step > 0)
+        {
+            float mul = step > 10 ? 10 : step;
+            ret += (15 - cnt) * mul;
+            step -= 10;
+            cnt += 5;
+        }
+
+        return ret;
+    }
+
+    float CalculateEnergy()
+    {
+        float step = _saveLoadManager.GetUpgradeEnergy(), ret = 0, cnt = 0;
+
+        while (step > 0)
+        {
+            float mul = step > 10 ? 10 : step;
+            ret += (0.06f - cnt) * mul;
+            step -= 10;
+            cnt += 0.02f;
+        }
+
+        return ret;
+    }
+
+    int CalculateJelly()
+    {
+        int step = _saveLoadManager.GetUpgradeJelly(), ret = 0;
+
+        if (step <= 10) ret = 10 * step;
+        else if (step <= 20) {
+            step -= 10;
+            ret = 50 * step + 100;
+        }
+        else if (step <= 30)
+        {
+            step -= 20;
+            ret = 100 * step + 600;
+        }
+
+        return ret;
     }
 }
