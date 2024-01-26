@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 [System.Serializable]
 public class GameData
@@ -11,6 +12,9 @@ public class GameData
     public float upgrade_hp;
     public int upgrade_jelly;
     public float upgrade_energy;
+    public int heart;
+    public string exit_time;
+    public int buff;
 
     public GameData()
     {
@@ -19,6 +23,9 @@ public class GameData
         upgrade_hp = 0;
         upgrade_jelly = 0;
         upgrade_energy = 0;
+        heart = 5;
+        exit_time = "";
+        buff = 0;
     }
 }
 
@@ -119,12 +126,18 @@ public class SaveLoadManager : MonoBehaviour
     public int GetCoin() { return GameData.coin; } //DB에 있는 Coin 반환
     public void SetHighScore(int high_score) { GameData.high_score = GameData.high_score > high_score ? GameData.high_score : high_score; } //최대 점수 설정
     public int GetHighScore() { return GameData.high_score; } //최대 점수 반환
+    public int GetHeart() { return GameData.heart; }
+    public DateTime GetExitTime() { return Convert.ToDateTime(GameData.exit_time); }
+    public int GetBuff() { return GameData.buff; }
+    public void SubtractHeart() { GameData.heart--; }
+    public void SetExitTime() { GameData.exit_time = DateTime.Now.ToString(); }
+    public void SetBuff(int buff) { GameData.buff = buff; }
 
     void SaveData()
     {
         // 데이터를 JSON 형식으로 변환
         string jsonData = JsonUtility.ToJson(_gameData);
-
+        
         // JSON 데이터를 파일에 쓰기
         File.WriteAllText(savePath, jsonData);
         Debug.Log("저장 완료");
@@ -132,6 +145,7 @@ public class SaveLoadManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        SetExitTime();
         SaveData();
     }
 }

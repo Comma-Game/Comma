@@ -7,6 +7,8 @@ public class ShowPlayer : MonoBehaviour
     [SerializeField]
     GameObject _player;
 
+
+
     private void LateUpdate()
     {
         Vector3 dir = (_player.transform.position - transform.position).normalized;
