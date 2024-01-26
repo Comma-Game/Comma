@@ -582,7 +582,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7217786143405654827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &769155984578102648
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +953,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599762577757992972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1493953756931635216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,13 +1999,13 @@ MonoBehaviour:
   - {fileID: 1078373276997077676}
   - {fileID: 5121354847072336872}
   - {fileID: 5975781070260303714}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6883656698263365163}
+  - {fileID: 7609143755611412095}
+  - {fileID: 5790073691441974768}
+  - {fileID: 9079136394106146918}
+  - {fileID: 6905695711900455111}
+  - {fileID: 9056505057214170731}
+  - {fileID: 6702453223354189611}
 --- !u!1 &2584176722146657992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7950407570138637221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2711743440379259030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,7 +3845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1362454566102011107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4940095662267166371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4169,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6217821781541163854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5042259818798933914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915980184263956318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5127766714416382563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,7 +5051,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4502217923999061819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5596776252231888589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,7 +5830,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4297185830264881632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7152826685987579286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7147,7 +7243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2401634868623018257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5839486222809422964}
+        m_TargetAssemblyTypeName: AchievementManager, Assembly-CSharp
+        m_MethodName: ClickStory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8075344856040015850
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,6 +8739,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "25000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8639,6 +8751,11 @@ PrefabInstance:
 --- !u!224 &486524917318837813 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 872869667260311707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7609143755611412095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 872869667260311707}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1741554836519630991
@@ -8737,6 +8854,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "45000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8745,6 +8866,11 @@ PrefabInstance:
 --- !u!224 &1366362439904687649 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 1741554836519630991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9056505057214170731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 1741554836519630991}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1764152981845880450
@@ -8843,6 +8969,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "35000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8851,6 +8981,11 @@ PrefabInstance:
 --- !u!224 &1344027936700194860 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 1764152981845880450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9079136394106146918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 1764152981845880450}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2492356058725647628
@@ -8948,6 +9083,10 @@ PrefabInstance:
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "10000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9060,6 +9199,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "30000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9068,6 +9211,11 @@ PrefabInstance:
 --- !u!224 &4540500764468460986 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 3881659639575737108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5790073691441974768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 3881659639575737108}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3993048553563113862
@@ -9165,6 +9313,10 @@ PrefabInstance:
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "15000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9277,6 +9429,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "50000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9285,6 +9441,11 @@ PrefabInstance:
 --- !u!224 &3628359277225260897 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 4073488314792475087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6702453223354189611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 4073488314792475087}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4180392633373546703
@@ -9383,6 +9544,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "20000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9391,6 +9556,11 @@ PrefabInstance:
 --- !u!224 &3521473443109934689 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 4180392633373546703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6883656698263365163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 4180392633373546703}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4202386292150496803
@@ -9489,6 +9659,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_text
+      value: "40000 \uC774\uC0C1 \uC810\uC218 \uD68D\uB4DD\uC2DC \uC5F4\uB9BC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9497,6 +9671,11 @@ PrefabInstance:
 --- !u!224 &3498335467474002061 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+  m_PrefabInstance: {fileID: 4202386292150496803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6905695711900455111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
   m_PrefabInstance: {fileID: 4202386292150496803}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7742588740995216456

@@ -7,18 +7,6 @@ public class AchievementManager : MonoBehaviour
     [Header("Story Panels")]
     [SerializeField] public GameObject[] stroyPanels;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void DisablePanels(){
         for(int i=0; i < stroyPanels.Length; i++){
             stroyPanels[i].SetActive(false);
@@ -26,6 +14,7 @@ public class AchievementManager : MonoBehaviour
 	}
 
     public void ClickStory(int number){
+        Debug.Log("ClickStory : " + number);
         DisablePanels();
         stroyPanels[number].SetActive(true);
     }
