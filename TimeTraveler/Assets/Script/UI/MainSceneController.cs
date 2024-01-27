@@ -16,6 +16,8 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public float rotationSpeed = 50f;
         [SerializeField] public GameObject shopPanel;
         [SerializeField] public GameObject AchievementPanel;
+        [SerializeField] public GameObject SettingPanel;
+        [SerializeField] public GameObject CashShopPanel;
         [SerializeField] public UIMenuManager uIMenuManager;
 
         [Header("heart Panel")]
@@ -95,6 +97,8 @@ public class MainSceneController : MonoBehaviour
                 // 화면 UI 꺼주기
                 mainPanel_Button.SetActive(false);
                 mainPanel_playerStat.SetActive(false);
+                SettingPanel.SetActive(false);
+                CashShopPanel.SetActive(false);
                 if(heartPanelCS == null){
                         heartPanelCS = heartPanel.GetComponent<HeartPanel>();
                 }

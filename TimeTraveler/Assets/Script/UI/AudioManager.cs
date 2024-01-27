@@ -7,17 +7,25 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixer masterMixer;
-    public Slider audioSlider;
+    public Slider sfxSlider;
+    public Slider bgmSlider;
 
-    public void AudioControl()
+    public void SFXAudioControl()
     {
-        float sound = audioSlider.value;
+        float sound = sfxSlider.value;
+        if(sound == -40f) masterMixer.SetFloat("SFX", -80);
+        else masterMixer.SetFloat("SFX", sound);
+    }
+
+    public void BGMAudioControl()
+    {
+        float sound = bgmSlider.value;
         if(sound == -40f) masterMixer.SetFloat("BGM", -80);
         else masterMixer.SetFloat("BGM", sound);
     }
 
-    public void ToogleAudioVolume()
-    {
-        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
-    }
+    // public void ToogleAudioVolume()
+    // {
+    //     AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
+    // }
 }

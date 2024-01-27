@@ -29,16 +29,16 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7038641280600816358}
+  - {fileID: 1366362439904687649}
   - {fileID: 2903648729146543010}
   - {fileID: 4447125424743221032}
   - {fileID: 3521473443109934689}
-  - {fileID: 486524917318837813}
+  - {fileID: 3498335467474002061}
+  - {fileID: 7038641280600816358}
+  - {fileID: 3628359277225260897}
   - {fileID: 4540500764468460986}
   - {fileID: 1344027936700194860}
-  - {fileID: 3498335467474002061}
-  - {fileID: 1366362439904687649}
-  - {fileID: 3628359277225260897}
+  - {fileID: 486524917318837813}
   m_Father: {fileID: 6508845396432578803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1996,16 +1996,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stroyPanels:
-  - {fileID: 1078373276997077676}
+  - {fileID: 9056505057214170731}
   - {fileID: 5121354847072336872}
   - {fileID: 5975781070260303714}
   - {fileID: 6883656698263365163}
-  - {fileID: 7609143755611412095}
+  - {fileID: 6905695711900455111}
+  - {fileID: 1078373276997077676}
+  - {fileID: 6702453223354189611}
   - {fileID: 5790073691441974768}
   - {fileID: 9079136394106146918}
-  - {fileID: 6905695711900455111}
-  - {fileID: 9056505057214170731}
-  - {fileID: 6702453223354189611}
+  - {fileID: 7609143755611412095}
 --- !u!1 &2584176722146657992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8731,6 +8731,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uC6B0\uC8FC.. \uC774\uACF3 \uC5B4\uB518\uAC00\uC5D0 \uB3D9\uC0DD\uC774
+        \uC788\uB2E4\uB294 \uB9D0\uC774\uC9C0!? \uB0B4\uAC00 \uAF2D \uCC3E\uC544\uC11C
+        \uC9D1\uC73C\uB85C \uB3CC\uC544\uAC00\uACA0\uC5B4!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_ Planet
@@ -8846,13 +8864,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: " \uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0??"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "\uC800\uAE30\uC788\uB2E4!! \uBE68\uB9AC \uC7A1\uC544!!!(\uBD88\uBC95
+        \uC5F0\uAD6C\uC6D0\uB4E4\uC774 \uCAD3\uC544\uC628\uB2E4) "
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "\uC73C\uC545! \uBB50\uC57C!! \uB0A0 \uC7A1\uC73C\uB7EC \uC624\uB294\uAC70\uC57C??(\uB2F9\uD669\uD55C
+        \uD50C\uB808\uC774\uC5B4\uAC00 \uC790\uC2E0\uB3C4 \uBAA8\uB974\uAC8C \uB2A5\uB825\uC744
+        \uC4F0\uAC8C \uB41C\uB2E4.)"
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_Forest
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8482956144485717351, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_text
@@ -8960,6 +8997,26 @@ PrefabInstance:
     - target: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "(\uC2E4\uD5D8\uC2E4\uC5D0 \uBAB0\uB798 \uB4E4\uC5B4\uC640 \uCEF4\uD4E8\uD130
+        \uAE30\uB85D\uC744 \uBCF4\uBA70) (\uD50C\uB808\uC774\uC5B4)OO\uC740 \uB3C4\uB9DD\uCCD0\uC11C
+        \uD604\uC7AC \uC704\uCE58 \uC54C \uC218 \uC5C6\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "(\uB3D9\uC0DD)OO\uC740 \uC2E4\uD5D8\uC5D0 \uC2E4\uD328\uD558\uC5EC
+        \uC6B0\uC8FC\uB85C... \uD3D0\uAE30!!??"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "(\uBD88\uBC95 \uC5F0\uAD6C\uC6D0\uB4E4\uC758 \uBAA9\uC18C\uB9AC\uAC00
+        \uAC00\uAE4C\uC6CC\uC838 \uC11C\uB458\uB7EC \uB098\uC634)"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
@@ -9076,6 +9133,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uBC14\uB2E4\uB2E4!! \uB180\uB7EC\uAC00\uACE0 \uC2F6\uC5C8\uB358 \uACF3\uC778\uB370!!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "(\uBC14\uB2E4\uC5D0\uC11C \uBB3C\uB180\uC774\uB97C \uD558\uBA70 \uC990\uAE34\uB2E4.)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "\uADFC\uB370...\uC5ED\uC2DC \uD568\uAED8\uD558\uB294 \uAC00\uC871\uC774
+        \uC5C6\uC73C\uB2C8\uAE4C \uAE08\uBC29 \uC9C0\uB8E8\uD574\uC9C0\uB124..\uC9D1\uC5D0
+        \uAC00\uACE0\uC2F6\uB2E4.. \uADFC\uB370 \uC9D1\uC774 \uC5B4\uB514\uC600\uB354\uB77C..."
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_Sea
@@ -9190,6 +9265,25 @@ PrefabInstance:
     - target: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uC5EC\uAE34 ..\uBB34\uC2A8 \uD1B5\uB85C\uC9C0??"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "(\uBD88\uBC95 \uC5F0\uAD6C\uC6D0\uB4E4\uC758 \uB9D0\uC18C\uB9AC) \uADF8\uB140\uC11D\uC744
+        \uB193\uCCD0\uBC84\uB838\uC73C\uB2C8.. \uC644\uC804\uD55C \uB2A5\uB825\uC744
+        \uC4F0\uAE30 \uC804\uC5D0 \uC7A1\uC544\uC57C \uD558\uB294\uB370!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "\uADF8\uB140\uC11D..?? \uB2A5\uB825?? \uC124\uB9C8 \uC774\uACF3\uC774
+        \uB098\uC640 \uB3D9\uC0DD\uC774 \uB0A9\uCE58\uB42C\uB358 \uACF3\uC778\uAC00!?"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
@@ -9306,6 +9400,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uD559\uAD50..?? \uB0B4\uAC00 \uB2E4\uB2C8\uB358 \uD559\uAD50\uB2E4!(\uD50C\uB808\uC774\uC5B4\uC758
+        \uCE5C\uAD6C\uB4E4\uC774 \uB2E4\uAC00\uC628\uB2E4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "\uCE5C\uAD6C\uB4E4..\uAD50\uC2E4..\uC120\uC0DD\uB2D8.. \uBAA8\uB450
+        \uADF8\uB300\uB85C\uC778\uB370 \uC774 \uD5C8\uC804\uD568\uC740 \uBB58\uAE4C??"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "(\uD559\uAD50 \uC218\uC5C5\uC774 \uB05D\uB098\uB294 \uC885\uC774 \uC6B8\uB9AC\uACE0
+        \uCE5C\uAD6C\uB4E4\uC774 \uD50C\uB808\uC774\uC5B4\uC5D0\uAC8C \uC628\uB2E4)
+        \uCE5C\uAD6C\uB4E4 : \uB180\uC774\uD130\uAC00\uC11C \uB180\uC790!!"
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_School
@@ -9420,6 +9534,24 @@ PrefabInstance:
     - target: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uAE5C\uC9DD\uC774\uC57C! \uAC11\uC790\uAE30 \uC660 \uACF5\uB8E1\uB4E4\uC774..!?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "\uC6B0\uC640.. \uB3D9\uC0DD\uB4E4\uC774 \uC88B\uC544\uD558\uB358 \uACF5\uB8E1\uB4E4\uC744
+        \uC2E4\uC81C\uB85C \uBCF4\uB2E4\uB2C8..!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "\uADFC\uB370 \uC870\uAE08 \uBB34\uC12D\uB2E4.. \uC2AC\uC2AC \uB098\uAC00\uACE0
+        \uC2F6\uC740\uB370 \uC5B4\uB5BB\uAC8C \uD574\uC57C\uD558\uC9C0??"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
@@ -9536,6 +9668,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "(\uCE5C\uAD6C\uB4E4\uACFC \uD568\uAED8 \uB180\uC774\uD130\uC5D0\uC11C
+        \uC990\uAC81\uAC8C \uB17C\uB2E4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: " (\uCE5C\uAD6C\uB4E4\uC758 \uC9C8\uBB38) \uADF8\uB098\uC800\uB098 OO\uC544
+        (\uB3D9\uC0DD\uC774\uB984)OO\uC774\uB294 \uC5B4\uB514\uAC14\uC5B4??? \uD56D\uC0C1
+        \uAC19\uC774 \uB2E4\uB154\uC796\uC544"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "(\uB3D9\uC0DD\uC774\uB984)OO\uC774..?? \uB098\uB791 \uD56D\uC0C1 \uAC19\uC774
+        \uB2E4\uB154\uB2E4\uACE0?? \uB204\uAD6C\uC9C0..?"
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_Playground
@@ -9650,6 +9802,25 @@ PrefabInstance:
     - target: {fileID: 782911119280426670, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: "\uC5EC\uAE34.. \uC5B4\uB514\uC9C0?? \uC775\uC219\uD55C \uC9D1\uC778\uB370?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "(\uBB38\uC744 \uC5F4\uBA70 \uB098\uC624\uB294 \uC5C4\uB9C8) \uC654\uAD6C\uB098!?
+        \uADFC\uB370 (\uB3D9\uC0DD\uC774\uB984)OO\uC774\uB294 \uC5B4\uB514\uAC00\uACE0
+        \uB108\uB9CC \uC624\uB2C8??"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "\uB3C4\uB300\uCCB4 (\uB3D9\uC0DD\uC774\uB984)OO\uC774 \uB204\uAD6C\uAE38\uB798
+        \uC790\uAFB8 \uBD80\uB974\uB294 \uAC78\uAE4C??"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
@@ -9766,9 +9937,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mytitleText
+      value: "1000 \uC810 \uC774\uC0C1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy1Text
+      value: " (\uC7A5\uB09C\uAC10\uC744 \uBCF4\uBA70) \uC0DD\uAC01\uB0AC\uC5B4!
+        OO\uC774 \uB0B4 \uB3D9\uC0DD\uC774\uAD6C\uB098!!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy2Text
+      value: "\uB3D9\uC0DD\uC758 \uAFC8\uC740 \uC6B0\uC8FC\uBE44\uD589\uC0AC\uB85C
+        \uC5EC\uB7EC \uD589\uC131\uC744 \uAC00\uB294\uAC8C \uC18C\uC6D0\uC774\uC5C8\uC9C0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: mystroy3Text
+      value: "(\uC7A5\uB09C\uAC10\uB4E4 \uC911 \uACF5\uB8E1\uC7A5\uB09C\uAC10\uC744
+        \uBCF4\uBA70) \uB3D9\uC0DD\uC774 \uC81C\uC77C \uC88B\uC544\uD558\uB358 \uC7A5\uB09C\uAC10\uC778\uB370.."
+      objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
       value: StoryPanel_Toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

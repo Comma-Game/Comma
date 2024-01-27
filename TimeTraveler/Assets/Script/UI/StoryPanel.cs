@@ -25,7 +25,7 @@ public class StoryPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI[] stroyTitleText;
     [SerializeField] public TextMeshProUGUI[] stroyText;
 
-    private bool[] isStoryLock = new bool[] { false, true, true };
+    private bool[] isStoryLock = new bool[] { false, false, false };
     
     void Start()
     {

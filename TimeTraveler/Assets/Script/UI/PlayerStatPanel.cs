@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerStatPanel : MonoBehaviour
 {
@@ -15,8 +16,12 @@ public class PlayerStatPanel : MonoBehaviour
     [SerializeField]
     public float maxHealth = 100;
     public float healthSpeed = 2;
+    public Image backgroundImg;
     public Image frontHealthBar;
     public Image backHealthBar;
+    private RectTransform backgroundImgRect;
+    private RectTransform frontHealthBarRect;
+    private RectTransform backHealthBarRect;
     public bool checkHealthDamage = false;
     public bool checkHealthRestore = false;
 
@@ -157,6 +162,17 @@ public class PlayerStatPanel : MonoBehaviour
         health = maxHealth;
         energy = maxEnergy;
         ChangeScoreText(0);
+        backgroundImgRect = backgroundImg.GetComponent<RectTransform>();
+        frontHealthBarRect = frontHealthBar.GetComponent<RectTransform>();
+        backHealthBarRect = backHealthBar.GetComponent<RectTransform>();
+        if(maxHealth > 100){
+            float diff = maxHealth - 100;
+            if(backgroundImgRect != null){
+                backgroundImgRect.sizeDelta = new Vector2(backgroundImgRect.sizeDelta.x + diff, backgroundImgRect.sizeDelta.y);
+                frontHealthBarRect.sizeDelta = new Vector2(frontHealthBarRect.sizeDelta.x + diff, frontHealthBarRect.sizeDelta.y);
+                backHealthBarRect.sizeDelta = new Vector2(backHealthBarRect.sizeDelta.x + diff, backHealthBarRect.sizeDelta.y);
+            }
+        }
     }
 
     /////////////////////////////////////////////////////////////////////////////////
