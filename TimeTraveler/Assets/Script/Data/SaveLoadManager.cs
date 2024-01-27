@@ -24,7 +24,7 @@ public class GameData
         upgrade_jelly = 0;
         upgrade_energy = 0;
         heart = 5;
-        exit_time = "";
+        exit_time = DateTime.Now.ToString();
         buff = 0;
     }
 }
@@ -146,7 +146,6 @@ public class SaveLoadManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SetExitTime();
         SaveData();
     }
 }

@@ -373,6 +373,7 @@
 "Assets/Script/Camera/ShowPlayer.cs"
 "Assets/Script/Data/SaveLoadManager.cs"
 "Assets/Script/GameManager.cs"
+"Assets/Script/Item/UseItem.cs"
 "Assets/Script/Object/Jelly.cs"
 "Assets/Script/Object/TransparentObject.cs"
 "Assets/Script/Player/ColliderRange.cs"

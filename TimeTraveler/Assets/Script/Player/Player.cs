@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed;
+    [SerializeField]
+    GameObject _camera;
+
+    float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed, _sphereScale;
     bool _isInvincible, _isPassPortal, _isCast, _isHit;
     StageController _stageController;
     SaveLoadManager _saveLoadManager;
     Coroutine _coroutine;
-    RaycastHit _hit;
     ColliderRange _colliderRange;
-    string _obstacle;
-    int _jelly;
+    int _jellyScore;
+    RaycastHit[] _hits;
+    RaycastHit _hit;
+    float _obstacleDamageBuff, _timeDamageBuff, _healBuff;
 
     private void Start()
     {
@@ -22,46 +26,39 @@ public class Player : MonoBehaviour
     {
 
     }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
+        // Hit된 지점까지 ray를 그려준다.
+        Gizmos.DrawRay(transform.position, transform.forward * _hit.distance);
+
+        // Hit된 지점에 박스를 그려준다.
+        Gizmos.DrawWireSphere(transform.position + transform.forward * _hit.distance, _sphereScale / 3 * 2);
+    }
+    
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, transform.forward * 5, Color.red);
-        if (Physics.Raycast(transform.position, transform.forward * 5, out _hit))
-        {
-            //Debug.Log("Raycast : " + _hit.transform.gameObject.name);
-            if (_hit.transform.gameObject.CompareTag("Obstacle"))
-            {
-                _obstacle = _hit.transform.gameObject.name;
-            }
-            else if (_hit.transform.gameObject.CompareTag("Jelly"))
-            {
-                if (_hit.transform.GetComponent<Jelly>().CheckMemory())
-                {
-                    StageController.Instance.ScoreUp(_jelly * 2);
-                    Heal(10);
-                }
-                else
-                {
-                    StageController.Instance.ScoreUp(_jelly);
-                }
-
-                StageController.Instance.AddDisabled(transform.gameObject);
-                _hit.transform.gameObject.SetActive(false);
-            }
-        }
+        Debug.DrawRay(transform.position, transform.forward * 1f, Color.red);
+        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 3, transform.forward, 1f, 1 << LayerMask.NameToLayer("Object"));
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (_obstacle == null) return;
-        if (_obstacle.Equals(collision.gameObject.name))
+        for(int i = 0; i < _hits.Length; i++)
         {
-            //Debug.Log("Collision : " + collision.gameObject.name);
-            HitDamage(10);
-            collision.gameObject.GetComponent<MeshExploder>().Explode();
+            if (!_hits[i].transform.gameObject.name.Equals(collision.gameObject.name)) continue;
+            if(collision.transform.CompareTag("Obstacle"))
+            {
+                collision.gameObject.SetActive(false);
+                HitDamage(10 * _obstacleDamageBuff);
+                
+                GameObject explode = collision.gameObject.GetComponent<MeshExploder>().Explode();
+                explode.transform.SetParent(collision.transform.parent);
 
-            _stageController.AddDisabled(collision.gameObject);
-            collision.gameObject.SetActive(false);
+                _stageController.AddDisabled(collision.gameObject);
+            }
         }
     }
 
@@ -74,7 +71,30 @@ public class Player : MonoBehaviour
             //StopMyCoroutine();
             if (_isPassPortal) _isPassPortal = false;
             _stageController.SetAcceleration();
+            _camera.GetComponent<ShowPlayer>().SetOpaque();
         }
+        else if (other.gameObject.CompareTag("Jelly"))
+        {
+            if (other.gameObject.GetComponent<Jelly>().CheckMemory())
+            {
+                StageController.Instance.ScoreUp(_jellyScore * 2);
+                Heal(10 * _healBuff);
+            }
+            else
+            {
+                StageController.Instance.ScoreUp(_jellyScore);
+            }
+
+            other.gameObject.SetActive(false);
+            StageController.Instance.AddDisabled(other.gameObject);
+        }
+    }
+
+    void Init_Buff()
+    {
+        _obstacleDamageBuff = 1;
+        _timeDamageBuff = 1;
+        _healBuff = 1;
     }
 
     void Init()
@@ -86,14 +106,17 @@ public class Player : MonoBehaviour
 
         _maxHp = 100 + CalculateHP();
         _hp = _maxHp;
+        //CanvasController.Instance.InitSetting(_maxHp);
         Debug.Log("HP : " + _hp);
 
         _energy = 100;
-        _energyChargeSpeed = 2 + CalculateEnergy();
+        _energyChargeSpeed = 2 + CalculateChargeEnergy();
         Debug.Log("Energy : " + _energy);
 
-        _jelly = 70 + CalculateJelly();
-        Debug.Log("Jelly : " + _jelly);
+        _jellyScore = 70 + CalculateJelly();
+        Debug.Log("Jelly : " + _jellyScore);
+
+        Init_Buff();
 
         _tempSpeed = 0;
 
@@ -103,6 +126,7 @@ public class Player : MonoBehaviour
 
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
         _colliderRange.ReSetColor();
+        _sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
 
         if (_coroutine != null) StopCoroutine(_coroutine);
     }
@@ -139,7 +163,7 @@ public class Player : MonoBehaviour
         //Debug.Log("Energy : " + _energy);
     }
 
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         if (_hp + amount > _maxHp)
         {
@@ -153,46 +177,47 @@ public class Player : MonoBehaviour
         }
 
         //Debug.Log("HP : " + _hp);
+        if (_hp > 50) CanvasController.Instance.OpenDamgePanel(false);
+    }
+
+    public void GetDamage(float damage)
+    {
+        _hp -= damage;
+        CanvasController.Instance.PlayerGetDamgeHP(damage);
+
+        if(_hp <= 50) CanvasController.Instance.OpenDamgePanel(true);
+        Debug.Log("HP : " + _hp);
     }
 
     public void TimeDamage()
     {
         if (!_isPassPortal && !_isInvincible)
         {
-            _hp -= 0.9f;
-            CanvasController.Instance.PlayerGetDamgeHP(1);
-
-            //Debug.Log("HP : " + _hp);
+            GetDamage(0.9f * _timeDamageBuff);
 
             if (_hp <= 0) EndGame();
         }
     }
 
-    void HitDamage(int damage)
+    void HitDamage(float damage)
     {
         if (!_isHit && !_isInvincible & !_isCast)
         {
-            _hp -= damage;
-            CanvasController.Instance.PlayerGetDamgeHP(damage);
+            GetDamage(damage);
 
             HitObstacle(1);
-
-            //Debug.Log("Remain HP : " + _hp);
 
             if (_hp <= 0) EndGame();
         }
     }
 
-    void GroundDamage(int damage)
+    void GroundDamage(float damage)
     {
         if (!_isPassPortal)
         {
-            _hp -= damage;
-            CanvasController.Instance.PlayerGetDamgeHP(damage);
+            GetDamage(damage);
 
             SetInvincible(1);
-
-            //Debug.Log("HP : " + _hp);
 
             if (_hp <= 0) EndGame();
         }
@@ -301,10 +326,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public float GetEnergy()
-    {
-        return _energy;
-    }
+    public float GetEnergy()  { return _energy; }
 
     float CalculateHP()
     {
@@ -321,7 +343,7 @@ public class Player : MonoBehaviour
         return ret;
     }
 
-    float CalculateEnergy()
+    float CalculateChargeEnergy()
     {
         int step = _saveLoadManager.GetUpgradeEnergy();
         float ret = 0, cnt = 0;
@@ -353,5 +375,25 @@ public class Player : MonoBehaviour
         }
 
         return ret;
+    }
+
+    public void SetObstacleDamageBuff()
+    {
+        _obstacleDamageBuff -= 0.5f;
+    }
+
+    public void SetTimeDamageBuff()
+    {
+        _timeDamageBuff -= 0.15f;
+    }
+
+    public void SetHealBuff()
+    {
+        _timeDamageBuff += 0.2f;
+    }
+
+    public void SetEnergyDeBuff()
+    {
+        _energy *= 0.8f;
     }
 }

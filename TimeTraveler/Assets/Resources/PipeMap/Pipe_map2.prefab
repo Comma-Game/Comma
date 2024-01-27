@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4335753540283295169}
   - component: {fileID: 5467727043602877242}
   - component: {fileID: 1770786506060793252}
-  - component: {fileID: 4150332884483298672}
+  - component: {fileID: 6198666772555751419}
   m_Layer: 6
   m_Name: PipeExtras08 (3)
   m_TagString: Obstacle
@@ -112,18 +112,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4150332884483298672
-MonoBehaviour:
+--- !u!135 &6198666772555751419
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20410964973477238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004408015
+  m_Center: {x: -0.000000029802319, y: 0.00024497515, z: 0.0000000018626454}
 --- !u!1 &101226101318886620
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +148,6 @@ GameObject:
   - component: {fileID: 812568993291235889}
   - component: {fileID: 5611362890213986861}
   - component: {fileID: 1996843459438211716}
-  - component: {fileID: 396213814388501443}
   m_Layer: 6
   m_Name: Pipe21 (24)
   m_TagString: Obstacle
@@ -311,18 +319,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &396213814388501443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101226101318886620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &173152957258386588
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +331,7 @@ GameObject:
   - component: {fileID: 5465934125976033003}
   - component: {fileID: 1377377050488510107}
   - component: {fileID: 7018621834103805402}
-  - component: {fileID: 5479715876260216555}
+  - component: {fileID: 5837764050747521626}
   m_Layer: 6
   m_Name: PipeExtras13 (3)
   m_TagString: Obstacle
@@ -435,18 +431,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5479715876260216555
-MonoBehaviour:
+--- !u!135 &5837764050747521626
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173152957258386588}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.31863973
+  m_Center: {x: 0.00030621933, y: 0.0054970523, z: 0.010987955}
 --- !u!1 &197313677273407265
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +464,7 @@ GameObject:
   - component: {fileID: 5589373729748464463}
   - component: {fileID: 7709199054522786376}
   - component: {fileID: 7142211647890873472}
-  - component: {fileID: 8305943131192265345}
+  - component: {fileID: 2292677520674970967}
   m_Layer: 6
   m_Name: PipeExtras31 (40)
   m_TagString: Obstacle
@@ -559,18 +564,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8305943131192265345
-MonoBehaviour:
+--- !u!135 &2292677520674970967
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197313677273407265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: 0.000000003259629, y: -5.8207655e-10, z: -9.313225e-10}
 --- !u!1 &204577606532157316
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +597,7 @@ GameObject:
   - component: {fileID: 5429189972474791939}
   - component: {fileID: 1318548028651328389}
   - component: {fileID: 7550336314814476272}
-  - component: {fileID: 551361024803669956}
+  - component: {fileID: 213593239349904758}
   m_Layer: 6
   m_Name: PipeExtras31 (53)
   m_TagString: Obstacle
@@ -683,18 +697,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &551361024803669956
-MonoBehaviour:
+--- !u!135 &213593239349904758
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204577606532157316}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -4.6566134e-10, y: 0.000000014319085, z: 0.0000000016298145}
 --- !u!1 &309494618167902523
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +734,6 @@ GameObject:
   - component: {fileID: 2768608077988846897}
   - component: {fileID: 3503943960126180570}
   - component: {fileID: 6534805286035912691}
-  - component: {fileID: 6470307160640908384}
   m_Layer: 6
   m_Name: Pipe29 (3)
   m_TagString: Obstacle
@@ -907,18 +929,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6470307160640908384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309494618167902523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &364560597903427717
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +947,6 @@ GameObject:
   - component: {fileID: 1115702901443266366}
   - component: {fileID: 4006027995870270967}
   - component: {fileID: 8405133514350713214}
-  - component: {fileID: 4187001929578348638}
   m_Layer: 6
   m_Name: Pipe38 (1)
   m_TagString: Obstacle
@@ -1179,18 +1188,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &4187001929578348638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364560597903427717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &382254041834525202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1203,6 @@ GameObject:
   - component: {fileID: 6859248802673051695}
   - component: {fileID: 612182913500738191}
   - component: {fileID: 4811981777857208020}
-  - component: {fileID: 891619456915107254}
   m_Layer: 6
   m_Name: Pipe21 (08)
   m_TagString: Obstacle
@@ -1377,18 +1373,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &891619456915107254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382254041834525202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &480861881025680570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1385,7 @@ GameObject:
   - component: {fileID: 2531345659012911021}
   - component: {fileID: 5476608087670984603}
   - component: {fileID: 4434245202740557567}
-  - component: {fileID: 8048556376082010274}
+  - component: {fileID: 2661019330746812308}
   m_Layer: 6
   m_Name: PipeExtras31 (90)
   m_TagString: Obstacle
@@ -1501,18 +1485,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8048556376082010274
-MonoBehaviour:
+--- !u!135 &2661019330746812308
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480861881025680570}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510046
+  m_Center: {x: -4.656618e-10, y: 0.0000000012805683, z: -0.00000000745058}
 --- !u!1 &501235536937663888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1518,7 @@ GameObject:
   - component: {fileID: 9001132845742445714}
   - component: {fileID: 2145615731971401100}
   - component: {fileID: 2147177776643471124}
-  - component: {fileID: 262906611404713427}
+  - component: {fileID: 4449302226091166938}
   m_Layer: 6
   m_Name: PipeExtras31 (93)
   m_TagString: Obstacle
@@ -1625,18 +1618,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &262906611404713427
-MonoBehaviour:
+--- !u!135 &4449302226091166938
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501235536937663888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510037
+  m_Center: {x: -4.6566134e-10, y: -5.820768e-10, z: 0.0000000018626454}
 --- !u!1 &534890241401456673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1757,7 @@ GameObject:
   - component: {fileID: 3081130762027974277}
   - component: {fileID: 5058469826317946082}
   - component: {fileID: 2810801278750881903}
-  - component: {fileID: 3766808651322985538}
+  - component: {fileID: 6279654075667401075}
   m_Layer: 6
   m_Name: PipeExtras31 (47)
   m_TagString: Obstacle
@@ -1855,18 +1857,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3766808651322985538
-MonoBehaviour:
+--- !u!135 &6279654075667401075
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552036679744724689}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -4.6566126e-10, y: -5.820766e-10, z: 8.271806e-24}
 --- !u!1 &570671385104671641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1925,7 @@ GameObject:
   - component: {fileID: 598031372918379378}
   - component: {fileID: 1135338309699539070}
   - component: {fileID: 5821141279686988279}
-  - component: {fileID: 3259314368868958694}
+  - component: {fileID: 1478858961692435534}
   m_Layer: 6
   m_Name: PipeExtras10 (4)
   m_TagString: Obstacle
@@ -2014,18 +2025,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3259314368868958694
-MonoBehaviour:
+--- !u!135 &1478858961692435534
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794731504950636975}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.00288102
+  m_Center: {x: 0.000041097865, y: -0.00026263378, z: 0.000012786242}
 --- !u!1 &820219411095712596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2062,6 @@ GameObject:
   - component: {fileID: 7259248732233783017}
   - component: {fileID: 6873700338586981467}
   - component: {fileID: 8252238317875658175}
-  - component: {fileID: 7203707874721957453}
   m_Layer: 6
   m_Name: Pipe27 (11)
   m_TagString: Obstacle
@@ -2236,18 +2255,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &7203707874721957453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820219411095712596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &887707166982708477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2271,6 @@ GameObject:
   - component: {fileID: 2516073377834294802}
   - component: {fileID: 7005360150677299007}
   - component: {fileID: 5629797683323816070}
-  - component: {fileID: 2455572194596719981}
   m_Layer: 6
   m_Name: Pipe27 (3)
   m_TagString: Obstacle
@@ -2460,18 +2466,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2455572194596719981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887707166982708477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &983783574951870655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2478,7 @@ GameObject:
   - component: {fileID: 7229096013746083720}
   - component: {fileID: 5824753158318841356}
   - component: {fileID: 4599042715357720978}
-  - component: {fileID: 8203424645276727574}
+  - component: {fileID: 5801786340715893241}
   m_Layer: 6
   m_Name: PipeExtras31 (83)
   m_TagString: Obstacle
@@ -2584,18 +2578,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8203424645276727574
-MonoBehaviour:
+--- !u!135 &5801786340715893241
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983783574951870655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -4.656613e-10, y: -0.000000015483238, z: 0.0000000018626451}
 --- !u!1 &1031276181157991666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2615,6 @@ GameObject:
   - component: {fileID: 3652627292159317859}
   - component: {fileID: 6813566659732191988}
   - component: {fileID: 2574713232724975824}
-  - component: {fileID: 6052646813139552115}
   m_Layer: 6
   m_Name: Pipe27 (8)
   m_TagString: Obstacle
@@ -2808,18 +2810,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6052646813139552115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031276181157991666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1046964914064070727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,7 +2822,7 @@ GameObject:
   - component: {fileID: 7070815152036605128}
   - component: {fileID: 794531612294441921}
   - component: {fileID: 6287507569674711518}
-  - component: {fileID: 1388012713514776780}
+  - component: {fileID: 35649489090145696}
   m_Layer: 6
   m_Name: PipeExtras08 (3)
   m_TagString: Obstacle
@@ -2932,18 +2922,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1388012713514776780
-MonoBehaviour:
+--- !u!135 &35649489090145696
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046964914064070727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0044080154
+  m_Center: {x: -0.000000005566033, y: 0.00024498263, z: -0.000000007454301}
 --- !u!1 &1063412145250034300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,7 +2955,7 @@ GameObject:
   - component: {fileID: 7837112874737837}
   - component: {fileID: 4333649500327799319}
   - component: {fileID: 7384339126970661377}
-  - component: {fileID: 8980532357050545837}
+  - component: {fileID: 7835560482636489023}
   m_Layer: 6
   m_Name: PipeExtras31 (99)
   m_TagString: Obstacle
@@ -3056,18 +3055,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8980532357050545837
-MonoBehaviour:
+--- !u!135 &7835560482636489023
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063412145250034300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -8.1490725e-10, y: -0.0000000303844, z: 9.313226e-10}
 --- !u!1 &1167853140093850081
 GameObject:
   m_ObjectHideFlags: 0
@@ -7923,7 +7931,6 @@ GameObject:
   - component: {fileID: 4197689872633039003}
   - component: {fileID: 1026095506834809016}
   - component: {fileID: 9039865173874776735}
-  - component: {fileID: 453486042545223176}
   m_Layer: 6
   m_Name: Pipe27 (9)
   m_TagString: Obstacle
@@ -8119,18 +8126,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &453486042545223176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178133045437851026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1320552837410584937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8143,7 +8138,7 @@ GameObject:
   - component: {fileID: 6163482641842346919}
   - component: {fileID: 8143021123582013897}
   - component: {fileID: 1885310005807548494}
-  - component: {fileID: 7942674224097770640}
+  - component: {fileID: 3926031525140554162}
   m_Layer: 6
   m_Name: PipeExtras31 (51)
   m_TagString: Obstacle
@@ -8243,18 +8238,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7942674224097770640
-MonoBehaviour:
+--- !u!135 &3926031525140554162
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320552837410584937}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551002
+  m_Center: {x: -5.551115e-17, y: 0.0000000012805685, z: 0.000000014901161}
 --- !u!1 &1418689736679890267
 GameObject:
   m_ObjectHideFlags: 0
@@ -8267,7 +8271,7 @@ GameObject:
   - component: {fileID: 7028155385194641849}
   - component: {fileID: 4580304932880702088}
   - component: {fileID: 2506983809093642747}
-  - component: {fileID: 2728250830321258877}
+  - component: {fileID: 2690179029656189754}
   m_Layer: 6
   m_Name: PipeExtras32 (8)
   m_TagString: Obstacle
@@ -8367,18 +8371,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2728250830321258877
-MonoBehaviour:
+--- !u!135 &2690179029656189754
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418689736679890267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0034609044
+  m_Center: {x: -7.036058e-17, y: -1.12075405e-10, z: -0.0001456222}
 --- !u!1 &1463889167536641300
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,7 +8404,7 @@ GameObject:
   - component: {fileID: 7611906494128536693}
   - component: {fileID: 8453724060647439502}
   - component: {fileID: 6735438372086883186}
-  - component: {fileID: 5160409958095721451}
+  - component: {fileID: 602214260600148471}
   m_Layer: 6
   m_Name: PipeExtras19 (7)
   m_TagString: Obstacle
@@ -8491,18 +8504,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5160409958095721451
-MonoBehaviour:
+--- !u!135 &602214260600148471
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463889167536641300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043167
+  m_Center: {x: -0.00000059604656, y: 1.7763567e-13, z: 0.0000000037252916}
 --- !u!1 &1514906927268554816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,7 +8541,6 @@ GameObject:
   - component: {fileID: 2300143746279546447}
   - component: {fileID: 5164572318311395956}
   - component: {fileID: 6651521991832708309}
-  - component: {fileID: 6954131139860513293}
   m_Layer: 6
   m_Name: Pipe27 (4)
   m_TagString: Obstacle
@@ -8715,18 +8736,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6954131139860513293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514906927268554816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1564402389577242148
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,7 +8751,6 @@ GameObject:
   - component: {fileID: 1364303842160990738}
   - component: {fileID: 5238462031084314299}
   - component: {fileID: 4949146464930572358}
-  - component: {fileID: 5100512877918576613}
   m_Layer: 6
   m_Name: Pipe21 (23)
   m_TagString: Obstacle
@@ -8913,18 +8921,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5100512877918576613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564402389577242148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1666067305222224372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,7 +8975,7 @@ GameObject:
   - component: {fileID: 7446200261012826875}
   - component: {fileID: 3392791922529075627}
   - component: {fileID: 5554246961120480645}
-  - component: {fileID: 398188922418244291}
+  - component: {fileID: 1031596276249027057}
   m_Layer: 6
   m_Name: PipeExtras10 (4)
   m_TagString: Obstacle
@@ -9079,18 +9075,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &398188922418244291
-MonoBehaviour:
+--- !u!135 &1031596276249027057
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735308510753886981}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.00288102
+  m_Center: {x: 0.000041097886, y: -0.0002626282, z: 0.00001278624}
 --- !u!1 &1849454529420414486
 GameObject:
   m_ObjectHideFlags: 0
@@ -9103,7 +9108,7 @@ GameObject:
   - component: {fileID: 3320228107804220917}
   - component: {fileID: 2353672944647217324}
   - component: {fileID: 3371011552417043219}
-  - component: {fileID: 2351163789918359996}
+  - component: {fileID: 3614258902194034763}
   m_Layer: 6
   m_Name: PipeExtras31 (50)
   m_TagString: Obstacle
@@ -9203,18 +9208,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2351163789918359996
-MonoBehaviour:
+--- !u!135 &3614258902194034763
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849454529420414486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -9.313226e-10, y: 0.0000000026775524, z: 4.8524066e-17}
 --- !u!1 &1913346903488850143
 GameObject:
   m_ObjectHideFlags: 0
@@ -9227,7 +9241,7 @@ GameObject:
   - component: {fileID: 2716647323482698017}
   - component: {fileID: 4156077734953270446}
   - component: {fileID: 3770582189716642023}
-  - component: {fileID: 7942674280638524792}
+  - component: {fileID: 1973634804855962659}
   m_Layer: 6
   m_Name: PipeExtras31 (100)
   m_TagString: Obstacle
@@ -9327,18 +9341,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7942674280638524792
-MonoBehaviour:
+--- !u!135 &1973634804855962659
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913346903488850143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510014
+  m_Center: {x: 0.0000000144355, y: -5.8207666e-10, z: 0.0000000016298144}
 --- !u!1 &1948539419777501166
 GameObject:
   m_ObjectHideFlags: 0
@@ -9353,7 +9376,6 @@ GameObject:
   - component: {fileID: 6265671597170788895}
   - component: {fileID: 7713060036597170995}
   - component: {fileID: 3960796837427606227}
-  - component: {fileID: 588164257374790698}
   m_Layer: 6
   m_Name: Pipe03 (4)
   m_TagString: Obstacle
@@ -9502,18 +9524,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &588164257374790698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948539419777501166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2221350627941265973
 GameObject:
   m_ObjectHideFlags: 0
@@ -9526,7 +9536,7 @@ GameObject:
   - component: {fileID: 6085830485402103860}
   - component: {fileID: 1813803514801078219}
   - component: {fileID: 1016151181798362945}
-  - component: {fileID: 7366611767094868749}
+  - component: {fileID: 4849297537472025668}
   m_Layer: 6
   m_Name: PipeExtras31 (49)
   m_TagString: Obstacle
@@ -9626,18 +9636,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7366611767094868749
-MonoBehaviour:
+--- !u!135 &4849297537472025668
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2221350627941265973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -9.313225e-10, y: -5.820767e-10, z: -3.8567296e-23}
 --- !u!1 &2235299022361797148
 GameObject:
   m_ObjectHideFlags: 0
@@ -9650,7 +9669,7 @@ GameObject:
   - component: {fileID: 291862177405502021}
   - component: {fileID: 3048004805903442970}
   - component: {fileID: 3628209179878024098}
-  - component: {fileID: 3733052456343416657}
+  - component: {fileID: 2711361604937272456}
   m_Layer: 6
   m_Name: PipeExtras31 (87)
   m_TagString: Obstacle
@@ -9750,18 +9769,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3733052456343416657
-MonoBehaviour:
+--- !u!135 &2711361604937272456
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2235299022361797148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551001
+  m_Center: {x: -0.000000003259629, y: 0.000000018044375, z: -0.000000007450581}
 --- !u!1 &2269919427255564889
 GameObject:
   m_ObjectHideFlags: 0
@@ -9774,7 +9802,7 @@ GameObject:
   - component: {fileID: 2899213109928145946}
   - component: {fileID: 7163598158836490674}
   - component: {fileID: 8931885475860334852}
-  - component: {fileID: 1768945517032810484}
+  - component: {fileID: 5523222806997988735}
   m_Layer: 6
   m_Name: PipeExtras31 (84)
   m_TagString: Obstacle
@@ -9874,18 +9902,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1768945517032810484
-MonoBehaviour:
+--- !u!135 &5523222806997988735
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2269919427255564889}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.0000000060535967, y: 0.0000000012805685, z: -1.270243e-17}
 --- !u!1 &2360679275044657808
 GameObject:
   m_ObjectHideFlags: 0
@@ -9899,7 +9936,7 @@ GameObject:
   - component: {fileID: 6055580109348654726}
   - component: {fileID: 1499892429407967795}
   - component: {fileID: 2893902866485748098}
-  - component: {fileID: 3486172725434058161}
+  - component: {fileID: 2764083141583532764}
   m_Layer: 6
   m_Name: PipeExtras08 (12)
   m_TagString: Obstacle
@@ -10022,18 +10059,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3486172725434058161
-MonoBehaviour:
+--- !u!135 &2764083141583532764
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2360679275044657808}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0044080154
+  m_Center: {x: 0.0000000018477119, y: 0.00024497512, z: -0.0000000037384638}
 --- !u!1 &2389370420556637536
 GameObject:
   m_ObjectHideFlags: 0
@@ -10046,7 +10092,7 @@ GameObject:
   - component: {fileID: 3045467915753438562}
   - component: {fileID: 2704772377024819193}
   - component: {fileID: 874790134829459876}
-  - component: {fileID: 7717514440179803586}
+  - component: {fileID: 4483757998608793364}
   m_Layer: 6
   m_Name: PipeExtras31 (92)
   m_TagString: Obstacle
@@ -10146,18 +10192,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7717514440179803586
-MonoBehaviour:
+--- !u!135 &4483757998608793364
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2389370420556637536}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510037
+  m_Center: {x: 0.000000003259629, y: -5.820768e-10, z: -9.3132235e-10}
 --- !u!1 &2501659818359622464
 GameObject:
   m_ObjectHideFlags: 0
@@ -10170,7 +10225,7 @@ GameObject:
   - component: {fileID: 5621699624299770638}
   - component: {fileID: 7569679255495006198}
   - component: {fileID: 4350971139895958614}
-  - component: {fileID: 4961360877396419521}
+  - component: {fileID: 5568168521498992714}
   m_Layer: 6
   m_Name: PipeExtras31 (88)
   m_TagString: Obstacle
@@ -10270,18 +10325,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4961360877396419521
-MonoBehaviour:
+--- !u!135 &5568168521498992714
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501659818359622464}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -0.0000000013969839, y: -0.000000015483238, z: -9.313226e-10}
 --- !u!1 &2548179918009902894
 GameObject:
   m_ObjectHideFlags: 0
@@ -10297,7 +10361,6 @@ GameObject:
   - component: {fileID: 6511882277701930915}
   - component: {fileID: 3464057791380916975}
   - component: {fileID: 710762274879747700}
-  - component: {fileID: 2809231839398710748}
   m_Layer: 6
   m_Name: Pipe07 (3)
   m_TagString: Obstacle
@@ -10466,18 +10529,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2809231839398710748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2548179918009902894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2682029274146458751
 GameObject:
   m_ObjectHideFlags: 0
@@ -10490,7 +10541,7 @@ GameObject:
   - component: {fileID: 5596567543534779513}
   - component: {fileID: 5422566730366897336}
   - component: {fileID: 824071303904174950}
-  - component: {fileID: 931012141748753138}
+  - component: {fileID: 6692147218477931189}
   m_Layer: 6
   m_Name: PipeExtras31 (84)
   m_TagString: Obstacle
@@ -10590,18 +10641,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &931012141748753138
-MonoBehaviour:
+--- !u!135 &6692147218477931189
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2682029274146458751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -3.492459e-10, y: -0.000000015483238, z: -9.313226e-10}
 --- !u!1 &2683527941276813424
 GameObject:
   m_ObjectHideFlags: 0
@@ -10618,7 +10678,6 @@ GameObject:
   - component: {fileID: 8053973781255128283}
   - component: {fileID: 2762170641057573604}
   - component: {fileID: 354393247806722267}
-  - component: {fileID: 4204152562676052963}
   m_Layer: 6
   m_Name: Pipe49 (1)
   m_TagString: Obstacle
@@ -10814,18 +10873,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &4204152562676052963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683527941276813424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2715182744063169927
 GameObject:
   m_ObjectHideFlags: 0
@@ -10842,7 +10889,6 @@ GameObject:
   - component: {fileID: 4534789128747227735}
   - component: {fileID: 5190770950676750223}
   - component: {fileID: 8691097292689167267}
-  - component: {fileID: 1823861499238552602}
   m_Layer: 6
   m_Name: Pipe31 (1)
   m_TagString: Obstacle
@@ -11038,18 +11084,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &1823861499238552602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2715182744063169927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2716889292649626365
 GameObject:
   m_ObjectHideFlags: 0
@@ -11064,7 +11098,6 @@ GameObject:
   - component: {fileID: 5893025417235345754}
   - component: {fileID: 4814257155594612095}
   - component: {fileID: 2635411922886230360}
-  - component: {fileID: 795905777718180176}
   m_Layer: 6
   m_Name: Pipe16 (4)
   m_TagString: Obstacle
@@ -11213,18 +11246,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &795905777718180176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2716889292649626365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2770125136240274242
 GameObject:
   m_ObjectHideFlags: 0
@@ -11237,7 +11258,7 @@ GameObject:
   - component: {fileID: 5297291179375792459}
   - component: {fileID: 2677261360082584986}
   - component: {fileID: 3905949666889000227}
-  - component: {fileID: 6322840020508500696}
+  - component: {fileID: 5019265687252903354}
   m_Layer: 6
   m_Name: PipeExtras31 (45)
   m_TagString: Obstacle
@@ -11337,18 +11358,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6322840020508500696
-MonoBehaviour:
+--- !u!135 &5019265687252903354
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2770125136240274242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: 0.0000000013969839, y: -5.8207666e-10, z: -3.8670694e-23}
 --- !u!1 &2927878310035755914
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,7 +11394,6 @@ GameObject:
   - component: {fileID: 8538568707952555486}
   - component: {fileID: 5448399514684011267}
   - component: {fileID: 3324504979975517326}
-  - component: {fileID: 2045719753802596808}
   m_Layer: 6
   m_Name: Pipe21 (6)
   m_TagString: Obstacle
@@ -11536,18 +11565,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2045719753802596808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2927878310035755914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3011114850331520642
 GameObject:
   m_ObjectHideFlags: 0
@@ -11560,7 +11577,7 @@ GameObject:
   - component: {fileID: 9198529697036812942}
   - component: {fileID: 7898618377788986129}
   - component: {fileID: 6612269486576843794}
-  - component: {fileID: 2293498479639886183}
+  - component: {fileID: 8309121919796361714}
   m_Layer: 6
   m_Name: PipeExtras31 (90)
   m_TagString: Obstacle
@@ -11660,18 +11677,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2293498479639886183
-MonoBehaviour:
+--- !u!135 &8309121919796361714
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3011114850331520642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551004
+  m_Center: {x: 0.0000000051222737, y: 0.000000014319085, z: 9.313229e-10}
 --- !u!1 &3149224734481947310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11684,7 +11710,7 @@ GameObject:
   - component: {fileID: 3296729133065884754}
   - component: {fileID: 2933185286368732479}
   - component: {fileID: 120304684334091354}
-  - component: {fileID: 865822338400231254}
+  - component: {fileID: 5101654791667893316}
   m_Layer: 6
   m_Name: PipeExtras32 (7)
   m_TagString: Obstacle
@@ -11784,18 +11810,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &865822338400231254
-MonoBehaviour:
+--- !u!135 &5101654791667893316
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3149224734481947310}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0034609062
+  m_Center: {x: 0.000000020549855, y: -2.2117228e-12, z: -0.0001456241}
 --- !u!1 &3194149828152724159
 GameObject:
   m_ObjectHideFlags: 0
@@ -11808,7 +11843,7 @@ GameObject:
   - component: {fileID: 3732741209953764974}
   - component: {fileID: 7473925041886219977}
   - component: {fileID: 6699754564635081241}
-  - component: {fileID: 7029649716179324948}
+  - component: {fileID: 230849891209835376}
   m_Layer: 6
   m_Name: PipeExtras19 (10)
   m_TagString: Obstacle
@@ -11908,18 +11943,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7029649716179324948
-MonoBehaviour:
+--- !u!135 &230849891209835376
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3194149828152724159}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.3304315
+  m_Center: {x: 0.0000013113022, y: 0.00000023841856, z: 0.0000000037252725}
 --- !u!1 &3238266368557910849
 GameObject:
   m_ObjectHideFlags: 0
@@ -11932,7 +11976,7 @@ GameObject:
   - component: {fileID: 8882662443069945159}
   - component: {fileID: 3551282881148239532}
   - component: {fileID: 6063514566045708433}
-  - component: {fileID: 1134289047772088318}
+  - component: {fileID: 2079108016835090337}
   m_Layer: 6
   m_Name: PipeExtras31 (96)
   m_TagString: Obstacle
@@ -12032,18 +12076,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1134289047772088318
-MonoBehaviour:
+--- !u!135 &2079108016835090337
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238266368557910849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.000000009778887, y: 0.0000000026775524, z: -1.2702472e-17}
 --- !u!1 &3316354535111903053
 GameObject:
   m_ObjectHideFlags: 0
@@ -12056,7 +12109,7 @@ GameObject:
   - component: {fileID: 6434071799588810237}
   - component: {fileID: 7100242953882967241}
   - component: {fileID: 521252626976730911}
-  - component: {fileID: 8951777042844543098}
+  - component: {fileID: 1666799373866943268}
   m_Layer: 6
   m_Name: PipeExtras19 (10)
   m_TagString: Obstacle
@@ -12156,18 +12209,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8951777042844543098
-MonoBehaviour:
+--- !u!135 &1666799373866943268
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3316354535111903053}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.3304315
+  m_Center: {x: -0.0000011920929, y: 0.00000047683713, z: -0.00000065192575}
 --- !u!1 &3326222514313525988
 GameObject:
   m_ObjectHideFlags: 0
@@ -12180,7 +12242,7 @@ GameObject:
   - component: {fileID: 4500324776216184826}
   - component: {fileID: 4941784073746474453}
   - component: {fileID: 8487353568569499390}
-  - component: {fileID: 5806121663308463735}
+  - component: {fileID: 4870170638533174480}
   m_Layer: 6
   m_Name: PipeExtras19 (8)
   m_TagString: Obstacle
@@ -12280,18 +12342,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5806121663308463735
-MonoBehaviour:
+--- !u!135 &4870170638533174480
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3326222514313525988}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043158
+  m_Center: {x: -0.00000059604645, y: -0.000000029802127, z: 0.0000000037252916}
 --- !u!1 &3493535966936204343
 GameObject:
   m_ObjectHideFlags: 0
@@ -12304,7 +12375,7 @@ GameObject:
   - component: {fileID: 5367939673414733045}
   - component: {fileID: 4489342547041636568}
   - component: {fileID: 6074396366170500265}
-  - component: {fileID: 561573407005010173}
+  - component: {fileID: 739021685249178465}
   m_Layer: 6
   m_Name: PipeExtras31 (39)
   m_TagString: Obstacle
@@ -12404,18 +12475,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &561573407005010173
-MonoBehaviour:
+--- !u!135 &739021685249178465
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3493535966936204343}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510014
+  m_Center: {x: 0.0000000013969839, y: -5.8207666e-10, z: 1.2490006e-16}
 --- !u!1 &3606844565302706126
 GameObject:
   m_ObjectHideFlags: 0
@@ -12434,7 +12514,6 @@ GameObject:
   - component: {fileID: 2962556394837362308}
   - component: {fileID: 4976033000640871610}
   - component: {fileID: 7303756236348375375}
-  - component: {fileID: 2093256416834809279}
   m_Layer: 6
   m_Name: Pipe51 (2)
   m_TagString: Obstacle
@@ -12676,18 +12755,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2093256416834809279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3606844565302706126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3681714192762347055
 GameObject:
   m_ObjectHideFlags: 0
@@ -12703,7 +12770,6 @@ GameObject:
   - component: {fileID: 5759571402062221964}
   - component: {fileID: 4244293484270202412}
   - component: {fileID: 8350376806363970868}
-  - component: {fileID: 5365517241632598154}
   m_Layer: 6
   m_Name: Pipe21 (21)
   m_TagString: Obstacle
@@ -12876,18 +12942,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5365517241632598154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3681714192762347055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3742016170246764182
 GameObject:
   m_ObjectHideFlags: 0
@@ -12904,7 +12958,6 @@ GameObject:
   - component: {fileID: 63021939851362550}
   - component: {fileID: 6342387386389330130}
   - component: {fileID: 447983845013740782}
-  - component: {fileID: 6097013600896221681}
   m_Layer: 6
   m_Name: Pipe27 (10)
   m_TagString: Obstacle
@@ -13099,18 +13152,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6097013600896221681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3742016170246764182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3801840889277884784
 GameObject:
   m_ObjectHideFlags: 0
@@ -13157,7 +13198,7 @@ GameObject:
   - component: {fileID: 653687049407331449}
   - component: {fileID: 7537443010694096436}
   - component: {fileID: 6742782571956098311}
-  - component: {fileID: 3512846993359610526}
+  - component: {fileID: 7037576577502924263}
   m_Layer: 6
   m_Name: PipeExtras19 (8)
   m_TagString: Obstacle
@@ -13257,18 +13298,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3512846993359610526
-MonoBehaviour:
+--- !u!135 &7037576577502924263
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3808148045630867037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.3304316
+  m_Center: {x: -0.0000006556512, y: 6.215455e-14, z: 0.000000003725292}
 --- !u!1 &4136565171954505107
 GameObject:
   m_ObjectHideFlags: 0
@@ -13418,7 +13468,6 @@ GameObject:
   - component: {fileID: 5801589935927175239}
   - component: {fileID: 5848592037701203253}
   - component: {fileID: 1251476583304880869}
-  - component: {fileID: 5094700359245047160}
   m_Layer: 6
   m_Name: Pipe21 (20)
   m_TagString: Obstacle
@@ -13592,18 +13641,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5094700359245047160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4194409023027054988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4348939254079894015
 GameObject:
   m_ObjectHideFlags: 0
@@ -13620,7 +13657,6 @@ GameObject:
   - component: {fileID: 2190262146826927728}
   - component: {fileID: 7068630950093452901}
   - component: {fileID: 7532729937495145320}
-  - component: {fileID: 6656387861298904579}
   m_Layer: 6
   m_Name: Pipe27 (11)
   m_TagString: Obstacle
@@ -13814,18 +13850,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6656387861298904579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348939254079894015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4431139501690903898
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,7 +13866,6 @@ GameObject:
   - component: {fileID: 5975273353261437809}
   - component: {fileID: 8378878937375693487}
   - component: {fileID: 2956072808909030395}
-  - component: {fileID: 4443132795310103673}
   m_Layer: 6
   m_Name: Pipe40 (1)
   m_TagString: Obstacle
@@ -14037,18 +14060,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &4443132795310103673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4431139501690903898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4554954647079633881
 GameObject:
   m_ObjectHideFlags: 0
@@ -14065,7 +14076,6 @@ GameObject:
   - component: {fileID: 5682850085130657598}
   - component: {fileID: 2564840450274505537}
   - component: {fileID: 4350166448394693337}
-  - component: {fileID: 3167311830028885978}
   m_Layer: 6
   m_Name: Pipe27 (10)
   m_TagString: Obstacle
@@ -14260,18 +14270,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &3167311830028885978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4554954647079633881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4620746194087319132
 GameObject:
   m_ObjectHideFlags: 0
@@ -14284,7 +14282,7 @@ GameObject:
   - component: {fileID: 3217221354180861176}
   - component: {fileID: 6797909857415389588}
   - component: {fileID: 1771978388313599106}
-  - component: {fileID: 8274303889534247604}
+  - component: {fileID: 7186821423635084979}
   m_Layer: 6
   m_Name: PipeExtras31 (97)
   m_TagString: Obstacle
@@ -14384,18 +14382,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8274303889534247604
-MonoBehaviour:
+--- !u!135 &7186821423635084979
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4620746194087319132}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510037
+  m_Center: {x: 0.000000006984919, y: -5.82077e-10, z: 0.000000004656613}
 --- !u!1 &4647669896710506647
 GameObject:
   m_ObjectHideFlags: 0
@@ -14408,7 +14415,7 @@ GameObject:
   - component: {fileID: 5650976706663601269}
   - component: {fileID: 5420578727483070592}
   - component: {fileID: 4469838731035109553}
-  - component: {fileID: 1128479077788218819}
+  - component: {fileID: 7578467484013490088}
   m_Layer: 6
   m_Name: PipeExtras31 (46)
   m_TagString: Obstacle
@@ -14508,18 +14515,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1128479077788218819
-MonoBehaviour:
+--- !u!135 &7578467484013490088
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4647669896710506647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -0.0000000013969839, y: 0.0000000012805685, z: 0.000000007450581}
 --- !u!1 &4842620428673816075
 GameObject:
   m_ObjectHideFlags: 0
@@ -14534,7 +14550,6 @@ GameObject:
   - component: {fileID: 643446084542297770}
   - component: {fileID: 5300117028415820791}
   - component: {fileID: 5577118683689660356}
-  - component: {fileID: 4919175458692323637}
   m_Layer: 6
   m_Name: Pipe03 (4)
   m_TagString: Obstacle
@@ -14683,18 +14698,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &4919175458692323637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4842620428673816075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4844519524766432004
 GameObject:
   m_ObjectHideFlags: 0
@@ -14713,7 +14716,6 @@ GameObject:
   - component: {fileID: 3223838462968898865}
   - component: {fileID: 3806285148348602884}
   - component: {fileID: 7714925045747422476}
-  - component: {fileID: 7276942776950590572}
   m_Layer: 6
   m_Name: Pipe51 (5)
   m_TagString: Obstacle
@@ -14955,18 +14957,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &7276942776950590572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4844519524766432004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4976790638982503736
 GameObject:
   m_ObjectHideFlags: 0
@@ -14983,7 +14973,6 @@ GameObject:
   - component: {fileID: 6798259015833877427}
   - component: {fileID: 854247685241236563}
   - component: {fileID: 8842114624708324039}
-  - component: {fileID: 1228896385473214748}
   m_Layer: 6
   m_Name: Pipe48 (1)
   m_TagString: Obstacle
@@ -15178,18 +15167,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &1228896385473214748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976790638982503736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4977007878204896265
 GameObject:
   m_ObjectHideFlags: 0
@@ -15206,7 +15183,6 @@ GameObject:
   - component: {fileID: 932569003225509278}
   - component: {fileID: 3979608948658238460}
   - component: {fileID: 3941993355610138771}
-  - component: {fileID: 5486959593501726228}
   m_Layer: 6
   m_Name: Pipe28 (1)
   m_TagString: Obstacle
@@ -15403,18 +15379,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5486959593501726228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4977007878204896265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5130310931387745129
 GameObject:
   m_ObjectHideFlags: 0
@@ -15427,7 +15391,7 @@ GameObject:
   - component: {fileID: 1612258597650013646}
   - component: {fileID: 3543097760596564881}
   - component: {fileID: 3087236514217762247}
-  - component: {fileID: 7725012914574233542}
+  - component: {fileID: 3695553723890922670}
   m_Layer: 6
   m_Name: PipeExtras31 (42)
   m_TagString: Obstacle
@@ -15527,18 +15491,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7725012914574233542
-MonoBehaviour:
+--- !u!135 &3695553723890922670
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5130310931387745129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510037
+  m_Center: {x: -4.656616e-10, y: 0.0000000031432132, z: -0.000000007450581}
 --- !u!1 &5156432936109584184
 GameObject:
   m_ObjectHideFlags: 0
@@ -15554,7 +15527,6 @@ GameObject:
   - component: {fileID: 7567676210585485304}
   - component: {fileID: 4131835127732794759}
   - component: {fileID: 6493138313708176653}
-  - component: {fileID: 7809522911571844885}
   m_Layer: 6
   m_Name: Pipe07 (4)
   m_TagString: Obstacle
@@ -15723,18 +15695,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &7809522911571844885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5156432936109584184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5173390991977002992
 GameObject:
   m_ObjectHideFlags: 0
@@ -20586,7 +20546,7 @@ GameObject:
   - component: {fileID: 3661974170447741946}
   - component: {fileID: 2729530093258866572}
   - component: {fileID: 2879849405551855349}
-  - component: {fileID: 3670394017799520087}
+  - component: {fileID: 8320121649555163602}
   m_Layer: 6
   m_Name: PipeExtras31 (41)
   m_TagString: Obstacle
@@ -20686,18 +20646,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3670394017799520087
-MonoBehaviour:
+--- !u!135 &8320121649555163602
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5211264657669309240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: 0.000000003259629, y: -5.8207666e-10, z: -3.8670694e-23}
 --- !u!1 &5228754603366952048
 GameObject:
   m_ObjectHideFlags: 0
@@ -20710,7 +20679,7 @@ GameObject:
   - component: {fileID: 8763121918561844251}
   - component: {fileID: 4635783406566238317}
   - component: {fileID: 8927228912655591846}
-  - component: {fileID: 2096944222059778429}
+  - component: {fileID: 3026417007197580471}
   m_Layer: 6
   m_Name: PipeExtras31 (95)
   m_TagString: Obstacle
@@ -20810,18 +20779,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2096944222059778429
-MonoBehaviour:
+--- !u!135 &3026417007197580471
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5228754603366952048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -4.6566123e-10, y: 0.000000017113052, z: -0.000000014901161}
 --- !u!1 &5300522420018605381
 GameObject:
   m_ObjectHideFlags: 0
@@ -20834,7 +20812,7 @@ GameObject:
   - component: {fileID: 7149608604415235010}
   - component: {fileID: 4387610101657823176}
   - component: {fileID: 1307705274232209274}
-  - component: {fileID: 6400188546270441025}
+  - component: {fileID: 4685072921824172292}
   m_Layer: 6
   m_Name: PipeExtras31 (95)
   m_TagString: Obstacle
@@ -20934,18 +20912,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6400188546270441025
-MonoBehaviour:
+--- !u!135 &4685072921824172292
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5300522420018605381}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -4.6566126e-10, y: -5.8207655e-10, z: -4.2402614e-22}
 --- !u!1 &5324404499923063725
 GameObject:
   m_ObjectHideFlags: 0
@@ -20958,7 +20945,7 @@ GameObject:
   - component: {fileID: 7358777389361528025}
   - component: {fileID: 2712084536762467340}
   - component: {fileID: 2135402706475681049}
-  - component: {fileID: 7656626210463125705}
+  - component: {fileID: 3743821062091926847}
   m_Layer: 6
   m_Name: PipeExtras08 (11)
   m_TagString: Obstacle
@@ -21058,18 +21045,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7656626210463125705
-MonoBehaviour:
+--- !u!135 &3743821062091926847
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5324404499923063725}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0044080154
+  m_Center: {x: -0.000000002285785, y: 0.00024497515, z: 0.0000000018677437}
 --- !u!1 &5331959465738603749
 GameObject:
   m_ObjectHideFlags: 0
@@ -21082,7 +21078,7 @@ GameObject:
   - component: {fileID: 2772338371432527233}
   - component: {fileID: 8062629100557908192}
   - component: {fileID: 2722332675423987912}
-  - component: {fileID: 2243866283503099069}
+  - component: {fileID: 3835381429126402571}
   m_Layer: 6
   m_Name: PipeExtras31 (97)
   m_TagString: Obstacle
@@ -21182,18 +21178,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2243866283503099069
-MonoBehaviour:
+--- !u!135 &3835381429126402571
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5331959465738603749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510046
+  m_Center: {x: 0.000000029336661, y: 8.1490686e-10, z: -0.0000000037252903}
 --- !u!1 &5384191911904812109
 GameObject:
   m_ObjectHideFlags: 0
@@ -21206,7 +21211,7 @@ GameObject:
   - component: {fileID: 2838340195769172875}
   - component: {fileID: 3962173050245413158}
   - component: {fileID: 7718345345761993777}
-  - component: {fileID: 1984829553926508533}
+  - component: {fileID: 5612136904221626008}
   m_Layer: 6
   m_Name: PipeExtras19 (6)
   m_TagString: Obstacle
@@ -21306,18 +21311,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1984829553926508533
-MonoBehaviour:
+--- !u!135 &5612136904221626008
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5384191911904812109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043152
+  m_Center: {x: -0.0000005960465, y: -0.00000035762787, z: 0.000001911074}
 --- !u!1 &5539683032378411964
 GameObject:
   m_ObjectHideFlags: 0
@@ -21330,7 +21344,7 @@ GameObject:
   - component: {fileID: 3206369664808214368}
   - component: {fileID: 5710218061325035759}
   - component: {fileID: 8510379381811910637}
-  - component: {fileID: 4358740059842327558}
+  - component: {fileID: 4055437194476876715}
   m_Layer: 6
   m_Name: PipeExtras13 (2)
   m_TagString: Obstacle
@@ -21430,18 +21444,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4358740059842327558
-MonoBehaviour:
+--- !u!135 &4055437194476876715
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539683032378411964}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.31863984
+  m_Center: {x: 0.0003079455, y: 0.005497174, z: 0.010987006}
 --- !u!1 &5555699926054216223
 GameObject:
   m_ObjectHideFlags: 0
@@ -21460,7 +21483,6 @@ GameObject:
   - component: {fileID: 6069298087151585524}
   - component: {fileID: 5554445234841861759}
   - component: {fileID: 3238660642667463344}
-  - component: {fileID: 2144738398660707835}
   m_Layer: 6
   m_Name: Pipe51 (4)
   m_TagString: Obstacle
@@ -21701,18 +21723,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2144738398660707835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555699926054216223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5791838586967295875
 GameObject:
   m_ObjectHideFlags: 0
@@ -21767,7 +21777,7 @@ GameObject:
   - component: {fileID: 6463914091985459494}
   - component: {fileID: 2661051805156748897}
   - component: {fileID: 4440153444166306824}
-  - component: {fileID: 7889188483036029161}
+  - component: {fileID: 7952870734570347276}
   m_Layer: 6
   m_Name: PipeExtras31 (85)
   m_TagString: Obstacle
@@ -21867,18 +21877,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7889188483036029161
-MonoBehaviour:
+--- !u!135 &7952870734570347276
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5825403370030813230}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551002
+  m_Center: {x: -0.0000000013969839, y: -5.820769e-10, z: 9.313226e-10}
 --- !u!1 &5844144078747325774
 GameObject:
   m_ObjectHideFlags: 0
@@ -21891,7 +21910,7 @@ GameObject:
   - component: {fileID: 8546475097795711977}
   - component: {fileID: 9049542556362836601}
   - component: {fileID: 5398261922483663415}
-  - component: {fileID: 1696318141085142}
+  - component: {fileID: 3005182065771604350}
   m_Layer: 6
   m_Name: PipeExtras31 (48)
   m_TagString: Obstacle
@@ -21991,18 +22010,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1696318141085142
-MonoBehaviour:
+--- !u!135 &3005182065771604350
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5844144078747325774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -0.0000000011641532, y: 0.0000000012805685, z: -0.000000007450581}
 --- !u!1 &5877083105844686494
 GameObject:
   m_ObjectHideFlags: 0
@@ -22015,7 +22043,7 @@ GameObject:
   - component: {fileID: 4920716513182958864}
   - component: {fileID: 3426636566631321349}
   - component: {fileID: 7746978320320532505}
-  - component: {fileID: 1082338740711956038}
+  - component: {fileID: 5400829916818508138}
   m_Layer: 6
   m_Name: PipeExtras31 (89)
   m_TagString: Obstacle
@@ -22115,18 +22143,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1082338740711956038
-MonoBehaviour:
+--- !u!135 &5400829916818508138
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5877083105844686494}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.000000007858034, y: 0.000000009429641, z: -1.270243e-17}
 --- !u!1 &5894153446954556462
 GameObject:
   m_ObjectHideFlags: 0
@@ -22139,7 +22176,7 @@ GameObject:
   - component: {fileID: 5771854724140213963}
   - component: {fileID: 5688205227432594112}
   - component: {fileID: 5466750587461735679}
-  - component: {fileID: 1120865005409405447}
+  - component: {fileID: 2902799510195106068}
   m_Layer: 6
   m_Name: PipeExtras31 (88)
   m_TagString: Obstacle
@@ -22239,18 +22276,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1120865005409405447
-MonoBehaviour:
+--- !u!135 &2902799510195106068
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5894153446954556462}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.000000004831236, y: 0.0000000012805685, z: -1.270243e-17}
 --- !u!1 &5953419829008459962
 GameObject:
   m_ObjectHideFlags: 0
@@ -22266,7 +22312,6 @@ GameObject:
   - component: {fileID: 3695568889165756489}
   - component: {fileID: 3214961196458490728}
   - component: {fileID: 4642564269516558118}
-  - component: {fileID: 7858500714928880048}
   m_Layer: 6
   m_Name: Pipe47 (3)
   m_TagString: Obstacle
@@ -22441,18 +22486,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &7858500714928880048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953419829008459962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5998907796136419729
 GameObject:
   m_ObjectHideFlags: 0
@@ -22465,7 +22498,7 @@ GameObject:
   - component: {fileID: 5852839111208702326}
   - component: {fileID: 7298858135389365837}
   - component: {fileID: 272682601669685839}
-  - component: {fileID: 6347695955674318231}
+  - component: {fileID: 7482232797111313195}
   m_Layer: 6
   m_Name: PipeExtras13 (3)
   m_TagString: Obstacle
@@ -22565,18 +22598,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6347695955674318231
-MonoBehaviour:
+--- !u!135 &7482232797111313195
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5998907796136419729}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.31863976
+  m_Center: {x: 0.0003072923, y: 0.005497172, z: 0.01098736}
 --- !u!1 &6027126085944754062
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,7 +22631,7 @@ GameObject:
   - component: {fileID: 7241341080968428566}
   - component: {fileID: 9108339467156388513}
   - component: {fileID: 2726993744782814098}
-  - component: {fileID: 3007624907999029613}
+  - component: {fileID: 4679462895008128607}
   m_Layer: 6
   m_Name: PipeExtras31 (86)
   m_TagString: Obstacle
@@ -22689,18 +22731,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3007624907999029613
-MonoBehaviour:
+--- !u!135 &4679462895008128607
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6027126085944754062}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004550999
+  m_Center: {x: 4.656614e-10, y: 0.000000014319085, z: 6.938494e-18}
 --- !u!1 &6051038565959738004
 GameObject:
   m_ObjectHideFlags: 0
@@ -22713,7 +22764,7 @@ GameObject:
   - component: {fileID: 7576580455913150714}
   - component: {fileID: 3060555758274236175}
   - component: {fileID: 4689305208976012010}
-  - component: {fileID: 2212576440903570574}
+  - component: {fileID: 6260809184096044365}
   m_Layer: 6
   m_Name: PipeExtras31 (96)
   m_TagString: Obstacle
@@ -22813,18 +22864,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2212576440903570574
-MonoBehaviour:
+--- !u!135 &6260809184096044365
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6051038565959738004}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -0.0000000023283064, y: -5.8207655e-10, z: -4.0017767e-11}
 --- !u!1 &6113334337852690998
 GameObject:
   m_ObjectHideFlags: 0
@@ -22841,7 +22901,6 @@ GameObject:
   - component: {fileID: 4733730073384456405}
   - component: {fileID: 6037015075717401187}
   - component: {fileID: 2170625879111961362}
-  - component: {fileID: 5705690874195900726}
   m_Layer: 6
   m_Name: Pipe27 (8)
   m_TagString: Obstacle
@@ -23037,18 +23096,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5705690874195900726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6113334337852690998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6185408804049797227
 GameObject:
   m_ObjectHideFlags: 0
@@ -23061,7 +23108,7 @@ GameObject:
   - component: {fileID: 2756839050418498361}
   - component: {fileID: 3973159348259175965}
   - component: {fileID: 4705194851749245028}
-  - component: {fileID: 4026037734576204065}
+  - component: {fileID: 7982581608116359730}
   m_Layer: 6
   m_Name: PipeExtras31 (54)
   m_TagString: Obstacle
@@ -23161,18 +23208,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4026037734576204065
-MonoBehaviour:
+--- !u!135 &7982581608116359730
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6185408804049797227}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -4.6566123e-10, y: -5.820767e-10, z: -3.8567296e-23}
 --- !u!1 &6250302382720203004
 GameObject:
   m_ObjectHideFlags: 0
@@ -23189,7 +23245,6 @@ GameObject:
   - component: {fileID: 5473203538552789921}
   - component: {fileID: 7657978435220546998}
   - component: {fileID: 704544607717168573}
-  - component: {fileID: 1314440249540830131}
   m_Layer: 6
   m_Name: Pipe41 (1)
   m_TagString: Obstacle
@@ -23383,18 +23438,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &1314440249540830131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6250302382720203004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6277847047057993110
 GameObject:
   m_ObjectHideFlags: 0
@@ -23408,7 +23451,6 @@ GameObject:
   - component: {fileID: 9123028550849410468}
   - component: {fileID: 6954643070621085423}
   - component: {fileID: 2749586955845362352}
-  - component: {fileID: 6491793314176736679}
   m_Layer: 6
   m_Name: Pipe21 (22)
   m_TagString: Obstacle
@@ -23537,18 +23579,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &6491793314176736679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6277847047057993110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6380978793364131263
 GameObject:
   m_ObjectHideFlags: 0
@@ -23561,7 +23591,7 @@ GameObject:
   - component: {fileID: 4350302067873954415}
   - component: {fileID: 6576814603901691945}
   - component: {fileID: 6144417548862227377}
-  - component: {fileID: 9150922042569545981}
+  - component: {fileID: 1726177673283701987}
   m_Layer: 6
   m_Name: PipeExtras31 (94)
   m_TagString: Obstacle
@@ -23661,18 +23691,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &9150922042569545981
-MonoBehaviour:
+--- !u!135 &1726177673283701987
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6380978793364131263}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: 0.0000000013969839, y: -5.8207655e-10, z: 0.0000000018626451}
 --- !u!1 &6462116343759742709
 GameObject:
   m_ObjectHideFlags: 0
@@ -23685,7 +23724,7 @@ GameObject:
   - component: {fileID: 1474288055534455129}
   - component: {fileID: 8112503894834004972}
   - component: {fileID: 2299782008677538484}
-  - component: {fileID: 8849506947336591603}
+  - component: {fileID: 4906711331458822166}
   m_Layer: 6
   m_Name: PipeExtras31 (87)
   m_TagString: Obstacle
@@ -23785,18 +23824,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8849506947336591603
-MonoBehaviour:
+--- !u!135 &4906711331458822166
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6462116343759742709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -6.9849193e-10, y: 0.000000029220246, z: 4.656613e-10}
 --- !u!1 &6469620694408331775
 GameObject:
   m_ObjectHideFlags: 0
@@ -23809,7 +23857,7 @@ GameObject:
   - component: {fileID: 8286443760166669675}
   - component: {fileID: 6997516352098112415}
   - component: {fileID: 8062699740798714982}
-  - component: {fileID: 7901288780859377886}
+  - component: {fileID: 4387129451972915029}
   m_Layer: 6
   m_Name: PipeExtras10 (3)
   m_TagString: Obstacle
@@ -23909,18 +23957,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7901288780859377886
-MonoBehaviour:
+--- !u!135 &4387129451972915029
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6469620694408331775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0028810208
+  m_Center: {x: 0.000041097886, y: -0.00026261897, z: 0.0000127881185}
 --- !u!1 &6532232345850920732
 GameObject:
   m_ObjectHideFlags: 0
@@ -24038,7 +24095,7 @@ GameObject:
   - component: {fileID: 8899756847478309065}
   - component: {fileID: 1421700001164352035}
   - component: {fileID: 5541740960252161103}
-  - component: {fileID: 7962754289243810008}
+  - component: {fileID: 6555192988599884807}
   m_Layer: 6
   m_Name: PipeExtras31 (52)
   m_TagString: Obstacle
@@ -24138,18 +24195,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7962754289243810008
-MonoBehaviour:
+--- !u!135 &6555192988599884807
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6701358820321785287}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -4.656613e-10, y: -0.000000015483238, z: 0.0000000018626451}
 --- !u!1 &6812864962191403845
 GameObject:
   m_ObjectHideFlags: 0
@@ -24162,7 +24228,7 @@ GameObject:
   - component: {fileID: 6633384569438488921}
   - component: {fileID: 966249176209806691}
   - component: {fileID: 3081646889780437063}
-  - component: {fileID: 2560798041312713247}
+  - component: {fileID: 9085625897046243264}
   m_Layer: 6
   m_Name: PipeExtras31 (43)
   m_TagString: Obstacle
@@ -24262,18 +24328,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2560798041312713247
-MonoBehaviour:
+--- !u!135 &9085625897046243264
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6812864962191403845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.0000000023283064, y: -5.8207666e-10, z: 0.000000001862645}
 --- !u!1 &6868406019107963750
 GameObject:
   m_ObjectHideFlags: 0
@@ -24324,7 +24399,7 @@ GameObject:
   - component: {fileID: 8233241550446942486}
   - component: {fileID: 7302304930459143942}
   - component: {fileID: 6371559419068065709}
-  - component: {fileID: 5249896457415719214}
+  - component: {fileID: 2010330253595118402}
   m_Layer: 6
   m_Name: PipeExtras31 (91)
   m_TagString: Obstacle
@@ -24424,18 +24499,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5249896457415719214
-MonoBehaviour:
+--- !u!135 &2010330253595118402
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095000270140881437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -0.0000000023283064, y: -5.8207655e-10, z: 1.7616183e-22}
 --- !u!1 &7215287611203989613
 GameObject:
   m_ObjectHideFlags: 0
@@ -24556,7 +24640,6 @@ GameObject:
   - component: {fileID: 3130287977072641345}
   - component: {fileID: 2187675903339526537}
   - component: {fileID: 4029225502340173884}
-  - component: {fileID: 1239046635592789329}
   m_Layer: 6
   m_Name: Pipe21 (7)
   m_TagString: Obstacle
@@ -24708,18 +24791,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &1239046635592789329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7266344325002332662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7285981104387404844
 GameObject:
   m_ObjectHideFlags: 0
@@ -24732,7 +24803,7 @@ GameObject:
   - component: {fileID: 4673201540858464617}
   - component: {fileID: 2693871983954022490}
   - component: {fileID: 7339364027928691553}
-  - component: {fileID: 7879958285274179019}
+  - component: {fileID: 3456137736829021327}
   m_Layer: 6
   m_Name: PipeExtras31 (99)
   m_TagString: Obstacle
@@ -24832,18 +24903,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7879958285274179019
-MonoBehaviour:
+--- !u!135 &3456137736829021327
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7285981104387404844}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.000000005122274, y: 0.000000006868504, z: -1.27026016e-17}
 --- !u!1 &7369373431393858782
 GameObject:
   m_ObjectHideFlags: 0
@@ -24856,7 +24936,7 @@ GameObject:
   - component: {fileID: 7484123749520401028}
   - component: {fileID: 6329390947927913454}
   - component: {fileID: 6312753837886082590}
-  - component: {fileID: 3003967695333707495}
+  - component: {fileID: 5262679357776287175}
   m_Layer: 6
   m_Name: PipeExtras31 (98)
   m_TagString: Obstacle
@@ -24956,18 +25036,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3003967695333707495
-MonoBehaviour:
+--- !u!135 &5262679357776287175
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7369373431393858782}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: -0.000000008301868, y: -0.000000004307367, z: -0.000000007450581}
 --- !u!1 &7390039741850496864
 GameObject:
   m_ObjectHideFlags: 0
@@ -24983,7 +25072,6 @@ GameObject:
   - component: {fileID: 309937856374611100}
   - component: {fileID: 4302910689908388351}
   - component: {fileID: 7561389843851728637}
-  - component: {fileID: 3797002500081650758}
   m_Layer: 6
   m_Name: Pipe16 (5)
   m_TagString: Obstacle
@@ -25155,18 +25243,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &3797002500081650758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7390039741850496864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7411609512249319860
 GameObject:
   m_ObjectHideFlags: 0
@@ -25260,7 +25336,7 @@ GameObject:
   - component: {fileID: 7434851269042767722}
   - component: {fileID: 8744241248968555314}
   - component: {fileID: 5448763822795896989}
-  - component: {fileID: 5701229969283669474}
+  - component: {fileID: 1135522667512609456}
   m_Layer: 6
   m_Name: PipeExtras19 (7)
   m_TagString: Obstacle
@@ -25360,18 +25436,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5701229969283669474
-MonoBehaviour:
+--- !u!135 &1135522667512609456
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7418074842508479796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043167
+  m_Center: {x: -0.0000010728837, y: -0.00000095367415, z: -0.0000011883677}
 --- !u!1 &7457741706712542327
 GameObject:
   m_ObjectHideFlags: 0
@@ -25384,7 +25469,7 @@ GameObject:
   - component: {fileID: 3124450239561646904}
   - component: {fileID: 1567779245841466631}
   - component: {fileID: 4096472167318195555}
-  - component: {fileID: 2345390416950289040}
+  - component: {fileID: 1253713898476039112}
   m_Layer: 6
   m_Name: PipeExtras32 (7)
   m_TagString: Obstacle
@@ -25484,18 +25569,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2345390416950289040
-MonoBehaviour:
+--- !u!135 &1253713898476039112
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7457741706712542327}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0034609062
+  m_Center: {x: 4.339909e-11, y: 9.313226e-10, z: -0.0001456213}
 --- !u!1 &7540549614112745564
 GameObject:
   m_ObjectHideFlags: 0
@@ -25508,7 +25602,7 @@ GameObject:
   - component: {fileID: 8408814646144794204}
   - component: {fileID: 8216211399768849949}
   - component: {fileID: 88822507923607668}
-  - component: {fileID: 5734008620177269740}
+  - component: {fileID: 6844455156990286278}
   m_Layer: 6
   m_Name: PipeExtras31 (38)
   m_TagString: Obstacle
@@ -25608,18 +25702,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5734008620177269740
-MonoBehaviour:
+--- !u!135 &6844455156990286278
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7540549614112745564}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -4.6566123e-10, y: -5.8207666e-10, z: 4.6566123e-10}
 --- !u!1 &7548107583646493976
 GameObject:
   m_ObjectHideFlags: 0
@@ -25632,7 +25735,7 @@ GameObject:
   - component: {fileID: 1059264884775532975}
   - component: {fileID: 6981174566318587053}
   - component: {fileID: 5538164522734158278}
-  - component: {fileID: 7383096683099459075}
+  - component: {fileID: 7287666492534209411}
   m_Layer: 6
   m_Name: PipeExtras32 (6)
   m_TagString: Obstacle
@@ -25732,18 +25835,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7383096683099459075
-MonoBehaviour:
+--- !u!135 &7287666492534209411
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7548107583646493976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0034609067
+  m_Center: {x: 3.471924e-11, y: 4.678312e-10, z: -0.00014562128}
 --- !u!1 &7571770395650845829
 GameObject:
   m_ObjectHideFlags: 0
@@ -25758,7 +25870,6 @@ GameObject:
   - component: {fileID: 2648539959936863234}
   - component: {fileID: 7149976138373180135}
   - component: {fileID: 4965495729622668972}
-  - component: {fileID: 3905531271998647182}
   m_Layer: 6
   m_Name: Pipe03 (5)
   m_TagString: Obstacle
@@ -25907,18 +26018,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &3905531271998647182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571770395650845829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7578605468670584431
 GameObject:
   m_ObjectHideFlags: 0
@@ -25931,7 +26030,7 @@ GameObject:
   - component: {fileID: 4383177467265414981}
   - component: {fileID: 5271495291319043878}
   - component: {fileID: 2813918109954288877}
-  - component: {fileID: 4220714548271929973}
+  - component: {fileID: 1580838007761482734}
   m_Layer: 6
   m_Name: PipeExtras31 (98)
   m_TagString: Obstacle
@@ -26031,18 +26130,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &4220714548271929973
-MonoBehaviour:
+--- !u!135 &1580838007761482734
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7578605468670584431}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.0000000013969839, y: -0.000000015483238, z: -1.5643309e-10}
 --- !u!1 &7747620559611757957
 GameObject:
   m_ObjectHideFlags: 0
@@ -26055,7 +26163,7 @@ GameObject:
   - component: {fileID: 8393145756339688127}
   - component: {fileID: 4516436166258906031}
   - component: {fileID: 2759626730511663220}
-  - component: {fileID: 6257213174223265996}
+  - component: {fileID: 4482255511088547653}
   m_Layer: 6
   m_Name: PipeExtras31 (55)
   m_TagString: Obstacle
@@ -26155,18 +26263,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6257213174223265996
-MonoBehaviour:
+--- !u!135 &4482255511088547653
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7747620559611757957}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: 9.313225e-10, y: -5.8207683e-10, z: 0.000000014901161}
 --- !u!1 &7764506559691022779
 GameObject:
   m_ObjectHideFlags: 0
@@ -26183,7 +26300,6 @@ GameObject:
   - component: {fileID: 4607290407292356627}
   - component: {fileID: 4110771099502517108}
   - component: {fileID: 3925567879081823231}
-  - component: {fileID: 5460400940037746378}
   m_Layer: 6
   m_Name: Pipe27 (9)
   m_TagString: Obstacle
@@ -26379,18 +26495,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &5460400940037746378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7764506559691022779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7795593875515684250
 GameObject:
   m_ObjectHideFlags: 0
@@ -26448,7 +26552,6 @@ GameObject:
   - component: {fileID: 1561902749121658237}
   - component: {fileID: 9089964514667047322}
   - component: {fileID: 8393239056653055752}
-  - component: {fileID: 4016789072123457916}
   m_Layer: 6
   m_Name: Pipe36 (2)
   m_TagString: Obstacle
@@ -26644,18 +26747,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &4016789072123457916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884900072957887688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7972283565876623316
 GameObject:
   m_ObjectHideFlags: 0
@@ -31556,7 +31647,7 @@ GameObject:
   - component: {fileID: 7782215443551049057}
   - component: {fileID: 6398141562348565766}
   - component: {fileID: 4204343108748357905}
-  - component: {fileID: 1938114737935850699}
+  - component: {fileID: 1885217031126885411}
   m_Layer: 6
   m_Name: PipeExtras19 (7)
   m_TagString: Obstacle
@@ -31656,18 +31747,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &1938114737935850699
-MonoBehaviour:
+--- !u!135 &1885217031126885411
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8061546370557549218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043158
+  m_Center: {x: -0.0000007748605, y: 4.488597e-15, z: -0.0000009499489}
 --- !u!1 &8089620715708548775
 GameObject:
   m_ObjectHideFlags: 0
@@ -36573,7 +36673,6 @@ GameObject:
   - component: {fileID: 677523011671912109}
   - component: {fileID: 8772623416867777697}
   - component: {fileID: 2281065899638604294}
-  - component: {fileID: 8499592629241299555}
   m_Layer: 6
   m_Name: Pipe16 (4)
   m_TagString: Obstacle
@@ -36722,18 +36821,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &8499592629241299555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8127139481130753015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8203296032624629881
 GameObject:
   m_ObjectHideFlags: 0
@@ -36746,7 +36833,7 @@ GameObject:
   - component: {fileID: 4743236441412202938}
   - component: {fileID: 31693030896459323}
   - component: {fileID: 3951406763026948959}
-  - component: {fileID: 6206230015307746453}
+  - component: {fileID: 7789984690384242807}
   m_Layer: 6
   m_Name: PipeExtras31 (56)
   m_TagString: Obstacle
@@ -36846,18 +36933,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6206230015307746453
-MonoBehaviour:
+--- !u!135 &7789984690384242807
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8203296032624629881}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045510004
+  m_Center: {x: 4.6566123e-10, y: 0.000000006868504, z: 0.000000014901161}
 --- !u!1 &8310243604206558220
 GameObject:
   m_ObjectHideFlags: 0
@@ -36909,7 +37005,7 @@ GameObject:
   - component: {fileID: 780538090405718945}
   - component: {fileID: 3664958620088175695}
   - component: {fileID: 5288305044772994121}
-  - component: {fileID: 7070621290487023989}
+  - component: {fileID: 7857965776218333307}
   m_Layer: 6
   m_Name: PipeExtras31 (89)
   m_TagString: Obstacle
@@ -37009,18 +37105,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &7070621290487023989
-MonoBehaviour:
+--- !u!135 &7857965776218333307
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8393538870918380991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0045509995
+  m_Center: {x: -0.0000000013969839, y: -5.8207655e-10, z: 9.313226e-10}
 --- !u!1 &8464041458172204489
 GameObject:
   m_ObjectHideFlags: 0
@@ -37036,7 +37141,6 @@ GameObject:
   - component: {fileID: 8763191547369744994}
   - component: {fileID: 8603578138390274281}
   - component: {fileID: 2413812850452694344}
-  - component: {fileID: 297158438300316827}
   m_Layer: 6
   m_Name: Pipe47 (3)
   m_TagString: Obstacle
@@ -37211,18 +37315,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &297158438300316827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8464041458172204489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8497137096075749272
 GameObject:
   m_ObjectHideFlags: 0
@@ -37324,7 +37416,6 @@ GameObject:
   - component: {fileID: 3014231514301885017}
   - component: {fileID: 1361740269796937049}
   - component: {fileID: 5400122528651194163}
-  - component: {fileID: 862847263833865295}
   m_Layer: 6
   m_Name: Pipe51 (4)
   m_TagString: Obstacle
@@ -37565,18 +37656,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &862847263833865295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8511834336756860474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8557802590573813379
 GameObject:
   m_ObjectHideFlags: 0
@@ -37590,7 +37669,6 @@ GameObject:
   - component: {fileID: 2438426573984074790}
   - component: {fileID: 200252876949220300}
   - component: {fileID: 2754107174261628510}
-  - component: {fileID: 2130448645277059835}
   m_Layer: 6
   m_Name: Pipe21 (22)
   m_TagString: Obstacle
@@ -37719,18 +37797,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &2130448645277059835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8557802590573813379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8642042903444368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -37829,7 +37895,6 @@ GameObject:
   - component: {fileID: 1166757211418966297}
   - component: {fileID: 3627696649462847077}
   - component: {fileID: 5414838758510403905}
-  - component: {fileID: 3802389817504606569}
   m_Layer: 6
   m_Name: Pipe16 (5)
   m_TagString: Obstacle
@@ -38001,18 +38066,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &3802389817504606569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818527515255374100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8864583148368962042
 GameObject:
   m_ObjectHideFlags: 0
@@ -38025,7 +38078,7 @@ GameObject:
   - component: {fileID: 6993365404115139810}
   - component: {fileID: 7417647665064184730}
   - component: {fileID: 5460971184502906668}
-  - component: {fileID: 3941406088227954011}
+  - component: {fileID: 6800377056928145292}
   m_Layer: 6
   m_Name: PipeExtras19 (6)
   m_TagString: Obstacle
@@ -38125,18 +38178,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3941406088227954011
-MonoBehaviour:
+--- !u!135 &6800377056928145292
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8864583148368962042}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.33043158
+  m_Center: {x: -0.0000010728837, y: -9.087498e-15, z: 0.0000000037252543}
 --- !u!1 &8992791235513683326
 GameObject:
   m_ObjectHideFlags: 0
@@ -38149,7 +38211,7 @@ GameObject:
   - component: {fileID: 2169553849939280635}
   - component: {fileID: 4102927774859894204}
   - component: {fileID: 8047347461048290677}
-  - component: {fileID: 3071392774826055790}
+  - component: {fileID: 1528874057762467881}
   m_Layer: 6
   m_Name: PipeExtras32 (8)
   m_TagString: Obstacle
@@ -38249,18 +38311,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &3071392774826055790
-MonoBehaviour:
+--- !u!135 &1528874057762467881
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8992791235513683326}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.0034609048
+  m_Center: {x: 0.0000000083804945, y: 0.0000000028005194, z: -0.00014563058}
 --- !u!1 &9033823094183844007
 GameObject:
   m_ObjectHideFlags: 0
@@ -38273,7 +38344,7 @@ GameObject:
   - component: {fileID: 4606948428736890133}
   - component: {fileID: 1822739269737550053}
   - component: {fileID: 2606592160985616639}
-  - component: {fileID: 8630186184580871733}
+  - component: {fileID: 5684951144248891192}
   m_Layer: 6
   m_Name: PipeExtras31 (91)
   m_TagString: Obstacle
@@ -38373,18 +38444,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &8630186184580871733
-MonoBehaviour:
+--- !u!135 &5684951144248891192
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9033823094183844007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.004551
+  m_Center: {x: -0.000000007858034, y: 0.000000009429641, z: -1.270243e-17}
 --- !u!1 &9180972536174535440
 GameObject:
   m_ObjectHideFlags: 0
@@ -38400,7 +38480,6 @@ GameObject:
   - component: {fileID: 8614797414947511904}
   - component: {fileID: 3946443781791680024}
   - component: {fileID: 4041177041759969024}
-  - component: {fileID: 1961781020581581960}
   m_Layer: 6
   m_Name: Pipe21 (21)
   m_TagString: Obstacle
@@ -38573,18 +38652,6 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
---- !u!114 &1961781020581581960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180972536174535440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &31841420557748685
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
                 gameManager = new GameObject();
                 gameManager.name = "GameManager";
                 gameManager.AddComponent<GameManager>();
+                gameManager.AddComponent<UseItem>();
             }
 
             DontDestroyOnLoad(gameManager);

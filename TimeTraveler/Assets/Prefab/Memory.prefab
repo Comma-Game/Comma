@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8166787996910245188}
   - component: {fileID: 1861810748333441396}
   - component: {fileID: 2804918736542239574}
-  - component: {fileID: 8342497092184570619}
   - component: {fileID: 6097600426822484364}
   m_Layer: 6
   m_Name: Memory
@@ -121,18 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMemory: 1
---- !u!114 &8342497092184570619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8297021367187102883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bfbe8b8ead37a43ae7e47cb189a23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6097600426822484364
 Rigidbody:
   m_ObjectHideFlags: 0

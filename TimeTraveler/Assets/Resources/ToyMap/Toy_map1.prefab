@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 783449783766750279}
   - component: {fileID: 531870508548486781}
   - component: {fileID: 7537527871799011209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -172,7 +172,8 @@ GameObject:
   - component: {fileID: 3722375223050044027}
   - component: {fileID: 6347267052043979591}
   - component: {fileID: 6337338603737343187}
-  m_Layer: 0
+  - component: {fileID: 878113491303167773}
+  m_Layer: 6
   m_Name: Cylinder.002
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -293,6 +294,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 217981f1a8050a24e8f3c9704e357314, type: 3}
+--- !u!114 &878113491303167773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547069297722089913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &622536672746539651
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +331,8 @@ GameObject:
   - component: {fileID: 3226883701286425769}
   - component: {fileID: 5009568820816176806}
   - component: {fileID: 3147873579732893440}
-  m_Layer: 0
+  - component: {fileID: 2878823294222535857}
+  m_Layer: 6
   m_Name: BackAxle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -404,6 +431,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2878823294222535857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622536672746539651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &629756586407282877
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +547,7 @@ GameObject:
   - component: {fileID: 7125234019173067022}
   - component: {fileID: 937806779494990815}
   - component: {fileID: 8629135676707141547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -659,7 +711,8 @@ GameObject:
   - component: {fileID: 7442701525295952684}
   - component: {fileID: 144537692218715027}
   - component: {fileID: 9157756089602818774}
-  m_Layer: 0
+  - component: {fileID: 904767880267908379}
+  m_Layer: 6
   m_Name: FrontRWheel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -780,6 +833,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &904767880267908379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831559005147676372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &1366879432344399217
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +872,7 @@ GameObject:
   - component: {fileID: 4239057118115426946}
   - component: {fileID: 5176755324447936294}
   - component: {fileID: 2026323416295360344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -952,7 +1030,8 @@ GameObject:
   - component: {fileID: 639940738938403031}
   - component: {fileID: 4551385097272844594}
   - component: {fileID: 1429644137078839361}
-  m_Layer: 0
+  - component: {fileID: 94034200925942663}
+  m_Layer: 6
   m_Name: BackRWheel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1073,6 +1152,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &94034200925942663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471537932479264398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &1479852372847165914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1190,8 @@ GameObject:
   - component: {fileID: 1494954577976085582}
   - component: {fileID: 146987402593615390}
   - component: {fileID: 7778931721012281268}
-  m_Layer: 0
+  - component: {fileID: 7514333044439739668}
+  m_Layer: 6
   m_Name: Torus.002
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1207,6 +1312,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7514333044439739668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479852372847165914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &1672671016346915518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1350,8 @@ GameObject:
   - component: {fileID: 185666773505405586}
   - component: {fileID: 6251779910479743053}
   - component: {fileID: 6174434896981429822}
-  m_Layer: 0
+  - component: {fileID: 5825544693967159699}
+  m_Layer: 6
   m_Name: BackLWheel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1341,6 +1472,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &5825544693967159699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672671016346915518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &2058721523338471408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1510,8 @@ GameObject:
   - component: {fileID: 7512062588420804718}
   - component: {fileID: 3288942308643219568}
   - component: {fileID: 2320810488528315630}
-  m_Layer: 0
+  - component: {fileID: 1924934927792576455}
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1475,6 +1632,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 217981f1a8050a24e8f3c9704e357314, type: 3}
+--- !u!114 &1924934927792576455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058721523338471408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &2388293524476183178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1671,7 @@ GameObject:
   - component: {fileID: 1359181240288870477}
   - component: {fileID: 3900728941490975516}
   - component: {fileID: 4370477079104006246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1648,7 +1830,7 @@ GameObject:
   - component: {fileID: 3469213481567174524}
   - component: {fileID: 569400396498943007}
   - component: {fileID: 6071672040221836076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1852,7 +2034,7 @@ GameObject:
   - component: {fileID: 6861572705368164267}
   - component: {fileID: 3454045212428968989}
   - component: {fileID: 3718128482713173241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2011,7 +2193,7 @@ GameObject:
   - component: {fileID: 7794828852783452398}
   - component: {fileID: 808108939866189546}
   - component: {fileID: 770844941339702239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dog
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2216,7 +2398,7 @@ GameObject:
   - component: {fileID: 5398371043919420307}
   - component: {fileID: 7456876165822741832}
   - component: {fileID: 1206608566587730523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2550,7 +2732,8 @@ GameObject:
   - component: {fileID: 3822099679037929952}
   - component: {fileID: 2553485832742685920}
   - component: {fileID: 2375832098388474385}
-  m_Layer: 0
+  - component: {fileID: 5689017743465691848}
+  m_Layer: 6
   m_Name: Torus
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2671,6 +2854,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: 217981f1a8050a24e8f3c9704e357314, type: 3}
+--- !u!114 &5689017743465691848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011976771434196018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &5228360817407995204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2893,7 @@ GameObject:
   - component: {fileID: 5002357511563374162}
   - component: {fileID: 6338928874371043227}
   - component: {fileID: 1428226724781353663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2844,7 +3052,7 @@ GameObject:
   - component: {fileID: 7233839537869363859}
   - component: {fileID: 1690262234730176735}
   - component: {fileID: 36537604830849418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3002,7 +3210,8 @@ GameObject:
   - component: {fileID: 661836918708943558}
   - component: {fileID: 4818460178160861658}
   - component: {fileID: 5561824702576414167}
-  m_Layer: 0
+  - component: {fileID: 6346377868503919824}
+  m_Layer: 6
   m_Name: Torus.004
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3123,6 +3332,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &6346377868503919824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421081505258444420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &5742812971899019009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,7 +3370,8 @@ GameObject:
   - component: {fileID: 8357126173962546084}
   - component: {fileID: 1967652700323378996}
   - component: {fileID: 5543901999654398966}
-  m_Layer: 0
+  - component: {fileID: 625287665266971397}
+  m_Layer: 6
   m_Name: Torus.001
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3257,6 +3492,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &625287665266971397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742812971899019009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &6174558740457378345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3530,8 @@ GameObject:
   - component: {fileID: 783567862465980807}
   - component: {fileID: 1983323783438932005}
   - component: {fileID: 3725595418608052190}
-  m_Layer: 0
+  - component: {fileID: 7936909717995293344}
+  m_Layer: 6
   m_Name: Torus.002
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3391,6 +3652,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 217981f1a8050a24e8f3c9704e357314, type: 3}
+--- !u!114 &7936909717995293344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174558740457378345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &6175880577633978314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,7 +3691,7 @@ GameObject:
   - component: {fileID: 8856347983664605343}
   - component: {fileID: 2479616720112480861}
   - component: {fileID: 8245805776551082535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torus
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3569,7 +3855,7 @@ GameObject:
   - component: {fileID: 8666088938493894166}
   - component: {fileID: 2342411343527871294}
   - component: {fileID: 944932846891366422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3727,7 +4013,8 @@ GameObject:
   - component: {fileID: 6313866867961626141}
   - component: {fileID: 5144616084903170239}
   - component: {fileID: 4108337848088516236}
-  m_Layer: 0
+  - component: {fileID: 4521484850212914602}
+  m_Layer: 6
   m_Name: Torus.003
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3848,6 +4135,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &4521484850212914602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7166422855474509314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &7200197140334790957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3860,7 +4172,8 @@ GameObject:
   - component: {fileID: 2098326291324066570}
   - component: {fileID: 4647574071807841983}
   - component: {fileID: 4006155838562005216}
-  m_Layer: 0
+  - component: {fileID: 1573644598342459868}
+  m_Layer: 6
   m_Name: FrontAxle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3959,6 +4272,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1573644598342459868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200197140334790957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &7946553360802133386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,7 +4415,8 @@ GameObject:
   - component: {fileID: 1169259454564950728}
   - component: {fileID: 1715562354715542034}
   - component: {fileID: 7792860756480567354}
-  m_Layer: 0
+  - component: {fileID: 651000473366068696}
+  m_Layer: 6
   m_Name: Torus.001
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4198,6 +4537,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300004, guid: 217981f1a8050a24e8f3c9704e357314, type: 3}
+--- !u!114 &651000473366068696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8130226886695388676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &8418861256992646206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4212,7 +4576,7 @@ GameObject:
   - component: {fileID: 7528718672865995921}
   - component: {fileID: 245337000282456259}
   - component: {fileID: 7591312484311734393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4370,7 +4734,8 @@ GameObject:
   - component: {fileID: 1228019982260107694}
   - component: {fileID: 8489563866163493152}
   - component: {fileID: 4901048604014157353}
-  m_Layer: 0
+  - component: {fileID: 5136687776172068020}
+  m_Layer: 6
   m_Name: FrontLWheel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4491,6 +4856,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &5136687776172068020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835209108922601485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 0
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &9162147237863768726
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4895,7 @@ GameObject:
   - component: {fileID: 4182578968848328210}
   - component: {fileID: 2599274179717870188}
   - component: {fileID: 6810135443538780037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
