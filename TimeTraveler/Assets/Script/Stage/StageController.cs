@@ -95,7 +95,7 @@ public class StageController : MonoBehaviour
     List<int> _conceptIndex;
     Player _player;
     int _prevConcept, _stageCount;
-    List<GameObject> _disabled;
+    List<GameObject> _disabled, _explode;
     bool _scoreBuff;
 
     void Start()
@@ -136,9 +136,10 @@ public class StageController : MonoBehaviour
         _prevStage = null;
 
         _disabled = new List<GameObject>();
+        _explode = new List<GameObject>();
 
         SetConceptIndex();
-        Reset_ConceptObject();
+        ResetConceptObject();
         InstantiateStage();
 
         _queue = new Queue<StageInfo>();
@@ -213,8 +214,8 @@ public class StageController : MonoBehaviour
     //비활성화된 모든 오브젝트 활성화
     void ReturnStage()
     {
-        foreach (GameObject obj in _disabled) obj.SetActive(true);
-        _disabled.Clear();
+        EnableObject();
+        DeleteExploder();
 
         Debug.Log(_prevStage.name);
         _prevStage.transform.position = new Vector3(0, 0, 0);
@@ -274,7 +275,7 @@ public class StageController : MonoBehaviour
     }
 
     //Stage가 들어갈 부모 설정
-    void Reset_ConceptObject()
+    void ResetConceptObject()
     {
         _parent = new GameObject();
         _parent.name = "Concept";
@@ -335,5 +336,26 @@ public class StageController : MonoBehaviour
     public void SetScoreBuff()
     {
         _scoreBuff = true;
+    }
+
+    public void MakeExploder(Transform parent, GameObject explode)
+    {
+        explode.transform.SetParent(parent);
+        _explode.Add(explode);
+    }
+
+    void DeleteExploder()
+    {
+        foreach(GameObject explode in _explode)
+        {
+            if (!explode) Destroy(explode);
+        }
+        _explode.Clear();
+    }
+
+    void EnableObject()
+    {
+        foreach (GameObject obj in _disabled) obj.SetActive(true);
+        _disabled.Clear();
     }
 }

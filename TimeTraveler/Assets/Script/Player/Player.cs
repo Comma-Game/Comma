@@ -53,10 +53,9 @@ public class Player : MonoBehaviour
             {
                 collision.gameObject.SetActive(false);
                 HitDamage(10 * _obstacleDamageBuff);
-                
-                GameObject explode = collision.gameObject.GetComponent<MeshExploder>().Explode();
-                explode.transform.SetParent(collision.transform.parent);
 
+                _stageController.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
+              
                 _stageController.AddDisabled(collision.gameObject);
             }
         }
@@ -78,7 +77,7 @@ public class Player : MonoBehaviour
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
             {
                 StageController.Instance.ScoreUp(_jellyScore * 2);
-                Heal(10 * _healBuff);
+                Heal(1.8f * _healBuff);
             }
             else
             {
@@ -133,7 +132,7 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        Heal(30);
+        Heal(1.8f);
         StopMyCoroutine();
         _coroutine = StartCoroutine(PortalTime(0.5f));
     }
