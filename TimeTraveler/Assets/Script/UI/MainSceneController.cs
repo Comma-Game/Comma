@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // 필요
 using TMPro;
+using SlimUI.ModernMenu;
 
 public class MainSceneController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public float rotationSpeed = 50f;
         [SerializeField] public GameObject shopPanel;
         [SerializeField] public GameObject AchievementPanel;
+        [SerializeField] public UIMenuManager uIMenuManager;
 
         [Header("heart Panel")]
         [SerializeField] public GameObject heartPanel;
@@ -111,8 +113,12 @@ public class MainSceneController : MonoBehaviour
 
         public void ClickShop(){
                 Debug.Log("ClickShop");
-                shopPanel.SetActive(true);
-                AchievementPanel.SetActive(false);
+                if(heartPanelCS.GetCurrentHearts() >= 1){
+                        shopPanel.SetActive(true);
+                        AchievementPanel.SetActive(false);
+                        uIMenuManager.Position2();
+                        uIMenuManager.ReturnMenu();
+                }
         }
 
         public void ClickAchievement(){

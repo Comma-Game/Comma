@@ -15,8 +15,10 @@ public class HeartPanel : MonoBehaviour
     public int maxHearts = 5; // 최대 하트 개수
     public float fillCooldownMinutes = 30f; // 하트를 채우는데 걸리는 시간(분)
     private int currentHearts = 0;
+    public int GetCurrentHearts() { return currentHearts; }
     private DateTime lastFillTime;
     private int test = 0;
+    private int testMobile = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +138,15 @@ public class HeartPanel : MonoBehaviour
         else
         {
             timeText.text = "Fill";
+        }
+    }
+
+    public void CheatAddHeart()
+    {
+        testMobile = testMobile +1;
+        if(testMobile >= 5){
+            AddHearts(1);
+            testMobile = 0;
         }
     }
 }
