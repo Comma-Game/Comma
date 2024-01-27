@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3475820060872591846}
   - component: {fileID: 5796540593035437486}
   - component: {fileID: 7368471570367524282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.002 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7543058003538085818}
   - component: {fileID: 4935968941653343266}
   - component: {fileID: 3109922788577489607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 2544321080875829351}
   - component: {fileID: 4395300878399902712}
   - component: {fileID: 8733045479583375353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.004 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 2347839818720371743}
   - component: {fileID: 8541543635740316322}
   - component: {fileID: 996318186983347802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.005 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 8202364327551048363}
   - component: {fileID: 5264446269812330158}
   - component: {fileID: 8342996222068697762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 871808530398923769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 8911639091418897338}
   - component: {fileID: 7674593721261891099}
   - component: {fileID: 3280368256405741170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.003 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1289,7 +1289,7 @@ GameObject:
   - component: {fileID: 576709929087176290}
   - component: {fileID: 174171071307962231}
   - component: {fileID: 3674039593910067916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 6319755046640236857}
   - component: {fileID: 462955862211834954}
   - component: {fileID: 314725415160869455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 6423857734144272899}
   - component: {fileID: 5171986330076035269}
   - component: {fileID: 7394539741392373655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

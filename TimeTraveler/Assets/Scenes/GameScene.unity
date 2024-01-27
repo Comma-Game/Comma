@@ -1183,6 +1183,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5376557189524566919, guid: 44f544f62fd642c40b4676d8b4c685fc, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 6049167571278708829}
+    - target: {fileID: 5652718869301833107, guid: 44f544f62fd642c40b4676d8b4c685fc, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7220551068019637589, guid: 44f544f62fd642c40b4676d8b4c685fc, type: 3}
       propertyPath: m_Layer
       value: 0

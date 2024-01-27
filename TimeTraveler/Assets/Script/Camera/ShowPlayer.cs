@@ -7,30 +7,73 @@ public class ShowPlayer : MonoBehaviour
     [SerializeField]
     GameObject _player;
 
-    private void OnDrawGizmos()
+    Vector3 dir;
+    RaycastHit hit;
+    List<Material> mats;
+    Coroutine _coroutine;
+
+    private void Start()
     {
-        /*
-        if(Physics.BoxCastAll(transform.position, _player.transform.lossyScale / 2, dir, 35f,
-            1 << LayerMask.NameToLayer("Object")))
-        */
+        mats = new List<Material>();
     }
 
     private void LateUpdate()
     {
-        Vector3 dir = (_player.transform.position - transform.position).normalized;
-        /*
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, dir, 35f,
+        dir = (_player.transform.position - transform.position).normalized;
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, _player.transform.lossyScale / 2, dir, transform.rotation, 34.5f,
             1 << LayerMask.NameToLayer("Object"));
-
-        Debug.DrawRay(transform.position, dir * 35f, Color.red);
+        
         for (int i = 0; i < hits.Length; i++)
         {
-            TransparentObject[] obj = hits[i].transform.GetComponentsInChildren<TransparentObject>();
+            MeshRenderer[] obj = hits[i].transform.GetComponentsInChildren<MeshRenderer>();
+
             for(int j = 0; j < obj.Length; j++)
             {
-                obj[j]?.BecomeTransparent();
+                Material mat = obj[j].material;
+                Color color = mat.color;
+
+                SetMaterialRenderingMode(mat, 3f, 3000);
+                StartCoroutine(ChangeAlpha(mat, color));
+
+                mats.Add(mat);
             }
         }
-        */
+    }
+
+    // 0 = Opaque, 1 = Cutout, 2 = Fade, 3 = Transparent
+    private void SetMaterialRenderingMode(Material material, float mode, int renderQueue)
+    {
+        material.SetFloat("_Mode", mode);
+        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        material.SetInt("ZWrite", 0);
+        material.DisableKeyword("_ALPHATEST_ON");
+        material.EnableKeyword("_ALPHABLEND_ON");
+        material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        material.renderQueue = renderQueue;
+    }
+
+    public void SetOpaque()
+    {
+        foreach(Material mat in mats)
+        {
+            if (mat == null) continue;
+
+            Color color = mat.color;
+
+            SetMaterialRenderingMode(mat, 0f, -1);
+            color.a = 1f;
+            mat.color = color;
+        }
+
+        StopAllCoroutines();
+        mats.Clear();
+    }
+    
+    IEnumerator ChangeAlpha(Material mat, Color color)
+    {
+        color.a -= 0.1f;
+        mat.color = color;
+        yield return new WaitForSeconds(0.1f);
     }
 }

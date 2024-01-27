@@ -15,7 +15,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _firstSpeed;
+    private float _basicSpeed;
     
     private float _speed;
     public float Speed
@@ -96,6 +96,7 @@ public class StageController : MonoBehaviour
     Player _player;
     int _prevConcept, _stageCount;
     List<GameObject> _disabled;
+    bool _scoreBuff;
 
     void Start()
     {
@@ -120,10 +121,11 @@ public class StageController : MonoBehaviour
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
 
-        _firstSpeed = 30f;
-        _speed = _firstSpeed;
+        _basicSpeed = 30f;
+        _speed = _basicSpeed;
         _accSpeed = 0.15f;
         _maxSpeed = 100f;
+        _scoreBuff = false;
 
         _stageCount = 1;
         _score = 0;
@@ -240,8 +242,7 @@ public class StageController : MonoBehaviour
     {
         _stage.SetActive(false);
 
-        _speed = _firstSpeed + _stageCount;
-        _stageCount++;
+        _speed = _basicSpeed + _stageCount++;
 
         SetCurrentStage();
         SetStagesVelocity();
@@ -265,6 +266,9 @@ public class StageController : MonoBehaviour
         Destroy(_parent);
         StopCoroutine(_coroutine);
         EnableGameOverUI();
+
+        if (_scoreBuff) _score *= 2;
+
         SaveLoadManager.Instance.PlusCoin(_score);
         SaveLoadManager.Instance.SetHighScore(_score);
     }
@@ -286,16 +290,18 @@ public class StageController : MonoBehaviour
     public void ScoreUp(int value)
     {
         _score += value;
+        CanvasController.Instance.ChangeScoreText(_score);
     }
 
     IEnumerator ScoreTime()
     {
         while(true)
         {
-            int conceptCount = _stageCount / 3;
-            _score += 10 + conceptCount >= 5 ? 10 : conceptCount * 2;
-
+            int conceptCount = (_stageCount - 1) / 3;
+            _score += 10 + (conceptCount >= 5 ? 10 : conceptCount * 2);
+            
             CanvasController.Instance.ChangeScoreText(_score);
+            CanvasController.Instance.ChangeState(_stageCount);
             _player.TimeDamage();
             _player.ChargeEnergy();
 
@@ -313,5 +319,21 @@ public class StageController : MonoBehaviour
     public void AddDisabled(GameObject gameObject)
     {
         _disabled.Add(gameObject);
+    }
+
+    public void SetAccDeBuff()
+    {
+        _accSpeed *= 1.2f;
+    }
+
+    public void SetBasicSpeedDeBuff()
+    {
+        _basicSpeed *= 1.2f;
+        _speed = _basicSpeed;
+    }
+
+    public void SetScoreBuff()
+    {
+        _scoreBuff = true;
     }
 }
