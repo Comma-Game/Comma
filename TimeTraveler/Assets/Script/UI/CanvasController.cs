@@ -43,7 +43,7 @@ public class CanvasController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerStatPanelCS = playerStatPanel.GetComponent<PlayerStatPanel>();
         gamePanelCS = gamePanel.GetComponent<GamePanel>();
@@ -68,6 +68,11 @@ public class CanvasController : MonoBehaviour
 
     /// ///////////////////////////////////////////////////////////////////
     /// Player Stat Panel 
+    
+
+    public void InitSetting(float maxHp){
+        playerStatPanelCS.initSetting(maxHp);
+    }
 
     public void PlayerGetDamgeHP(float damge){
         playerStatPanelCS.TakeDamage(damge);

@@ -34,13 +34,6 @@ public class PlayerStatPanel : MonoBehaviour
     [SerializeField]    
     public TextMeshProUGUI scoreText;
 
-    void Start()
-    {
-        health = maxHealth;
-        energy = maxEnergy;
-        ChangeScoreText(100);
-    }
-
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
@@ -104,15 +97,15 @@ public class PlayerStatPanel : MonoBehaviour
 
     public void RestoreHealth(float healAmount)
     {
-        Debug.Log("RestoreHealth");
+        //Debug.Log("RestoreHealth");
         health += healAmount;
         healthLerpTimer = 0;
     }
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("TakeDamage");
         health -= damage;
+        Debug.Log("TakeDamage health : " + health);
         healthLerpTimer = 0;
     }
 
@@ -146,16 +139,24 @@ public class PlayerStatPanel : MonoBehaviour
 
     public void UpEnergy(float Amount)
     {
-        Debug.Log("UpEnergy");
+        //Debug.Log("UpEnergy");
         energy += Amount;
         energyLerpTimer = 0;
     }
 
     public void DownEnergy(float damage)
     {
-        Debug.Log("DownEnergy");
+        //Debug.Log("DownEnergy");
         energy -= damage;
         energyLerpTimer = 0;
+    }
+
+    public void initSetting(float maxHp){
+        maxHealth = maxHp;
+        Debug.Log("maxHealth : " + maxHealth);
+        health = maxHealth;
+        energy = maxEnergy;
+        ChangeScoreText(0);
     }
 
     /////////////////////////////////////////////////////////////////////////////////
