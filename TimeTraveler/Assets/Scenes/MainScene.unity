@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3252,6 +3252,7 @@ MonoBehaviour:
   rotationSpeed: 20
   shopPanel: {fileID: 109527403}
   AchievementPanel: {fileID: 1544756169}
+  uIMenuManager: {fileID: 393194567648219557}
   heartPanel: {fileID: 22384685}
   heartPanelCS: {fileID: 34752337}
   coinText_1: {fileID: 608448659}
@@ -48399,30 +48400,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 393194567648219557}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Position2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IntroCinematic
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 393194567648219557}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ReturnMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 882933011}
         m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
         m_MethodName: ClickShop
