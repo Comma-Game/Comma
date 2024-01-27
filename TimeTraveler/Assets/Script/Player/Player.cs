@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
 
         _maxHp = 100 + CalculateHP();
         _hp = _maxHp;
-        //CanvasController.Instance.InitSetting(_maxHp);
+        CanvasController.Instance.InitSetting(_maxHp);
         Debug.Log("HP : " + _hp);
 
         _energy = 100;
