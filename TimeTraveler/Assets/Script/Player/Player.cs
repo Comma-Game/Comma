@@ -395,5 +395,6 @@ public class Player : MonoBehaviour
     public void SetEnergyDeBuff()
     {
         _energy *= 0.8f;
+        CanvasController.Instance.PlayerUpEnergy(-_energy * 0.2f);
     }
 }
