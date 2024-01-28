@@ -8,11 +8,13 @@ public class HeartShopPanel : MonoBehaviour
     [SerializeField] public MainSceneController mainSceneController;
 
     public void BuyOneHeart(){
+        AudioManager.Instance.PlayGameButtonClick();
         HeartPanelCS.AddHearts(1);
         mainSceneController.MinusCoin(15000);
     }
 
     public void BuyFiveHeart(){
+        AudioManager.Instance.PlayGameButtonClick();
         HeartPanelCS.AddFullHearts();
     }
 }

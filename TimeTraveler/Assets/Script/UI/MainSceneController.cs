@@ -95,6 +95,8 @@ public class MainSceneController : MonoBehaviour
 
                 if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+
+                
         }
 
         public void GamePlay(){
@@ -116,6 +118,7 @@ public class MainSceneController : MonoBehaviour
                         // 블랙홀 켜주기
                         blackHoleObj1.SetActive(true);
                         blackHoleObj2.SetActive(true);
+                        AudioManager.Instance.PlayMainScenePortal();
                         Invoke("MoveScene", 5f);
                 }else{
                         shop_HaertShopPanel.SetActive(true);
@@ -129,6 +132,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void ClickShop(){
+                AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickShop");
                 shopPanel.SetActive(true);
                 AchievementPanel.SetActive(false);
@@ -138,6 +142,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void ClickAchievement(){
+                AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickAchievement");
                 shopPanel.SetActive(false);
                 AchievementPanel.SetActive(true);
@@ -145,6 +150,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void ClickCashShop(){
+                AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickCashShop");
                 shopPanel.SetActive(false);
                 AchievementPanel.SetActive(false);
@@ -154,17 +160,17 @@ public class MainSceneController : MonoBehaviour
         /// /////////////////////////////////////////////////////////////////
         /// player panel
 
-        public void ChangeCoinText(int coin){
+        private void ChangeCoinText(int coin){
                 coinText_1.text = "Coin : " + coin.ToString();
                 coinText_2.text = "Coin : " + coin.ToString();
         }
 
-        public void ChangeScoreText(int score){
+        private void ChangeScoreText(int score){
                 scoreText_1.text = "Score : " + score.ToString();
                 scoreText_2.text = "Score : " + score.ToString();
         }
 
-        public void ChangeBuffText(string buff){
+        private void ChangeBuffText(string buff){
                 buffText_1.text = "Get Buff : " + buff;
                 buffText_2.text = "Get Buff : " + buff;
         }
@@ -187,6 +193,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void UpgradeStatHP(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(hpUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= hpUpgradeCoin[hpUpgradeClass])
@@ -212,6 +219,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeJelly(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(jellyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= jellyUpgradeCoin[jellyUpgradeClass]){
@@ -236,6 +244,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeStatEnergy(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(energyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= energyUpgradeCoin[energyUpgradeClass]){
@@ -260,6 +269,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
 	public void GetMysteryBox(){
+                AudioManager.Instance.PlayMesteryBoxBuySFX();
                 string randomBuffText = GetRandomBuffText();
                 mysteryBoxBuffText.text = randomBuffText;
                 ChangeBuffText(randomBuffText);
