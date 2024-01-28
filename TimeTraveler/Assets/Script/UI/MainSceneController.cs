@@ -16,6 +16,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public float rotationSpeed = 50f;
         [SerializeField] public GameObject shopPanel;
         [SerializeField] public GameObject AchievementPanel;
+        private AchievementManager AchievementPanelCS;
         [SerializeField] public GameObject SettingPanel;
         [SerializeField] public GameObject CashShopPanel;
         [SerializeField] public UIMenuManager uIMenuManager;
@@ -80,12 +81,14 @@ public class MainSceneController : MonoBehaviour
         /// game object
         
         public void Start(){
+                AchievementPanelCS = AchievementPanel.GetComponent<AchievementManager>();
                 hpUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeHP();
                 jellyUpgradeClass = SaveLoadManager.Instance.GetUpgradeJelly();
                 energyUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeEnergy();
                 SetMysteryBox(SaveLoadManager.Instance.GetBuff());
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
                 ChangeScoreText(SaveLoadManager.Instance.GetHighScore());
+                AchievementPanelCS.ChangeHighScoreText(SaveLoadManager.Instance.GetHighScore());
                 SettingClass(hpUpgradeClass, jellyUpgradeClass, energyUpgradeClass);
 
                 if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
@@ -108,6 +111,7 @@ public class MainSceneController : MonoBehaviour
                 blackHoleObj1.SetActive(true);
                 blackHoleObj2.SetActive(true);
                 Invoke("MoveScene", 5f);
+                SaveLoadManager.Instance.SaveData();
         }
 
         private void MoveScene()
@@ -288,7 +292,7 @@ public class MainSceneController : MonoBehaviour
                 shopEnergyLVText.text = "LV " + (energyUpgradeClass).ToString();
         }
 
-        private void MinusCoin(int coin){
+        public void MinusCoin(int coin){
                 // 돈 소비
                 SaveLoadManager.Instance.MinusCoin(coin);
                 // 바뀐 금액 표시
