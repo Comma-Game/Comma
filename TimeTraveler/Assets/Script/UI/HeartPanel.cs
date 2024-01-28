@@ -86,15 +86,15 @@ public class HeartPanel : MonoBehaviour
         // currentHearts = 5;
     }
 
-    private void SaveData()
-    {
-        // 하트 데이터 저장
-        PlayerPrefs.SetInt("CurrentHearts", currentHearts);
-        PlayerPrefs.SetString("LastFillTime", lastFillTime.ToBinary().ToString());
-        PlayerPrefs.Save();
-    }
+    // private void SaveData()
+    // {
+    //     // 하트 데이터 저장
+    //     PlayerPrefs.SetInt("CurrentHearts", currentHearts);
+    //     PlayerPrefs.SetString("LastFillTime", lastFillTime.ToBinary().ToString());
+    //     PlayerPrefs.Save();
+    // }
 
-    private void AddHearts(int amount)
+    public void AddHearts(int amount)
     {
         // 하트 추가 및 마지막으로 채운 시간 업데이트
         currentHearts = Mathf.Clamp(currentHearts + amount, 0, maxHearts);
@@ -103,6 +103,12 @@ public class HeartPanel : MonoBehaviour
         SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
         SaveLoadManager.Instance.PlusHeart();
+    }
+
+    public void AddFullHearts(){
+        while(currentHearts < maxHearts){
+            AddHearts(1);
+        }
     }
 
     public void MinusHearts(int amount)
