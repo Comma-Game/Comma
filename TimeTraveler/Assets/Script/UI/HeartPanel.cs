@@ -48,7 +48,7 @@ public class HeartPanel : MonoBehaviour
         // test
         if (Input.GetKeyDown(KeyCode.K))
         {
-            test = 29;
+            test = 10;
         }
 
         UpdateTimerText(); // 매 프레임마다 타이머 텍스트 업데이트
@@ -71,28 +71,7 @@ public class HeartPanel : MonoBehaviour
         Debug.Log("currentHearts : " + currentHearts);
         Debug.Log("lastFillTime : " + lastFillTime);
         ChangeHeartImg();
-        // 저장된 하트 데이터 불러오기
-        // currentHearts = PlayerPrefs.GetInt("CurrentHearts", maxHearts);
-        // string tempLastFillTime = PlayerPrefs.GetString("LastFillTime", string.Empty);
-        // if (!string.IsNullOrEmpty(tempLastFillTime))
-        // {
-        //     lastFillTime = DateTime.FromBinary(long.Parse(tempLastFillTime));
-        // }
-        // else
-        // {
-        //     // 최초 실행 시, 저장된 값이 없을 때
-        //     lastFillTime = DateTime.Now;
-        // }
-        // currentHearts = 5;
     }
-
-    // private void SaveData()
-    // {
-    //     // 하트 데이터 저장
-    //     PlayerPrefs.SetInt("CurrentHearts", currentHearts);
-    //     PlayerPrefs.SetString("LastFillTime", lastFillTime.ToBinary().ToString());
-    //     PlayerPrefs.Save();
-    // }
 
     public void AddHearts(int amount)
     {
@@ -128,18 +107,24 @@ public class HeartPanel : MonoBehaviour
         if (currentHearts < maxHearts)
         {
             TimeSpan timeUntilNextHeart = lastFillTime.AddMinutes(fillCooldownMinutes) - DateTime.Now;
-            int minutes = timeUntilNextHeart.Minutes - test;
-            if(test != 0) test = 0; // test 
-            //Debug.Log(timeUntilNextHeart);
-            if(minutes < 1){
+            int minutes = timeUntilNextHeart.Minutes;
+            int seconds = timeUntilNextHeart.Seconds;
+
+            // test
+            minutes -= test;
+            if(test != 0) test = 0;
+
+            // 30분 지나면 하트 한 개 채워짐
+            if (minutes < 1 && seconds < 1)
+            {
                 AddHearts(1);
             }
 
-            //timeText.text = string.Format("{0:D2}:{1:D2}",timeUntilNextHeart.Minutes, timeUntilNextHeart.Seconds);
-            float time = ((maxHearts-1) - currentHearts) * fillCooldownMinutes + minutes;
-            int hour = (int)(time/60);
-            int minute = (int)(time%60);
-            timeText.text = string.Format("{0:D2}:{1:D2}", hour, minute);
+            // float time = ((maxHearts - 1) - currentHearts) * fillCooldownMinutes + minutes;
+            // int totalSeconds = (int)(time * 60); // 분을 초로 변환
+            // int minute = totalSeconds / 60;
+            // int second = totalSeconds % 60;
+            timeText.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
         }
         else
         {

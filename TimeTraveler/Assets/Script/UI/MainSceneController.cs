@@ -15,10 +15,12 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject mainPanel_playerStat;
         [SerializeField] public float rotationSpeed = 50f;
         [SerializeField] public GameObject shopPanel;
+        [SerializeField] public GameObject shop_HaertShopPanel;
         [SerializeField] public GameObject AchievementPanel;
         private AchievementManager AchievementPanelCS;
         [SerializeField] public GameObject SettingPanel;
         [SerializeField] public GameObject CashShopPanel;
+        [SerializeField] public GameObject Canv_CashShop;
         [SerializeField] public UIMenuManager uIMenuManager;
 
         [Header("heart Panel")]
@@ -97,20 +99,27 @@ public class MainSceneController : MonoBehaviour
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
-                // 화면 UI 꺼주기
-                mainPanel_Button.SetActive(false);
-                mainPanel_playerStat.SetActive(false);
-                SettingPanel.SetActive(false);
-                CashShopPanel.SetActive(false);
-                if(heartPanelCS == null){
-                        heartPanelCS = heartPanel.GetComponent<HeartPanel>();
+                if(heartPanelCS.GetCurrentHearts() >= 1){
+                        // 화면 돌아가기
+                        uIMenuManager.Position1();
+                        // 화면 UI 꺼주기
+                        mainPanel_Button.SetActive(false);
+                        mainPanel_playerStat.SetActive(false);
+                        SettingPanel.SetActive(false);
+                        CashShopPanel.SetActive(false);
+                        // 하트 값 소모 1
+                        if(heartPanelCS == null){
+                                heartPanelCS = heartPanel.GetComponent<HeartPanel>();
+                        }
+                        heartPanelCS.MinusHearts(1);
+                        heartPanel.SetActive(false);
+                        // 블랙홀 켜주기
+                        blackHoleObj1.SetActive(true);
+                        blackHoleObj2.SetActive(true);
+                        Invoke("MoveScene", 5f);
+                }else{
+                        shop_HaertShopPanel.SetActive(true);
                 }
-                heartPanelCS.MinusHearts(1);
-                heartPanel.SetActive(false);
-                // 블랙홀 켜주기
-                blackHoleObj1.SetActive(true);
-                blackHoleObj2.SetActive(true);
-                Invoke("MoveScene", 5f);
                 SaveLoadManager.Instance.SaveData();
         }
 
@@ -121,18 +130,25 @@ public class MainSceneController : MonoBehaviour
 
         public void ClickShop(){
                 Debug.Log("ClickShop");
-                if(heartPanelCS.GetCurrentHearts() >= 1){
-                        shopPanel.SetActive(true);
-                        AchievementPanel.SetActive(false);
-                        uIMenuManager.Position2();
-                        uIMenuManager.ReturnMenu();
-                }
+                shopPanel.SetActive(true);
+                AchievementPanel.SetActive(false);
+                uIMenuManager.Position2();
+                uIMenuManager.ReturnMenu();
+                Canv_CashShop.SetActive(false);
         }
 
         public void ClickAchievement(){
                 Debug.Log("ClickAchievement");
                 shopPanel.SetActive(false);
                 AchievementPanel.SetActive(true);
+                Canv_CashShop.SetActive(false);
+        }
+
+        public void ClickCashShop(){
+                Debug.Log("ClickCashShop");
+                shopPanel.SetActive(false);
+                AchievementPanel.SetActive(false);
+                Canv_CashShop.SetActive(true);
         }
 
         /// /////////////////////////////////////////////////////////////////
@@ -295,6 +311,14 @@ public class MainSceneController : MonoBehaviour
         public void MinusCoin(int coin){
                 // 돈 소비
                 SaveLoadManager.Instance.MinusCoin(coin);
+                // 바뀐 금액 표시
+                ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+        }
+
+        public void PlusCoin(int coin){
+                Debug.Log("PlusCoin "+ coin);
+                // 돈 소비
+                SaveLoadManager.Instance.PlusCoin(coin);
                 // 바뀐 금액 표시
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }
