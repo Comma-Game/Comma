@@ -15,10 +15,12 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject mainPanel_playerStat;
         [SerializeField] public float rotationSpeed = 50f;
         [SerializeField] public GameObject shopPanel;
+        [SerializeField] public GameObject shop_HaertShopPanel;
         [SerializeField] public GameObject AchievementPanel;
         private AchievementManager AchievementPanelCS;
         [SerializeField] public GameObject SettingPanel;
         [SerializeField] public GameObject CashShopPanel;
+        [SerializeField] public GameObject Canv_CashShop;
         [SerializeField] public UIMenuManager uIMenuManager;
 
         [Header("heart Panel")]
@@ -93,24 +95,34 @@ public class MainSceneController : MonoBehaviour
 
                 if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+
+                
         }
 
         public void GamePlay(){
                 Debug.Log("GamePlay");
-                // 화면 UI 꺼주기
-                mainPanel_Button.SetActive(false);
-                mainPanel_playerStat.SetActive(false);
-                SettingPanel.SetActive(false);
-                CashShopPanel.SetActive(false);
-                if(heartPanelCS == null){
-                        heartPanelCS = heartPanel.GetComponent<HeartPanel>();
+                if(heartPanelCS.GetCurrentHearts() >= 1){
+                        // 화면 돌아가기
+                        uIMenuManager.Position1();
+                        // 화면 UI 꺼주기
+                        mainPanel_Button.SetActive(false);
+                        mainPanel_playerStat.SetActive(false);
+                        SettingPanel.SetActive(false);
+                        CashShopPanel.SetActive(false);
+                        // 하트 값 소모 1
+                        if(heartPanelCS == null){
+                                heartPanelCS = heartPanel.GetComponent<HeartPanel>();
+                        }
+                        heartPanelCS.MinusHearts(1);
+                        heartPanel.SetActive(false);
+                        // 블랙홀 켜주기
+                        blackHoleObj1.SetActive(true);
+                        blackHoleObj2.SetActive(true);
+                        AudioManager.Instance.PlayMainScenePortal();
+                        Invoke("MoveScene", 5f);
+                }else{
+                        shop_HaertShopPanel.SetActive(true);
                 }
-                heartPanelCS.MinusHearts(1);
-                heartPanel.SetActive(false);
-                // 블랙홀 켜주기
-                blackHoleObj1.SetActive(true);
-                blackHoleObj2.SetActive(true);
-                Invoke("MoveScene", 5f);
                 SaveLoadManager.Instance.SaveData();
         }
 
@@ -120,35 +132,45 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void ClickShop(){
+                AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickShop");
-                if(heartPanelCS.GetCurrentHearts() >= 1){
-                        shopPanel.SetActive(true);
-                        AchievementPanel.SetActive(false);
-                        uIMenuManager.Position2();
-                        uIMenuManager.ReturnMenu();
-                }
+                shopPanel.SetActive(true);
+                AchievementPanel.SetActive(false);
+                uIMenuManager.Position2();
+                uIMenuManager.ReturnMenu();
+                Canv_CashShop.SetActive(false);
         }
 
         public void ClickAchievement(){
+                AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickAchievement");
                 shopPanel.SetActive(false);
                 AchievementPanel.SetActive(true);
+                Canv_CashShop.SetActive(false);
+        }
+
+        public void ClickCashShop(){
+                AudioManager.Instance.PlayGameButtonClick();
+                Debug.Log("ClickCashShop");
+                shopPanel.SetActive(false);
+                AchievementPanel.SetActive(false);
+                Canv_CashShop.SetActive(true);
         }
 
         /// /////////////////////////////////////////////////////////////////
         /// player panel
 
-        public void ChangeCoinText(int coin){
+        private void ChangeCoinText(int coin){
                 coinText_1.text = "Coin : " + coin.ToString();
                 coinText_2.text = "Coin : " + coin.ToString();
         }
 
-        public void ChangeScoreText(int score){
+        private void ChangeScoreText(int score){
                 scoreText_1.text = "Score : " + score.ToString();
                 scoreText_2.text = "Score : " + score.ToString();
         }
 
-        public void ChangeBuffText(string buff){
+        private void ChangeBuffText(string buff){
                 buffText_1.text = "Get Buff : " + buff;
                 buffText_2.text = "Get Buff : " + buff;
         }
@@ -171,6 +193,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void UpgradeStatHP(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(hpUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= hpUpgradeCoin[hpUpgradeClass])
@@ -196,6 +219,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeJelly(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(jellyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= jellyUpgradeCoin[jellyUpgradeClass]){
@@ -220,6 +244,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void UpgradeStatEnergy(){
+                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(energyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= energyUpgradeCoin[energyUpgradeClass]){
@@ -244,6 +269,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
 	public void GetMysteryBox(){
+                AudioManager.Instance.PlayMesteryBoxBuySFX();
                 string randomBuffText = GetRandomBuffText();
                 mysteryBoxBuffText.text = randomBuffText;
                 ChangeBuffText(randomBuffText);
@@ -295,6 +321,14 @@ public class MainSceneController : MonoBehaviour
         public void MinusCoin(int coin){
                 // 돈 소비
                 SaveLoadManager.Instance.MinusCoin(coin);
+                // 바뀐 금액 표시
+                ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+        }
+
+        public void PlusCoin(int coin){
+                Debug.Log("PlusCoin "+ coin);
+                // 돈 소비
+                SaveLoadManager.Instance.PlusCoin(coin);
                 // 바뀐 금액 표시
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }

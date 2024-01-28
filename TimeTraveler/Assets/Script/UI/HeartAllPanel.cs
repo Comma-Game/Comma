@@ -16,6 +16,7 @@ public class HeartAllPanel : MonoBehaviour
     }
 
     public void OnHeartShopPanel(bool isActive){
+        AudioManager.Instance.PlayGameButtonClick();
         HeartShopPanel.SetActive(isActive);
     }
 

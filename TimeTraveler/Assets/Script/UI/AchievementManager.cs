@@ -16,6 +16,7 @@ public class AchievementManager : MonoBehaviour
 	}
 
     public void ClickStory(int number){
+        AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("ClickStory : " + number);
         DisablePanels();
         stroyPanels[number].SetActive(true);

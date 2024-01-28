@@ -7,6 +7,7 @@ public class SettingPanel : MonoBehaviour
     [SerializeField] public GameObject settingPanel;
 
     public void OnSettingPanel(bool isActive){
+        AudioManager.Instance.PlayGameButtonClick();
         settingPanel.SetActive(isActive);
     }
 }
