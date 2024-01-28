@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3526462298556153916}
   - component: {fileID: 5596712620887407114}
   - component: {fileID: 2204244916018317043}
-  - component: {fileID: 9115117951892909427}
   - component: {fileID: 195680415750291750}
   - component: {fileID: 9115836359865610820}
+  - component: {fileID: 5669015675093600790}
   m_Layer: 6
   m_Name: Pipe3
   m_TagString: Obstacle
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.6440824, y: 0.2918183, z: 0.29181832, w: 0.6440823}
   m_LocalPosition: {x: 0.14200014, y: -0.19500047, z: -0.39699998}
-  m_LocalScale: {x: 100, y: 33.43899, z: 99.999985}
+  m_LocalScale: {x: 60.4, y: 40, z: 60.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3116680244628574334}
@@ -88,29 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &9115117951892909427
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480718707755692591}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0031996276
-  m_Height: 0.06353575
-  m_Direction: 1
-  m_Center: {x: -0.0000000045401976, y: -0.005262242, z: -3.492459e-10}
 --- !u!54 &195680415750291750
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,6 +140,28 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
+--- !u!64 &5669015675093600790
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480718707755692591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8289265058814353413, guid: 01fe3bff88c3b284a8a102ee947d6d64, type: 3}
 --- !u!1 &678831925587184969
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 678831925587184969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3902454, y: 14.058498, z: 10.20125}
+  m_LocalPosition: {x: 4.3902454, y: 12.868498, z: 10.20125}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5134,6 +5133,7 @@ GameObject:
   - component: {fileID: 5995600851626722942}
   - component: {fileID: 7177370273648423127}
   - component: {fileID: 8662712527026275370}
+  - component: {fileID: 5292931552546368283}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
   m_TagString: Obstacle
@@ -5233,6 +5233,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &5292931552546368283
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863471350853132716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &1923184582553193095
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,6 +5267,7 @@ GameObject:
   - component: {fileID: 7226398600262647361}
   - component: {fileID: 5252870334518212531}
   - component: {fileID: 4452597634229434449}
+  - component: {fileID: 8414266149978376447}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
   m_TagString: Obstacle
@@ -5344,6 +5367,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &8414266149978376447
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923184582553193095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &2530389564023839846
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,9 +5400,9 @@ GameObject:
   - component: {fileID: 6471187238366288776}
   - component: {fileID: 2842171427073249150}
   - component: {fileID: 1632251535400805400}
-  - component: {fileID: 4297879411546293816}
   - component: {fileID: 2146321080882405987}
   - component: {fileID: 3300661724920255134}
+  - component: {fileID: 3933898964643681522}
   m_Layer: 6
   m_Name: Pipe1 (1)
   m_TagString: Obstacle
@@ -5375,7 +5420,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.020285606, y: -2.085, z: -0.17}
-  m_LocalScale: {x: 100, y: 33.438995, z: 100}
+  m_LocalScale: {x: 60.4, y: 40, z: 60.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4599668060367955389}
@@ -5432,29 +5477,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4297879411546293816
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2530389564023839846}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0031996276
-  m_Height: 0.06353575
-  m_Direction: 1
-  m_Center: {x: -0.0000000045401976, y: -0.005262242, z: -3.492459e-10}
 --- !u!54 &2146321080882405987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5507,6 +5529,28 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
+--- !u!64 &3933898964643681522
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530389564023839846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8289265058814353413, guid: 01fe3bff88c3b284a8a102ee947d6d64, type: 3}
 --- !u!1 &2554996707061581355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5532,7 +5576,7 @@ Transform:
   m_GameObject: {fileID: 2554996707061581355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10442,6 +10486,7 @@ GameObject:
   - component: {fileID: 411446251551943145}
   - component: {fileID: 4423852374697581113}
   - component: {fileID: 4321688951770149953}
+  - component: {fileID: 7317430536271948171}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
   m_TagString: Obstacle
@@ -10541,6 +10586,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &7317430536271948171
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970403733546269057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &3264770006009815148
 GameObject:
   m_ObjectHideFlags: 0
@@ -10659,6 +10726,7 @@ GameObject:
   - component: {fileID: 1426581963875720319}
   - component: {fileID: 6358461182210589445}
   - component: {fileID: 4465950880171099646}
+  - component: {fileID: 5522334227362520132}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
   m_TagString: Obstacle
@@ -10758,6 +10826,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &5522334227362520132
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414696384317155394}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &3610244198033685346
 GameObject:
   m_ObjectHideFlags: 0
@@ -10770,6 +10860,7 @@ GameObject:
   - component: {fileID: 8486922939532907459}
   - component: {fileID: 3734656388129307960}
   - component: {fileID: 7332493321128595363}
+  - component: {fileID: 6589305408648161909}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
   m_TagString: Obstacle
@@ -10869,6 +10960,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &6589305408648161909
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610244198033685346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &3910258625998112178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10880,9 +10993,9 @@ GameObject:
   - component: {fileID: 8829457688213409}
   - component: {fileID: 9026437303523839383}
   - component: {fileID: 3348656722361479534}
-  - component: {fileID: 712920992914329813}
   - component: {fileID: 5000557899634668375}
   - component: {fileID: 5635763718527540112}
+  - component: {fileID: 2635518156077165569}
   m_Layer: 6
   m_Name: Pipe2
   m_TagString: Obstacle
@@ -10900,7 +11013,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.6440824, y: 0.2918183, z: 0.29181832, w: 0.6440823}
   m_LocalPosition: {x: -0.54, y: 1.028, z: 0.38}
-  m_LocalScale: {x: 100, y: 33.43899, z: 99.99998}
+  m_LocalScale: {x: 60.4, y: 40, z: 60.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3741464331486339375}
@@ -10957,29 +11070,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &712920992914329813
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3910258625998112178}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0031996276
-  m_Height: 0.06353575
-  m_Direction: 1
-  m_Center: {x: -0.0000000045401976, y: -0.005262242, z: -3.492459e-10}
 --- !u!54 &5000557899634668375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11032,6 +11122,28 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
+--- !u!64 &2635518156077165569
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910258625998112178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8289265058814353413, guid: 01fe3bff88c3b284a8a102ee947d6d64, type: 3}
 --- !u!1 &3955998911090648450
 GameObject:
   m_ObjectHideFlags: 0
@@ -16309,6 +16421,7 @@ GameObject:
   - component: {fileID: 8817144510902841467}
   - component: {fileID: 1776932788061921571}
   - component: {fileID: 5114536195082766802}
+  - component: {fileID: 2854479441952217105}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
   m_TagString: Obstacle
@@ -16408,6 +16521,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &2854479441952217105
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198130705863480395}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &5239996274510180743
 GameObject:
   m_ObjectHideFlags: 0
@@ -16420,6 +16555,7 @@ GameObject:
   - component: {fileID: 801169368396188454}
   - component: {fileID: 7592864901317558971}
   - component: {fileID: 1299739246538471135}
+  - component: {fileID: 7577995775550608162}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
   m_TagString: Obstacle
@@ -16519,6 +16655,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &7577995775550608162
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239996274510180743}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1 &5621439050893826080
 GameObject:
   m_ObjectHideFlags: 0
@@ -16636,9 +16794,9 @@ GameObject:
   - component: {fileID: 8735539737424242083}
   - component: {fileID: 315772750187995029}
   - component: {fileID: 6295276707888751468}
-  - component: {fileID: 3679243043443005703}
   - component: {fileID: 4406038152853315943}
   - component: {fileID: 6334557650415680024}
+  - component: {fileID: 6337419788856866238}
   m_Layer: 6
   m_Name: Pipe1
   m_TagString: Obstacle
@@ -16656,7 +16814,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.020285606, y: 2.402, z: -0.16809374}
-  m_LocalScale: {x: 100, y: 33.438995, z: 100}
+  m_LocalScale: {x: 60.4, y: 40, z: 60.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6513263089434934806}
@@ -16713,29 +16871,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3679243043443005703
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5720001175255635888}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0031996276
-  m_Height: 0.06353575
-  m_Direction: 1
-  m_Center: {x: -0.0000000045401976, y: -0.005262242, z: -3.492459e-10}
 --- !u!54 &4406038152853315943
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16788,6 +16923,28 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
+--- !u!64 &6337419788856866238
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720001175255635888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8289265058814353413, guid: 01fe3bff88c3b284a8a102ee947d6d64, type: 3}
 --- !u!1 &6390563437139418755
 GameObject:
   m_ObjectHideFlags: 0
@@ -21811,6 +21968,7 @@ GameObject:
   - component: {fileID: 1825342560665838902}
   - component: {fileID: 961016754964510231}
   - component: {fileID: 6135107685388750374}
+  - component: {fileID: 2956274505658699326}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
   m_TagString: Obstacle
@@ -21910,6 +22068,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!64 &2956274505658699326
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124359523764601557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9062645893235841098, guid: 0d4e6eede6f3a4c49bb06e37a1cb52db, type: 3}
 --- !u!1001 &269538026556706869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22592,7 +22772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -134.69998
+      value: -107.9
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.z

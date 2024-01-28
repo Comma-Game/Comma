@@ -14,7 +14,7 @@ public class MovePlayer : MonoBehaviour
 
     void Start()
     {
-        _swipeSpeed = 150f;
+        _swipeSpeed = 200f;
         _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
 

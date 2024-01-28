@@ -12,7 +12,7 @@ public class TestMovePlayer : MonoBehaviour
 
     void Start()
     {
-        _swipeSpeed = 150f;
+        _swipeSpeed = 200f;
         _rigidbody = GetComponent<Rigidbody>();
     }
 

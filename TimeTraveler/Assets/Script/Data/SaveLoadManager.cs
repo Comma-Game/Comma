@@ -138,7 +138,7 @@ public class SaveLoadManager : MonoBehaviour
     public bool GetIsGameFirst() { return GameData.isGameFirst; } //처음 시작 여부 반환
     public void SetIsGameFirst() { GameData.isGameFirst = true; } //처음 시작 완료 설정
 
-    void SaveData()
+    public void SaveData()
     {
         // 데이터를 JSON 형식으로 변환
         string jsonData = JsonUtility.ToJson(_gameData);
@@ -148,7 +148,7 @@ public class SaveLoadManager : MonoBehaviour
         Debug.Log("저장 완료");
     }
 
-    private void OnApplicationQuit()
+    void OnApplicationQuit()
     {
         SaveData();
     }

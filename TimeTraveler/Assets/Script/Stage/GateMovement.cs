@@ -28,6 +28,7 @@ public class GateMovement : MonoBehaviour
     {
         if(!_rigidbody) _rigidbody = GetComponent<Rigidbody>();
 
+        _isAcc = false;
         _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
         //Debug.Log("Movement : " + _movement);
         //Debug.Log("Speed : " + StageController.Instance.Speed);

@@ -58,6 +58,20 @@ public class StageController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private float _maxFirstSpeed;
+    public float MaxFirstSpeed
+    {
+        get
+        {
+            return _maxFirstSpeed;
+        }
+        set
+        {
+            _maxFirstSpeed = value;
+        }
+    }
+
     static int _score;
     public static int Score
     {
@@ -131,7 +145,8 @@ public class StageController : MonoBehaviour
         _basicSpeed = 30f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
-        _maxSpeed = 10000f;
+        _maxSpeed = 80f;
+        _maxFirstSpeed = 40f;
         _scoreBuff = false;
 
         _stageCount = 1;
@@ -224,7 +239,7 @@ public class StageController : MonoBehaviour
         EnableObject();
         DeleteExploder();
 
-        Debug.Log(_prevStage.name);
+        Debug.Log("파괴된 스테이지 : " + _prevStage.name);
         _prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
@@ -250,7 +265,9 @@ public class StageController : MonoBehaviour
     {
         _stage.SetActive(false);
 
-        _speed = _basicSpeed + _stageCount++;
+        int conceptCount = (_stageCount++ - 1) / 3;
+        _speed = _basicSpeed + conceptCount;
+        _speed = _speed > _maxFirstSpeed ? _maxFirstSpeed : _speed;
 
         SetCurrentStage();
         SetStagesVelocity();
@@ -276,14 +293,11 @@ public class StageController : MonoBehaviour
     //HP가 0 이하 일때 호출
     public void EndGame()
     {
+        if (_scoreBuff) _score *= 2;
+
         Destroy(_parent);
         StopCoroutine(_coroutine);
         EnableGameOverUI();
-
-        if (_scoreBuff) _score *= 2;
-
-        SaveLoadManager.Instance.PlusCoin(_score);
-        SaveLoadManager.Instance.SetHighScore(_score);
     }
 
     //Stage가 들어갈 부모 설정
@@ -332,6 +346,10 @@ public class StageController : MonoBehaviour
         CanvasController.Instance.OpenGameOverPanel(true);
         CanvasController.Instance.ChangeResultScoreText(_score);
         CanvasController.Instance.ChangeResultCoinText(_score);
+
+        SaveLoadManager.Instance.PlusCoin(_score);
+        SaveLoadManager.Instance.SetHighScore(_score);
+        SaveLoadManager.Instance.SaveData();
     }
 
     public void AddDisabled(GameObject gameObject)

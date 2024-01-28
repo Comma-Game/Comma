@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         Debug.Log("HP : " + _hp);
 
         _energy = 100;
-        _energyChargeSpeed = 2 + CalculateChargeEnergy();
+        _energyChargeSpeed = 4 + CalculateChargeEnergy();
         Debug.Log("Energy : " + _energy);
 
         _jellyScore = 70 + CalculateJelly();
