@@ -23,12 +23,14 @@ public class TestControlButton : MonoBehaviour
     {
         if(!_toggle)
         {
-            _text.text = "Change To Mobile Mode " + _player.GetComponent<Player>().GetEnergy();
+            _text.text = "Change To Mobile Mode ";
         }
         else
         {
-            _text.text = "Change To PC Mode " + _player.GetComponent<Player>().GetEnergy();
+            _text.text = "Change To PC Mode ";
         }
+
+        if(_player.GetComponent<Player>().GetHp() > 0) _text.text += StageController.Instance.GetStageVelocity();
     }
 
     public void TogglePlayerScript()

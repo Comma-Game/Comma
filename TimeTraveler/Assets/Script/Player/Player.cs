@@ -54,8 +54,10 @@ public class Player : MonoBehaviour
                 collision.gameObject.SetActive(false);
                 HitDamage(10 * _obstacleDamageBuff);
 
-                _stageController.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
-              
+                if(collision.gameObject.GetComponent<MeshExploder>() != null)
+                    _stageController.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
+                
+                
                 _stageController.AddDisabled(collision.gameObject);
             }
         }
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
             {
                 StageController.Instance.ScoreUp(_jellyScore * 2);
                 Heal(1.8f * _healBuff);
+                //CanvasController.Instance.OpenMessagePanel();
             }
             else
             {
@@ -290,14 +293,12 @@ public class Player : MonoBehaviour
         if (_tempSpeed > 0f) _stageController.Speed += _tempSpeed; ;
         _tempSpeed = _stageController.GetStageVelocity() / 2;
 
-        _stageController.Speed -= _tempSpeed;
-        _stageController.SetStagesVelocity();
+        _stageController.AddVelocity(-_tempSpeed);
         _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        _stageController.Speed += _tempSpeed;
-        _stageController.SetStagesVelocity();
+        _stageController.AddVelocity(_tempSpeed);
         _colliderRange.ReSetColor();
 
         _tempSpeed = 0f;
@@ -324,8 +325,6 @@ public class Player : MonoBehaviour
             _isCast = false;
         }
     }
-
-    public float GetEnergy()  { return _energy; }
 
     float CalculateHP()
     {
@@ -396,4 +395,6 @@ public class Player : MonoBehaviour
         _energy *= 0.8f;
         CanvasController.Instance.PlayerUpEnergy(-_energy * 0.2f);
     }
+
+    public float GetHp() { return _hp; }
 }

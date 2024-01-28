@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8166787996910245188}
   - component: {fileID: 1861810748333441396}
   - component: {fileID: 2804918736542239574}
-  - component: {fileID: 6097600426822484364}
+  - component: {fileID: 3553415701462740303}
   m_Layer: 6
   m_Name: Memory
   m_TagString: Jelly
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMemory: 1
---- !u!54 &6097600426822484364
+--- !u!54 &3553415701462740303
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,4 +146,4 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0

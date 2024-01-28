@@ -37,6 +37,19 @@ public class ShowPlayer : MonoBehaviour
 
                 mats.Add(mat);
             }
+
+            SkinnedMeshRenderer[] s_obj = hits[i].transform.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+            for (int j = 0; j < s_obj.Length; j++)
+            {
+                Material mat = s_obj[j].material;
+                Color color = mat.color;
+
+                SetMaterialRenderingMode(mat, 3f, 3000);
+                StartCoroutine(ChangeAlpha(mat, color));
+
+                mats.Add(mat);
+            }
         }
     }
 

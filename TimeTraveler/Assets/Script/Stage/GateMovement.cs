@@ -5,22 +5,37 @@ using UnityEngine;
 public class GateMovement : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    Vector3 _movement;
+    bool _isAcc;
+
+    private void Start()
+    {
+        _isAcc = false;
+    }
 
     private void Update()
     {
-        _movement = transform.up * StageController.Instance.Speed;
+        Debug.Log("Speed : " + _rigidbody.velocity.y);
         CheckMaxSpeed();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isAcc)
+            _rigidbody.AddForce(transform.up * StageController.Instance.Speed * StageController.Instance.AccSpeed, ForceMode.Acceleration);
     }
 
     public void Move()
     {
         if(!_rigidbody) _rigidbody = GetComponent<Rigidbody>();
-        if (_movement.y == 0) _movement = transform.up * StageController.Instance.Speed;
 
         _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
         //Debug.Log("Movement : " + _movement);
         //Debug.Log("Speed : " + StageController.Instance.Speed);
+    }
+
+    public void AddVelocity(float speed)
+    {
+        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y + speed, 0);
     }
 
     public float GetVelocity()
@@ -30,7 +45,7 @@ public class GateMovement : MonoBehaviour
 
     public void SetAcceleration()
     {
-        _rigidbody.AddForce(_movement * StageController.Instance.AccSpeed, ForceMode.Acceleration);
+        _isAcc = true;
     }
 
     void CheckMaxSpeed()

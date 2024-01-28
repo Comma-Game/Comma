@@ -15,6 +15,7 @@ public class GameData
     public int heart;
     public string exit_time;
     public int buff;
+    public bool isGameFirst;
 
     public GameData()
     {
@@ -26,6 +27,7 @@ public class GameData
         heart = 5;
         exit_time = DateTime.Now.ToString();
         buff = 0;
+        isGameFirst = false;
     }
 }
 
@@ -133,6 +135,8 @@ public class SaveLoadManager : MonoBehaviour
     public void SubtractHeart() { GameData.heart--; } //하트 하나 빼기
     public void SetExitTime() { GameData.exit_time = DateTime.Now.ToString(); } //나간 시간 설정
     public void SetBuff(int buff) { GameData.buff = buff; } //버프 인덱스 설정
+    public bool GetIsGameFirst() { return GameData.isGameFirst; } //처음 시작 여부 반환
+    public void SetIsGameFirst() { GameData.isGameFirst = true; } //처음 시작 완료 설정
 
     void SaveData()
     {

@@ -83,8 +83,15 @@ public class StageController : MonoBehaviour
     {
         //"TestStage",
         "PipeMap",
-        //"LabMap"
-        "ToyMap"
+        "ToyMap",
+        "ForestMap",
+        "DinoMap",
+        "HouseMap",
+        "LabMap",
+        "PlanetMap",
+        "PlaygroundMap",
+        "SchoolMap",
+        "SeaMap"
     };
 
     static GameObject _stageController;
@@ -123,8 +130,8 @@ public class StageController : MonoBehaviour
 
         _basicSpeed = 30f;
         _speed = _basicSpeed;
-        _accSpeed = 0.15f;
-        _maxSpeed = 100f;
+        _accSpeed = 0.3f;
+        _maxSpeed = 10000f;
         _scoreBuff = false;
 
         _stageCount = 1;
@@ -261,6 +268,11 @@ public class StageController : MonoBehaviour
         return _stage.GetComponent<GateMovement>().GetVelocity();
     }
 
+    public void AddVelocity(float speed)
+    {
+        _stage.GetComponent<GateMovement>().AddVelocity(speed);
+    }
+
     //HP°¡ 0 ÀÌÇÏ ÀÏ¶§ È£Ãâ
     public void EndGame()
     {
@@ -294,13 +306,18 @@ public class StageController : MonoBehaviour
         CanvasController.Instance.ChangeScoreText(_score);
     }
 
+    public int ScorePerTime() 
+    {
+        int conceptCount = (_stageCount - 1) / 3;
+        return 10 + (conceptCount >= 5 ? 10 : conceptCount * 2);
+    }
+
     IEnumerator ScoreTime()
     {
         while(true)
         {
-            int conceptCount = (_stageCount - 1) / 3;
-            _score += 10 + (conceptCount >= 5 ? 10 : conceptCount * 2);
-            
+            _score += ScorePerTime();
+
             CanvasController.Instance.ChangeScoreText(_score);
             CanvasController.Instance.ChangeState(_stageCount);
             _player.TimeDamage();
@@ -346,9 +363,13 @@ public class StageController : MonoBehaviour
 
     void DeleteExploder()
     {
-        foreach(GameObject explode in _explode)
+        foreach (GameObject explode in _explode)
         {
-            if (!explode) Destroy(explode);
+            if (explode != null)
+            {
+                Debug.Log("Explode ±úÁü : " + explode.gameObject.name);
+                Destroy(explode);
+            }
         }
         _explode.Clear();
     }
