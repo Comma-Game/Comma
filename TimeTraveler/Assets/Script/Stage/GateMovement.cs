@@ -7,6 +7,11 @@ public class GateMovement : MonoBehaviour
     Rigidbody _rigidbody;
     bool _isAcc;
 
+    private void Awake()
+    {
+        MakeRigidbody();
+    }
+
     private void Start()
     {
         _isAcc = false;
@@ -26,12 +31,22 @@ public class GateMovement : MonoBehaviour
 
     public void Move()
     {
-        if(!_rigidbody) _rigidbody = GetComponent<Rigidbody>();
-
+        //if (_rigidbody == null) MakeRigidbody();
         _isAcc = false;
         _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
         //Debug.Log("Movement : " + _movement);
         //Debug.Log("Speed : " + StageController.Instance.Speed);
+    }
+
+    void MakeRigidbody()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void StopMove()
+    {
+        //if (_rigidbody == null) MakeRigidbody();
+        _rigidbody.velocity = new Vector3(0, 0, 0);
     }
 
     public void AddVelocity(float speed)

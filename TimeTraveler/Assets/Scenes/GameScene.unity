@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 6049167571278708829}
+    - target: {fileID: 5652718869301833107, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 8844242553578537785, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0

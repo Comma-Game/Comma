@@ -15,7 +15,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _basicSpeed;
+    private float _basicSpeed = 30f;
     
     private float _speed;
     public float Speed
@@ -31,7 +31,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed;
+    private float _accSpeed = 0.3f;
     public float AccSpeed
     {
         get
@@ -45,7 +45,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxSpeed;
+    private float _maxSpeed = 80f;
     public float MaxSpeed
     {
         get
@@ -59,7 +59,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxFirstSpeed;
+    private float _maxFirstSpeed = 40f;
     public float MaxFirstSpeed
     {
         get
@@ -119,6 +119,32 @@ public class StageController : MonoBehaviour
     List<GameObject> _disabled, _explode;
     bool _scoreBuff;
 
+    private void Awake()
+    {
+        _basicSpeed = 30f;
+        _speed = _basicSpeed;
+        _accSpeed = 0.3f;
+        _maxSpeed = 80f;
+        _maxFirstSpeed = 40f;
+        _scoreBuff = false;
+
+        _stageCount = 1;
+        _score = 0;
+        _prevConcept = -1;
+
+        _stage = null;
+        _nextStage = null;
+
+        _disabled = new List<GameObject>();
+        _explode = new List<GameObject>();
+
+        SetConceptIndex();
+        ResetConceptObject();
+        InstantiateStage();
+
+        _queue = new Queue<StageInfo>();
+    }
+
     void Start()
     {
         Init_Instance();
@@ -142,32 +168,10 @@ public class StageController : MonoBehaviour
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
 
-        _basicSpeed = 30f;
-        _speed = _basicSpeed;
-        _accSpeed = 0.3f;
-        _maxSpeed = 80f;
-        _maxFirstSpeed = 40f;
-        _scoreBuff = false;
-
-        _stageCount = 1;
-        _score = 0;
-        _prevConcept = -1;
-
-        _stage = null;
-        _nextStage = null;
-
-        _disabled = new List<GameObject>();
-        _explode = new List<GameObject>();
-
-        SetConceptIndex();
-        ResetConceptObject();
-        InstantiateStage();
-
-        _queue = new Queue<StageInfo>();
         InsertStageToQueue();
         InsertStageToQueue();
 
-        SetNextStage();
+        _nextStage = SetNextStage();
         SetCurrentStage();
         SetStagesVelocity();
 
@@ -200,6 +204,16 @@ public class StageController : MonoBehaviour
         {
             int next_stage_num = Random.Range(0, i);
             _queue.Enqueue(new StageInfo(_conceptIndex[conceptIndex], stageIndex[next_stage_num]));
+
+            int concept = _conceptIndex[conceptIndex], stage = stageIndex[next_stage_num];
+
+            if (GameObject.Find(_stagePrefab[concept][stage].name) == null)
+            {
+                _stagePrefab[concept][stage] = Instantiate(_stagePrefab[concept][stage]);
+                _stagePrefab[concept][stage].transform.SetParent(_parent.transform);
+                _stagePrefab[concept][stage].SetActive(false);
+            }
+
             stageIndex.RemoveAt(next_stage_num);
         }
 
@@ -213,22 +227,29 @@ public class StageController : MonoBehaviour
     {
         _stage = _nextStage;
 
-        int nextAngle = Random.Range(0, 360);
-        _stage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
+        _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
-        _stage.SetActive(true);
+        //_stage.SetActive(true);
 
-        SetNextStage();
+        _nextStage = SetNextStage();
     }
 
     //다음 스테이지 설정
-    void SetNextStage()
+    GameObject SetNextStage()
     {
+        GameObject ret;
+
         StageInfo next_stage_info = _queue.Dequeue(); //큐에서 나올 원소가 새로 생성될 스테이지
         if (_queue.Count <= 3) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
 
         int concept_index = next_stage_info.concept_index, stage_index = next_stage_info.stage_index;
-        _nextStage = _stagePrefab[concept_index][stage_index];
+        ret = _stagePrefab[concept_index][stage_index];
+
+        int nextAngle = Random.Range(0, 360);
+        ret.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
+        ret.SetActive(true);
+
+        return ret;
     }
 
     //비활성화된 모든 오브젝트 활성화
@@ -245,17 +266,7 @@ public class StageController : MonoBehaviour
     void InstantiateStage()
     {
         _stagePrefab = new GameObject[_concept.Length][];
-        for (int i = 0; i < _concept.Length; i++)
-        {
-            _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
-
-            for (int j = 0; j < 3; j++)
-            {
-                _stagePrefab[i][j] = Instantiate(_stagePrefab[i][j]);
-                _stagePrefab[i][j].transform.SetParent(_parent.transform);
-                _stagePrefab[i][j].SetActive(false);
-            }
-        }
+        for (int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
     }
 
     //스테이지 지나면 호출
@@ -263,8 +274,9 @@ public class StageController : MonoBehaviour
     {
         ReturnStage();
 
-        int conceptCount = (_stageCount++ - 1) / 3;
-        _speed = _basicSpeed + conceptCount;
+        int conceptCount = _stageCount++ / 3;
+
+        _speed = _basicSpeed + conceptCount * 2;
         _speed = _speed > _maxFirstSpeed ? _maxFirstSpeed : _speed;
 
         SetCurrentStage();
@@ -274,7 +286,10 @@ public class StageController : MonoBehaviour
     //Scene에 있는 Stage 속도 설정
     public void SetStagesVelocity()
     {
+        Debug.Log("현재 스테이지 : " + _stage.name);
+        Debug.Log("다음 스테이지 : " + _nextStage.name);
         _stage.GetComponent<GateMovement>().Move();
+        _nextStage.GetComponent<GateMovement>().Move();
     }
 
     //현재 스피드 반환
@@ -286,6 +301,7 @@ public class StageController : MonoBehaviour
     public void AddVelocity(float speed)
     {
         _stage.GetComponent<GateMovement>().AddVelocity(speed);
+        _nextStage.GetComponent<GateMovement>().AddVelocity(speed);
     }
 
     //HP가 0 이하 일때 호출
@@ -309,6 +325,7 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         _stage.GetComponent<GateMovement>().SetAcceleration();
+        _nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
     public void ScoreUp(int value)

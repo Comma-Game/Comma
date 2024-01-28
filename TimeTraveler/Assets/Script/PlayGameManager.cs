@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PlayGameManager : MonoBehaviour
 {
-    static GameManager _instance; //유일성 보장
-    public static GameManager Instance
+    static PlayGameManager _instance; //유일성 보장
+    public static PlayGameManager Instance
     {
         get
         {
@@ -38,12 +38,11 @@ public class GameManager : MonoBehaviour
             {
                 gameManager = new GameObject();
                 gameManager.name = "GameManager";
-                gameManager.AddComponent<GameManager>();
+                gameManager.AddComponent<PlayGameManager>();
                 gameManager.AddComponent<UseItem>();
             }
 
-            DontDestroyOnLoad(gameManager);
-            _instance = gameManager.GetComponent<GameManager>();
+            _instance = gameManager.GetComponent<PlayGameManager>();
         }
     }
 }

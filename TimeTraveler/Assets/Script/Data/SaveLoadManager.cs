@@ -16,6 +16,7 @@ public class GameData
     public string exit_time;
     public int buff;
     public bool isGameFirst;
+    public bool isBuyAd;
 
     public GameData()
     {
@@ -28,6 +29,7 @@ public class GameData
         exit_time = DateTime.Now.ToString();
         buff = 0;
         isGameFirst = false;
+        isBuyAd = false;
     }
 }
 
@@ -137,6 +139,8 @@ public class SaveLoadManager : MonoBehaviour
     public void SetBuff(int buff) { GameData.buff = buff; } //버프 인덱스 설정
     public bool GetIsGameFirst() { return GameData.isGameFirst; } //처음 시작 여부 반환
     public void SetIsGameFirst() { GameData.isGameFirst = true; } //처음 시작 완료 설정
+    public bool GetIsBuyAd() { return GameData.isBuyAd; } //광고 구매 여부 반환
+    public void SetIsBuyAd(bool isBuyAd) { GameData.isBuyAd = isBuyAd; } //광구 구매 설정
 
     public void SaveData()
     {

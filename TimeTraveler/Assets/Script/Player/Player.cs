@@ -21,11 +21,6 @@ public class Player : MonoBehaviour
     {
         Init();
     }
-
-    void Update()
-    {
-
-    }
     
     private void OnDrawGizmos()
     {
