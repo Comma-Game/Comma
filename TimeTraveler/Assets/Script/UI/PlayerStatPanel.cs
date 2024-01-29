@@ -35,9 +35,14 @@ public class PlayerStatPanel : MonoBehaviour
     public bool checkEnergyDown = false;
     public bool checkEnergyUp = false;
 
+    [Header("buff Settings")]
+    public GameObject[] buffs;
+
     [Header("another Settings")]
     [SerializeField]    
     public TextMeshProUGUI scoreText;
+    public GameObject scoreUpObj;
+    public TextMeshProUGUI scoreUpText;
 
     void Update()
     {
@@ -176,9 +181,24 @@ public class PlayerStatPanel : MonoBehaviour
     }
 
     /////////////////////////////////////////////////////////////////////////////////
+    ////// buff
+    
+    public void ChangeBuffImage(int num){
+        buffs[num].SetActive(true);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
     ////// 그 밖에
 
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
+    }
+
+    public void ChangeScoreUpText(float scoreUp){
+        scoreUpText.text = "X" + scoreUp.ToString();
+    }
+
+    public void OnScoreUpImg(bool isActive){
+        scoreUpObj.SetActive(isActive);
     }
 }

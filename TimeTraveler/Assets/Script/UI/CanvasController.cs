@@ -93,6 +93,14 @@ public class CanvasController : MonoBehaviour
     public void ChangeScoreText(float score){
         playerStatPanelCS.ChangeScoreText(score);
     }
+
+    public void ChangeScoreUpText(float scoreUp){
+        playerStatPanelCS.ChangeScoreUpText(scoreUp);
+    }
+
+    public void OnScoreUpImg(bool isActive){
+        playerStatPanelCS.OnScoreUpImg(isActive);
+    }
     
     /// ///////////////////////////////////////////////////////////////////
     /// Game Panel

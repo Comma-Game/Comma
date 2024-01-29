@@ -19,6 +19,7 @@ public class HeartPanel : MonoBehaviour
     private DateTime lastFillTime;
     private int test = 0;
     private int testMobile = 0;
+    private int heartsToAdd = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,8 @@ public class HeartPanel : MonoBehaviour
         // timeSinceLastFill 지난 시간
         TimeSpan timeSinceLastFill = DateTime.Now - lastFillTime;
         // 지난 시간 / 1개 채워지는 시간 = 총 채워진 화트 갯수
-        int heartsToAdd = Mathf.FloorToInt((float)timeSinceLastFill.TotalMinutes / fillCooldownMinutes);
+        heartsToAdd = Mathf.FloorToInt((float)timeSinceLastFill.TotalMinutes / fillCooldownMinutes);
+        Debug.Log("heartsToAdd : "+ heartsToAdd);
         if (heartsToAdd > 0)
         {
             AddHearts(heartsToAdd);
@@ -75,6 +77,7 @@ public class HeartPanel : MonoBehaviour
 
     public void AddHearts(int amount)
     {
+        if(currentHearts + amount > 5) amount = 5 - currentHearts;
         // 하트 추가 및 마지막으로 채운 시간 업데이트
         currentHearts = Mathf.Clamp(currentHearts + amount, 0, maxHearts);
         lastFillTime = DateTime.Now;
@@ -106,6 +109,8 @@ public class HeartPanel : MonoBehaviour
         // 현재 하트가 최대 하트가 아닐 경우만 계산
         if (currentHearts < maxHearts)
         {
+            // 마지막 시간 + 총 하트 채워진 시간 - 현재 시간 = 지금 남은 시간 
+            //TimeSpan timeUntilNextHeart = lastFillTime.AddMinutes(fillCooldownMinutes*heartsToAdd) - DateTime.Now;
             TimeSpan timeUntilNextHeart = lastFillTime.AddMinutes(fillCooldownMinutes) - DateTime.Now;
             int minutes = timeUntilNextHeart.Minutes;
             int seconds = timeUntilNextHeart.Seconds;
