@@ -16,7 +16,7 @@ public class TestControlButton : MonoBehaviour
 
     private void Start()
     {
-        _toggle = false;
+        _toggle = _player.GetComponent<MovePlayer>().enabled;
         _text.text = "Change To Mobile Mode";
     }
 
@@ -31,7 +31,7 @@ public class TestControlButton : MonoBehaviour
             _text.text = "Change To PC Mode";
         }
 
-        if(_player.GetComponent<Player>().GetHp() > 0) _text.text += "\nUpdate 2024-01-29 21:28\nSpeed : " + StageController.Instance.GetStageVelocity();
+        if(_player.GetComponent<Player>().GetHp() > 0) _text.text += "\nUpdate 2024-01-30 06:25\nSpeed : " + StageController.Instance.GetStageVelocity();
     }
 
     public void TogglePlayerScript()

@@ -72,15 +72,6 @@ public class StageController : MonoBehaviour
         }
     }
 
-    static int _score;
-    public static int Score
-    {
-        get
-        {
-            return _score;
-        }
-    }
-
     struct StageInfo
     {
         public int concept_index, stage_index;
@@ -112,27 +103,20 @@ public class StageController : MonoBehaviour
     GameObject[][] _stagePrefab;
     GameObject _stage, _nextStage, _parent;
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
-    Coroutine _coroutine;
     List<int> _conceptIndex;
-    Player _player;
     int _prevConcept, _stageCount;
     List<GameObject> _disabled, _explode;
-    bool _scoreBuff;
     bool[,] _iniStage;
 
     private void Awake()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
-
         _basicSpeed = 30f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
         _maxSpeed = 80f;
         _maxFirstSpeed = 40f;
-        _scoreBuff = false;
 
         _stageCount = 1;
-        _score = 0;
         _prevConcept = -1;
 
         _stage = null;
@@ -176,9 +160,6 @@ public class StageController : MonoBehaviour
         _nextStage = SetNextStage();
         SetCurrentStage();
         SetStagesVelocity();
-
-        if (_coroutine != null) StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(ScoreTime());
     }
 
     //초기 Concept Index 설정
@@ -290,9 +271,6 @@ public class StageController : MonoBehaviour
     //Scene에 있는 Stage 속도 설정
     public void SetStagesVelocity()
     {
-        Debug.Log("현재 스테이지 : " + _stage.name);
-        Debug.Log("다음 스테이지 : " + _nextStage.name);
-
         _stage.GetComponent<GateMovement>().Move();
         _nextStage.GetComponent<GateMovement>().Move();
     }
@@ -318,11 +296,7 @@ public class StageController : MonoBehaviour
     //HP가 0 이하 일때 호출
     public void EndGame()
     {
-        if (_scoreBuff) _score *= 2;
-
         Destroy(_parent);
-        StopCoroutine(_coroutine);
-        EnableGameOverUI();
     }
 
     //Stage가 들어갈 부모 설정
@@ -335,46 +309,10 @@ public class StageController : MonoBehaviour
     //가속도 설정
     public void SetAcceleration()
     {
+        Debug.Log("현재 Stage : " + _stage.name);
+        Debug.Log("다음 Stage : " + _nextStage.name);
         _stage.GetComponent<GateMovement>().SetAcceleration();
         _nextStage.GetComponent<GateMovement>().SetAcceleration();
-    }
-
-    public void ScoreUp(int value)
-    {
-        _score += value;
-        CanvasController.Instance.ChangeScoreText(_score);
-    }
-
-    public int ScorePerTime() 
-    {
-        int conceptCount = (_stageCount - 1) / 3;
-        return 10 + (conceptCount >= 5 ? 10 : conceptCount * 2);
-    }
-
-    IEnumerator ScoreTime()
-    {
-        while(true)
-        {
-            _score += ScorePerTime();
-
-            CanvasController.Instance.ChangeScoreText(_score);
-            CanvasController.Instance.ChangeState(_stageCount);
-            _player.TimeDamage();
-            _player.ChargeEnergy();
-
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    void EnableGameOverUI()
-    {
-        CanvasController.Instance.OpenGameOverPanel(true);
-        CanvasController.Instance.ChangeResultScoreText(_score);
-        CanvasController.Instance.ChangeResultCoinText(_score);
-
-        SaveLoadManager.Instance.PlusCoin(_score);
-        SaveLoadManager.Instance.SetHighScore(_score);
-        SaveLoadManager.Instance.SaveData();
     }
 
     public void AddDisabled(GameObject gameObject)
@@ -393,11 +331,6 @@ public class StageController : MonoBehaviour
         _speed = _basicSpeed;
     }
 
-    public void SetScoreBuff()
-    {
-        _scoreBuff = true;
-    }
-
     public void MakeExploder(Transform parent, GameObject explode)
     {
         explode.transform.SetParent(parent);
@@ -408,11 +341,8 @@ public class StageController : MonoBehaviour
     {
         foreach (GameObject explode in _explode)
         {
-            if (explode != null)
-            {
-                Debug.Log("Explode 깨짐 : " + explode.gameObject.name);
+            if (explode != null) Debug.Log("Explode 깨짐 : " + explode.gameObject.name);
                 Destroy(explode);
-            }
         }
         _explode.Clear();
     }
@@ -422,4 +352,6 @@ public class StageController : MonoBehaviour
         foreach (GameObject obj in _disabled) obj.SetActive(true);
         _disabled.Clear();
     }
+
+    public int GetStageCount() { return _stageCount; }
 }

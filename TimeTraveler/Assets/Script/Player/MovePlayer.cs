@@ -18,7 +18,9 @@ public class MovePlayer : MonoBehaviour
     Coroutine _coroutine;
     Player _player;
     float _slowTime;
+    GameObject _camera;
     Canvas _canvas;
+    bool _useSkill;
 
     private void OnDisable()
     {
@@ -35,39 +37,46 @@ public class MovePlayer : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
+        _camera = GameObject.Find("Main Camera");
         _canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
-        _swipeRange = 200f;
-        _swipeSpeed = 0.08f;
+        _swipeRange = 1.5f * _canvas.scaleFactor;
+        _swipeSpeed = 10f;
         _maxSpeed = 20f;
+        _useSkill = false;
     }
 
     void Update()
     {
         GetTouch();
         CheckSpeed();
+
+        if(_useSkill && Input.touchCount == 0)
+        {
+            _useSkill = false;
+            _sTouchPos = Vector3.zero;
+            _eTouchPos = Vector3.zero;
+            _force = Vector3.zero;
+        }
     }
 
     void GetTouch()
     {
         if(Input.touchCount > 0)
         {
-            if(Input.touchCount >= 2)
+            if(Input.touchCount == 2)
             {
-                _sTouchPos = Vector3.zero;
-                _eTouchPos = Vector3.zero;
-                _force = Vector3.zero;
-
+                _useSkill = true;
                 _player.UseSkill();
             }
-            else
+            else if(!_useSkill && Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
 
-                if (touch.phase == TouchPhase.Began) _sTouchPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0) * _canvas.scaleFactor;
-                if (touch.phase == TouchPhase.Ended)
+                if (touch.phase == TouchPhase.Began) _sTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
+                else if (touch.phase == TouchPhase.Ended)
                 {
-                    _eTouchPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0) * _canvas.scaleFactor;
+                    _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
 
                     if (_coroutine != null)
                     {
@@ -75,11 +84,12 @@ public class MovePlayer : MonoBehaviour
                         StopCoroutine(_coroutine);
                     }
 
-                    _force = _sTouchPos - _eTouchPos;
+                    _force = (_sTouchPos - _eTouchPos);
 
-                    _force = Vector3.Magnitude(_force) >= _swipeRange ? _force.normalized * _swipeRange : _force;
-                    _force = new Vector3(_force.x, 0, _force.y);
-                    Debug.Log("Force : " + _force); Debug.Log("Force.Magnitude : " + Vector3.Magnitude(_force));
+                    float dis = Vector3.Magnitude(_force);
+                    if (dis < 0.1f) return;
+                    Debug.Log("DIS : !!!!!!!!!!!!!!!!!!!!! ::::::::: " + dis);
+                    _force =  dis >= _swipeRange ? _force.normalized * _swipeRange : _force;
                     _coroutine = StartCoroutine(MoveTime());
                 }
             }
@@ -103,7 +113,7 @@ public class MovePlayer : MonoBehaviour
 
         while (_slowTime > 0)
         {
-            _slowTime -= 0.25f;
+            _slowTime -= 0.125f;
             _rigidbody.velocity = _v * _slowTime;
             yield return new WaitForSeconds(0.25f);
         }
@@ -114,7 +124,7 @@ public class MovePlayer : MonoBehaviour
     IEnumerator MoveTime()
     {
         _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.VelocityChange);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         _coroutine = StartCoroutine(GetSlow());
     }
 }

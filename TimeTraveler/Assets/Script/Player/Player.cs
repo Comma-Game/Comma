@@ -17,11 +17,24 @@ public class Player : MonoBehaviour
     RaycastHit _hit;
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff;
 
+    private void Awake()
+    {
+        _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
+
+        _tempSpeed = 0;
+
+        _isCast = false;
+        _isPassPortal = false;
+        _isInvincible = false;
+
+        Init_Buff();
+    }
+
     private void Start()
     {
         Init();
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -73,13 +86,13 @@ public class Player : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
             {
-                StageController.Instance.ScoreUp(_jellyScore * 2);
+                PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
                 Heal(1.8f * _healBuff);
                 //CanvasController.Instance.OpenMessagePanel();
             }
             else
             {
-                StageController.Instance.ScoreUp(_jellyScore);
+                PlayGameManager.Instance.ScoreUp(_jellyScore);
             }
 
             other.gameObject.SetActive(false);
@@ -97,6 +110,7 @@ public class Player : MonoBehaviour
     void Init()
     {
         transform.gameObject.SetActive(true);
+        _colliderRange.EnableRawImage();
 
         _saveLoadManager = SaveLoadManager.Instance;
         _stageController = StageController.Instance;
@@ -113,16 +127,6 @@ public class Player : MonoBehaviour
         _jellyScore = 70 + CalculateJelly();
         Debug.Log("Jelly : " + _jellyScore);
 
-        Init_Buff();
-
-        _tempSpeed = 0;
-
-        _isCast = false;
-        _isPassPortal = false;
-        _isInvincible = false;
-
-        _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
-        _colliderRange.ReSetColor();
         _sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
 
         if (_coroutine != null) StopCoroutine(_coroutine);
@@ -249,7 +253,9 @@ public class Player : MonoBehaviour
 
     void EndGame()
     {
+        _colliderRange.DisableRawImage();
         _stageController.EndGame();
+        PlayGameManager.Instance.EndGame();
         transform.gameObject.SetActive(false);
     }
 

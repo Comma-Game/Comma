@@ -631,7 +631,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -844,6 +844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2755603764111104363, guid: fba35de266856bf49adfe36fc19070d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3968279087969935039, guid: fba35de266856bf49adfe36fc19070d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 184.95691
@@ -905,6 +909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1547572735}
     m_Modifications:
+    - target: {fileID: 425944292997916028, guid: b0cad54f7b5273348bc7859bf23025c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3116083180757995616, guid: b0cad54f7b5273348bc7859bf23025c2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1117,7 +1125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021919605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -1217,7 +1225,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2639068358365901687, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 683550278136209012, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: m_IsActive
@@ -1273,7 +1281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5327248477368484440, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5376557189524566919, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: _camera
@@ -1395,10 +1403,10 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1270451645 stripped
 MonoBehaviour:
@@ -2366,6 +2374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6389095434308540746, guid: 3109388a0580e9a4f9baf4c6498a82a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6606340382415018312, guid: 3109388a0580e9a4f9baf4c6498a82a6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 80
@@ -2562,6 +2574,10 @@ PrefabInstance:
     - target: {fileID: 4979530463653829589, guid: a2fc00863341074478dc14bd5136ef16, type: 3}
       propertyPath: m_Name
       value: SpeedPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979530463653829589, guid: a2fc00863341074478dc14bd5136ef16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

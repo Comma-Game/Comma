@@ -40,7 +40,7 @@ public class UseItem : MonoBehaviour
                 _player.Heal(50);
                 break;
             case 2:
-                StageController.Instance.SetScoreBuff();
+                PlayGameManager.Instance.SetScoreBuff();
                 break;
             case 3:
                 _player.SetObstacleDamageBuff();

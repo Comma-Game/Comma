@@ -32,7 +32,6 @@ public class GateMovement : MonoBehaviour
     public void Move()
     {
         _isMove = true;
-        _isAcc = false;
         _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
     }
 
@@ -43,7 +42,9 @@ public class GateMovement : MonoBehaviour
 
     public void StopMove()
     {
-        _rigidbody.velocity = new Vector3(0, 0, 0);
+        _isMove = false;
+        _isAcc = false;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public void SetVelocity(float speed)
