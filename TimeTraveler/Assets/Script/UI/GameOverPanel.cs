@@ -25,14 +25,14 @@ public class GameOverPanel : MonoBehaviour
     }
 
     public void Get2Coin(){
-        //AudioManager.Instance.PlayGameButtonClick();
+        AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("Get2Coin");
         SceneManager.LoadScene("MainScene");
         // 코인 두 배 획득해서 얻는 코드
     }
 
     public void acceptButton(){
-        //AudioManager.Instance.PlayGameButtonClick();
+        AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("acceptButton");
         SceneManager.LoadScene("MainScene");
         // 메인 화면 돌아가기

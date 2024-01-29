@@ -32,7 +32,7 @@ public class GamePanel : MonoBehaviour
 
     private void ChangeImage()
     {
-        //AudioManager.Instance.PlayGameButtonClick();
+        AudioManager.Instance.PlayGameButtonClick();
         if(isGameButtonClick){
             // 이미지 변경
             imageToChange.sprite = oriImage;

@@ -11,10 +11,6 @@ public class NotiMessagePanel : MonoBehaviour
     private bool isMovingUp = true;
     private bool isOn = false;
     private int MoveNum = 0;
-
-    void Start(){
-        StartMove();
-    }
     
     void Update()
     {
