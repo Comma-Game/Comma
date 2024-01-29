@@ -118,9 +118,12 @@ public class StageController : MonoBehaviour
     int _prevConcept, _stageCount;
     List<GameObject> _disabled, _explode;
     bool _scoreBuff;
+    bool[,] _iniStage;
 
     private void Awake()
     {
+        _player = GameObject.Find("Player").GetComponent<Player>();
+
         _basicSpeed = 30f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
@@ -134,6 +137,7 @@ public class StageController : MonoBehaviour
 
         _stage = null;
         _nextStage = null;
+        _iniStage = new bool[_concept.Length, 3];
 
         _disabled = new List<GameObject>();
         _explode = new List<GameObject>();
@@ -166,8 +170,6 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
-
         InsertStageToQueue();
         InsertStageToQueue();
 
@@ -207,8 +209,10 @@ public class StageController : MonoBehaviour
 
             int concept = _conceptIndex[conceptIndex], stage = stageIndex[next_stage_num];
 
-            if (GameObject.Find(_stagePrefab[concept][stage].name) == null)
+            if (!_iniStage[concept, stage])
             {
+                _iniStage[concept, stage] = true;
+
                 _stagePrefab[concept][stage] = Instantiate(_stagePrefab[concept][stage]);
                 _stagePrefab[concept][stage].transform.SetParent(_parent.transform);
                 _stagePrefab[concept][stage].SetActive(false);
@@ -288,6 +292,7 @@ public class StageController : MonoBehaviour
     {
         Debug.Log("현재 스테이지 : " + _stage.name);
         Debug.Log("다음 스테이지 : " + _nextStage.name);
+
         _stage.GetComponent<GateMovement>().Move();
         _nextStage.GetComponent<GateMovement>().Move();
     }
@@ -298,10 +303,16 @@ public class StageController : MonoBehaviour
         return _stage.GetComponent<GateMovement>().GetVelocity();
     }
 
-    public void AddVelocity(float speed)
+    public void SetVelocity(float speed)
     {
-        _stage.GetComponent<GateMovement>().AddVelocity(speed);
-        _nextStage.GetComponent<GateMovement>().AddVelocity(speed);
+        _stage.GetComponent<GateMovement>().SetVelocity(speed);
+        _nextStage.GetComponent<GateMovement>().SetVelocity(speed);
+    }
+
+    public void ResetVelocity()
+    {
+        _stage.GetComponent<GateMovement>().SetVelocity(_speed);
+        _nextStage.GetComponent<GateMovement>().SetVelocity(_speed);
     }
 
     //HP가 0 이하 일때 호출

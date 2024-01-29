@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColliderRange : MonoBehaviour
 {
     [SerializeField]
-    Material[] _materials;
+    Texture[] _textures;
 
     public void SetInvincible()
     {
-        gameObject.GetComponent<MeshRenderer>().material = _materials[1];
+        gameObject.GetComponent<RawImage>().texture = _textures[1];
     }
 
     public void SetSkill()
     {
-        gameObject.GetComponent<MeshRenderer>().material = _materials[2];
+        gameObject.GetComponent<RawImage>().texture = _textures[2];
     }
 
     public void ReSetColor()
     {
-        gameObject.GetComponent<MeshRenderer>().material = _materials[0];
+        gameObject.GetComponent<RawImage>().texture = _textures[0];
     }
 }

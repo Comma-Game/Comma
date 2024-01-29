@@ -5,22 +5,22 @@ using UnityEngine;
 public class GateMovement : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    bool _isAcc;
+    bool _isAcc, _isMove;
 
     private void Awake()
     {
         MakeRigidbody();
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        _isMove = false;
         _isAcc = false;
     }
 
     private void Update()
     {
-        Debug.Log("Speed : " + _rigidbody.velocity.y);
-        CheckMaxSpeed();
+        if(_isMove) CheckMaxSpeed();
     }
 
     private void FixedUpdate()
@@ -31,11 +31,9 @@ public class GateMovement : MonoBehaviour
 
     public void Move()
     {
-        //if (_rigidbody == null) MakeRigidbody();
+        _isMove = true;
         _isAcc = false;
         _rigidbody.velocity = new Vector3(0, StageController.Instance.Speed, 0);
-        //Debug.Log("Movement : " + _movement);
-        //Debug.Log("Speed : " + StageController.Instance.Speed);
     }
 
     void MakeRigidbody()
@@ -45,13 +43,12 @@ public class GateMovement : MonoBehaviour
 
     public void StopMove()
     {
-        //if (_rigidbody == null) MakeRigidbody();
         _rigidbody.velocity = new Vector3(0, 0, 0);
     }
 
-    public void AddVelocity(float speed)
+    public void SetVelocity(float speed)
     {
-        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y + speed, 0);
+        _rigidbody.velocity = new Vector3(0, speed, 0);
     }
 
     public float GetVelocity()

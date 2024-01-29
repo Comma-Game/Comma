@@ -30,13 +30,13 @@ public class Player : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.forward * _hit.distance);
 
         // Hit된 지점에 박스를 그려준다.
-        Gizmos.DrawWireSphere(transform.position + transform.forward * _hit.distance, _sphereScale / 3 * 2);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * _hit.distance, _sphereScale);
     }
     
     private void FixedUpdate()
     {
         Debug.DrawRay(transform.position, transform.forward * 1f, Color.red);
-        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 3, transform.forward, 1f, 1 << LayerMask.NameToLayer("Object"));
+        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 2, transform.forward, 1f, 1 << LayerMask.NameToLayer("Object"));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -139,6 +139,7 @@ public class Player : MonoBehaviour
     {
         GroundDamage(20);
         _stageController.DisableStage();
+        StopMyCoroutine();
     }
 
     public void ChargeEnergy()
@@ -201,6 +202,9 @@ public class Player : MonoBehaviour
         if (!_isHit && !_isInvincible & !_isCast)
         {
             GetDamage(damage);
+
+            transform.GetComponent<TestMovePlayer>().HitObstacle();
+            //transform.GetComponent<MovePlayer>().HitObstacle();
 
             HitObstacle(1);
 
@@ -273,11 +277,15 @@ public class Player : MonoBehaviour
     {
         _isCast = true;
         _isInvincible = true;
+
         _colliderRange.SetSkill();
+        _stageController.SetVelocity(_stageController.MaxSpeed);
 
         yield return new WaitForSeconds(t);
 
+        _stageController.ResetVelocity();
         _colliderRange.ReSetColor();
+
         _isInvincible = false;
         _isCast = false;
     }
@@ -285,18 +293,16 @@ public class Player : MonoBehaviour
     IEnumerator HitObstacleTime(float t)
     {
         _isHit = true;
-        if (_tempSpeed > 0f) _stageController.Speed += _tempSpeed; ;
         _tempSpeed = _stageController.GetStageVelocity() / 2;
 
-        _stageController.AddVelocity(-_tempSpeed);
+        _stageController.SetVelocity(_tempSpeed);
         _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        _stageController.AddVelocity(_tempSpeed);
+        _stageController.ResetVelocity();
         _colliderRange.ReSetColor();
 
-        _tempSpeed = 0f;
         _isHit = false;
     }
 
@@ -307,10 +313,9 @@ public class Player : MonoBehaviour
             StopCoroutine(_coroutine);
             if (_isHit)
             {
-                _stageController.Speed += _tempSpeed;
-
-                _tempSpeed = 0f;
                 _isHit = false;
+
+                _stageController.ResetVelocity();
             }
 
             _colliderRange.ReSetColor();
@@ -370,20 +375,11 @@ public class Player : MonoBehaviour
         return ret;
     }
 
-    public void SetObstacleDamageBuff()
-    {
-        _obstacleDamageBuff -= 0.5f;
-    }
+    public void SetObstacleDamageBuff() { _obstacleDamageBuff -= 0.5f; }
 
-    public void SetTimeDamageBuff()
-    {
-        _timeDamageBuff -= 0.15f;
-    }
+    public void SetTimeDamageBuff() { _timeDamageBuff -= 0.15f; }
 
-    public void SetHealBuff()
-    {
-        _timeDamageBuff += 0.2f;
-    }
+    public void SetHealBuff() { _timeDamageBuff += 0.2f; }
 
     public void SetEnergyDeBuff()
     {

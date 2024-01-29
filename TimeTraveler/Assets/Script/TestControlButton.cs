@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -23,14 +24,14 @@ public class TestControlButton : MonoBehaviour
     {
         if(!_toggle)
         {
-            _text.text = "Change To Mobile Mode ";
+            _text.text = "Change To Mobile Mode";
         }
         else
         {
-            _text.text = "Change To PC Mode ";
+            _text.text = "Change To PC Mode";
         }
 
-        if(_player.GetComponent<Player>().GetHp() > 0) _text.text += StageController.Instance.GetStageVelocity();
+        if(_player.GetComponent<Player>().GetHp() > 0) _text.text += "\nUpdate 2024-01-29 21:28\nSpeed : " + StageController.Instance.GetStageVelocity();
     }
 
     public void TogglePlayerScript()
