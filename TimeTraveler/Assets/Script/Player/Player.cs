@@ -17,6 +17,14 @@ public class Player : MonoBehaviour
     RaycastHit _hit;
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff;
 
+    //TestControlButton 없애면 같이 없앨 변수
+    bool _isMobile;
+    private void Update()
+    {
+        _isMobile = transform.GetComponent<MovePlayer>().enabled;
+    }
+
+
     private void Awake()
     {
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
@@ -207,8 +215,8 @@ public class Player : MonoBehaviour
         {
             GetDamage(damage);
 
-            transform.GetComponent<TestMovePlayer>().HitObstacle();
-            //transform.GetComponent<MovePlayer>().HitObstacle();
+            if(_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
+            else transform.GetComponent<TestMovePlayer>().HitObstacle();
 
             HitObstacle(1);
 

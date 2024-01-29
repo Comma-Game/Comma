@@ -115,7 +115,7 @@ public class MovePlayer : MonoBehaviour
         {
             _slowTime -= 0.125f;
             _rigidbody.velocity = _v * _slowTime;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.125f);
         }
 
         _slowTime = 1f;
