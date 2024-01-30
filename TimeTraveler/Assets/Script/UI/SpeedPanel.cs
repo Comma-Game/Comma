@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class SpeedPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private GameObject speedPanelObj;
+    [SerializeField] private MaterialPropertyController materialPropertyController;
+    
+    public void OnSpeedPanel(bool isActive){
+        speedPanelObj.SetActive(isActive);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ChangeSpeedColor(int num){
+        if(num == 0){
+            materialPropertyController.materials[1].SetColor("_Color", Color.gray);
+        }else if(num == 1){
+            materialPropertyController.materials[1].SetColor("_Color", Color.blue);
+        }
+    }
+
+    public void ChangeSpeed(float num){
+        materialPropertyController.materials[1].SetFloat("_Speed", num);
     }
 }
+
+//  53 53 53

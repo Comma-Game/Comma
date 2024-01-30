@@ -203,11 +203,11 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void UpgradeStatHP(){
-                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(hpUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= hpUpgradeCoin[hpUpgradeClass])
                 {
+                        AudioManager.Instance.PlayItemUpgradeSFX();
                         // 스탯 올릴 수 있다면
                         if((hpUpgradeClass+1) < maxGradeNum) {
                                 // 돈 소비
@@ -225,14 +225,16 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeHP();
                                 ChangeShopHpText(false);
                         }
+                }else{
+                        AudioManager.Instance.PlayGameButtonClick();
                 }
 	}
 
         public void UpgradeJelly(){
-                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(jellyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= jellyUpgradeCoin[jellyUpgradeClass]){
+                        AudioManager.Instance.PlayItemUpgradeSFX();
                         // 스탯 올릴 수 있다면
                         if((jellyUpgradeClass+1) < maxGradeNum) {
                                 // 돈 소비
@@ -250,14 +252,16 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeJelly();
                                 ChangeJellyText(false);
                         }
+                }else{
+                        AudioManager.Instance.PlayGameButtonClick();
                 }                
 	}
 
         public void UpgradeStatEnergy(){
-                AudioManager.Instance.PlayGameButtonClick();
                 // 소지금 확인
                 if(energyUpgradeClass < maxGradeNum &&
                 SaveLoadManager.Instance.GetCoin() >= energyUpgradeCoin[energyUpgradeClass]){
+                        AudioManager.Instance.PlayItemUpgradeSFX();
                         // 스탯 올릴 수 있다면
                         if((energyUpgradeClass+1) < maxGradeNum){
                                 // 돈 소비
@@ -275,6 +279,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeEnergy();
                                 ChangeEnergyText(false);
                         }
+                }else{
+                        AudioManager.Instance.PlayGameButtonClick();
                 }
 	}
 

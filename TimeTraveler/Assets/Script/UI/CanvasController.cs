@@ -29,6 +29,10 @@ public class CanvasController : MonoBehaviour
     public GameObject messagePanel;
     private NotiMessagePanel messagePanelCS;
 
+    [SerializeField]
+    public GameObject speedPanel;
+    private SpeedPanel speedPanelCS;
+
     public bool isTest = false;
 
     private static CanvasController instance;
@@ -61,6 +65,7 @@ public class CanvasController : MonoBehaviour
         gameOverPanelCS = gameOverPanel.GetComponent<GameOverPanel>();
         blurPanelCS = blurPanel.GetComponent<BlurPanel>();
         messagePanelCS = messagePanel.GetComponent<NotiMessagePanel>();
+        speedPanelCS = speedPanel.GetComponent<SpeedPanel>();
     }
 
     void Update(){
@@ -140,6 +145,10 @@ public class CanvasController : MonoBehaviour
         gameOverPanelCS.ChangeCoinText(coin);
     }
 
+    public void ChangeResultStageText(float stage){
+        gameOverPanelCS.ChangeStageText(stage);
+    }
+
     /// ///////////////////////////////////////////////////////////////////
     /// Damge Panel
 
@@ -157,4 +166,15 @@ public class CanvasController : MonoBehaviour
     /// ///////////////////////////////////////////////////////////////////
     /// Speed Panel
 
+    public void OnSpeedPanel(bool isActive){
+        speedPanelCS.OnSpeedPanel(isActive);
+    }
+
+    public void ChangeSpeedColor(int num){
+        speedPanelCS.ChangeSpeedColor(num);
+    }
+
+    public void ChangeSpeed(float num){
+        speedPanelCS.ChangeSpeed(num);
+    }
 }
