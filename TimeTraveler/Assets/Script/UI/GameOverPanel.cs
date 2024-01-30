@@ -8,12 +8,13 @@ public class GameOverPanel : MonoBehaviour
 {
     [SerializeField]
     private GameObject mainPanel;
-     [SerializeField] public TextMeshProUGUI stageText;
+    [SerializeField] public TextMeshProUGUI stageText;
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI coinText;
 
     public void openGameOverPanel(bool isActive){
         Debug.Log("openGameOverPanel");
+        AudioManager.Instance.PlayGameOverSFX();
         mainPanel.SetActive(isActive);
     }
 
