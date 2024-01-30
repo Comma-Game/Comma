@@ -140,6 +140,10 @@ public class CanvasController : MonoBehaviour
         gameOverPanelCS.ChangeCoinText(coin);
     }
 
+    public void ChangeResultStageText(float stage){
+        gameOverPanelCS.ChangeStageText(stage);
+    }
+
     /// ///////////////////////////////////////////////////////////////////
     /// Damge Panel
 
