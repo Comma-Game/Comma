@@ -17,7 +17,7 @@ public class FollowPlayer : MonoBehaviour
             // Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
             // transform.position = smoothedPosition;
 
-            transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y+35, playerTransform.position.z);
+            transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y+8, playerTransform.position.z);
             // 플레이어를 항상 바라보도록 함
             transform.LookAt(playerTransform);
         }

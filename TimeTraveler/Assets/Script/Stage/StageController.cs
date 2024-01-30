@@ -112,11 +112,11 @@ public class StageController : MonoBehaviour
     private void Awake()
     {
         //스피드 초기화
-        _basicSpeed = 30f;
+        _basicSpeed = 7f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
-        _maxSpeed = 80f;
-        _maxFirstSpeed = 40f;
+        _maxSpeed = 30f;
+        _maxFirstSpeed = 10f;
 
         //stage 정보 초기화
         _stageCount = 1;
@@ -216,7 +216,7 @@ public class StageController : MonoBehaviour
         _stage = _nextStage;
 
         _stage.transform.GetComponent<GateMovement>().StopMove();
-        _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+        _stage.transform.position = new Vector3(0, 98, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
         
         _nextStage = SetNextStage();
     }
@@ -265,7 +265,7 @@ public class StageController : MonoBehaviour
         CanvasController.Instance.ChangeState(_stageCount);
         CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
 
-        _speed = _basicSpeed + conceptCount * 2;
+        _speed = _basicSpeed + conceptCount * 0.5f;
         _speed = _speed > _maxFirstSpeed ? _maxFirstSpeed : _speed;
 
         SetCurrentStage();

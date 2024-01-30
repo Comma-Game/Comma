@@ -41,8 +41,8 @@ public class MovePlayer : MonoBehaviour
         _canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
         _swipeRange = 1.5f * _canvas.scaleFactor;
-        _swipeSpeed = 10f;
-        _maxSpeed = 20f;
+        _swipeSpeed = 2.5f;
+        _maxSpeed = 5f;
         _useSkill = false;
     }
 

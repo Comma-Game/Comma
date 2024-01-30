@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GateMovement : MonoBehaviour
 {
+    //GameObject _portal;
     Rigidbody _rigidbody;
     bool _isAcc, _isMove;
 
