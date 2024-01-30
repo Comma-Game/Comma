@@ -49,7 +49,7 @@ public class UseItem : MonoBehaviour
                 _player.SetTimeDamageBuff();
                 break;
             case 5:
-                _player.SetHealBuff();
+                _player.SetHealBuff(0.3f);
                 break;
             case 6:
                 StageController.Instance.SetAccDeBuff();

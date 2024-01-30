@@ -214,8 +214,7 @@ public class StageController : MonoBehaviour
 
         _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 400, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
-        //_stage.SetActive(true);
-
+        
         _nextStage = SetNextStage();
     }
 
@@ -260,6 +259,8 @@ public class StageController : MonoBehaviour
         ReturnStage();
 
         int conceptCount = _stageCount++ / 3;
+        CanvasController.Instance.ChangeState(_stageCount);
+        CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
 
         _speed = _basicSpeed + conceptCount * 2;
         _speed = _speed > _maxFirstSpeed ? _maxFirstSpeed : _speed;
