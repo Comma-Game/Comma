@@ -12,11 +12,15 @@ public class AudioManager : MonoBehaviour
 
     [Header("BGM")]
     [SerializeField] public AudioSource MainSceneBGM;
+    [SerializeField] public AudioSource GameSceneBGM;
 
     [Header("SFX")]
     [SerializeField] public AudioSource MesteryBoxBuySFX;
     [SerializeField] public AudioSource GameButtonClick;
     [SerializeField] public AudioSource MainScenePortal;
+    [SerializeField] public AudioSource ItemUpgradeSFX;
+    [SerializeField] public AudioSource GameOverSFX;
+    [SerializeField] public AudioSource DamgeSFX;
 
     private static AudioManager instance;
     // singleton
@@ -75,5 +79,17 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMainScenePortal(){
         MainScenePortal.Play();
+    }
+
+    public void PlayItemUpgradeSFX(){
+        ItemUpgradeSFX.Play();
+    }
+
+    public void PlayGameOverSFX(){
+        GameOverSFX.Play();
+    }
+
+    public void PlayDamgeSFX(){
+        DamgeSFX.Play();
     }
 }

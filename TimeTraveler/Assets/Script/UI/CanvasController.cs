@@ -29,10 +29,6 @@ public class CanvasController : MonoBehaviour
     public GameObject messagePanel;
     private NotiMessagePanel messagePanelCS;
 
-    [SerializeField]
-    public GameObject speedPanel;
-    private SpeedPanel speedPanelCS;
-
     public bool isTest = false;
 
     private static CanvasController instance;
@@ -63,7 +59,6 @@ public class CanvasController : MonoBehaviour
         playerStatPanelCS = playerStatPanel.GetComponent<PlayerStatPanel>();
         gamePanelCS = gamePanel.GetComponent<GamePanel>();
         gameOverPanelCS = gameOverPanel.GetComponent<GameOverPanel>();
-        speedPanelCS = speedPanel.GetComponent<SpeedPanel>();
         blurPanelCS = blurPanel.GetComponent<BlurPanel>();
         messagePanelCS = messagePanel.GetComponent<NotiMessagePanel>();
     }
@@ -80,13 +75,6 @@ public class CanvasController : MonoBehaviour
         {
             Debug.Log("KeyCode O");
             OpenGameOverPanel(true);
-        }
-
-        if(isTest){
-            ChangeScoreUpText(1.5f);
-            ChangeSpeedPanel(0.5f);
-            OnMessagePanel();
-            isTest = false;
         }
     }
 
@@ -124,6 +112,10 @@ public class CanvasController : MonoBehaviour
 
     public void OnScoreUpImg(bool isActive){
         playerStatPanelCS.OnScoreUpImg(isActive);
+    }
+
+    public void ChangeBuffImage(int num){
+        playerStatPanelCS.ChangeBuffImage(num);
     }
     
     /// ///////////////////////////////////////////////////////////////////
@@ -165,11 +157,4 @@ public class CanvasController : MonoBehaviour
     /// ///////////////////////////////////////////////////////////////////
     /// Speed Panel
 
-    public void ChangeSpeedPanel(float num){
-        if(num == 0) blurPanel.SetActive(false);
-        else {
-            blurPanel.SetActive(true);
-            blurPanelCS.ChangeBlurNum(num);
-        }
-    }
 }

@@ -699,7 +699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buy 1000
+  m_text: 'Buy 10000
 
 '
   m_isRightToLeft: 0
@@ -4244,7 +4244,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4917992519262805979
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class NotiMessagePanel : MonoBehaviour
 
     private float elapsedTime = 0f;
     private bool isMovingUp = true;
-    private bool isOn = false;
+    public bool isOn = false;
     private int MoveNum = 0;
     
     void Update()
