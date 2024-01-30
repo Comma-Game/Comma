@@ -15,9 +15,9 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _basicSpeed = 30f;
+    private float _basicSpeed = 30f; //현재 진행하고 있는 스테이지의 기본 속도
     
-    private float _speed;
+    private float _speed; //실시간 속도
     public float Speed
     {
         get
@@ -31,7 +31,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed = 0.3f;
+    private float _accSpeed = 0.3f; //가속도
     public float AccSpeed
     {
         get
@@ -45,7 +45,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxSpeed = 80f;
+    private float _maxSpeed = 80f; //최대 속도
     public float MaxSpeed
     {
         get
@@ -59,7 +59,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxFirstSpeed = 40f;
+    private float _maxFirstSpeed = 40f; //기본 속도의 최대치
     public float MaxFirstSpeed
     {
         get
@@ -72,6 +72,7 @@ public class StageController : MonoBehaviour
         }
     }
 
+    //큐에 들어갈 자료구조
     struct StageInfo
     {
         public int concept_index, stage_index;
@@ -100,29 +101,31 @@ public class StageController : MonoBehaviour
     };
 
     static GameObject _stageController;
-    GameObject[][] _stagePrefab;
-    GameObject _stage, _nextStage, _parent;
+    GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
-    List<int> _conceptIndex;
-    int _prevConcept, _stageCount;
-    List<GameObject> _disabled, _explode;
-    bool[,] _iniStage;
+    GameObject _stage, _nextStage, _parent; //_parent : stage가 들어갈 부모 오브젝트
+    List<int> _conceptIndex; //랜덤으로 가져올 컨셉을 저장할 리스트
+    int _prevConcept, _stageCount; //_prevConcept : 바로 전에 사용한 컨셉, _conceptIndex에 빠진 concept을 넣어주기 위한 변수
+    List<GameObject> _disabled, _explode; //비활성화된 오브젝트들과 파괴된 파편들을 저장할 리스트
+    bool[,] _iniStage; //Scene에 stage가 생성되어 있는지 확인하기 위한 배열
 
     private void Awake()
     {
+        //스피드 초기화
         _basicSpeed = 30f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
         _maxSpeed = 80f;
         _maxFirstSpeed = 40f;
 
+        //stage 정보 초기화
         _stageCount = 1;
         _prevConcept = -1;
-
         _stage = null;
         _nextStage = null;
         _iniStage = new bool[_concept.Length, 3];
 
+        //저장할 Obstacle 리스트 초기화
         _disabled = new List<GameObject>();
         _explode = new List<GameObject>();
 
@@ -246,7 +249,7 @@ public class StageController : MonoBehaviour
         _stage.transform.position = new Vector3(0, 0, 0);
     }
 
-    //Scene에 모든 스테이지를 생성 후 비활성화
+    //Resources 파일에 있는 Prefab들 가져옴
     void InstantiateStage()
     {
         _stagePrefab = new GameObject[_concept.Length][];
@@ -282,12 +285,14 @@ public class StageController : MonoBehaviour
         return _stage.GetComponent<GateMovement>().GetVelocity();
     }
 
+    //스테이지 속도 설정
     public void SetVelocity(float speed)
     {
         _stage.GetComponent<GateMovement>().SetVelocity(speed);
         _nextStage.GetComponent<GateMovement>().SetVelocity(speed);
     }
 
+    //스테이지 속도 리셋
     public void ResetVelocity()
     {
         _stage.GetComponent<GateMovement>().SetVelocity(_speed);
@@ -316,28 +321,33 @@ public class StageController : MonoBehaviour
         _nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
+    //부딪힌 장애물 리스트에 넣어주기
     public void AddDisabled(GameObject gameObject)
     {
         _disabled.Add(gameObject);
     }
 
+    //가속도 빨라지기
     public void SetAccDeBuff()
     {
         _accSpeed *= 1.2f;
     }
 
+    //기본 속도 빨라지는 버프
     public void SetBasicSpeedDeBuff()
     {
         _basicSpeed *= 1.2f;
         _speed = _basicSpeed;
     }
-
+    
+    //터진 파편들 리스트에 넣어주기
     public void MakeExploder(Transform parent, GameObject explode)
     {
         explode.transform.SetParent(parent);
         _explode.Add(explode);
     }
 
+    //리스트에 있는 터진 파편들 삭제
     void DeleteExploder()
     {
         foreach (GameObject explode in _explode)
@@ -348,11 +358,13 @@ public class StageController : MonoBehaviour
         _explode.Clear();
     }
 
+    //리스트에 들어있는 장애물 활성화
     void EnableObject()
     {
         foreach (GameObject obj in _disabled) obj.SetActive(true);
         _disabled.Clear();
     }
 
+    //현재 스테이지 반환
     public int GetStageCount() { return _stageCount; }
 }
