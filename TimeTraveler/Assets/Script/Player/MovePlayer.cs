@@ -88,7 +88,7 @@ public class MovePlayer : MonoBehaviour
 
                     float dis = Vector3.Magnitude(_force);
                     if (dis < 0.1f) return;
-                    Debug.Log("DIS : !!!!!!!!!!!!!!!!!!!!! ::::::::: " + dis);
+
                     _force =  dis >= _swipeRange ? _force.normalized * _swipeRange : _force;
                     _coroutine = StartCoroutine(MoveTime());
                 }
@@ -107,24 +107,9 @@ public class MovePlayer : MonoBehaviour
         _v = _rigidbody.velocity;
     }
 
-    IEnumerator GetSlow()
-    {
-        _v = _rigidbody.velocity;
-
-        while (_slowTime > 0)
-        {
-            _slowTime -= 0.125f;
-            _rigidbody.velocity = _v * _slowTime;
-            yield return new WaitForSeconds(0.125f);
-        }
-
-        _slowTime = 1f;
-    }
-
     IEnumerator MoveTime()
     {
         _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.VelocityChange);
         yield return new WaitForSeconds(1f);
-        _coroutine = StartCoroutine(GetSlow());
     }
 }

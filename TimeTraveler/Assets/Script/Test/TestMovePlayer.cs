@@ -37,7 +37,7 @@ public class TestMovePlayer : MonoBehaviour
     void Update()
     {
         SetForce();
-        Debug.Log("Velocity.Magnitude : " + Vector3.Magnitude(_rigidbody.velocity));
+        Debug.Log("Velocity : " + _rigidbody.velocity);
     }
 
     void SetForce()
@@ -54,12 +54,11 @@ public class TestMovePlayer : MonoBehaviour
             }
 
             _force = _sTouchPos - _eTouchPos;
-            Debug.Log("Force.Magnitude : " + Vector3.Magnitude(_force));
+            //Debug.Log("Force.Magnitude : " + Vector3.Magnitude(_force));
             
             _force = Vector3.Magnitude(_force) >= 1.5f ? _force.normalized * 1.5f : _force;
 
-            _coroutine = StartCoroutine(MoveTime());
-            CheckSpeed();
+            _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.VelocityChange);
         }
     }
 

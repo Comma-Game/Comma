@@ -3,13 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    GameObject _camera;
-
     float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed, _sphereScale;
     bool _isInvincible, _isPassPortal, _isCast, _isHit;
-    StageController _stageController;
-    SaveLoadManager _saveLoadManager;
+    PlayGameManager _playGameManager;
     Coroutine _coroutine;
     ColliderRange _colliderRange;
     int _jellyScore;
@@ -43,6 +39,11 @@ public class Player : MonoBehaviour
         Init();
     }
 
+    private void OnEnable()
+    {
+        _playGameManager = PlayGameManager.Instance;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -71,10 +72,10 @@ public class Player : MonoBehaviour
                 HitDamage(10 * _obstacleDamageBuff);
 
                 if(collision.gameObject.GetComponent<MeshExploder>() != null)
-                    _stageController.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
-                
-                
-                _stageController.AddDisabled(collision.gameObject);
+                    StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
+
+
+                StageController.Instance.AddDisabled(collision.gameObject);
             }
         }
     }
@@ -87,8 +88,7 @@ public class Player : MonoBehaviour
         {
             //StopMyCoroutine();
             if (_isPassPortal) _isPassPortal = false;
-            _stageController.SetAcceleration();
-            _camera.GetComponent<ShowPlayer>().SetOpaque();
+            StageController.Instance.SetAcceleration();
         }
         else if (other.gameObject.CompareTag("Jelly"))
         {
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             {
                 PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
                 Heal(1.8f * _healBuff);
-                //CanvasController.Instance.OpenMessagePanel();
+                CanvasController.Instance.OnMessagePanel();
             }
             else
             {
@@ -119,9 +119,6 @@ public class Player : MonoBehaviour
     {
         transform.gameObject.SetActive(true);
         _colliderRange.EnableRawImage();
-
-        _saveLoadManager = SaveLoadManager.Instance;
-        _stageController = StageController.Instance;
 
         _maxHp = 100 + CalculateHP();
         _hp = _maxHp;
@@ -150,7 +147,7 @@ public class Player : MonoBehaviour
     void TriggerGround()
     {
         GroundDamage(20);
-        _stageController.DisableStage();
+        StageController.Instance.DisableStage();
         StopMyCoroutine();
     }
 
@@ -262,10 +259,12 @@ public class Player : MonoBehaviour
     void EndGame()
     {
         _colliderRange.DisableRawImage();
-        _stageController.EndGame();
         PlayGameManager.Instance.EndGame();
-        transform.gameObject.SetActive(false);
+
+        if (_coroutine != null) StopCoroutine(_coroutine);
     }
+
+    public void DestroyPlayer() { transform.gameObject.SetActive(false); }
 
     IEnumerator PortalTime(float t)
     {
@@ -293,11 +292,11 @@ public class Player : MonoBehaviour
         _isInvincible = true;
 
         _colliderRange.SetSkill();
-        _stageController.SetVelocity(_stageController.MaxSpeed);
+        StageController.Instance.SetVelocity(StageController.Instance.MaxSpeed);
 
         yield return new WaitForSeconds(t);
 
-        _stageController.ResetVelocity();
+        StageController.Instance.ResetVelocity();
         _colliderRange.ReSetColor();
 
         _isInvincible = false;
@@ -307,14 +306,14 @@ public class Player : MonoBehaviour
     IEnumerator HitObstacleTime(float t)
     {
         _isHit = true;
-        _tempSpeed = _stageController.GetStageVelocity() / 2;
+        _tempSpeed = StageController.Instance.GetStageVelocity() / 2;
 
-        _stageController.SetVelocity(_tempSpeed);
+        StageController.Instance.SetVelocity(_tempSpeed);
         _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        _stageController.ResetVelocity();
+        StageController.Instance.ResetVelocity();
         _colliderRange.ReSetColor();
 
         _isHit = false;
@@ -329,7 +328,7 @@ public class Player : MonoBehaviour
             {
                 _isHit = false;
 
-                _stageController.ResetVelocity();
+                StageController.Instance.ResetVelocity();
             }
 
             _colliderRange.ReSetColor();
@@ -342,7 +341,7 @@ public class Player : MonoBehaviour
 
     float CalculateHP()
     {
-        int step = _saveLoadManager.GetUpgradeHP(), ret = 0, cnt = 0;
+        int step = SaveLoadManager.Instance.GetUpgradeHP(), ret = 0, cnt = 0;
 
         while (step > 0)
         {
@@ -357,7 +356,7 @@ public class Player : MonoBehaviour
 
     float CalculateChargeEnergy()
     {
-        int step = _saveLoadManager.GetUpgradeEnergy();
+        int step = SaveLoadManager.Instance.GetUpgradeEnergy();
         float ret = 0, cnt = 0;
 
         while (step > 0)
@@ -373,7 +372,7 @@ public class Player : MonoBehaviour
 
     int CalculateJelly()
     {
-        int step = _saveLoadManager.GetUpgradeJelly(), ret = 0;
+        int step = SaveLoadManager.Instance.GetUpgradeJelly(), ret = 0;
 
         if (step <= 10) ret = 10 * step;
         else if (step <= 20) {
@@ -393,7 +392,7 @@ public class Player : MonoBehaviour
 
     public void SetTimeDamageBuff() { _timeDamageBuff -= 0.15f; }
 
-    public void SetHealBuff() { _timeDamageBuff += 0.2f; }
+    public void SetHealBuff(float amount) { _timeDamageBuff += amount; }
 
     public void SetEnergyDeBuff()
     {
