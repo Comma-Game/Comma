@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     RaycastHit[] _hits;
     RaycastHit _hit;
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff;
+    SaveLoadManager _saveLoadManager;
+    GameObject _camera;
 
     //TestControlButton 없애면 같이 없앨 변수
     bool _isMobile;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
+        _camera = GameObject.Find("Main Camera");
 
         _tempSpeed = 0;
 
@@ -74,7 +77,6 @@ public class Player : MonoBehaviour
                 if(collision.gameObject.GetComponent<MeshExploder>() != null)
                     StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
 
-
                 StageController.Instance.AddDisabled(collision.gameObject);
             }
         }
@@ -87,7 +89,11 @@ public class Player : MonoBehaviour
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
             //StopMyCoroutine();
+            StageController.Instance.DisablePrevStage();
+            _camera.GetComponent<ShowPlayer>().SetOpaque();
+
             if (_isPassPortal) _isPassPortal = false;
+            CanvasController.Instance.OnSpeedPanel(true);
             StageController.Instance.SetAcceleration();
         }
         else if (other.gameObject.CompareTag("Jelly"))
@@ -100,6 +106,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlayGetPieceSFX();
                 PlayGameManager.Instance.ScoreUp(_jellyScore);
             }
 
@@ -117,6 +124,8 @@ public class Player : MonoBehaviour
 
     void Init()
     {
+        _saveLoadManager = SaveLoadManager.Instance;
+
         transform.gameObject.SetActive(true);
         _colliderRange.EnableRawImage();
 
@@ -140,6 +149,7 @@ public class Player : MonoBehaviour
     void TriggerPortal()
     {
         Heal(1.8f);
+        AudioManager.Instance.PlayPortalSFX();
         StopMyCoroutine();
         _coroutine = StartCoroutine(PortalTime(0.5f));
     }
@@ -147,7 +157,11 @@ public class Player : MonoBehaviour
     void TriggerGround()
     {
         GroundDamage(20);
-        StageController.Instance.DisableStage();
+        
+        CanvasController.Instance.OnSpeedPanel(false);
+        CanvasController.Instance.ChangeSpeedColor(0);
+
+        StageController.Instance.PrepareToStage();
         StopMyCoroutine();
     }
 
@@ -158,7 +172,7 @@ public class Player : MonoBehaviour
             if (_energy + _energyChargeSpeed > 100)
             {
                 _energy = 100;
-                CanvasController.Instance.PlayerUpEnergy(100 - _energyChargeSpeed);
+                CanvasController.Instance.PlayerUpEnergy(100 - _energy);
             }
             else
             {
@@ -212,7 +226,7 @@ public class Player : MonoBehaviour
         {
             GetDamage(damage);
 
-            if(_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
+            if (_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
             else transform.GetComponent<TestMovePlayer>().HitObstacle();
 
             HitObstacle(1);
@@ -238,6 +252,7 @@ public class Player : MonoBehaviour
         if (_energy == 100)
         {
             StopMyCoroutine();
+
             _coroutine = StartCoroutine(CastTime(2));
             _energy = 0;
             CanvasController.Instance.PlayerDownEnergy(100);
@@ -246,6 +261,9 @@ public class Player : MonoBehaviour
 
     void HitObstacle(float time)
     {
+        //AudioManager.Instance.PlayDamgeSFX();
+        StageController.Instance.ResetPassThroughCount();
+
         StopMyCoroutine();
         _coroutine = StartCoroutine(HitObstacleTime(time));
     }
@@ -258,6 +276,8 @@ public class Player : MonoBehaviour
 
     void EndGame()
     {
+        CanvasController.Instance.OnSpeedPanel(false);
+
         _colliderRange.DisableRawImage();
         PlayGameManager.Instance.EndGame();
 
@@ -291,12 +311,18 @@ public class Player : MonoBehaviour
         _isCast = true;
         _isInvincible = true;
 
+        CanvasController.Instance.OnSpeedPanel(true);
+        CanvasController.Instance.ChangeSpeedColor(1);
+        AudioManager.Instance.PlaySkillSFX();
+
         _colliderRange.SetSkill();
         StageController.Instance.SetVelocity(StageController.Instance.MaxSpeed);
 
         yield return new WaitForSeconds(t);
 
+        CanvasController.Instance.ChangeSpeedColor(0);
         StageController.Instance.ResetVelocity();
+
         _colliderRange.ReSetColor();
 
         _isInvincible = false;
@@ -308,12 +334,11 @@ public class Player : MonoBehaviour
         _isHit = true;
         _tempSpeed = StageController.Instance.GetStageVelocity() / 2;
 
-        StageController.Instance.SetVelocity(_tempSpeed);
+        StageController.Instance.SetVelocity(StageController.Instance.BasicSpeed);
         _colliderRange.SetInvincible();
 
         yield return new WaitForSeconds(t);
 
-        StageController.Instance.ResetVelocity();
         _colliderRange.ReSetColor();
 
         _isHit = false;
@@ -324,15 +349,10 @@ public class Player : MonoBehaviour
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
-            if (_isHit)
-            {
-                _isHit = false;
-
-                StageController.Instance.ResetVelocity();
-            }
 
             _colliderRange.ReSetColor();
 
+            _isHit = false;
             _isPassPortal = false;
             _isInvincible = false;
             _isCast = false;

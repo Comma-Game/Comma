@@ -69,7 +69,6 @@ public class SaveLoadManager : MonoBehaviour
         if (!_instance)
         {
             // 만약 Scene에 GameManager가 없으면 새로 생성
-
             GameObject gameData = new GameObject();
             gameData.name = "SaveLoadManager";
             gameData.AddComponent<SaveLoadManager>();

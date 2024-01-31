@@ -39,7 +39,7 @@ public class MeshExploder : MonoBehaviour {
 	
 	string ComponentName { get { return this.GetType().Name; } }
 	
-	void Start() {
+	void Awake() {
 		var meshFilter = GetComponent<MeshFilter>();
 		if (meshFilter == null) {
 			var skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();

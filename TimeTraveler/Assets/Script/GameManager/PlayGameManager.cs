@@ -26,18 +26,17 @@ public class PlayGameManager : MonoBehaviour
     bool _scoreBuff;
     Coroutine _coroutine;
     Player _player;
-    Camera _mainCamera;
     SaveLoadManager _saveLoadManager;
     StageController _stageController;
+    int _scoreUp;
 
     private void Awake()
     {
         Init_Instance();
 
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 40;
 
         _player = GameObject.Find("Player").GetComponent<Player>();
-        _mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         _score = 0;
         _scoreBuff = false;
@@ -78,8 +77,6 @@ public class PlayGameManager : MonoBehaviour
 
     void Init()
     {
-        _mainCamera.clearFlags = CameraClearFlags.Nothing;
-        
         ResumeGame();
 
         if (_coroutine != null) StopCoroutine(_coroutine);
@@ -89,15 +86,22 @@ public class PlayGameManager : MonoBehaviour
     public void EndGame()
     {
         if (_scoreBuff) _score += (int)(_score * 0.2f);
-       
-        EnableGameOverUI();
-    }
 
-    void EnableGameOverUI()
-    {
+        StageController.Instance.SetVelocity(0);
         SaveLoadManager.Instance.PlusCoin(_score);
         SaveLoadManager.Instance.SetHighScore(_score);
         SaveLoadManager.Instance.SaveData();
+
+        _player.DestroyPlayer();
+        SetGameOverUIText();
+    }
+
+    void SetGameOverUIText()
+    {
+        CanvasController.Instance.OpenDamgePanel(false);
+        CanvasController.Instance.ChangeResultScoreText(_score);
+        CanvasController.Instance.ChangeResultCoinText(_score);
+        CanvasController.Instance.ChangeResultStageText(StageController.Instance.GetStageCount());
 
         if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(OpenGameOverUI(2));
@@ -116,8 +120,8 @@ public class PlayGameManager : MonoBehaviour
 
     public int ScorePerTime()
     {
-        int conceptCount = (StageController.Instance.GetStageCount() - 1) / 3;
-        return 10 + (conceptCount >= 5 ? 10 : conceptCount * 2);
+        _scoreUp = StageController.Instance.GetPassThroughCount() >= 5 ? 25 : StageController.Instance.GetPassThroughCount() * 5;
+        return 10 + _scoreUp;
     }
 
     public void PauseGame() { Time.timeScale = 0f; } //게임 일시정지
@@ -143,12 +147,6 @@ public class PlayGameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         StageController.Instance.EndGame();
-        _player.DestroyPlayer();
-
-        _mainCamera.clearFlags = CameraClearFlags.SolidColor;
-        CanvasController.Instance.OpenDamgePanel(false);
         CanvasController.Instance.OpenGameOverPanel(true);
-        CanvasController.Instance.ChangeResultScoreText(_score);
-        CanvasController.Instance.ChangeResultCoinText(_score);
     }
 }

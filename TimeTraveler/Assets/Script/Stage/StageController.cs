@@ -15,8 +15,12 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _basicSpeed = 30f; //현재 진행하고 있는 스테이지의 기본 속도
-    
+    private float _basicSpeed; //현재 진행하고 있는 스테이지의 기본 속도
+    public float BasicSpeed
+    {
+        get { return _basicSpeed; }
+    }
+
     private float _speed; //실시간 속도
     public float Speed
     {
@@ -31,7 +35,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _accSpeed = 0.3f; //가속도
+    private float _accSpeed; //가속도
     public float AccSpeed
     {
         get
@@ -45,7 +49,7 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxSpeed = 80f; //최대 속도
+    private float _maxSpeed; //최대 속도
     public float MaxSpeed
     {
         get
@@ -59,16 +63,16 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _maxFirstSpeed = 40f; //기본 속도의 최대치
-    public float MaxFirstSpeed
+    private float _maxBasicSpeed; //기본 속도의 최대치
+    public float MaxBasicSpeed
     {
         get
         {
-            return _maxFirstSpeed;
+            return _maxBasicSpeed;
         }
         set
         {
-            _maxFirstSpeed = value;
+            _maxBasicSpeed = value;
         }
     }
 
@@ -84,56 +88,49 @@ public class StageController : MonoBehaviour
         }
     }
 
-    //Resources에 있는 파일 이름
-    string[] _concept =
-    {
-        //"TestStage",
-        "PipeMap",
-        "ToyMap",
-        "ForestMap",
-        "DinoMap",
-        "HouseMap",
-        "LabMap",
-        "PlanetMap",
-        "PlaygroundMap",
-        "SchoolMap",
-        "SeaMap"
-    };
-
     static GameObject _stageController;
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
-    GameObject _stage, _nextStage, _parent; //_parent : stage가 들어갈 부모 오브젝트
+    GameObject _stage, _nextStage, _prevStage, _stageParent; //_stageParent : 스테이지들의 부모 오브젝트
     List<int> _conceptIndex; //랜덤으로 가져올 컨셉을 저장할 리스트
     int _prevConcept, _stageCount; //_prevConcept : 바로 전에 사용한 컨셉, _conceptIndex에 빠진 concept을 넣어주기 위한 변수
     List<GameObject> _disabled, _explode; //비활성화된 오브젝트들과 파괴된 파편들을 저장할 리스트
-    bool[,] _iniStage; //Scene에 stage가 생성되어 있는지 확인하기 위한 배열
+    GameObject _stageEnd;
+    GetStage _conceptInfo;
+    int _passThroughCount, _conceptCount;
+    bool[,] _isInstantiateStage;
 
     private void Awake()
     {
         //스피드 초기화
-        _basicSpeed = 7f;
+        _basicSpeed = 7.5f;
         _speed = _basicSpeed;
         _accSpeed = 0.3f;
-        _maxSpeed = 30f;
-        _maxFirstSpeed = 10f;
+        _maxSpeed = 25f;
+        _maxBasicSpeed = 12.5f;
 
         //stage 정보 초기화
         _stageCount = 1;
         _prevConcept = -1;
         _stage = null;
         _nextStage = null;
-        _iniStage = new bool[_concept.Length, 3];
+        _prevStage = null;
+        _stageParent = null;
 
         //저장할 Obstacle 리스트 초기화
         _disabled = new List<GameObject>();
         _explode = new List<GameObject>();
 
-        SetConceptIndex();
-        ResetConceptObject();
-        InstantiateStage();
-
         _queue = new Queue<StageInfo>();
+
+        _stageEnd = GameObject.Find("StageEnd");
+        _conceptInfo = GameObject.Find("Concept").GetComponent<GetStage>();
+        _conceptCount = _conceptInfo.ConceptCount();
+        _isInstantiateStage = new bool[_conceptCount, 3];
+
+        SetConceptIndex();
+        SetStageParent();
+        InstantiateStage();
     }
 
     void Start()
@@ -169,14 +166,14 @@ public class StageController : MonoBehaviour
     void SetConceptIndex()
     {
         _conceptIndex = new List<int>();
-        for (int i = 0; i < _concept.Length; i++) _conceptIndex.Add(i);
+        for (int i = 0; i < _conceptCount; i++) _conceptIndex.Add(i);
     }
 
     //맵에 나타날 스테이지를 큐에 넣어주는 과정
     void InsertStageToQueue()
     {
         int conceptIndex = Random.Range(0, _conceptIndex.Count);
-        
+
         //컨셉을 뽑고, 이미 통과한 컨셉을 큐에 넣어줌
         if(_prevConcept != -1) _conceptIndex.Add(_prevConcept);
         _prevConcept = _conceptIndex[conceptIndex];
@@ -190,18 +187,6 @@ public class StageController : MonoBehaviour
         {
             int next_stage_num = Random.Range(0, i);
             _queue.Enqueue(new StageInfo(_conceptIndex[conceptIndex], stageIndex[next_stage_num]));
-
-            int concept = _conceptIndex[conceptIndex], stage = stageIndex[next_stage_num];
-
-            if (!_iniStage[concept, stage])
-            {
-                _iniStage[concept, stage] = true;
-
-                _stagePrefab[concept][stage] = Instantiate(_stagePrefab[concept][stage]);
-                _stagePrefab[concept][stage].transform.SetParent(_parent.transform);
-                _stagePrefab[concept][stage].SetActive(false);
-            }
-
             stageIndex.RemoveAt(next_stage_num);
         }
 
@@ -216,8 +201,12 @@ public class StageController : MonoBehaviour
         _stage = _nextStage;
 
         _stage.transform.GetComponent<GateMovement>().StopMove();
-        _stage.transform.position = new Vector3(0, 98, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+        _stage.transform.position = new Vector3(0, 95.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
         
+        _stageEnd.transform.SetParent(null);
+        _stageEnd.transform.position = new Vector3(-0.42f, 52.48f, -0.13f);
+        _stageEnd.transform.SetParent(_stage.transform);
+
         _nextStage = SetNextStage();
     }
 
@@ -230,6 +219,14 @@ public class StageController : MonoBehaviour
         if (_queue.Count <= 3) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
 
         int concept_index = next_stage_info.concept_index, stage_index = next_stage_info.stage_index;
+        
+        if(!_isInstantiateStage[concept_index, stage_index])
+        {
+            _isInstantiateStage[concept_index, stage_index] = true;
+            _stagePrefab[concept_index][stage_index] = Instantiate(_stagePrefab[concept_index][stage_index]);
+            _stagePrefab[concept_index][stage_index].transform.SetParent(_stageParent.transform);
+        }
+        
         ret = _stagePrefab[concept_index][stage_index];
 
         int nextAngle = Random.Range(0, 360);
@@ -242,39 +239,64 @@ public class StageController : MonoBehaviour
     //비활성화된 모든 오브젝트 활성화
     void ReturnStage()
     {
-        _stage.SetActive(false);
+        _prevStage = _stage;
+        _prevStage.GetComponent<GateMovement>().StopMove();
+        _prevStage.transform.position = new Vector3(0, 191.1f, 0);
+
         EnableObject();
         DeleteExploder();
+    }
 
-        _stage.transform.position = new Vector3(0, 0, 0);
+    public void DisablePrevStage() 
+    {
+        if (_prevStage == null) return;
+
+        _prevStage.SetActive(false);
+        _prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
     //Resources 파일에 있는 Prefab들 가져옴
     void InstantiateStage()
     {
-        _stagePrefab = new GameObject[_concept.Length][];
-        for (int i = 0; i < _concept.Length; i++) _stagePrefab[i] = Resources.LoadAll<GameObject>(_concept[i]);
+        _stagePrefab = new GameObject[_conceptCount][];
+       
+        for (int i = 0; i < _conceptCount; i++)
+        {
+            _stagePrefab[i] = _conceptInfo.GetStagePrefab(i);
+            for (int j = 0; j < 3; j++) _stagePrefab[i][j].SetActive(false);
+        }
+    }
+
+    void SetStageParent()
+    {
+        _stageParent = new GameObject();
+        _stageParent.name = "StageParent";
     }
 
     //스테이지 지나면 호출
-    public void DisableStage()
+    public void PrepareToStage()
     {
-        ReturnStage();
+        if (_stageCount++ % 3 == 0) _passThroughCount = _passThroughCount >= 5 ? 5 : _passThroughCount + 1;
 
-        int conceptCount = _stageCount++ / 3;
+        _speed = _basicSpeed + _passThroughCount;
+        _speed = _speed > _maxBasicSpeed ? _maxBasicSpeed : _speed;
+
         CanvasController.Instance.ChangeState(_stageCount);
         CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
 
-        _speed = _basicSpeed + conceptCount * 0.5f;
-        _speed = _speed > _maxFirstSpeed ? _maxFirstSpeed : _speed;
-
+        ReturnStage();
         SetCurrentStage();
         SetStagesVelocity();
     }
 
+    public void ResetPassThroughCount() { _passThroughCount = 0; }
+    public int GetPassThroughCount() { return _passThroughCount; }
+
+
     //Scene에 있는 Stage 속도 설정
     public void SetStagesVelocity()
     {
+        if(_prevStage != null) _prevStage.GetComponent<GateMovement>().Move();
         _stage.GetComponent<GateMovement>().Move();
         _nextStage.GetComponent<GateMovement>().Move();
     }
@@ -295,21 +317,15 @@ public class StageController : MonoBehaviour
     //스테이지 속도 리셋
     public void ResetVelocity()
     {
+        _speed = _basicSpeed;
         _stage.GetComponent<GateMovement>().SetVelocity(_speed);
         _nextStage.GetComponent<GateMovement>().SetVelocity(_speed);
     }
 
-    //HP가 0 이하 일때 호출
-    public void EndGame()
-    {
-        Destroy(_parent);
-    }
-
-    //Stage가 들어갈 부모 설정
-    void ResetConceptObject()
-    {
-        _parent = new GameObject();
-        _parent.name = "Concept";
+    public void EndGame() 
+    { 
+        _stageEnd.SetActive(false);
+        _stageParent.SetActive(false);    
     }
 
     //가속도 설정

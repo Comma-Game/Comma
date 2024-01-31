@@ -5,32 +5,29 @@ using UnityEngine.UI;
 
 public class ColliderRange : MonoBehaviour
 {
-    [SerializeField]
-    Texture[] _textures;
-
     public void EnableRawImage()
     {
-        gameObject.GetComponent<RawImage>().enabled = true;
+        gameObject.GetComponent<RawImage>().color = Color.red;
     }
 
     public void DisableRawImage()
     {
-        gameObject.GetComponent<RawImage>().texture = _textures[0];
+        gameObject.GetComponent<RawImage>().color = Color.white;
         gameObject.GetComponent<RawImage>().enabled = false;
     }
 
     public void SetInvincible()
     {
-        gameObject.GetComponent<RawImage>().texture = _textures[1];
+        gameObject.GetComponent<RawImage>().color = Color.yellow;
     }
 
     public void SetSkill()
     {
-        gameObject.GetComponent<RawImage>().texture = _textures[2];
+        gameObject.GetComponent<RawImage>().color = Color.blue;
     }
 
     public void ReSetColor()
     {
-        gameObject.GetComponent<RawImage>().texture = _textures[0];
+        gameObject.GetComponent<RawImage>().color = Color.red;
     }
 }
