@@ -21,6 +21,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject CashShopPanel;
         [SerializeField] public GameObject Canv_CashShop;
         [SerializeField] public UIMenuManager uIMenuManager;
+        [SerializeField] public GameObject FirstStoryPanel;
 
         [Header("background Obj")]
         [SerializeField] public Animator Charater;
@@ -55,6 +56,8 @@ public class MainSceneController : MonoBehaviour
         private int jellyUpgradeClass = 0;
         private int energyUpgradeClass = 0;
         private bool isGameStart = false;
+        private bool isGameFirst = true;
+        private bool isBuyAD = false;
 
         private int mysteryBox_coin = 10000;
         private string[] mysteryBox_Buff_Texts = {
@@ -89,6 +92,9 @@ public class MainSceneController : MonoBehaviour
         /// game object
         
         public void Start(){
+                // 데이터 불려오기
+                isGameFirst = SaveLoadManager.Instance.GetIsGameFirst();
+                isBuyAD = SaveLoadManager.Instance.GetIsBuyAd();
                 AchievementPanelCS = AchievementPanel.GetComponent<AchievementManager>();
                 hpUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeHP();
                 jellyUpgradeClass = SaveLoadManager.Instance.GetUpgradeJelly();
@@ -102,7 +108,10 @@ public class MainSceneController : MonoBehaviour
                 if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
 
-                
+                // 만약 게임이 처음이면 스토리 panel 띄우기
+                if(isGameFirst == false){
+                        FirstStoryPanel.SetActive(true);
+                }
         }
 
         public void GamePlay(){
@@ -127,8 +136,8 @@ public class MainSceneController : MonoBehaviour
                                 // 블랙홀 켜주기
                                 blackHoleObj1.SetActive(true);
                                 blackHoleObj2.SetActive(true);
-                                AudioManager.Instance.PlayMainScenePortal();
-                                Invoke("MoveScene", 5f);
+                                AudioManager.Instance.PlayPortalSFX();
+                                Invoke("MoveScene", 3f);
                         }
                 }else{
                         shop_HaertShopPanel.SetActive(true);

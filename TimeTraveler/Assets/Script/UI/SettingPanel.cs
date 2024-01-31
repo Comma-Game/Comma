@@ -26,6 +26,7 @@ public class SettingPanel : MonoBehaviour
     }
 
     public void ClickQuitButton(){
+        PlayGameManager.Instance.ResumeGame(); //재개
         AudioManager.Instance.PlayGameButtonClick();
         SceneManager.LoadScene("MainScene");
     }

@@ -31,6 +31,9 @@ public class GameOverPanel : MonoBehaviour
     }
 
     public void Get2Coin(){
+        if(SaveLoadManager.Instance.GetIsBuyAd() == false){
+            // 광고 띄우기
+        }
         AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("Get2Coin");
         SceneManager.LoadScene("MainScene");

@@ -45,6 +45,10 @@ public class NotiMessagePanel : MonoBehaviour
     } 
 
     public void StartMove(){
-        isOn = true;
+        if(isOn == false){
+            isOn = true;
+            MoveNum = 0;
+            AudioManager.Instance.PlayStoryUnLockSFX();
+        }
     }
 }

@@ -160,6 +160,7 @@ public class CanvasController : MonoBehaviour
     /// Message Panel
 
     public void OnMessagePanel(){
+        Debug.Log("OnMessagePanel");
         messagePanelCS.StartMove();
     }
 
