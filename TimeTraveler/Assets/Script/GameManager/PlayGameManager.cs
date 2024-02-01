@@ -34,7 +34,7 @@ public class PlayGameManager : MonoBehaviour
     {
         Init_Instance();
 
-        Application.targetFrameRate = 40;
+        Application.targetFrameRate = 30;
 
         _player = GameObject.Find("Player").GetComponent<Player>();
 
@@ -69,6 +69,7 @@ public class PlayGameManager : MonoBehaviour
                 gameManager.name = "GameManager";
                 gameManager.AddComponent<PlayGameManager>();
                 gameManager.AddComponent<UseItem>();
+                gameManager.AddComponent<ParticleFooling>();
             }
 
             _instance = gameManager.GetComponent<PlayGameManager>();
@@ -78,9 +79,15 @@ public class PlayGameManager : MonoBehaviour
     void Init()
     {
         ResumeGame();
+        GetComponent<ParticleFooling>().SetParticle(Resources.LoadAll<GameObject>("Particle"));
 
         if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(ScoreTime());
+    }
+
+    public void EnableParticle(int index, Vector3 pos)
+    {
+        GetComponent<ParticleFooling>().EnableParticle(index, pos);
     }
 
     public void EndGame()

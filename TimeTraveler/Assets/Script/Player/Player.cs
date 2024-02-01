@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    GameObject _skillEffect;
+
+    [SerializeField]
+    Canvas _canvas;
+
     float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed, _sphereScale;
     bool _isInvincible, _isPassPortal, _isCast, _isHit;
     PlayGameManager _playGameManager;
@@ -14,6 +20,7 @@ public class Player : MonoBehaviour
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff;
     SaveLoadManager _saveLoadManager;
     GameObject _camera;
+    Animator _animator;
 
     //TestControlButton 없애면 같이 없앨 변수
     bool _isMobile;
@@ -27,6 +34,7 @@ public class Player : MonoBehaviour
     {
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
         _camera = GameObject.Find("Main Camera");
+        _animator = transform.GetChild(0).GetComponent<Animator>();
 
         _tempSpeed = 0;
 
@@ -74,7 +82,9 @@ public class Player : MonoBehaviour
                 collision.gameObject.SetActive(false);
                 HitDamage(10 * _obstacleDamageBuff);
 
-                if(collision.gameObject.GetComponent<MeshExploder>() != null)
+                AudioManager.Instance.PlayDamgeSFX();
+
+                if (collision.gameObject.GetComponent<MeshExploder>() != null)
                     StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
 
                 StageController.Instance.AddDisabled(collision.gameObject);
@@ -101,13 +111,19 @@ public class Player : MonoBehaviour
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
             {
                 PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
-                Heal(1.8f * _healBuff);
+                
+                //테스트용
+                Heal(5f * _healBuff);
                 CanvasController.Instance.OnMessagePanel();
+                
+                PlayGameManager.Instance.EnableParticle(1, other.transform.position);
             }
             else
             {
                 AudioManager.Instance.PlayGetPieceSFX();
                 PlayGameManager.Instance.ScoreUp(_jellyScore);
+
+                PlayGameManager.Instance.EnableParticle(0, other.transform.position);
             }
 
             other.gameObject.SetActive(false);
@@ -135,13 +151,17 @@ public class Player : MonoBehaviour
         Debug.Log("HP : " + _hp);
 
         _energy = 100;
-        _energyChargeSpeed = 4 + CalculateChargeEnergy();
+
+        //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        _energyChargeSpeed = 8 + CalculateChargeEnergy();
         Debug.Log("Energy : " + _energy);
 
         _jellyScore = 70 + CalculateJelly();
         Debug.Log("Jelly : " + _jellyScore);
 
         _sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
+
+        _skillEffect.transform.localScale *= _canvas.scaleFactor;
 
         if (_coroutine != null) StopCoroutine(_coroutine);
     }
@@ -158,10 +178,14 @@ public class Player : MonoBehaviour
     {
         GroundDamage(20);
         
+        //바람 UI
         CanvasController.Instance.OnSpeedPanel(false);
         CanvasController.Instance.ChangeSpeedColor(0);
 
+        //스테이지 준비
         StageController.Instance.PrepareToStage();
+
+        //무적 및 스킬 중단
         StopMyCoroutine();
     }
 
@@ -173,6 +197,7 @@ public class Player : MonoBehaviour
             {
                 _energy = 100;
                 CanvasController.Instance.PlayerUpEnergy(100 - _energy);
+                _colliderRange.PrepareToSkill();
             }
             else
             {
@@ -225,6 +250,8 @@ public class Player : MonoBehaviour
         if (!_isHit && !_isInvincible & !_isCast)
         {
             GetDamage(damage);
+            Handheld.Vibrate();
+            _camera.GetComponent<StressReceiver>().InduceStress(0.2f);
 
             if (_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
             else transform.GetComponent<TestMovePlayer>().HitObstacle();
@@ -261,8 +288,7 @@ public class Player : MonoBehaviour
 
     void HitObstacle(float time)
     {
-        //AudioManager.Instance.PlayDamgeSFX();
-        StageController.Instance.ResetPassThroughCount();
+        StageController.Instance.MinusPassThroughCount();
 
         StopMyCoroutine();
         _coroutine = StartCoroutine(HitObstacleTime(time));
@@ -286,6 +312,12 @@ public class Player : MonoBehaviour
 
     public void DestroyPlayer() { transform.gameObject.SetActive(false); }
 
+    void ResetColor()
+    {
+        if(_energy < 100) _colliderRange.ReSetColor();
+        else _colliderRange.PrepareToSkill();
+    }
+
     IEnumerator PortalTime(float t)
     {
         _isPassPortal = true;
@@ -302,7 +334,8 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        _colliderRange.ReSetColor();
+        ResetColor();
+
         _isInvincible = false;
     }
 
@@ -310,6 +343,9 @@ public class Player : MonoBehaviour
     {
         _isCast = true;
         _isInvincible = true;
+
+        _animator.speed = 0;
+        _skillEffect.SetActive(true);
 
         CanvasController.Instance.OnSpeedPanel(true);
         CanvasController.Instance.ChangeSpeedColor(1);
@@ -319,6 +355,9 @@ public class Player : MonoBehaviour
         StageController.Instance.SetVelocity(StageController.Instance.MaxSpeed);
 
         yield return new WaitForSeconds(t);
+
+        _animator.speed = 1;
+        _skillEffect.SetActive(false);
 
         CanvasController.Instance.ChangeSpeedColor(0);
         StageController.Instance.ResetVelocity();
@@ -339,7 +378,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        _colliderRange.ReSetColor();
+        ResetColor();
 
         _isHit = false;
     }
@@ -350,12 +389,21 @@ public class Player : MonoBehaviour
         {
             StopCoroutine(_coroutine);
 
-            _colliderRange.ReSetColor();
+            ResetColor();
 
+            if (_isCast)
+            {
+                _animator.speed = 1;
+                _skillEffect.SetActive(false);
+
+                CanvasController.Instance.ChangeSpeedColor(0);
+                StageController.Instance.ResetVelocity();
+            }
+
+            _isCast = false;
             _isHit = false;
             _isPassPortal = false;
             _isInvincible = false;
-            _isCast = false;
         }
     }
 
