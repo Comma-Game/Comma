@@ -6,9 +6,9 @@
 6    android:versionName="0.1" >
 7
 8    <uses-sdk
-9        android:minSdkVersion="22"
+9        android:minSdkVersion="27"
 9-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
-10        android:targetSdkVersion="32" />
+10        android:targetSdkVersion="33" />
 10-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
 11
 12    <supports-screens
