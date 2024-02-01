@@ -1146,14 +1146,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93710685, g: 0.93710685, b: 0.93710685, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -777708162, guid: 05e0567213a58c840a3ea79a4409bdfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c7b5a401f204a64ebd95d615cb6c556, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1382,8 +1382,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283, y: 39.5}
-  m_SizeDelta: {x: 243.78, y: 79}
+  m_AnchoredPosition: {x: 336.11, y: 39.5}
+  m_SizeDelta: {x: 241.56, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4268356750039549259
 CanvasRenderer:
@@ -3464,7 +3464,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: -21}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8843205334417131115
 CanvasRenderer:
@@ -3487,14 +3487,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  m_Color: {r: 0.61006284, g: 0.61006284, b: 0.61006284, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2043333513, guid: 05e0567213a58c840a3ea79a4409bdfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be991e00b1d07dd47a8a5afa97e04153, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3783,7 +3783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7332993353469086683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3802,8 +3802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310.11, y: -73}
-  m_SizeDelta: {x: 189.56, y: 79}
+  m_AnchoredPosition: {x: 336.11, y: -73}
+  m_SizeDelta: {x: 241.56, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &358173389893091631
 CanvasRenderer:
@@ -3889,7 +3889,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
-        m_MethodName: GetMysteryBox
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4728,6 +4728,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8318841308701071898, guid: ffd473af06d03d041bfb588b30075bd1, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385679219628064921, guid: ffd473af06d03d041bfb588b30075bd1, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

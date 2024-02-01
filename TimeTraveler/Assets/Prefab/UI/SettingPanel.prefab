@@ -499,7 +499,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2346995454875248241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000095367424}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -509,7 +509,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6414857093069302774
 CanvasRenderer:
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 2346995454875248241}
+  isGameScene: 0
 --- !u!1 &6447933283399962872
 GameObject:
   m_ObjectHideFlags: 0

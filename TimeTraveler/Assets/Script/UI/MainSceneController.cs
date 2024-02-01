@@ -22,12 +22,11 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject Canv_CashShop;
         [SerializeField] public UIMenuManager uIMenuManager;
         [SerializeField] public GameObject FirstStoryPanel;
+        [SerializeField] public GameObject loadingScene;
+        [SerializeField] public LoadingSceneManager loadingSceneManager;
 
         [Header("background Obj")]
         [SerializeField] public Animator Charater;
-        [SerializeField] public GameObject blackHoleObj1;
-        [SerializeField] public GameObject blackHoleObj2;
-        [SerializeField] public GameObject background;
 
         [Header("heart Panel")]
         [SerializeField] public GameObject heartPanel;
@@ -55,6 +54,8 @@ public class MainSceneController : MonoBehaviour
         private int hpUpgradeClass = 0;
         private int jellyUpgradeClass = 0;
         private int energyUpgradeClass = 0;
+        private int mysteryBox_current_num = -1;
+
         private bool isGameStart = false;
         private bool isGameFirst = true;
         private bool isBuyAD = false;
@@ -82,11 +83,6 @@ public class MainSceneController : MonoBehaviour
                                                 2905, 3630, 4530, 5655, 7055, 8805, 11005, 13755, 17180, 21455,
                                                 27875, 36215, 47075, 61175, 79505, 103355, 134345, 174635, 227015, 295115};
 
-        void Update()
-        {
-                // 회전 속도에 따라 물체를 자기 중심으로 회전
-                background.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-        }
 
         /// /////////////////////////////////////////////////////////////////
         /// game object
@@ -118,6 +114,11 @@ public class MainSceneController : MonoBehaviour
                 Debug.Log("GamePlay");
                 if(heartPanelCS.GetCurrentHearts() >= 1){
                         if(isGameStart == false){
+                                // 소지 버프가 없고 상점 버프 확정 안했지만 돌렸다면 확정시키기
+                                if(mysteryBox_current_num != -1 && SaveLoadManager.Instance.GetBuff() == 0){
+                                        Debug.Log("no buff but have buff");
+                                        SelectMysteryBox();
+                                }
                                 isGameStart = true;
                                 Charater.SetBool("Run", true);
                                 // 화면 돌아가기
@@ -133,11 +134,9 @@ public class MainSceneController : MonoBehaviour
                                 }
                                 heartPanelCS.MinusHearts(1);
                                 heartPanel.SetActive(false);
-                                // 블랙홀 켜주기
-                                blackHoleObj1.SetActive(true);
-                                blackHoleObj2.SetActive(true);
                                 AudioManager.Instance.PlayPortalSFX();
                                 Invoke("MoveScene", 3f);
+                                //SceneManager.LoadScene("GameScene");
                         }
                 }else{
                         shop_HaertShopPanel.SetActive(true);
@@ -147,7 +146,9 @@ public class MainSceneController : MonoBehaviour
 
         private void MoveScene()
         {
-                SceneManager.LoadScene("GameScene");
+               // SceneManager.LoadScene("GameScene");
+                loadingScene.SetActive(true);
+                loadingSceneManager.StartSceneMove();
         }
 
         public void ClickShop(){
@@ -224,6 +225,7 @@ public class MainSceneController : MonoBehaviour
                                 hpUpgradeClass += 1; // 다음 단계 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeHP();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeShopHpText(true);
                         }
                         else if((hpUpgradeClass+1) == maxGradeNum){ // 없다면
@@ -232,6 +234,7 @@ public class MainSceneController : MonoBehaviour
                                 hpUpgradeClass += 1; // 마지막 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeHP();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeShopHpText(false);
                         }
                 }else{
@@ -251,6 +254,7 @@ public class MainSceneController : MonoBehaviour
                                 jellyUpgradeClass += 1; // 다음 단계 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeJelly();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeJellyText(true);
                         }
                         else if((jellyUpgradeClass+1) == maxGradeNum) { 
@@ -259,6 +263,7 @@ public class MainSceneController : MonoBehaviour
                                 jellyUpgradeClass += 1; // 마지막 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeJelly();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeJellyText(false);
                         }
                 }else{
@@ -278,6 +283,7 @@ public class MainSceneController : MonoBehaviour
                                 energyUpgradeClass += 1; // 다음 단계 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeEnergy();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeEnergyText(true);
                         }
                         else if((energyUpgradeClass+1) == maxGradeNum){ 
@@ -286,6 +292,7 @@ public class MainSceneController : MonoBehaviour
                                 energyUpgradeClass += 1; // 마지막 업그레이드
                                 // 실제 스탯에 적용 코드
                                 SaveLoadManager.Instance.UpgradeEnergy();
+                                SaveLoadManager.Instance.SaveData();
                                 ChangeEnergyText(false);
                         }
                 }else{
@@ -293,14 +300,21 @@ public class MainSceneController : MonoBehaviour
                 }
 	}
 
-	public void GetMysteryBox(){
-                AudioManager.Instance.PlayMesteryBoxBuySFX();
-                string randomBuffText = GetRandomBuffText();
-                mysteryBoxBuffText.text = randomBuffText;
-                ChangeBuffText(randomBuffText);
+        public void GetMysteryBox(){
                 Debug.Log("GetMysteryBox");
+                AudioManager.Instance.PlayMesteryBoxBuySFX();
+                string randomBuffText = mysteryBox_Buff_Texts[GetRandomBuffNum()];
+                mysteryBoxBuffText.text = randomBuffText;
                 // 돈 소비
                 MinusCoin(mysteryBox_coin);
+	}
+
+	public void SelectMysteryBox(){
+                Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
+                AudioManager.Instance.PlayGameButtonClick();
+                ChangeBuffText(mysteryBox_Buff_Texts[mysteryBox_current_num]);
+                SaveLoadManager.Instance.SetBuff(mysteryBox_current_num+1);
+                SaveLoadManager.Instance.SaveData();
 	}
 
         public void SetMysteryBox(int Index){
@@ -316,10 +330,10 @@ public class MainSceneController : MonoBehaviour
                 Debug.Log("SetMysteryBox");
 	}
 
-        private string GetRandomBuffText(){
+        private int GetRandomBuffNum(){
                 int randomIndex = Random.Range(0, mysteryBox_Buff_Texts.Length);
-                SaveLoadManager.Instance.SetBuff(randomIndex+1);
-                return mysteryBox_Buff_Texts[randomIndex];
+                mysteryBox_current_num = randomIndex;
+                return randomIndex;
         }
 
         private void ChangeShopHpText(bool canUpgrade){
@@ -346,6 +360,7 @@ public class MainSceneController : MonoBehaviour
         public void MinusCoin(int coin){
                 // 돈 소비
                 SaveLoadManager.Instance.MinusCoin(coin);
+                SaveLoadManager.Instance.SaveData();
                 // 바뀐 금액 표시
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }
@@ -354,6 +369,7 @@ public class MainSceneController : MonoBehaviour
                 Debug.Log("PlusCoin "+ coin);
                 // 돈 소비
                 SaveLoadManager.Instance.PlusCoin(coin);
+                SaveLoadManager.Instance.SaveData();
                 // 바뀐 금액 표시
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }

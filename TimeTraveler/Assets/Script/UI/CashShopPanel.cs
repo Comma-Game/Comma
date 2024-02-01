@@ -33,6 +33,7 @@ public class CashShopPanel : MonoBehaviour
     public void BuyADFree(){
         AudioManager.Instance.PlayGameButtonClick();
         SaveLoadManager.Instance.SetIsBuyAd(true);
+        SaveLoadManager.Instance.SaveData();
         Debug.Log("BuyADFree");
     }
 }
