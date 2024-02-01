@@ -48,5 +48,6 @@ public class FirstStoryPanel : MonoBehaviour
     public void ClickReturnButton(){
         AudioManager.Instance.PlayGameButtonClick();
         SaveLoadManager.Instance.SetIsGameFirst();
+        SaveLoadManager.Instance.SaveData();
     }
 }

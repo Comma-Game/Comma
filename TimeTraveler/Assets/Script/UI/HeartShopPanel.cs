@@ -19,14 +19,12 @@ public class HeartShopPanel : MonoBehaviour
         AudioManager.Instance.PlayGameButtonClick();
         // if() 오늘치 썼는지 아닌지 확인
         // 하트가 5개 이상이 아니고
-        if(HeartPanelCS.GetCurrentHearts() >= 5){
+        if(HeartPanelCS.GetCurrentHearts() < 5){
             // 광고 무료 구매했는지 확인
             if(SaveLoadManager.Instance.GetIsBuyAd() == false){
                 // 광고 띄우기
             }
-            if(HeartPanelCS.GetCurrentHearts() < 5){
-                HeartPanelCS.AddFullHearts();
-            }
+            HeartPanelCS.AddFullHearts();
         }
     }
 }

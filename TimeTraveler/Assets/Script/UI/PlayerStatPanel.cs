@@ -184,8 +184,9 @@ public class PlayerStatPanel : MonoBehaviour
     ////// buff
     
     public void ChangeBuffImage(int num){
+        Debug.Log("ChangeBuffImage : " + num);
         if(num != 0){
-            buffs[num+1].SetActive(true);
+            buffs[num-1].SetActive(true);
         }
     }
 

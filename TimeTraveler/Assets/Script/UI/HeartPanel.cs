@@ -85,6 +85,7 @@ public class HeartPanel : MonoBehaviour
         SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
         SaveLoadManager.Instance.PlusHeart();
+        SaveLoadManager.Instance.SaveData();
     }
 
     public void AddFullHearts(){
@@ -102,6 +103,7 @@ public class HeartPanel : MonoBehaviour
         if(currentHearts == 4) SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
         SaveLoadManager.Instance.SubtractHeart();
+        SaveLoadManager.Instance.SaveData();
     }
 
     private void UpdateTimerText()
