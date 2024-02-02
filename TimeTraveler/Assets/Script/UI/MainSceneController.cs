@@ -62,14 +62,14 @@ public class MainSceneController : MonoBehaviour
 
         private int mysteryBox_coin = 10000;
         private string[] mysteryBox_Buff_Texts = {
-                "체력강화 + 50",
-                "스코어 2배",
+                "체력강화 +50",
+                "스코어 1.2배",
                 "장애물 충돌피해 50% 감소",
                 "체력감소 15% 느림",
-                "물약 회복량 20% 증가",
+                "물약 회복량 30% 증가",
                 "가속도 +20%",
                 "기본속도 +20%",
-                "에너지 축적량 감소 -20%"
+                "최대 에너지량 감소 -20%"
         };
 
         private int maxGradeNum = 30; // 5 업그레이드 가능하면 -1 해서 4로 설정
