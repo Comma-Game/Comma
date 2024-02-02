@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMemory: 1
+  _info: 0000000000000000
 --- !u!54 &3553415701462740303
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -89,6 +89,20 @@ public class StageController : MonoBehaviour
     }
 
     static GameObject _stageController;
+
+    static void Init_Instance()
+    {
+        _stageController = GameObject.Find("StageController");
+        if (!_stageController)
+        {
+            _stageController = new GameObject();
+            _stageController.name = "StageController";
+            _stageController.AddComponent<StageController>();
+        }
+
+        _instance = _stageController.GetComponent<StageController>();
+    }
+
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
     GameObject _stage, _nextStage, _prevStage, _stageParent; //_stageParent : 스테이지들의 부모 오브젝트
@@ -97,7 +111,7 @@ public class StageController : MonoBehaviour
     List<GameObject> _disabled, _explode; //비활성화된 오브젝트들과 파괴된 파편들을 저장할 리스트
     GameObject _stageEnd;
     GetStage _conceptInfo;
-    int _passThroughCount, _conceptCount;
+    int _passThroughCount, _conceptCount; //_passThroughCount : 장애물에 부딪히지 않고 계속 전진하는 횟수, _conceptCount : 플레이 가능한 concept 개수
     bool[,] _isInstantiateStage;
 
     private void Awake()
@@ -128,7 +142,7 @@ public class StageController : MonoBehaviour
 
         _stageEnd = GameObject.Find("StageEnd");
         _conceptInfo = GameObject.Find("Concept").GetComponent<GetStage>();
-        _conceptCount = _conceptInfo.ConceptCount();
+        _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
         _isInstantiateStage = new bool[_conceptCount, 3];
 
         SetConceptIndex();
@@ -140,19 +154,6 @@ public class StageController : MonoBehaviour
     {
         Init_Instance();
         Init();
-    }
-
-    static void Init_Instance()
-    {
-        _stageController = GameObject.Find("StageController");
-        if(!_stageController)
-        {
-            _stageController = new GameObject();
-            _stageController.name = "StageController";
-            _stageController.AddComponent<StageController>();
-        }
-
-        _instance = _stageController.GetComponent<StageController>();
     }
 
     void Init()
@@ -168,6 +169,8 @@ public class StageController : MonoBehaviour
     //초기 Concept Index 설정
     void SetConceptIndex()
     {
+        Debug.Log((_conceptCount - 1) + " 컨셉까지 활성화");
+
         _conceptIndex = new List<int>();
         for (int i = 0; i < _conceptCount; i++) _conceptIndex.Add(i);
     }
@@ -178,7 +181,7 @@ public class StageController : MonoBehaviour
         int conceptIndex = Random.Range(0, _conceptIndex.Count);
         
         //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        while (_conceptIndex[conceptIndex] == 5 || _conceptIndex[conceptIndex] == 7 || _conceptIndex[conceptIndex] == 8) conceptIndex = Random.Range(0, _conceptIndex.Count);
+        //while (_conceptIndex[conceptIndex] == 5 || _conceptIndex[conceptIndex] == 7 || _conceptIndex[conceptIndex] == 8) conceptIndex = Random.Range(0, _conceptIndex.Count);
         
         
         //컨셉을 뽑고, 이미 통과한 컨셉을 큐에 넣어줌
@@ -234,6 +237,7 @@ public class StageController : MonoBehaviour
         }
         
         ret = _stagePrefab[concept_index][stage_index];
+        ret.transform.position = new Vector3(0, 0, 0);
 
         int nextAngle = Random.Range(0, 360);
         ret.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
@@ -258,7 +262,7 @@ public class StageController : MonoBehaviour
         if (_prevStage == null) return;
 
         _prevStage.SetActive(false);
-        _prevStage.transform.position = new Vector3(0, 0, 0);
+        //_prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
     //Resources 파일에 있는 Prefab들 가져옴

@@ -37,7 +37,7 @@ public class TestMovePlayer : MonoBehaviour
     void Update()
     {
         SetForce();
-        Debug.Log("Velocity : " + _rigidbody.velocity);
+        //Debug.Log("Velocity : " + _rigidbody.velocity);
     }
 
     void SetForce()

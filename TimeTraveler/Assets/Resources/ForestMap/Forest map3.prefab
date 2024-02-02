@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 8537876134895985744}
   - component: {fileID: 9195249449793643228}
   m_Layer: 0
-  m_Name: Forest map (3)
+  m_Name: Forest map3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,6 +1931,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3095216529428658685}
     m_Modifications:
+    - target: {fileID: 2804918736542239574, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804918736542239574, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.83
