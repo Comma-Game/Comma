@@ -6,14 +6,22 @@ using TMPro;
 public class AchievementManager : MonoBehaviour
 {
     [Header("Story Panels")]
+    [SerializeField] public GameObject mainPanel;
+    [SerializeField] public GameObject[] Buttons;
     [SerializeField] public GameObject[] stroyPanels;
-    [SerializeField] public TextMeshProUGUI highScoreText;
 
-    private void DisablePanels(){
-        for(int i=0; i < stroyPanels.Length; i++){
-            stroyPanels[i].SetActive(false);
-        }
-	}
+    [SerializeField] public StoryPanel[] stroyPanelsCS;
+    [SerializeField] public TextMeshProUGUI highScoreText;
+    private int currentUnlockedConceptNum = 0;
+    private List<List<bool>> currentUnlockedMemory = null;
+
+    public void Start(){
+        currentUnlockedConceptNum = SaveLoadManager.Instance.GetUnlockedConcept();
+        currentUnlockedMemory = SaveLoadManager.Instance.GetUnlockedMemory();
+        Debug.Log("currentUnlockedConceptNum : " + currentUnlockedConceptNum);
+        SettingAchievement(currentUnlockedConceptNum);
+        SettingStroy(currentUnlockedConceptNum);
+    }
 
     public void ClickStory(int number){
         AudioManager.Instance.PlayGameButtonClick();
@@ -25,4 +33,34 @@ public class AchievementManager : MonoBehaviour
     public void ChangeHighScoreText(int num){
         highScoreText.text = "My High Score : " + num.ToString();
     }
+
+    public void OnPanel(bool isActive){
+        mainPanel.SetActive(isActive);
+    }
+
+    /// ///////////////////////////////////////////////////////////////////
+
+    private void SettingAchievement(int unlockNum){
+        for(int i=0; i < Buttons.Length; i++){
+            if(i <= unlockNum){
+                Buttons[i].SetActive(true);
+            }else{
+                Buttons[i].SetActive(false);
+            }
+        }
+    }
+
+    private void SettingStroy(int unlockNum){
+        for(int i=0; i < Buttons.Length; i++){
+            if(i <= unlockNum){
+                stroyPanelsCS[i].SettingStory(currentUnlockedMemory[i]);
+            }
+        }
+    }
+
+    private void DisablePanels(){
+        for(int i=0; i < stroyPanels.Length; i++){
+            stroyPanels[i].SetActive(false);
+        }
+	}
 }

@@ -2100,7 +2100,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4966753516031601111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,6 +2130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960932d2801878b49b7ef2d806c47da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPanel: {fileID: 0}
+  Buttons: []
   stroyPanels:
   - {fileID: 9056505057214170731}
   - {fileID: 5121354847072336872}
@@ -2141,6 +2143,7 @@ MonoBehaviour:
   - {fileID: 5790073691441974768}
   - {fileID: 9079136394106146918}
   - {fileID: 7609143755611412095}
+  stroyPanelsCS: []
   highScoreText: {fileID: 457375751179519347}
 --- !u!1 &2584176722146657992
 GameObject:

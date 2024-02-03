@@ -144,6 +144,18 @@ public class MainSceneController : MonoBehaviour
                 SaveLoadManager.Instance.SaveData();
         }
 
+        public void TestGamePlay(){
+                if(heartPanelCS.GetCurrentHearts() >= 1 && isGameStart == false) {
+                        SaveLoadManager.Instance.SetUnlockedConcept(8);
+                        // for(int i=0; i < 10; i++){
+                        //         for(int j=0; j < 3; j++){
+                        //                 SaveLoadManager.Instance.SetUnlockedMemory(i, j);
+                        //         }
+                        // }
+                }
+                GamePlay();
+        }
+
         private void MoveScene()
         {
                // SceneManager.LoadScene("GameScene");
@@ -155,7 +167,7 @@ public class MainSceneController : MonoBehaviour
                 AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickShop");
                 shopPanel.SetActive(true);
-                AchievementPanel.SetActive(false);
+                AchievementPanelCS.OnPanel(false);
                 uIMenuManager.Position2();
                 uIMenuManager.ReturnMenu();
                 Canv_CashShop.SetActive(false);
@@ -165,7 +177,7 @@ public class MainSceneController : MonoBehaviour
                 AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickAchievement");
                 shopPanel.SetActive(false);
-                AchievementPanel.SetActive(true);
+                AchievementPanelCS.OnPanel(true);
                 Canv_CashShop.SetActive(false);
         }
 
@@ -173,7 +185,7 @@ public class MainSceneController : MonoBehaviour
                 AudioManager.Instance.PlayGameButtonClick();
                 Debug.Log("ClickCashShop");
                 shopPanel.SetActive(false);
-                AchievementPanel.SetActive(false);
+                AchievementPanelCS.OnPanel(false);
                 Canv_CashShop.SetActive(true);
         }
 
