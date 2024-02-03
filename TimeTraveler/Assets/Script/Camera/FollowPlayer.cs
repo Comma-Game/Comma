@@ -19,7 +19,7 @@ public class FollowPlayer : MonoBehaviour
 
             transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y+8, playerTransform.position.z);
             // 플레이어를 항상 바라보도록 함
-            transform.LookAt(playerTransform);
+            //transform.LookAt(playerTransform);
         }
     }
 }

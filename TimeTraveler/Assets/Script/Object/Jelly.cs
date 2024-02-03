@@ -7,15 +7,9 @@ public class Jelly : MonoBehaviour
     [SerializeField]
     bool _isMemory;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    int[] _info;
 
     public bool CheckMemory() { return _isMemory; }
+    public int[] GetInfo() { return _info; }
 }

@@ -29,12 +29,13 @@ public class PlayGameManager : MonoBehaviour
     SaveLoadManager _saveLoadManager;
     StageController _stageController;
     int _scoreUp;
+    int[] _needScore = { 0, 0, 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000 };
 
     private void Awake()
     {
         Init_Instance();
 
-        Application.targetFrameRate = 40;
+        Application.targetFrameRate = 30;
 
         _player = GameObject.Find("Player").GetComponent<Player>();
 
@@ -69,6 +70,7 @@ public class PlayGameManager : MonoBehaviour
                 gameManager.name = "GameManager";
                 gameManager.AddComponent<PlayGameManager>();
                 gameManager.AddComponent<UseItem>();
+                gameManager.AddComponent<ParticleFooling>();
             }
 
             _instance = gameManager.GetComponent<PlayGameManager>();
@@ -78,16 +80,33 @@ public class PlayGameManager : MonoBehaviour
     void Init()
     {
         ResumeGame();
+        GetComponent<ParticleFooling>().SetParticle(Resources.LoadAll<GameObject>("Particle"));
 
         if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(ScoreTime());
+    }
+
+    //젤리 파티클 활성화
+    public void EnableParticle(int index, Vector3 pos)
+    {
+        GetComponent<ParticleFooling>().EnableParticle(index, pos);
+    }
+
+    //업적 오픈 확인
+    public void CheckUnlockScore()
+    {
+        int unlock = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
+        if (_score >= _needScore[unlock]) SaveLoadManager.Instance.SetUnlockedConcept(unlock);
     }
 
     public void EndGame()
     {
         if (_scoreBuff) _score += (int)(_score * 0.2f);
 
+        //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
+
+        CheckUnlockScore();
         SaveLoadManager.Instance.PlusCoin(_score);
         SaveLoadManager.Instance.SetHighScore(_score);
         SaveLoadManager.Instance.SaveData();

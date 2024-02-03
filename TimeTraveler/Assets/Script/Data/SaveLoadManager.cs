@@ -15,7 +15,8 @@ public class GameData
     public int buff;
     public bool isGameFirst;
     public bool isBuyAd;
-    public int open_concept;
+    public int unlockedConcept;
+    public List<List<bool>> unlockedMemory;
 
     public GameData()
     {
@@ -30,7 +31,14 @@ public class GameData
         buff = 0;
         isGameFirst = false;
         isBuyAd = false;
-        open_concept = 2;
+        unlockedConcept = 2;
+
+        unlockedMemory = new List<List<bool>>();
+        for (int i = 0; i < 10; i++)
+        {
+            unlockedMemory.Add(new List<bool>());
+            for (int j = 0; j < 3; j++) unlockedMemory[i].Add(false);
+        }
     }
 }
 
@@ -132,6 +140,10 @@ public class SaveLoadManager : MonoBehaviour
     public void SetIsGameFirst() { GameData.isGameFirst = true; } //처음 시작 완료 설정
     public bool GetIsBuyAd() { return GameData.isBuyAd; } //광고 구매 여부 반환
     public void SetIsBuyAd(bool isBuyAd) { GameData.isBuyAd = isBuyAd; } //광구 구매 설정
+    public int GetUnlockedConcept() { return GameData.unlockedConcept; } //열린 Concept 반환
+    public void SetUnlockedConcept(int unlock) { GameData.unlockedConcept = unlock; } //Concept 설정
+    public List<List<bool>> GetUnlockedMemory() { return GameData.unlockedMemory; } //먹은 기억의 조각 반환
+    public void SetUnlockedMemory(int concept, int stage) { GameData.unlockedMemory[concept][stage] = false; } //먹은 기억의 조각 설정
 
     public void SaveData()
     {
