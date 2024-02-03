@@ -29,8 +29,7 @@ public class PlayGameManager : MonoBehaviour
     SaveLoadManager _saveLoadManager;
     StageController _stageController;
     int _scoreUp;
-    int[] _needScore = { 0, 0, 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000 };
-
+    
     private void Awake()
     {
         Init_Instance();
@@ -92,13 +91,6 @@ public class PlayGameManager : MonoBehaviour
         GetComponent<ParticleFooling>().EnableParticle(index, pos);
     }
 
-    //업적 오픈 확인
-    public void CheckUnlockScore()
-    {
-        int unlock = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-        if (_score >= _needScore[unlock]) SaveLoadManager.Instance.SetUnlockedConcept(unlock);
-    }
-
     public void EndGame()
     {
         if (_scoreBuff) _score += (int)(_score * 0.2f);
@@ -106,7 +98,6 @@ public class PlayGameManager : MonoBehaviour
         //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
 
-        CheckUnlockScore();
         SaveLoadManager.Instance.PlusCoin(_score);
         SaveLoadManager.Instance.SetHighScore(_score);
         SaveLoadManager.Instance.SaveData();

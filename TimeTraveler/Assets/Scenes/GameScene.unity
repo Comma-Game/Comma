@@ -1251,11 +1251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472445595300311626, guid: b0cad54f7b5273348bc7859bf23025c2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8472445595300311626, guid: b0cad54f7b5273348bc7859bf23025c2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8472445595300311626, guid: b0cad54f7b5273348bc7859bf23025c2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1422,9 +1422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stagePrefab:
   - row:
-    - {fileID: 8867759083764941440, guid: 9f83b9af165b3a04abbce4e75d7554bf, type: 3}
     - {fileID: 7465484774482029038, guid: b6ac2de633cffa04dbf9334f84810156, type: 3}
     - {fileID: 3553702485625456007, guid: 958131ad079b03a45b0274dfd5b3628a, type: 3}
+    - {fileID: 8867759083764941440, guid: b93bc31e4962f8a49b42d70c4d38b606, type: 3}
   - row:
     - {fileID: 1437622638757103962, guid: b8857ee0db89b5b4aba5058606479ca3, type: 3}
     - {fileID: 3676035045823576059, guid: 9da14058aa1e9044cb94501f92dc3517, type: 3}

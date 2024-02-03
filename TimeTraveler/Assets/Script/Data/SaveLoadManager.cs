@@ -17,6 +17,8 @@ public class GameData
     public bool isBuyAd;
     public int unlockedConcept;
     public List<List<bool>> unlockedMemory;
+    public float bgmSound;
+    public float sfxSound;
 
     public GameData()
     {
@@ -39,6 +41,9 @@ public class GameData
             unlockedMemory.Add(new List<bool>());
             for (int j = 0; j < 3; j++) unlockedMemory[i].Add(false);
         }
+
+        bgmSound = 0;
+        sfxSound = 0;
     }
 }
 
@@ -143,7 +148,12 @@ public class SaveLoadManager : MonoBehaviour
     public int GetUnlockedConcept() { return GameData.unlockedConcept; } //열린 Concept 반환
     public void SetUnlockedConcept(int unlock) { GameData.unlockedConcept = unlock; } //Concept 설정
     public List<List<bool>> GetUnlockedMemory() { return GameData.unlockedMemory; } //먹은 기억의 조각 반환
-    public void SetUnlockedMemory(int concept, int stage) { GameData.unlockedMemory[concept][stage] = false; } //먹은 기억의 조각 설정
+    public void SetUnlockedMemory(int concept, int stage) { GameData.unlockedMemory[concept][stage] = true; } //먹은 기억의 조각 설정
+    public void SetBgmSound(float sound) { GameData.bgmSound = sound; } //bgm 소리 저장
+    public float GetBgmSound() { return GameData.bgmSound; } //bgm 소리 반환
+    public void SetSfxSound(float sound) { GameData.sfxSound = sound; } //sfx 소리 저장
+    public float GetSfxSound() { return GameData.sfxSound; } //sfx 소리 반환
+
 
     public void SaveData()
     {

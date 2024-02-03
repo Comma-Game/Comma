@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 8537876134895985744}
   - component: {fileID: 9195249449793643228}
   m_Layer: 0
-  m_Name: Forest map3
+  m_Name: Forest_map3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
