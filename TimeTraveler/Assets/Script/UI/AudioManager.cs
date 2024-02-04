@@ -46,12 +46,31 @@ public class AudioManager : MonoBehaviour
             return instance;
         }
     }
+    
+    public void Start(){
+        float sfxSound = SaveLoadManager.Instance.GetBgmSound();
+        float bgmSound = SaveLoadManager.Instance.GetSfxSound();
+        Debug.Log("sfxSound : "+ sfxSound + " bgmSound : " + bgmSound);
+        SettingSounds(sfxSound, bgmSound);
+    }
+
+    private void SettingSounds(float sfxSound, float bgmSound){
+        if(sfxSound == -40f) masterMixer.SetFloat("SFX", -80);
+        else masterMixer.SetFloat("SFX", sfxSound);
+        sfxSlider.value = sfxSound;
+
+        if(bgmSound == -40f) masterMixer.SetFloat("BGM", -80);
+        else masterMixer.SetFloat("BGM", bgmSound);
+        bgmSlider.value = bgmSound;
+    }
 
     public void SFXAudioControl()
     {
         float sound = sfxSlider.value;
         if(sound == -40f) masterMixer.SetFloat("SFX", -80);
         else masterMixer.SetFloat("SFX", sound);
+        SaveLoadManager.Instance.SetSfxSound(sound);
+        SaveLoadManager.Instance.SaveData();
     }
 
     public void BGMAudioControl()
@@ -59,6 +78,8 @@ public class AudioManager : MonoBehaviour
         float sound = bgmSlider.value;
         if(sound == -40f) masterMixer.SetFloat("BGM", -80);
         else masterMixer.SetFloat("BGM", sound);
+        SaveLoadManager.Instance.SetBgmSound(sound);
+        SaveLoadManager.Instance.SaveData();
     }
 
     // public void ToogleAudioVolume()
