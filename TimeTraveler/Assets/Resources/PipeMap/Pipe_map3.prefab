@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c333e91db84c7a40a3cb3c820e2a19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _memory: {fileID: 9160512350127924540}
 --- !u!54 &7867084054459078587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -294,7 +295,7 @@ GameObject:
   - component: {fileID: 7957376542334986432}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +430,7 @@ GameObject:
   - component: {fileID: 3335603356359486713}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,7 +802,7 @@ GameObject:
   - component: {fileID: 389301667122338761}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +937,7 @@ GameObject:
   - component: {fileID: 2812264156717823569}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1072,7 @@ GameObject:
   - component: {fileID: 5430619519142157026}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1630,7 +1631,7 @@ GameObject:
   - component: {fileID: 7647708627737884771}
   m_Layer: 6
   m_Name: PipeExtras31 (102)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1765,7 +1766,7 @@ GameObject:
   - component: {fileID: 9198088367682077600}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2196,7 +2197,7 @@ GameObject:
   - component: {fileID: 2442523864838249436}
   m_Layer: 6
   m_Name: PipeExtras31 (101)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2466,6 +2467,11 @@ PrefabInstance:
 --- !u!4 &6159250209586905731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+  m_PrefabInstance: {fileID: 865919884120783263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9160512350127924540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
   m_PrefabInstance: {fileID: 865919884120783263}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1308849634872945095

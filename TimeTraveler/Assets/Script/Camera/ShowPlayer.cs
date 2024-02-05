@@ -74,7 +74,7 @@ public class ShowPlayer : MonoBehaviour
 
             Color color = mat.color;
 
-            SetMaterialRenderingMode(mat, 0f, -1);
+            //SetMaterialRenderingMode(mat, 0f, -1);
             color.a = 1f;
             mat.color = color;
         }

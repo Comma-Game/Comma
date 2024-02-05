@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c333e91db84c7a40a3cb3c820e2a19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _memory: {fileID: 6397112163462495894}
 --- !u!54 &1098363974081322841
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -683,7 +684,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -861,6 +862,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+--- !u!1 &6397112163462495894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+  m_PrefabInstance: {fileID: 3162630194691334709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8258963461361015081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
@@ -1217,7 +1223,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1663,7 +1669,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2033,7 +2039,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2352,7 +2358,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125

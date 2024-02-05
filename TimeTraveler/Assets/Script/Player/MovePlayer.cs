@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -13,13 +14,21 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     float _maxSpeed;
 
-    private Vector3 _sTouchPos, _eTouchPos, _force, _v;
+    [SerializeField]
+    RectTransform _arrow;
+
+    [SerializeField]
+    RectTransform _colliderRange;
+
+    private Vector3 _sTouchPos, _eTouchPos, _force;
     Rigidbody _rigidbody;
     Coroutine _coroutine;
     Player _player;
     GameObject _camera;
     Canvas _canvas;
     bool _useSkill;
+    float _radius, _width, _height;
+    Vector2 _arrowDir;
 
     private void OnDisable()
     {
@@ -42,6 +51,10 @@ public class MovePlayer : MonoBehaviour
         _swipeSpeed = 2.5f;
         _maxSpeed = 5f;
         _useSkill = false;
+
+        _radius = ((_colliderRange.sizeDelta / 2) * _canvas.scaleFactor).magnitude;
+        _width = Screen.width / 2;
+        _height = Screen.height / 2;
     }
 
     void Update()
@@ -49,8 +62,12 @@ public class MovePlayer : MonoBehaviour
         GetTouch();
         CheckSpeed();
 
-        if(_useSkill && Input.touchCount == 0)
+        ArrowRotate();
+        ArrowPosition();
+
+        if (Input.touchCount == 0)
         {
+            _arrow.GetComponent<RawImage>().enabled = false;
             _useSkill = false;
             _sTouchPos = Vector3.zero;
             _eTouchPos = Vector3.zero;
@@ -78,7 +95,7 @@ public class MovePlayer : MonoBehaviour
 
                     if (_coroutine != null) StopCoroutine(_coroutine);
 
-                    _force = (_sTouchPos - _eTouchPos);
+                    _force = (_sTouchPos - _eTouchPos) * _canvas.scaleFactor;
 
                     float dis = Vector3.Magnitude(_force);
                     if (dis < 0.1f) return;
@@ -86,8 +103,28 @@ public class MovePlayer : MonoBehaviour
                     _force =  dis >= _swipeRange ? _force.normalized * _swipeRange : _force;
                     _coroutine = StartCoroutine(MoveTime());
                 }
+                else if(touch.phase == TouchPhase.Moved)
+                {
+                    _arrow.transform.GetComponent<RawImage>().enabled = true;
+                    _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
+
+                    Vector3 tempDir = (_sTouchPos - _eTouchPos) * _canvas.scaleFactor;
+                    _arrowDir = new Vector2(tempDir.x, tempDir.z).normalized;
+                }
             }
         }
+    }
+
+    //화살표 위치
+    void ArrowPosition()
+    {
+        _arrow.anchoredPosition = new Vector2(_arrowDir.x, _arrowDir.y) * _radius;
+    }
+
+    //화살표 방향
+    void ArrowRotate()
+    {
+        _arrow.transform.rotation = Quaternion.Euler(0, 0, Quaternion.FromToRotation(Vector2.up, _arrowDir).eulerAngles.z);
     }
 
     void CheckSpeed()
@@ -98,7 +135,6 @@ public class MovePlayer : MonoBehaviour
     public void HitObstacle()
     {
         _rigidbody.velocity /= 2;
-        _v = _rigidbody.velocity;
     }
 
     IEnumerator MoveTime()

@@ -14,9 +14,13 @@ public class RotateAroundObject : MonoBehaviour
         _pos = new Vector3(0, transform.localPosition.y, 0);    
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(RotateAround());
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator RotateAround()

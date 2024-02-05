@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GateMovement : MonoBehaviour
 {
-    //GameObject _portal;
+    [SerializeField]
+    GameObject _memory;
+
     Rigidbody _rigidbody;
     bool _isAcc, _isMove;
 
@@ -17,6 +19,11 @@ public class GateMovement : MonoBehaviour
     {
         _isMove = false;
         _isAcc = false;
+    }
+
+    private void OnDisable()
+    {
+        if (_memory.activeSelf) _memory.SetActive(false);
     }
 
     private void Update()
@@ -69,5 +76,10 @@ public class GateMovement : MonoBehaviour
         {
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Mathf.Sign(_rigidbody.velocity.y) * StageController.Instance.MaxSpeed, _rigidbody.velocity.z);
         }
+    }
+
+    public void EnableMemory()
+    {
+        _memory.SetActive(true);
     }
 }

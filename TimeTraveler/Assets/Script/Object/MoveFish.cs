@@ -47,9 +47,14 @@ public class MoveFish : MoveObstacle
         _sPos = transform.localPosition;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Move());
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        transform.localPosition = _sPos;
     }
 
     override protected IEnumerator Move()

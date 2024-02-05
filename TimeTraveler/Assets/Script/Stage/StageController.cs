@@ -159,6 +159,7 @@ public class StageController : MonoBehaviour
         SetStageParent();
         InstantiateStage();
 
+        TestStage();
         InsertStageToQueue();
         InsertStageToQueue();
 
@@ -205,22 +206,26 @@ public class StageController : MonoBehaviour
         _conceptIndex.RemoveAt(conceptIndex);
     }
 
-    void TestStage(int index)
+    void TestStage()
     {
-        //각 컨셉당 Stage의 개수가 3개로 정해져 있기 때문에 {0, 1, 2}로 List를 만듦
-        List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
-
-        //랜덤으로 stageIndex의 index를 받아서 큐에 concept index와 stageIndex[index]를 넣어주고,
-        //stageIndex[index]를 List에서 빼줘서 중복이 되지 않게 한다.
-        for (int i = 3; i > 0; i--)
+        List<int> chooseConceptList = ChooseMapPanel.Instance.GetChooseMapList();
+        int index = -1;
+        Debug.Log("테스트 컨셉 리스트 사이즈 : " + ChooseMapPanel.Instance.GetChooseMapList().Count);
+        for(int i = 0; i < chooseConceptList.Count; i++)
         {
-            int next_stage_num = Random.Range(0, i);
-            _queue.Enqueue(new StageInfo(_conceptIndex[index], stageIndex[next_stage_num]));
-            stageIndex.RemoveAt(next_stage_num);
+            List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
+            Debug.Log("테스트 용 컨셉 : " + chooseConceptList[i]);
+            for (int j = 3; j > 0; j--)
+            {
+                int next_stage_num = Random.Range(0, j);
+                _queue.Enqueue(new StageInfo(chooseConceptList[i], stageIndex[next_stage_num]));
+                stageIndex.RemoveAt(next_stage_num);
+            }
+
+            index = chooseConceptList[i];
         }
 
-        //큐에 컨셉을 삽입했으면 List에서 제거
-        _conceptIndex.RemoveAt(index);
+        if(index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
     }
 
     //현재 스테이지 설정
@@ -231,6 +236,8 @@ public class StageController : MonoBehaviour
 
         _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 95.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+
+        if (_stageCount % 3 == 2) _stage.GetComponent<GateMovement>().EnableMemory();
 
         _stageEnd.transform.SetParent(null);
         _stageEnd.transform.position = new Vector3(-0.42f, 52.48f, -0.13f);
@@ -272,15 +279,15 @@ public class StageController : MonoBehaviour
         _prevStage = _stage;
         _prevStage.GetComponent<GateMovement>().StopMove();
         _prevStage.transform.position = new Vector3(0, 191.1f, 0);
-
-        EnableObject();
-        DeleteExploder();
     }
 
     public void DisablePrevStage() 
     {
         if (_prevStage == null) return;
-
+        
+        EnableObject();
+        DeleteExploder();
+       
         _prevStage.SetActive(false);
         //_prevStage.transform.position = new Vector3(0, 0, 0);
     }

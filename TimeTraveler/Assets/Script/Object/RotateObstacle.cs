@@ -22,9 +22,14 @@ public class RotateObstacle : MonoBehaviour
         else _pos = new Vector3(0, -3, 0);    
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Rotate());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator Rotate()

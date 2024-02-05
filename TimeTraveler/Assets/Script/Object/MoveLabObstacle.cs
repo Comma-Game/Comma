@@ -45,9 +45,14 @@ public class MoveLabObstacle : MoveObstacle
 
     protected override float MaxPos { get { return _maxPos; } }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Move());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     override protected IEnumerator Move()
