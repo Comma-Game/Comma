@@ -62,7 +62,7 @@ public class MoveLabObstacle : MoveObstacle
             if (pos <= _minPos || pos >= _maxPos) _reverse *= -1;
 
             transform.Translate(new Vector3(_moveSpeed * _moveX * _reverse, _moveSpeed * _moveY * _reverse, _moveSpeed * _moveZ * _reverse));
-            yield return new WaitForSeconds(_moveSpeed);
+            yield return new WaitForSeconds(0.02f);
         }
     }
 }

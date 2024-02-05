@@ -1,8 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    GameObject _wind;
+
     [SerializeField]
     Canvas _canvas;
 
@@ -128,7 +132,14 @@ public class Player : MonoBehaviour
             _camera.GetComponent<ShowPlayer>().SetOpaque();
 
             _isPassPortal = false;
-            CanvasController.Instance.OnSpeedPanel(true);
+
+            //바람 UI Enable
+            //CanvasController.Instance.OnSpeedPanel(true);
+
+            Color color = _wind.GetComponent<Image>().color;
+            color.a = 1;
+            _wind.GetComponent<Image>().color = color;
+
             StageController.Instance.SetAcceleration();
         }
         else if (other.gameObject.CompareTag("Jelly"))
@@ -190,8 +201,13 @@ public class Player : MonoBehaviour
         //포탈 소리
         AudioManager.Instance.PlayPortalSFX();
 
-        //바람 UI
-        CanvasController.Instance.OnSpeedPanel(false);
+        //바람 UI Disable
+        //CanvasController.Instance.OnSpeedPanel(false);
+
+        Color color = _wind.GetComponent<Image>().color;
+        color.a = 0;
+        _wind.GetComponent<Image>().color = color;
+
         CanvasController.Instance.ChangeSpeedColor(0);
 
         //스테이지 준비

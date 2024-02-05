@@ -2083,6 +2083,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5376557189524566919, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
+      propertyPath: _wind
+      value: 
+      objectReference: {fileID: 1463906850}
+    - target: {fileID: 5376557189524566919, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: _camera
       value: 
       objectReference: {fileID: 0}
@@ -2351,7 +2355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1289697104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2662,6 +2666,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 278151153771164719, guid: 865eaf48355f04c4dadedbc7cd9fd440, type: 3}
   m_PrefabInstance: {fileID: 1444331117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1463906850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8876111038267582855, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+  m_PrefabInstance: {fileID: 9185349396887191355}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1472535956 stripped
 RectTransform:
@@ -3493,6 +3502,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1182215826}
+    - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1182047455882747593, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3506,6 +3523,10 @@ PrefabInstance:
       value: SpeedCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4635477869096342436, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968765047065132065, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3591,7 +3612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876111038267582855, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

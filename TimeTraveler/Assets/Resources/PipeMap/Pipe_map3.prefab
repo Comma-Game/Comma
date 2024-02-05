@@ -132,7 +132,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -681,7 +681,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125

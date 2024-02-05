@@ -535,7 +535,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -697,7 +697,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -857,7 +857,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2203,7 +2203,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -3034,7 +3034,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -3932,7 +3932,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -4812,7 +4812,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -5443,7 +5443,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -5738,7 +5738,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -5936,7 +5936,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -6573,7 +6573,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -7038,7 +7038,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -7470,7 +7470,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -7901,7 +7901,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -8061,7 +8061,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -8357,7 +8357,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -8518,7 +8518,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -8678,7 +8678,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -9011,7 +9011,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -9395,6 +9395,22 @@ PrefabInstance:
     - target: {fileID: 537923552086254626, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
       propertyPath: m_Name
       value: Lake2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.043906856
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000037182514
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.y
+      value: -0.021953639
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000040334874
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10054,6 +10070,22 @@ PrefabInstance:
     - target: {fileID: 537923552086254626, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
       propertyPath: m_Name
       value: Lake3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.06774812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000004118158
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.y
+      value: -0.03387424
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000040662817
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10998,6 +11030,22 @@ PrefabInstance:
     - target: {fileID: 537923552086254626, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
       propertyPath: m_Name
       value: Lake1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.038682472
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000036644548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.y
+      value: -0.019341284
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997300395178547905, guid: c19a0b0bfc98c8a458ed95da9c6060c2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0000004019443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

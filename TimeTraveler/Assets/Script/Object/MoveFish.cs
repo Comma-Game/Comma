@@ -64,7 +64,7 @@ public class MoveFish : MoveObstacle
             if (pos <= _minPos || pos >= _maxPos) transform.localPosition = _sPos;
 
             transform.Translate(new Vector3(_moveSpeed * _moveX, 0, _moveSpeed * _moveZ));
-            yield return new WaitForSeconds(_moveSpeed);
+            yield return new WaitForSeconds(0.02f);
         }
     }
 }

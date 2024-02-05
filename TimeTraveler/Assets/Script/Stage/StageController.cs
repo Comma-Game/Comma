@@ -153,7 +153,6 @@ public class StageController : MonoBehaviour
     void Init()
     {
         _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-        _conceptCount = 9;
         _isInstantiateStage = new bool[_conceptCount, 3];
         
         SetConceptIndex();

@@ -12542,7 +12542,7 @@ MonoBehaviour:
   _compareX: 0
   _compareY: 0
   _compareZ: 1
-  _moveSpeed: 0.05
+  _moveSpeed: 0.02
   _minPos: 0.4
   _maxPos: 1.7
 --- !u!1 &2830129561461122583
@@ -18353,7 +18353,7 @@ MonoBehaviour:
   _compareX: 0
   _compareY: 0
   _compareZ: 1
-  _moveSpeed: 0.05
+  _moveSpeed: 0.02
   _minPos: 0.5
   _maxPos: 1.5
 --- !u!1 &8020223470955269066
@@ -18633,7 +18633,7 @@ MonoBehaviour:
   _compareX: 0
   _compareY: 0
   _compareZ: 1
-  _moveSpeed: 0.05
+  _moveSpeed: 0.02
   _minPos: 0.7
   _maxPos: 1.7
 --- !u!1 &8455107142796936956
