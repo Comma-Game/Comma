@@ -24,6 +24,8 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject FirstStoryPanel;
         [SerializeField] public GameObject loadingScene;
         [SerializeField] public LoadingSceneManager loadingSceneManager;
+        [SerializeField] public GameObject mapChoosePanel;
+        [SerializeField] public GameObject starFX;
 
         [Header("background Obj")]
         [SerializeField] public Animator Charater;
@@ -63,7 +65,7 @@ public class MainSceneController : MonoBehaviour
         private int mysteryBox_coin = 10000;
         private string[] mysteryBox_Buff_Texts = {
                 "체력강화 +50",
-                "스코어 1.2배",
+                "코인 1.2배",
                 "장애물 충돌피해 50% 감소",
                 "체력감소 15% 느림",
                 "물약 회복량 30% 증가",
@@ -128,6 +130,8 @@ public class MainSceneController : MonoBehaviour
                                 mainPanel_playerStat.SetActive(false);
                                 SettingPanel.SetActive(false);
                                 CashShopPanel.SetActive(false);
+                                mapChoosePanel.SetActive(false);
+                                starFX.SetActive(false);
                                 // 하트 값 소모 1
                                 if(heartPanelCS == null){
                                         heartPanelCS = heartPanel.GetComponent<HeartPanel>();
@@ -137,12 +141,20 @@ public class MainSceneController : MonoBehaviour
                                 AudioManager.Instance.PlayPortalSFX();
                                 Invoke("MoveScene", 3f);
                                 //SceneManager.LoadScene("GameScene");
+                                //PrintIntList(ChooseMapPanel.Instance.GetChooseMapList());
                         }
                 }else{
                         shop_HaertShopPanel.SetActive(true);
                 }
                 SaveLoadManager.Instance.SaveData();
         }
+
+        // private void PrintIntList(List<int> intList){
+        //         for(int i=0; i<intList.Count; i++){
+        //                 Debug.Log(intList[i]);
+        //         }
+        //         if(intList.Count == 0) Debug.Log("intList.Count : " + 0);
+        // }
 
         public void TestGamePlay(){
                 if(heartPanelCS.GetCurrentHearts() >= 1 && isGameStart == false) {
@@ -322,11 +334,13 @@ public class MainSceneController : MonoBehaviour
 	}
 
 	public void SelectMysteryBox(){
-                Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
-                AudioManager.Instance.PlayGameButtonClick();
-                ChangeBuffText(mysteryBox_Buff_Texts[mysteryBox_current_num]);
-                SaveLoadManager.Instance.SetBuff(mysteryBox_current_num+1);
-                SaveLoadManager.Instance.SaveData();
+                if(mysteryBox_current_num != -1){
+                        Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
+                        AudioManager.Instance.PlayGameButtonClick();
+                        ChangeBuffText(mysteryBox_Buff_Texts[mysteryBox_current_num]);
+                        SaveLoadManager.Instance.SetBuff(mysteryBox_current_num+1);
+                        SaveLoadManager.Instance.SaveData();
+                }
 	}
 
         public void SetMysteryBox(int Index){

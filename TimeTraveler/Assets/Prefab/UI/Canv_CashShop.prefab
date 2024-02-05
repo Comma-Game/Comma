@@ -756,7 +756,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8412868975484886060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2480,19 +2480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2538576915481089251}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3322631999896593593}
-        m_TargetAssemblyTypeName: CashShopPanel, Assembly-CSharp
-        m_MethodName: BuyCoin4
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5119505499315356010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,19 +3317,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5386110146500124625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3322631999896593593}
-        m_TargetAssemblyTypeName: CashShopPanel, Assembly-CSharp
-        m_MethodName: BuyCoin2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7288421933779500691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,19 +3439,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4565823456455075149}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3322631999896593593}
-        m_TargetAssemblyTypeName: CashShopPanel, Assembly-CSharp
-        m_MethodName: BuyCoin3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7333188128993154647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,19 +3935,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 388546726145101831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3322631999896593593}
-        m_TargetAssemblyTypeName: CashShopPanel, Assembly-CSharp
-        m_MethodName: BuyADFree
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8153783574755334491
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,19 +4133,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4842180285724905788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3322631999896593593}
-        m_TargetAssemblyTypeName: CashShopPanel, Assembly-CSharp
-        m_MethodName: BuyCoin1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8250741804571021624
 GameObject:
   m_ObjectHideFlags: 0
