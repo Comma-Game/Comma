@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 783449783766750279}
   - component: {fileID: 531870508548486781}
   - component: {fileID: 7537527871799011209}
+  - component: {fileID: 3300169521937212623}
   m_Layer: 6
   m_Name: Cylinder.003 (5)
   m_TagString: Obstacle
@@ -159,6 +160,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &3300169521937212623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242475229555304113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &547069297722089913
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +886,7 @@ GameObject:
   - component: {fileID: 4239057118115426946}
   - component: {fileID: 5176755324447936294}
   - component: {fileID: 2026323416295360344}
+  - component: {fileID: 7812985841180553758}
   m_Layer: 6
   m_Name: Cylinder.003 (2)
   m_TagString: Obstacle
@@ -1016,6 +1032,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7812985841180553758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366879432344399217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &1471537932479264398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1859,7 @@ GameObject:
   - component: {fileID: 3469213481567174524}
   - component: {fileID: 569400396498943007}
   - component: {fileID: 6071672040221836076}
+  - component: {fileID: 6206030375400264549}
   m_Layer: 6
   m_Name: Cylinder.001 (1)
   m_TagString: Obstacle
@@ -1974,6 +2005,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &6206030375400264549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944789243360551750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &3125102208250095401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2954,6 +2999,7 @@ GameObject:
   - component: {fileID: 5002357511563374162}
   - component: {fileID: 6338928874371043227}
   - component: {fileID: 1428226724781353663}
+  - component: {fileID: 2194649617073663023}
   m_Layer: 6
   m_Name: Cylinder.003 (4)
   m_TagString: Obstacle
@@ -3099,6 +3145,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2194649617073663023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228360817407995204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &5325733157778115194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,6 +3173,7 @@ GameObject:
   - component: {fileID: 7233839537869363859}
   - component: {fileID: 1690262234730176735}
   - component: {fileID: 36537604830849418}
+  - component: {fileID: 8295864017662488591}
   m_Layer: 6
   m_Name: Cylinder.003 (7)
   m_TagString: Obstacle
@@ -3258,6 +3319,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &8295864017662488591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5325733157778115194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &5421081505258444420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,6 +3991,7 @@ GameObject:
   - component: {fileID: 8666088938493894166}
   - component: {fileID: 2342411343527871294}
   - component: {fileID: 944932846891366422}
+  - component: {fileID: 7229484463564435078}
   m_Layer: 6
   m_Name: Cylinder.003 (3)
   m_TagString: Obstacle
@@ -4061,6 +4137,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7229484463564435078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795645668374040919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &7166422855474509314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,6 +4622,7 @@ GameObject:
   - component: {fileID: 7528718672865995921}
   - component: {fileID: 245337000282456259}
   - component: {fileID: 7591312484311734393}
+  - component: {fileID: 5191917684785882076}
   m_Layer: 6
   m_Name: Cylinder.003 (6)
   m_TagString: Obstacle
@@ -4677,6 +4768,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &5191917684785882076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418861256992646206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1 &8835209108922601485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4956,7 @@ GameObject:
   - component: {fileID: 4182578968848328210}
   - component: {fileID: 2599274179717870188}
   - component: {fileID: 6810135443538780037}
+  - component: {fileID: 2852291892949782705}
   m_Layer: 6
   m_Name: Cylinder.003 (1)
   m_TagString: Obstacle
@@ -4996,6 +5102,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2852291892949782705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162147237863768726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a5793ffac7ba54cae8308e7eff9870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0
+  _random: 1
 --- !u!1001 &39277309303039287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5175,6 +5295,10 @@ PrefabInstance:
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -17.638
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811587234153897500, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.data[0]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_Name

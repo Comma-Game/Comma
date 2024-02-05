@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 4347947672895344}
   - component: {fileID: 95717687271776872}
   - component: {fileID: 7967509822789441579}
+  - component: {fileID: 5121327775524640894}
   m_Layer: 0
   m_Name: Gold_redeye_fish_prefab
   m_TagString: Untagged
@@ -344,6 +345,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.079621926, y: -0.20688586, z: -0.0010355301}
     m_Extent: {x: 0.13562177, y: 0.3222366, z: 0.09625471}
   m_DirtyAABB: 0
+--- !u!114 &5121327775524640894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365381192422962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1408649568058710
 GameObject:
   m_ObjectHideFlags: 0

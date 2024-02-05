@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4874313112546562}
   - component: {fileID: 95964851072621110}
   - component: {fileID: 8199642961952174528}
+  - component: {fileID: 1104381313732942805}
   m_Layer: 0
   m_Name: Foureye_butterfly_fish_prefab
   m_TagString: Untagged
@@ -221,6 +222,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.07071598, y: -0.105209574, z: -0.0047824904}
     m_Extent: {x: 0.23923431, y: 0.32032824, z: 0.09399267}
   m_DirtyAABB: 0
+--- !u!114 &1104381313732942805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272166223363426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1335295836839840
 GameObject:
   m_ObjectHideFlags: 0

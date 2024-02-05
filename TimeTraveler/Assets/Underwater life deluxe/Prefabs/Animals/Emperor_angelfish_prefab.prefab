@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 4824876032485328}
   - component: {fileID: 95219467452408546}
   - component: {fileID: 2172346395978288299}
+  - component: {fileID: 1876870165179802619}
   m_Layer: 0
   m_Name: Emperor_angelfish_prefab
   m_TagString: Untagged
@@ -691,6 +692,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08374294, y: -0.18432719, z: -0.0055898763}
     m_Extent: {x: 0.196706, y: 0.34749275, z: 0.11206634}
   m_DirtyAABB: 0
+--- !u!114 &1876870165179802619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911605819255016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1995959577494690
 GameObject:
   m_ObjectHideFlags: 0

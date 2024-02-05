@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1528663373408197511}
   - component: {fileID: 7152867395013639671}
   - component: {fileID: -3812679574553578436}
+  - component: {fileID: 8558723877239705046}
   m_Layer: 0
   m_Name: DirtyLake1
   m_TagString: Untagged
@@ -149,3 +150,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8558723877239705046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616438026239377772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948b33f818bfea740bf55fdab6e4a536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

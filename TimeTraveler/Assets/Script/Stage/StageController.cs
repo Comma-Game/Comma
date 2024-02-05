@@ -142,12 +142,6 @@ public class StageController : MonoBehaviour
 
         _stageEnd = GameObject.Find("StageEnd");
         _conceptInfo = GameObject.Find("Concept").GetComponent<GetStage>();
-        _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-        _isInstantiateStage = new bool[_conceptCount, 3];
-
-        SetConceptIndex();
-        SetStageParent();
-        InstantiateStage();
     }
 
     void Start()
@@ -158,12 +152,19 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
+        _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
+        _isInstantiateStage = new bool[_conceptCount, 3];
+        
+        SetConceptIndex();
+        SetStageParent();
+        InstantiateStage();
+
         InsertStageToQueue();
         InsertStageToQueue();
 
         _nextStage = SetNextStage();
         SetCurrentStage();
-        SetStagesVelocity();
+        MoveStage();
     }
 
     //초기 Concept Index 설정
@@ -204,14 +205,33 @@ public class StageController : MonoBehaviour
         _conceptIndex.RemoveAt(conceptIndex);
     }
 
+    void TestStage(int index)
+    {
+        //각 컨셉당 Stage의 개수가 3개로 정해져 있기 때문에 {0, 1, 2}로 List를 만듦
+        List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
+
+        //랜덤으로 stageIndex의 index를 받아서 큐에 concept index와 stageIndex[index]를 넣어주고,
+        //stageIndex[index]를 List에서 빼줘서 중복이 되지 않게 한다.
+        for (int i = 3; i > 0; i--)
+        {
+            int next_stage_num = Random.Range(0, i);
+            _queue.Enqueue(new StageInfo(_conceptIndex[index], stageIndex[next_stage_num]));
+            stageIndex.RemoveAt(next_stage_num);
+        }
+
+        //큐에 컨셉을 삽입했으면 List에서 제거
+        _conceptIndex.RemoveAt(index);
+    }
+
     //현재 스테이지 설정
     void SetCurrentStage()
     {
         _stage = _nextStage;
+        PlayGameManager.Instance.SetStage(_stage);
 
         _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 95.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
-        
+
         _stageEnd.transform.SetParent(null);
         _stageEnd.transform.position = new Vector3(-0.42f, 52.48f, -0.13f);
         _stageEnd.transform.SetParent(_stage.transform);
@@ -297,7 +317,7 @@ public class StageController : MonoBehaviour
 
         ReturnStage();
         SetCurrentStage();
-        SetStagesVelocity();
+        MoveStage();
     }
 
     public void MinusPassThroughCount() 
@@ -311,7 +331,7 @@ public class StageController : MonoBehaviour
 
 
     //Scene에 있는 Stage 속도 설정
-    public void SetStagesVelocity()
+    public void MoveStage()
     {
         if(_prevStage != null) _prevStage.GetComponent<GateMovement>().Move();
         _stage.GetComponent<GateMovement>().Move();

@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4329573320410458}
   - component: {fileID: 95345643839182388}
   - component: {fileID: 8084590507334329776}
+  - component: {fileID: 7789050880677585492}
   m_Layer: 0
   m_Name: Great_white_shark_prefab
   m_TagString: Untagged
@@ -222,6 +223,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08543381, y: -0.15312491, z: 0.00030054152}
     m_Extent: {x: 0.16367863, y: 0.40432793, z: 0.19181459}
   m_DirtyAABB: 0
+--- !u!114 &7789050880677585492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276205554959560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1292320182572262
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
-//#pragma strict
-[RequireComponent(typeof(LineRenderer))]
+using UnityEngine.UI;
 
 public class UVScroller_C : MonoBehaviour
 {
@@ -20,10 +18,10 @@ public class UVScroller_C : MonoBehaviour
     {
         float offset = Time.time * scrollSpeed;
         if (UseCustomTex) {
-            GetComponent<Renderer>().material.SetTextureOffset(CustomTexName, new Vector2(MainoffsetX * offset, MainoffsetY * offset));
+            GetComponent<Image>().material.SetTextureOffset(CustomTexName, new Vector2(MainoffsetX * offset, MainoffsetY * offset));
         }
         else {
-            GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(MainoffsetX * offset, MainoffsetY * offset));
+            GetComponent<Image>().material.SetTextureOffset("_MainTex", new Vector2(MainoffsetX * offset, MainoffsetY * offset));
 
         }
     }

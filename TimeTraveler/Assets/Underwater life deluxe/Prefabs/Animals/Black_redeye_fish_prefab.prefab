@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 4595974128044952}
   - component: {fileID: 95312140731769110}
   - component: {fileID: 6300415991337628967}
+  - component: {fileID: 4416518071760980808}
   m_Layer: 0
   m_Name: Black_redeye_fish_prefab
   m_TagString: Untagged
@@ -659,6 +660,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.079621926, y: -0.20688586, z: -0.0010355301}
     m_Extent: {x: 0.13562177, y: 0.3222366, z: 0.09625471}
   m_DirtyAABB: 0
+--- !u!114 &4416518071760980808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829736499107408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1847087750712092
 GameObject:
   m_ObjectHideFlags: 0

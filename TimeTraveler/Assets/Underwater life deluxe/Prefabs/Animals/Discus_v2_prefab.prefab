@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 4858666217172738}
   - component: {fileID: 95906209398559474}
   - component: {fileID: 3099959993144772067}
+  - component: {fileID: 8053661307059108347}
   m_Layer: 0
   m_Name: Discus_v2_prefab
   m_TagString: Untagged
@@ -287,6 +288,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.047125265, y: -0.13380115, z: -0.0076868758}
     m_Extent: {x: 0.3233593, y: 0.34525287, z: 0.14021489}
   m_DirtyAABB: 0
+--- !u!114 &8053661307059108347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293192347442496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1315230484270020
 GameObject:
   m_ObjectHideFlags: 0

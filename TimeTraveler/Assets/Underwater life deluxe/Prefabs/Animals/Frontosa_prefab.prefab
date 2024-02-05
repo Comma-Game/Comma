@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 4646478648035814}
   - component: {fileID: 95365674546194926}
   - component: {fileID: 7027490272776387827}
+  - component: {fileID: 6391860364580331060}
   m_Layer: 0
   m_Name: Frontosa_prefab
   m_TagString: Untagged
@@ -347,6 +348,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08940731, y: -0.1321773, z: 0.0028522462}
     m_Extent: {x: 0.19238068, y: 0.3412376, z: 0.13590644}
   m_DirtyAABB: 0
+--- !u!114 &6391860364580331060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536911975133754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1539932941398360
 GameObject:
   m_ObjectHideFlags: 0

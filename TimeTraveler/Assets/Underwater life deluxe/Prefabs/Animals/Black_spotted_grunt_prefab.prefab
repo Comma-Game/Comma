@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 95939901974529454}
   - component: {fileID: 8087201644567379179}
   - component: {fileID: 8879127496239405607}
+  - component: {fileID: 1688309908498878454}
   m_Layer: 0
   m_Name: Black_spotted_grunt_prefab
   m_TagString: Untagged
@@ -241,6 +242,23 @@ MonoBehaviour:
   useMeshBoundsCenter: 0
   allowShadows: 0
   shadersAlreadyHandleTransparency: 0
+--- !u!114 &1688309908498878454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029734134427488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _maxPos: 0
 --- !u!1 &1035078709122334
 GameObject:
   m_ObjectHideFlags: 0

@@ -1244,19 +1244,23 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 123
       objectReference: {fileID: 0}
+    - target: {fileID: 7093811233331063327, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
+      propertyPath: _moveSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2090084652989144925, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5617008723372108304, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 4123542652548684757}
     - targetCorrespondingSourceObject: {fileID: 5617008723372108304, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 5684779082543217722}
     - targetCorrespondingSourceObject: {fileID: 5617008723372108304, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 2359045291638472980}
   m_SourcePrefab: {fileID: 100100000, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
 --- !u!1 &5168427646751589163 stripped
@@ -3086,6 +3090,10 @@ PrefabInstance:
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -28.368
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811587234153897500, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.data[0]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_Name

@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 4957408256606714}
   - component: {fileID: 95572372430125004}
   - component: {fileID: 8445474482087661721}
+  - component: {fileID: 8731775726326455869}
   m_Layer: 0
   m_Name: Electric_catfish_prefab
   m_TagString: Untagged
@@ -498,6 +499,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.09819682, y: -0.13413261, z: -0.0022840016}
     m_Extent: {x: 0.07996197, y: 0.3228479, z: 0.09822911}
   m_DirtyAABB: 0
+--- !u!114 &8731775726326455869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565141193421758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1598753560632602
 GameObject:
   m_ObjectHideFlags: 0

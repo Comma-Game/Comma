@@ -6,10 +6,31 @@ using UnityEngine.UI;
 public class ColliderRange : MonoBehaviour
 {
     [SerializeField]
-    Texture[] _texture;
+    Texture _texture;
 
     [SerializeField]
     Canvas _canvas;
+
+    [SerializeField]
+    GameObject _skillEffect;
+
+    [SerializeField]
+    GameObject _forceField;
+
+    private void Awake()
+    {
+        for (int i = 0; i < _skillEffect.transform.childCount; i++) _skillEffect.transform.GetChild(i).localScale *= _canvas.scaleFactor;
+    }
+
+    public void EnableSkillEffect()
+    {
+        _skillEffect.SetActive(true);
+    }
+
+    public void DisableSkillEffect()
+    {
+        _skillEffect.SetActive(false);
+    }
 
     public void EnableRawImage()
     {
@@ -27,10 +48,14 @@ public class ColliderRange : MonoBehaviour
         gameObject.GetComponent<RawImage>().color = Color.red;
     }
 
+    public void SetPoison()
+    {
+        gameObject.GetComponent<RawImage>().color = Color.green;
+    }
+
     public void SetSkill()
     {
-        gameObject.GetComponent<RawImage>().texture = _texture[1];
-        gameObject.GetComponent<RawImage>().color = Color.blue;
+        _forceField.SetActive(true);
     }
 
     public void PrepareToSkill()
@@ -40,7 +65,9 @@ public class ColliderRange : MonoBehaviour
 
     public void ReSetColor()
     {
-        gameObject.GetComponent<RawImage>().texture = _texture[0];
+        _forceField.SetActive(false);
+
+        gameObject.GetComponent<RawImage>().texture = _texture;
         gameObject.GetComponent<RawImage>().color = Color.white;
     }
 }

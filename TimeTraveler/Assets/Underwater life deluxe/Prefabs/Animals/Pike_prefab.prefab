@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 4656315685357460}
   - component: {fileID: 95478985753175506}
   - component: {fileID: 5603160910794314672}
+  - component: {fileID: 7644839170433492041}
   m_Layer: 0
   m_Name: Pike_prefab
   m_TagString: Untagged
@@ -442,6 +443,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08624958, y: -0.18915175, z: -0.0021077879}
     m_Extent: {x: 0.091642804, y: 0.31811798, z: 0.03656162}
   m_DirtyAABB: 0
+--- !u!114 &7644839170433492041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754134652064946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1873188179027644
 GameObject:
   m_ObjectHideFlags: 0

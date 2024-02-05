@@ -132,7 +132,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -681,7 +681,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -1466,9 +1466,10 @@ GameObject:
   - component: {fileID: 4779306744464490746}
   - component: {fileID: 7046246615133310395}
   - component: {fileID: 3688957285031630223}
-  - component: {fileID: 7865439612240815925}
   - component: {fileID: 3641624084637711315}
   - component: {fileID: 1589000352679959394}
+  - component: {fileID: 441645144585206363}
+  - component: {fileID: 2066506912366963861}
   m_Layer: 0
   m_Name: Lake
   m_TagString: Untagged
@@ -1541,28 +1542,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7865439612240815925
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5052933225737371852}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &3641624084637711315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,6 +1582,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &441645144585206363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052933225737371852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e28ad0435358ea498717163ed88221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2066506912366963861
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052933225737371852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 2.220446e-16, z: 10}
+  m_Center: {x: -0.00000011920929, y: 0, z: 0}
 --- !u!1 &5198130705863480395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2017,7 @@ MonoBehaviour:
   maxSpeed: 5
   minRotationSpeed: 90
   maxRotationSpeed: 360
-  fadeWaitTime: 0.5
+  fadeWaitTime: 0
   fadeTime: 2
   useGravity: 0
   colliderThickness: 0.125
@@ -2433,6 +2445,14 @@ PrefabInstance:
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -67.502
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811587234153897500, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811587234153897500, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: _info.Array.data[1]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_Name

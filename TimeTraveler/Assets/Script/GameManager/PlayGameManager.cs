@@ -23,12 +23,14 @@ public class PlayGameManager : MonoBehaviour
         }
     }
 
-    bool _scoreBuff;
+    bool _coinBuff;
     Coroutine _coroutine;
     Player _player;
     SaveLoadManager _saveLoadManager;
     StageController _stageController;
+    GameObject _stage;
     int _scoreUp;
+    int _coin;
     
     private void Awake()
     {
@@ -39,7 +41,7 @@ public class PlayGameManager : MonoBehaviour
         _player = GameObject.Find("Player").GetComponent<Player>();
 
         _score = 0;
-        _scoreBuff = false;
+        _coinBuff = false;
     }
 
     private void OnEnable()
@@ -78,28 +80,33 @@ public class PlayGameManager : MonoBehaviour
 
     void Init()
     {
+        _stage = null;
+
         ResumeGame();
-        GetComponent<ParticleFooling>().SetParticle(Resources.LoadAll<GameObject>("Particle"));
+        GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
 
         if (_coroutine != null) StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(ScoreTime());
     }
 
     //젤리 파티클 활성화
-    public void EnableParticle(int index, Vector3 pos)
+    public void EnableParticle(Vector3 pos)
     {
-        GetComponent<ParticleFooling>().EnableParticle(index, pos);
+        GetComponent<ParticleFooling>().EnableParticle(pos, _stage.transform);
     }
 
     public void EndGame()
     {
-        if (_scoreBuff) _score += (int)(_score * 0.2f);
-
         //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
 
         SaveLoadManager.Instance.PlusCoin(_score);
-        SaveLoadManager.Instance.SetHighScore(_score);
+
+        _coin = _score;
+        //버프 받으면 코인 1.2배
+        if (_coinBuff) _coin += (int)(_score * 0.2f);
+        SaveLoadManager.Instance.SetHighScore(_coin);
+        
         SaveLoadManager.Instance.SaveData();
 
         _player.DestroyPlayer();
@@ -110,7 +117,7 @@ public class PlayGameManager : MonoBehaviour
     {
         CanvasController.Instance.OpenDamgePanel(false);
         CanvasController.Instance.ChangeResultScoreText(_score);
-        CanvasController.Instance.ChangeResultCoinText(_score);
+        CanvasController.Instance.ChangeResultCoinText(_coin);
         CanvasController.Instance.ChangeResultStageText(StageController.Instance.GetStageCount());
 
         if (_coroutine != null) StopCoroutine(_coroutine);
@@ -123,9 +130,9 @@ public class PlayGameManager : MonoBehaviour
         CanvasController.Instance.ChangeScoreText(_score);
     }
 
-    public void SetScoreBuff()
+    public void SetCoinBuff()
     {
-        _scoreBuff = true;
+        _coinBuff = true;
     }
 
     public int ScorePerTime()
@@ -133,6 +140,8 @@ public class PlayGameManager : MonoBehaviour
         _scoreUp = StageController.Instance.GetPassThroughCount() >= 5 ? 25 : StageController.Instance.GetPassThroughCount() * 5;
         return 10 + _scoreUp;
     }
+
+    public void SetStage(GameObject stage) { _stage = stage; }
 
     public void PauseGame() { Time.timeScale = 0f; } //게임 일시정지
 
