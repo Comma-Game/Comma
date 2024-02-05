@@ -24,7 +24,7 @@ public class UseItem : MonoBehaviour
                 _player.Heal(50);
                 break;
             case 2:
-                PlayGameManager.Instance.SetScoreBuff();
+                PlayGameManager.Instance.SetCoinBuff();
                 break;
             case 3:
                 _player.SetObstacleDamageBuff();

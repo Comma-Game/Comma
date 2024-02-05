@@ -17,7 +17,6 @@ public class MovePlayer : MonoBehaviour
     Rigidbody _rigidbody;
     Coroutine _coroutine;
     Player _player;
-    float _slowTime;
     GameObject _camera;
     Canvas _canvas;
     bool _useSkill;
@@ -30,7 +29,6 @@ public class MovePlayer : MonoBehaviour
     private void OnEnable()
     {
         if (_coroutine != null) StopCoroutine(_coroutine);
-        _slowTime = 1f;
     }
 
     private void Awake()
@@ -78,11 +76,7 @@ public class MovePlayer : MonoBehaviour
                 {
                     _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
 
-                    if (_coroutine != null)
-                    {
-                        _slowTime = 1f;
-                        StopCoroutine(_coroutine);
-                    }
+                    if (_coroutine != null) StopCoroutine(_coroutine);
 
                     _force = (_sTouchPos - _eTouchPos);
 

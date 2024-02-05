@@ -94,7 +94,8 @@ public class SaveLoadManager : MonoBehaviour
     private void Awake()
     {
         // Application.persistentDataPath는 각 플랫폼에 따라 저장될 수 있는 영구적인 데이터 경로를 제공합니다.
-        savePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
+        savePath = Path.Combine(Application.persistentDataPath, "GameData.json");
+        Debug.Log(Application.persistentDataPath);
     }
 
     private GameData LoadData()
@@ -153,7 +154,6 @@ public class SaveLoadManager : MonoBehaviour
     public float GetBgmSound() { return GameData.bgmSound; } //bgm 소리 반환
     public void SetSfxSound(float sound) { GameData.sfxSound = sound; } //sfx 소리 저장
     public float GetSfxSound() { return GameData.sfxSound; } //sfx 소리 반환
-
 
     public void SaveData()
     {

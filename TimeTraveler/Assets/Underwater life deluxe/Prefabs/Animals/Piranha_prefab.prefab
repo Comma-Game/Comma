@@ -331,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621919728170644}
   - component: {fileID: 95465581799659378}
+  - component: {fileID: 1615977704939230643}
   m_Layer: 0
   m_Name: Piranha_prefab
   m_TagString: Untagged
@@ -376,6 +377,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1615977704939230643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610851443659600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!1 &1705825213968746
 GameObject:
   m_ObjectHideFlags: 0

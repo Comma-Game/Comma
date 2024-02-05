@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8535265655307596135}
   - component: {fileID: 803994080991005521}
   - component: {fileID: 6346932177312659368}
+  - component: {fileID: 5523271005133273757}
   - component: {fileID: 3677732437614575717}
   m_Layer: 31
   m_Name: Shark
@@ -84,6 +85,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5523271005133273757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622948576541377396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c7d0b231d203f4b8824efeb3d76245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveX: 0
+  _moveZ: 0
+  _compareX: 0
+  _compareY: 0
+  _compareZ: 0
+  _moveSpeed: 0
+  _minPos: 0
+  _maxPos: 0
 --- !u!135 &3677732437614575717
 SphereCollider:
   m_ObjectHideFlags: 0
