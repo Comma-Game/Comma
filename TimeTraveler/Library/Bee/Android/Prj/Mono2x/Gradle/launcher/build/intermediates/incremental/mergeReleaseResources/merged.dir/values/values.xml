@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="staticSplashScreenBackgroundColor">#231F20</color>
+    <color name="staticSplashScreenBackgroundColor">#CCCCCC</color>
     <item name="unitySurfaceView" type="id"/>
     <string name="FreeformWindowOrientation_landscape"/>
     <string name="FreeformWindowOrientation_portrait"/>
     <string name="FreeformWindowSize_maximize"/>
     <string name="FreeformWindowSize_phone"/>
     <string name="FreeformWindowSize_tablet"/>
-    <string name="app_name">TimeTraveler</string>
+    <string name="app_name">Cracker:차원여행자</string>
     <string name="game_view_content_description">Game view</string>
     <style name="BaseUnityTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
 </style>

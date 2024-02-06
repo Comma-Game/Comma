@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Canvas _canvas;
 
-    float _hp, _maxHp, _energy, _energyChargeSpeed, _tempSpeed, _sphereScale;
+    float _hp, _maxHp, _bloodHp, _energy, _energyChargeSpeed, _sphereScale;
     bool _isInvincible, _isPassPortal, _isCast, _isHit;
     PlayGameManager _playGameManager;
     Coroutine _coroutine;
@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
         _camera = GameObject.Find("Main Camera");
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        _tempSpeed = 0;
         _iniTimeDamage = 0.9f;
         _timeDamage = _iniTimeDamage;
 
@@ -62,6 +61,7 @@ public class Player : MonoBehaviour
 
         _maxHp = 100 + CalculateHP();
         _hp = _maxHp;
+        _bloodHp = _maxHp * 0.15f;
         CanvasController.Instance.InitSetting(_maxHp);
         Debug.Log("HP : " + _hp);
 
@@ -89,16 +89,16 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
 
         // Hit된 지점까지 ray를 그려준다.
-        Gizmos.DrawRay(transform.position, transform.forward * _hit.distance);
+        Gizmos.DrawRay(transform.position, -Vector3.up * _hit.distance);
 
         // Hit된 지점에 박스를 그려준다.
-        Gizmos.DrawWireSphere(transform.position + transform.forward * _hit.distance, _sphereScale);
+        Gizmos.DrawWireSphere(transform.position + -Vector3.up * _hit.distance, _sphereScale);
     }
     
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, transform.forward * 1f, Color.red);
-        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 2, transform.forward, 1f, 1 << LayerMask.NameToLayer("Object"));
+        Debug.DrawRay(transform.position, -Vector3.up * 1f, Color.red);
+        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 2, -Vector3.up, 1f, 1 << LayerMask.NameToLayer("Object"));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -109,9 +109,9 @@ public class Player : MonoBehaviour
             if(collision.transform.CompareTag("Obstacle"))
             {
                 collision.gameObject.SetActive(false);
-                HitDamage(10 * _obstacleDamageBuff);
-
                 AudioManager.Instance.PlayDamgeSFX();
+
+                HitDamage(10 * _obstacleDamageBuff);
 
                 if (collision.gameObject.GetComponent<MeshExploder>() != null)
                     StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
@@ -136,9 +136,7 @@ public class Player : MonoBehaviour
             //바람 UI Enable
             //CanvasController.Instance.OnSpeedPanel(true);
 
-            Color color = _wind.GetComponent<Image>().color;
-            color.a = 1;
-            _wind.GetComponent<Image>().color = color;
+            ChangeWindAlpha(1);
 
             StageController.Instance.SetAcceleration();
         }
@@ -196,22 +194,20 @@ public class Player : MonoBehaviour
 
     void TriggerGround()
     {
-        GroundDamage(20);
-
         //포탈 소리
         AudioManager.Instance.PlayPortalSFX();
 
         //바람 UI Disable
         //CanvasController.Instance.OnSpeedPanel(false);
 
-        Color color = _wind.GetComponent<Image>().color;
-        color.a = 0;
-        _wind.GetComponent<Image>().color = color;
+        ChangeWindAlpha(0);
 
         CanvasController.Instance.ChangeSpeedColor(0);
 
         //스테이지 준비
         StageController.Instance.PrepareToStage();
+
+        GroundDamage(20);
     }
 
     public void ChargeEnergy()
@@ -248,7 +244,7 @@ public class Player : MonoBehaviour
         }
 
         //Debug.Log("HP : " + _hp);
-        if (_hp > 50) CanvasController.Instance.OpenDamgePanel(false); //데미지 UI 비활성화
+        if (_hp > _bloodHp) CanvasController.Instance.OpenDamgePanel(false); //데미지 UI 비활성화
     }
 
     public void GetDamage(float damage)
@@ -256,7 +252,9 @@ public class Player : MonoBehaviour
         _hp -= damage;
         CanvasController.Instance.PlayerGetDamgeHP(damage);
 
-        if(_hp <= 50) CanvasController.Instance.OpenDamgePanel(true); //데미지 UI 활성화
+        if(_hp <= _bloodHp) CanvasController.Instance.OpenDamgePanel(true); //데미지 UI 활성화
+        if (_hp <= 0) EndGame();
+
         Debug.Log("HP : " + _hp);
     }
 
@@ -286,8 +284,6 @@ public class Player : MonoBehaviour
         if (!_isPassPortal && !_isInvincible)
         {
             GetDamage(_timeDamage * _timeDamageBuff);
-
-            if (_hp <= 0) EndGame();
         }
     }
 
@@ -296,7 +292,6 @@ public class Player : MonoBehaviour
     {
         if (!_isHit && !_isInvincible & !_isCast)
         {
-            GetDamage(damage);
             Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
 
@@ -305,7 +300,7 @@ public class Player : MonoBehaviour
 
             HitObstacle(1);
 
-            if (_hp <= 0) EndGame();
+            GetDamage(damage);
         }
     }
 
@@ -314,14 +309,13 @@ public class Player : MonoBehaviour
     {
         if (!_isPassPortal)
         {
-            GetDamage(damage);
             Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
             StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 
             SetInvincible(1);
 
-            if (_hp <= 0) EndGame();
+            GetDamage(damage);
         }
     }
 
@@ -351,10 +345,19 @@ public class Player : MonoBehaviour
         _coroutine = StartCoroutine(InvincibleTime(time));
     }
 
+    void ChangeWindAlpha(float value)
+    {
+        Color color = _wind.GetComponent<Image>().color;
+        color.a = value;
+        _wind.GetComponent<Image>().color = color;
+    }
+
     void EndGame()
     {
-        CanvasController.Instance.OnSpeedPanel(false);
+        //바람 UI Disable
+        //CanvasController.Instance.OnSpeedPanel(false);
 
+        ChangeWindAlpha(0);
         _colliderRange.DisableRawImage();
         PlayGameManager.Instance.EndGame();
 
@@ -395,8 +398,8 @@ public class Player : MonoBehaviour
         _isCast = true;
         _isInvincible = true;
 
-        //애니메이션 멈춤
-        _animator.speed = 0;
+        //스킬 애니메이션 시작
+        _animator.SetBool("UseSkill", true);
 
         //스킬 파티클 활성화
         _colliderRange.GetComponent<ColliderRange>().EnableSkillEffect();
@@ -414,8 +417,8 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        //기본으로 다시 초기화
-        _animator.speed = 1;
+        //버둥 애니메이션 시작
+        _animator.SetBool("UseSkill", false);
 
         _colliderRange.GetComponent<ColliderRange>().DisableSkillEffect();
 
@@ -431,7 +434,6 @@ public class Player : MonoBehaviour
     IEnumerator HitObstacleTime(float t)
     {
         _isHit = true;
-        _tempSpeed = StageController.Instance.GetStageVelocity() / 2;
 
         StageController.Instance.SetVelocity(StageController.Instance.BasicSpeed);
         _colliderRange.SetInvincible();
@@ -457,6 +459,7 @@ public class Player : MonoBehaviour
                 _animator.speed = 1;
                 _colliderRange.GetComponent<ColliderRange>().DisableSkillEffect();
 
+                _animator.SetBool("UseSkill", false);
                 CanvasController.Instance.ChangeSpeedColor(0);
                 StageController.Instance.ResetVelocity();
             }

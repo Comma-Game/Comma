@@ -28,7 +28,7 @@ public class PlayGameManager : MonoBehaviour
     Player _player;
     SaveLoadManager _saveLoadManager;
     StageController _stageController;
-    GameObject _stage;
+    GameObject _stage, _fog;
     int _scoreUp;
     int _coin;
     
@@ -39,6 +39,7 @@ public class PlayGameManager : MonoBehaviour
         Application.targetFrameRate = 30;
 
         _player = GameObject.Find("Player").GetComponent<Player>();
+        _fog = GameObject.Find("Fog");
 
         _score = 0;
         _coinBuff = false;
@@ -48,6 +49,8 @@ public class PlayGameManager : MonoBehaviour
     {
         _saveLoadManager = SaveLoadManager.Instance;
         _stageController = StageController.Instance;
+
+        _fog.SetActive(true);
     }
 
     void Start()
@@ -110,6 +113,8 @@ public class PlayGameManager : MonoBehaviour
         SaveLoadManager.Instance.SaveData();
 
         _player.DestroyPlayer();
+        _fog.SetActive(false);
+
         SetGameOverUIText();
     }
 

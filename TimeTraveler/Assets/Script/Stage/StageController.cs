@@ -168,13 +168,47 @@ public class StageController : MonoBehaviour
         MoveStage();
     }
 
+    void TestStage()
+    {
+        List<int> testConceptList = TestConceptButton.Instance.GetTestConcept();
+        int index = -1;
+        
+        Debug.Log("Test Concept Count : " + testConceptList.Count);
+
+        for (int i = 0; i < testConceptList.Count; i++)
+        {
+            List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
+
+            for (int j = 3; j > 0; j--)
+            {
+                int next_stage_num = Random.Range(0, j);
+                _queue.Enqueue(new StageInfo(testConceptList[i], stageIndex[next_stage_num]));
+                stageIndex.RemoveAt(next_stage_num);
+            }
+
+            index = testConceptList[i];
+        }
+
+        if (index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
+    }
+
     //초기 Concept Index 설정
     void SetConceptIndex()
     {
-        Debug.Log((_conceptCount - 1) + " 컨셉까지 활성화");
-
         _conceptIndex = new List<int>();
         for (int i = 0; i < _conceptCount; i++) _conceptIndex.Add(i);
+    }
+
+    //Resources 파일에 있는 Prefab들 가져옴
+    void InstantiateStage()
+    {
+        _stagePrefab = new GameObject[_conceptCount][];
+
+        for (int i = 0; i < _conceptCount; i++)
+        {
+            _stagePrefab[i] = _conceptInfo.GetStagePrefab(i);
+            for (int j = 0; j < 3; j++) _stagePrefab[i][j].SetActive(false);
+        }
     }
 
     //맵에 나타날 스테이지를 큐에 넣어주는 과정
@@ -206,34 +240,6 @@ public class StageController : MonoBehaviour
         _conceptIndex.RemoveAt(conceptIndex);
     }
 
-    void TestStage()
-    {
-        List<int> chooseConceptList = ChooseMapPanel.Instance.GetChooseMapList();
-        int index = -1;
-        Debug.Log("테스트 컨셉 리스트 사이즈 : " + ChooseMapPanel.Instance.GetChooseMapList().Count);
-        for(int i = 0; i < chooseConceptList.Count; i++)
-        {
-            List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
-            Debug.Log("테스트 용 컨셉 : " + chooseConceptList[i]);
-            for (int j = 3; j > 0; j--)
-            {
-                int next_stage_num = Random.Range(0, j);
-                _queue.Enqueue(new StageInfo(chooseConceptList[i], stageIndex[next_stage_num]));
-                stageIndex.RemoveAt(next_stage_num);
-            }
-
-            index = chooseConceptList[i];
-        }
-
-        if(index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
-    }
-
-    //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
-    void CheckMemoryStage()
-    {
-        if (_stageCount % 3 == 1) _nextStage.GetComponent<GateMovement>().EnableMemory();
-    }
-
     //현재 스테이지 설정
     void SetCurrentStage()
     {
@@ -242,10 +248,10 @@ public class StageController : MonoBehaviour
 
         //올라가고 있는 stage 정지 후 위치 재설정
         _stage.transform.GetComponent<GateMovement>().StopMove();
-        _stage.transform.position = new Vector3(0, 95.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+        _stage.transform.position = new Vector3(0, 96.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
 
         _stageEnd.transform.SetParent(null);
-        _stageEnd.transform.position = new Vector3(-0.42f, 52.48f, -0.13f);
+        _stageEnd.transform.position = new Vector3(0, 54.5f, 0);
         _stageEnd.transform.SetParent(_stage.transform);
 
         _nextStage = SetNextStage();
@@ -287,37 +293,9 @@ public class StageController : MonoBehaviour
     {
         _prevStage = _stage;
         _prevStage.GetComponent<GateMovement>().StopMove();
-        _prevStage.transform.position = new Vector3(0, 191.1f, 0);
+        _prevStage.transform.position = new Vector3(0, 192.5f, 0);
     }
 
-    public void DisablePrevStage() 
-    {
-        if (_prevStage == null) return;
-        
-        EnableObject();
-        DeleteExploder();
-       
-        _prevStage.SetActive(false);
-        //_prevStage.transform.position = new Vector3(0, 0, 0);
-    }
-
-    //Resources 파일에 있는 Prefab들 가져옴
-    void InstantiateStage()
-    {
-        _stagePrefab = new GameObject[_conceptCount][];
-       
-        for (int i = 0; i < _conceptCount; i++)
-        {
-            _stagePrefab[i] = _conceptInfo.GetStagePrefab(i);
-            for (int j = 0; j < 3; j++) _stagePrefab[i][j].SetActive(false);
-        }
-    }
-
-    void SetStageParent()
-    {
-        _stageParent = new GameObject();
-        _stageParent.name = "StageParent";
-    }
 
     //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
@@ -334,6 +312,23 @@ public class StageController : MonoBehaviour
         ReturnStage();
         SetCurrentStage();
         MoveStage();
+    }
+
+    public void DisablePrevStage() 
+    {
+        if (_prevStage == null) return;
+        
+        EnableObject();
+        DeleteExploder();
+       
+        _prevStage.SetActive(false);
+        //_prevStage.transform.position = new Vector3(0, 0, 0);
+    }
+
+    void SetStageParent()
+    {
+        _stageParent = new GameObject();
+        _stageParent.name = "StageParent";
     }
 
     public void MinusPassThroughCount() 
@@ -388,6 +383,12 @@ public class StageController : MonoBehaviour
         Debug.Log("다음 Stage : " + _nextStage.name);
         _stage.GetComponent<GateMovement>().SetAcceleration();
         _nextStage.GetComponent<GateMovement>().SetAcceleration();
+    }
+
+    //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
+    void CheckMemoryStage()
+    {
+        if (_stageCount % 3 == 1) _nextStage.GetComponent<GateMovement>().EnableMemory();
     }
 
     //부딪힌 장애물 리스트에 넣어주기

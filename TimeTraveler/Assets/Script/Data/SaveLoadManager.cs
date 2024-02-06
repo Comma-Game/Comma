@@ -79,14 +79,19 @@ public class SaveLoadManager : MonoBehaviour
     static void Init_Instance()
     {
         // 인스턴스가 없으면 생성
-        if (!_instance)
+        if (_instance == null)
         {
+            GameObject gameData = GameObject.Find("SaveLoadManager");
+
             // 만약 Scene에 GameManager가 없으면 새로 생성
-            GameObject gameData = new GameObject();
-            gameData.name = "SaveLoadManager";
-            gameData.AddComponent<SaveLoadManager>();
+            if (gameData == null)
+            {
+                gameData = new GameObject();
+                gameData.name = "SaveLoadManager";
+                gameData.AddComponent<SaveLoadManager>();
+            }
+
             _instance = gameData.GetComponent<SaveLoadManager>();
-            
             DontDestroyOnLoad(gameData);
         }
     }

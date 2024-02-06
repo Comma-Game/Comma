@@ -16,4 +16,30 @@
       name="__local_aars__:C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar:unspecified@jar"
       jars="C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar"
       resolved="__local_aars__:C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar:unspecified"/>
+  <library
+      name=":googlemobileads-unity:@aar"
+      jars="C:\Users\LYHo\.gradle\caches\transforms-3\1193c5c1047fc7ff5f08a3a1bb9cb559\transformed\googlemobileads-unity\jars\classes.jar"
+      resolved=":googlemobileads-unity:"
+      folder="C:\Users\LYHo\.gradle\caches\transforms-3\1193c5c1047fc7ff5f08a3a1bb9cb559\transformed\googlemobileads-unity"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary:GoogleMobileAdsPlugin.androidlib::release"
+      jars="C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\.transforms\7cecd597287e46fa33b2f5de503f7aca\transformed\out\jars\classes.jar"
+      resolved="Gradle.unityLibrary:GoogleMobileAdsPlugin.androidlib:unspecified"
+      folder="C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\.transforms\7cecd597287e46fa33b2f5de503f7aca\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
 </libraries>

@@ -49,12 +49,13 @@ public class MoveFish : MoveObstacle
 
     private void OnEnable()
     {
+        transform.Translate(new Vector3(_moveSpeed * _moveX * 50, 0, _moveSpeed * _moveZ * 50));
         StartCoroutine(Move());
     }
+
     private void OnDisable()
     {
         StopAllCoroutines();
-        transform.localPosition = _sPos;
     }
 
     override protected IEnumerator Move()

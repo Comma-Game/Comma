@@ -2,6 +2,14 @@
 # For more information visit: https://d.android.com/r/tools/dependency-metadata
 
 library {
+  maven_library {
+    artifactId: "googlemobileads-unity"
+  }
+  digests {
+    sha256: "\343\032\257\032\204\325\031\265\026V\310\'\360\037\v\217I\353\357Laq\343\177,\366pS\244:q\344"
+  }
+}
+library {
   digests {
     sha256: "\273\356[}\204\244\225c\021\016IU\376yN\340\244\253Z!v!\f\226]\224\203\262\323\327!\221"
   }
@@ -9,6 +17,7 @@ library {
 module_dependencies {
   module_name: "base"
   dependency_index: 0
+  dependency_index: 1
 }
 repositories {
   maven_repo {

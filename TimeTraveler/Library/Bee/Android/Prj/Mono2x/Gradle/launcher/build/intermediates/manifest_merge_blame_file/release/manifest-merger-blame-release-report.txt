@@ -1,14 +1,14 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.DefaultCompany.TimeTraveler"
+3    package="com.Comma.Cracker"
 4    android:installLocation="preferExternal"
-5    android:versionCode="1"
-6    android:versionName="0.1" >
+5    android:versionCode="2"
+6    android:versionName="1.1" >
 7
 8    <uses-sdk
 9        android:minSdkVersion="27"
 9-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
-10        android:targetSdkVersion="33" />
+10        android:targetSdkVersion="34" />
 10-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
 11
 12    <supports-screens
@@ -24,121 +24,149 @@
 17        android:xlargeScreens="true" />
 17-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:106-134
 18
-19    <uses-feature android:glEsVersion="0x00030000" />
-19-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-54
-19-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:19-51
-20    <uses-feature
-20-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:5-13:36
-21        android:name="android.hardware.vulkan.version"
-21-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:9-55
-22        android:required="false" />
-22-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-33
-23    <uses-feature
-23-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:5-16:36
-24        android:name="android.hardware.touchscreen"
-24-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:9-52
-25        android:required="false" />
-25-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:16:9-33
-26    <uses-feature
-26-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:17:5-19:36
-27        android:name="android.hardware.touchscreen.multitouch"
-27-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:9-63
-28        android:required="false" />
-28-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-33
-29    <uses-feature
-29-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:5-22:36
-30        android:name="android.hardware.touchscreen.multitouch.distinct"
-30-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:21:9-72
-31        android:required="false" />
-31-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:22:9-33
-32
-33    <application
-33-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:3-83
-34        android:extractNativeLibs="true"
-34-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:24:18-50
-35        android:icon="@mipmap/app_icon"
-35-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:49-80
-36        android:label="@string/app_name" >
-36-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:16-48
-37        <meta-data
-37-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:25:9-27:33
-38            android:name="unity.splash-mode"
-38-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:26:13-45
-39            android:value="0" />
-39-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-30
-40        <meta-data
-40-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:28:9-30:36
-41            android:name="unity.splash-enable"
-41-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-47
-42            android:value="True" />
-42-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:30:13-33
-43        <meta-data
-43-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:31:9-33:36
-44            android:name="unity.launch-fullscreen"
-44-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:32:13-51
-45            android:value="True" />
-45-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:33:13-33
-46        <meta-data
-46-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:34:9-36:37
-47            android:name="unity.allow-resizable-window"
-47-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:35:13-56
-48            android:value="False" />
-48-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:36:13-34
-49        <meta-data
-49-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:37:9-39:50
-50            android:name="notch.config"
-50-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:38:13-40
-51            android:value="portrait|landscape" />
-51-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:39:13-47
-52        <meta-data
-52-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:40:9-42:36
-53            android:name="unity.auto-report-fully-drawn"
-53-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:41:13-57
-54            android:value="true" />
-54-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:42:13-33
-55
-56        <activity
-56-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:44:9-65:20
-57            android:name="com.unity3d.player.UnityPlayerActivity"
-57-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:45:13-66
-58            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
-58-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:46:13-194
-59            android:exported="true"
-59-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:47:13-36
-60            android:hardwareAccelerated="false"
-60-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:48:13-48
-61            android:launchMode="singleTask"
-61-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:49:13-44
-62            android:resizeableActivity="false"
-62-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:50:13-47
-63            android:screenOrientation="userLandscape"
-63-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:51:13-54
-64            android:theme="@style/UnityThemeSelector" >
-64-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:52:13-54
-65            <intent-filter>
-65-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:53:13-57:29
-66                <category android:name="android.intent.category.LAUNCHER" />
-66-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:54:17-77
-66-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:54:27-74
-67
-68                <action android:name="android.intent.action.MAIN" />
-68-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:56:17-69
-68-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:56:25-66
-69            </intent-filter>
-70
-71            <meta-data
-71-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:59:13-61:40
-72                android:name="unityplayer.UnityActivity"
-72-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:60:17-57
-73                android:value="true" />
-73-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:61:17-37
-74            <meta-data
-74-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:62:13-64:40
-75                android:name="notch_support"
-75-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:63:17-45
-76                android:value="true" />
-76-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:64:17-37
-77        </activity>
-78    </application>
-79
-80</manifest>
+19    <uses-permission android:name="android.permission.VIBRATE" />
+19-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-66
+19-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:22-63
+20
+21    <uses-feature android:glEsVersion="0x00030000" />
+21-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:5-54
+21-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:19-51
+22    <uses-feature
+22-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:5-15:36
+23        android:name="android.hardware.vulkan.version"
+23-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:9-55
+24        android:required="false" />
+24-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:15:9-33
+25    <uses-feature
+25-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:16:5-18:36
+26        android:name="android.hardware.touchscreen"
+26-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:17:9-52
+27        android:required="false" />
+27-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:9-33
+28    <uses-feature
+28-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:5-21:36
+29        android:name="android.hardware.touchscreen.multitouch"
+29-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:9-63
+30        android:required="false" />
+30-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:21:9-33
+31    <uses-feature
+31-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:22:5-24:36
+32        android:name="android.hardware.touchscreen.multitouch.distinct"
+32-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:23:9-72
+33        android:required="false" />
+33-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:24:9-33
+34
+35    <uses-permission android:name="android.permission.INTERNET" />
+35-->[:googlemobileads-unity:] C:\Users\LYHo\.gradle\caches\transforms-3\1193c5c1047fc7ff5f08a3a1bb9cb559\transformed\googlemobileads-unity\AndroidManifest.xml:12:5-67
+35-->[:googlemobileads-unity:] C:\Users\LYHo\.gradle\caches\transforms-3\1193c5c1047fc7ff5f08a3a1bb9cb559\transformed\googlemobileads-unity\AndroidManifest.xml:12:22-64
+36
+37    <application
+37-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:3-83
+38        android:extractNativeLibs="true"
+38-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:26:18-50
+39        android:icon="@mipmap/app_icon"
+39-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:49-80
+40        android:label="@string/app_name" >
+40-->C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:16-48
+41        <meta-data
+41-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:27:9-29:33
+42            android:name="unity.splash-mode"
+42-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-45
+43            android:value="0" />
+43-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-30
+44        <meta-data
+44-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:30:9-32:36
+45            android:name="unity.splash-enable"
+45-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:31:13-47
+46            android:value="True" />
+46-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:32:13-33
+47        <meta-data
+47-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:33:9-35:36
+48            android:name="unity.launch-fullscreen"
+48-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:34:13-51
+49            android:value="True" />
+49-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:35:13-33
+50        <meta-data
+50-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:36:9-38:37
+51            android:name="unity.allow-resizable-window"
+51-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:37:13-56
+52            android:value="False" />
+52-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:38:13-34
+53        <meta-data
+53-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:39:9-41:50
+54            android:name="notch.config"
+54-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:40:13-40
+55            android:value="portrait|landscape" />
+55-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:41:13-47
+56        <meta-data
+56-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:42:9-44:36
+57            android:name="unity.auto-report-fully-drawn"
+57-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:43:13-57
+58            android:value="true" />
+58-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:44:13-33
+59
+60        <activity
+60-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:46:9-67:20
+61            android:name="com.unity3d.player.UnityPlayerActivity"
+61-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:47:13-66
+62            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+62-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:48:13-194
+63            android:exported="true"
+63-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:49:13-36
+64            android:hardwareAccelerated="false"
+64-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:50:13-48
+65            android:launchMode="singleTask"
+65-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:51:13-44
+66            android:resizeableActivity="false"
+66-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:52:13-47
+67            android:screenOrientation="userLandscape"
+67-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:53:13-54
+68            android:theme="@style/UnityThemeSelector" >
+68-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:54:13-54
+69            <intent-filter>
+69-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:55:13-59:29
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:56:17-77
+70-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:56:27-74
+71
+72                <action android:name="android.intent.action.MAIN" />
+72-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:58:17-69
+72-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:58:25-66
+73            </intent-filter>
+74
+75            <meta-data
+75-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:61:13-63:40
+76                android:name="unityplayer.UnityActivity"
+76-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:62:17-57
+77                android:value="true" />
+77-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:63:17-37
+78            <meta-data
+78-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:64:13-66:40
+79                android:name="notch_support"
+79-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:65:17-45
+80                android:value="true" />
+80-->[:unityLibrary] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\merged_manifest\release\AndroidManifest.xml:66:17-37
+81        </activity>
+82
+83        <uses-library
+83-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:9-14:40
+84            android:name="org.apache.http.legacy"
+84-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-50
+85            android:required="false" />
+85-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-37
+86
+87        <meta-data
+87-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:16:9-18:70
+88            android:name="com.google.android.gms.ads.APPLICATION_ID"
+88-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-69
+89            android:value="ca-app-pub-2161698454368448~1481036771" />
+89-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-67
+90        <meta-data
+90-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-21:43
+91            android:name="com.google.unity.ads.UNITY_VERSION"
+91-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-62
+92            android:value="2022.3.16f1" />
+92-->[:unityLibrary:GoogleMobileAdsPlugin.androidlib] C:\Users\LYHo\Desktop\GitHub\Comma\TimeTraveler\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\GoogleMobileAdsPlugin.androidlib\build\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-40
+93    </application>
+94
+95</manifest>
