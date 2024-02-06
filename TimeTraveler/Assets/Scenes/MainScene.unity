@@ -4052,11 +4052,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewStageEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 8862768003180765015, guid: 8fe03e052a64a4041a7ecaf2ca93df26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe03e052a64a4041a7ecaf2ca93df26, type: 3}
+--- !u!1 &805255477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8862768003180765015, guid: 8fe03e052a64a4041a7ecaf2ca93df26, type: 3}
+  m_PrefabInstance: {fileID: 805255476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &811319202
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,6 +4783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca6b736a7a5b094ca0b09db92b6d1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 805255477}
   mainPanel_Button: {fileID: 353342135182519155}
   mainPanel_playerStat: {fileID: 1627430631}
   shopPanel: {fileID: 109527403}
