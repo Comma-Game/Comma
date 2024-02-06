@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] public Slider slider;
     private float time = 0;
 
-    public GameObject loadingPanel;
-    public GameObject turtorialPanel;
-    public bool isImage;
-    public Image image;
-    public Sprite[] sprites;
+    [SerializeField] public GameObject loadingPanel;
+    [SerializeField] public GameObject turtorialPanel;
+    [SerializeField] public bool isImage;
+    [SerializeField] public Image image;
+    [SerializeField] public Sprite[] sprites;
     private int imgNum = 0;
     private float imgTime = 0;
 
@@ -34,7 +34,7 @@ public class LoadingSceneManager : MonoBehaviour
             time += Time.time;
             imgTime += Time.time;
             //slider.value = time / 1000f;
-            Debug.Log(imgTime);
+            //Debug.Log(imgTime);
             if(time > 10000){
                 operation.allowSceneActivation = true;
             }
@@ -48,7 +48,7 @@ public class LoadingSceneManager : MonoBehaviour
                     imgTime = 0;
                 }
             }
-            Debug.Log(time);
+            //Debug.Log(time);
             yield return null;
         }
     }
