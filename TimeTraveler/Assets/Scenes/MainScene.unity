@@ -1119,11 +1119,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8921703226894790513, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
   m_PrefabInstance: {fileID: 192617936925144598}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &120074534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8862768003180765015, guid: 8fe03e052a64a4041a7ecaf2ca93df26, type: 3}
-  m_PrefabInstance: {fileID: 805255476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &144542422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8100234539754635080, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -4057,10 +4052,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewStageEnd
       objectReference: {fileID: 0}
-    - target: {fileID: 8862768003180765015, guid: 8fe03e052a64a4041a7ecaf2ca93df26, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4783,7 +4774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca6b736a7a5b094ca0b09db92b6d1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portal: {fileID: 120074534}
   mainPanel_Button: {fileID: 353342135182519155}
   mainPanel_playerStat: {fileID: 1627430631}
   shopPanel: {fileID: 109527403}

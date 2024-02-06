@@ -38,11 +38,10 @@ public class GameOverPanel : MonoBehaviour
     public void Get2Coin(){
         if(SaveLoadManager.Instance.GetIsBuyAd() == false){
             // 광고 띄우기
-            GoogleAdMob.Instance.LoadRewardedAd(true);
         }
         AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("Get2Coin");
-        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
         // 코인 두 배 획득해서 얻는 코드
     }
 

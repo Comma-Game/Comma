@@ -8,7 +8,6 @@ using SlimUI.ModernMenu;
 public class MainSceneController : MonoBehaviour
 {
         [Header("main Object")]
-        [SerializeField] public GameObject portal;
         [SerializeField] public GameObject mainPanel_Button;
         [SerializeField] public GameObject mainPanel_playerStat;
         private float rotationSpeed = 50f;
@@ -140,7 +139,6 @@ public class MainSceneController : MonoBehaviour
                                 heartPanelCS.MinusHearts(1);
                                 heartPanel.SetActive(false);
                                 AudioManager.Instance.PlayPortalSFX();
-                                portal.SetActive(true);
                                 Invoke("MoveScene", 3f);
                                 //SceneManager.LoadScene("GameScene");
                                 //PrintIntList(ChooseMapPanel.Instance.GetChooseMapList());

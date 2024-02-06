@@ -23,7 +23,6 @@ public class HeartShopPanel : MonoBehaviour
             // 광고 무료 구매했는지 확인
             if(SaveLoadManager.Instance.GetIsBuyAd() == false){
                 // 광고 띄우기
-                GoogleAdMob.Instance.LoadRewardedAd(false);
             }
             HeartPanelCS.AddFullHearts();
         }
