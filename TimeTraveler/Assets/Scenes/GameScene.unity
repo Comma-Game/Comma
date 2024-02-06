@@ -1131,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6030939578557379757, guid: 4df03e845bbfc1c40bf59bdd8dbcaac1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -99.99963
       objectReference: {fileID: 0}
     - target: {fileID: 6030939578557379757, guid: 4df03e845bbfc1c40bf59bdd8dbcaac1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2364,7 +2364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1289697104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3584,12 +3584,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1182215826}
     - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 721330282966869731, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1182047455882747593, guid: eeeecfdb6c10a6d4599e5fcbef4f7520, type: 3}
       propertyPath: m_IsActive

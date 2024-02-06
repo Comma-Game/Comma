@@ -228,22 +228,28 @@ public class StageController : MonoBehaviour
         if(index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
     }
 
+    //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
+    void CheckMemoryStage()
+    {
+        if (_stageCount % 3 == 1) _nextStage.GetComponent<GateMovement>().EnableMemory();
+    }
+
     //현재 스테이지 설정
     void SetCurrentStage()
     {
         _stage = _nextStage;
         PlayGameManager.Instance.SetStage(_stage);
 
+        //올라가고 있는 stage 정지 후 위치 재설정
         _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 95.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
-
-        if (_stageCount % 3 == 2) _stage.GetComponent<GateMovement>().EnableMemory();
 
         _stageEnd.transform.SetParent(null);
         _stageEnd.transform.position = new Vector3(-0.42f, 52.48f, -0.13f);
         _stageEnd.transform.SetParent(_stage.transform);
 
         _nextStage = SetNextStage();
+        CheckMemoryStage();
     }
 
     //다음 스테이지 설정
@@ -256,6 +262,7 @@ public class StageController : MonoBehaviour
 
         int concept_index = next_stage_info.concept_index, stage_index = next_stage_info.stage_index;
         
+        //stage가 생성되어 있지 않다면 생성
         if(!_isInstantiateStage[concept_index, stage_index])
         {
             _isInstantiateStage[concept_index, stage_index] = true;
@@ -263,9 +270,11 @@ public class StageController : MonoBehaviour
             _stagePrefab[concept_index][stage_index].transform.SetParent(_stageParent.transform);
         }
         
+        //시작 위치 값
         ret = _stagePrefab[concept_index][stage_index];
         ret.transform.position = new Vector3(0, 0, 0);
 
+        //시작 회전 값
         int nextAngle = Random.Range(0, 360);
         ret.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
         ret.SetActive(true);
@@ -310,7 +319,7 @@ public class StageController : MonoBehaviour
         _stageParent.name = "StageParent";
     }
 
-    //스테이지 지나면 호출
+    //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
     {
         if (_stageCount++ % 3 == 0) _passThroughCount = _passThroughCount >= 5 ? 5 : _passThroughCount + 1;
