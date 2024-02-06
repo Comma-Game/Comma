@@ -48,17 +48,21 @@ public class AudioManager : MonoBehaviour
     }
     
     public void Start(){
-        float sfxSound = SaveLoadManager.Instance.GetBgmSound();
-        float bgmSound = SaveLoadManager.Instance.GetSfxSound();
+        float sfxSound = SaveLoadManager.Instance.GetSfxSound();
+        float bgmSound = SaveLoadManager.Instance.GetBgmSound();
         Debug.Log("sfxSound : "+ sfxSound + " bgmSound : " + bgmSound);
         SettingSounds(sfxSound, bgmSound);
     }
 
     private void SettingSounds(float sfxSound, float bgmSound){
+        if(sfxSound > 0) sfxSound = 0;
+        if(sfxSound < -40) sfxSound = -40f;
         if(sfxSound == -40f) masterMixer.SetFloat("SFX", -80);
         else masterMixer.SetFloat("SFX", sfxSound);
         sfxSlider.value = sfxSound;
 
+        if(bgmSound > 0) bgmSound = 0;
+        if(bgmSound < -40) bgmSound = -40f;
         if(bgmSound == -40f) masterMixer.SetFloat("BGM", -80);
         else masterMixer.SetFloat("BGM", bgmSound);
         bgmSlider.value = bgmSound;

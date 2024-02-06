@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: d0a69a6323c77934db0bbd1ce54faa8e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ac1f8c34e04fad428b3db897e716bba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -94,13 +94,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CrackAmount: 45.91
+    - _CrackAmount: 73.33
     - _CrackThickness: 0.05
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeHeight: 0.451
-    - _Emission: 2.81
+    - _EdgeHeight: 0.284
+    - _Emission: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -109,10 +109,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.1
+    - _Parallax: 0.0648
     - _ParallaxMaxSamples: 20
     - _ParallaxMinSamples: 4
-    - _ParallaxSamples: 173
+    - _ParallaxSamples: 500
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -120,12 +120,12 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _CoreColor: {r: 0.5058824, g: 0.59800166, b: 1, a: 1}
+    - _CoreColor: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 1, g: 1, b: 1, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.13424778, g: 0, b: 1, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightPosition: {r: 0, g: 0, b: 0, a: 0}
-    - _NoiseOffset: {r: 0.21, g: 0, b: 0, a: 0}
+    - _NoiseOffset: {r: 0.63, g: 0, b: 0, a: 0}
     - _WaterColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

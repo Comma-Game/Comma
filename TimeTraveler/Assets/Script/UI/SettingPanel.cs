@@ -30,4 +30,8 @@ public class SettingPanel : MonoBehaviour
         AudioManager.Instance.PlayGameButtonClick();
         SceneManager.LoadScene("MainScene");
     }
+
+    public void ClickOpenURLButton(){
+        Application.OpenURL("http://storage.thebackend.io/220f5159a65f36de876c6a7a8113b9dece9c56387cf425473fc67f6a05a6d68f/privacy.html");
+    }
 }
