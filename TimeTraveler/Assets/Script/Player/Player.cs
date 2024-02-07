@@ -89,16 +89,16 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.red;
 
         // Hit된 지점까지 ray를 그려준다.
-        Gizmos.DrawRay(transform.position, -Vector3.up * _hit.distance);
+        Gizmos.DrawRay(transform.position, Vector3.down * _hit.distance);
 
         // Hit된 지점에 박스를 그려준다.
-        Gizmos.DrawWireSphere(transform.position + -Vector3.up * _hit.distance, _sphereScale);
+        Gizmos.DrawWireSphere(transform.position + Vector3.down * _hit.distance, _sphereScale);
     }
     
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, -Vector3.up * 1f, Color.red);
-        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 2, -Vector3.up, 1f, 1 << LayerMask.NameToLayer("Object"));
+        Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red);
+        _hits = Physics.SphereCastAll(transform.position, _sphereScale / 2, Vector3.down, 1f, 1 << LayerMask.NameToLayer("Object"));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -134,9 +134,9 @@ public class Player : MonoBehaviour
             _isPassPortal = false;
 
             //바람 UI Enable
-            //CanvasController.Instance.OnSpeedPanel(true);
+            CanvasController.Instance.OnSpeedPanel(true);
 
-            ChangeWindAlpha(1);
+            //ChangeWindAlpha(1);
 
             StageController.Instance.SetAcceleration();
         }
@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
                 PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
 
                 int[] jelly_info = other.gameObject.GetComponent<Jelly>().GetInfo();
-                if (!SaveLoadManager.Instance.GetUnlockedMemory()[jelly_info[0]][jelly_info[1]])
+                if (!SaveLoadManager.Instance.GetUnlockedMemory()[jelly_info[0]].CheckStory(jelly_info[1]))
                 {
                     CanvasController.Instance.OnMessagePanel(); //기억의 조각 메세지 출력
                     SaveLoadManager.Instance.SetUnlockedMemory(jelly_info[0], jelly_info[1]); //스테이지 별 먹은 기억의 조각 저장
@@ -198,9 +198,10 @@ public class Player : MonoBehaviour
         AudioManager.Instance.PlayPortalSFX();
 
         //바람 UI Disable
-        //CanvasController.Instance.OnSpeedPanel(false);
+        CanvasController.Instance.OnSpeedPanel(false);
 
-        ChangeWindAlpha(0);
+        //바람 UI Alpha
+        //ChangeWindAlpha(0);
 
         CanvasController.Instance.ChangeSpeedColor(0);
 
@@ -355,9 +356,9 @@ public class Player : MonoBehaviour
     void EndGame()
     {
         //바람 UI Disable
-        //CanvasController.Instance.OnSpeedPanel(false);
+        CanvasController.Instance.OnSpeedPanel(false);
 
-        ChangeWindAlpha(0);
+        //ChangeWindAlpha(0);
         _colliderRange.DisableRawImage();
         PlayGameManager.Instance.EndGame();
 

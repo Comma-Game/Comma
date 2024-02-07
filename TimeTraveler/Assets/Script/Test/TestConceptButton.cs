@@ -37,7 +37,7 @@ public class TestConceptButton : MonoBehaviour
 
     List<int> _testConcept = new List<int>();
 
-    public void AddTestConcept(int num) { _testConcept.Add(num); }
-    public List<int> GetTestConcept() { return _testConcept; }
-
+    public void AddTestConcept(int num) { _testConcept.Add(num); } //테스트할 Concept Add
+    public List<int> GetTestConcept() { return _testConcept; } //테스트 하고 싶은 Concept List 반환
+    public void ResetTestConcept() { _testConcept.Clear(); } //Concept List Reset
 }

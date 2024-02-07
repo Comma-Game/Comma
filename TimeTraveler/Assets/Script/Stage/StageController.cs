@@ -90,19 +90,6 @@ public class StageController : MonoBehaviour
 
     static GameObject _stageController;
 
-    static void Init_Instance()
-    {
-        _stageController = GameObject.Find("StageController");
-        if (!_stageController)
-        {
-            _stageController = new GameObject();
-            _stageController.name = "StageController";
-            _stageController.AddComponent<StageController>();
-        }
-
-        _instance = _stageController.GetComponent<StageController>();
-    }
-
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
     GameObject _stage, _nextStage, _prevStage, _stageParent; //_stageParent : 스테이지들의 부모 오브젝트
@@ -148,6 +135,19 @@ public class StageController : MonoBehaviour
     {
         Init_Instance();
         Init();
+    }
+
+    static void Init_Instance()
+    {
+        _stageController = GameObject.Find("StageController");
+        if (!_stageController)
+        {
+            _stageController = new GameObject();
+            _stageController.name = "StageController";
+            _stageController.AddComponent<StageController>();
+        }
+
+        _instance = _stageController.GetComponent<StageController>();
     }
 
     void Init()
@@ -250,8 +250,9 @@ public class StageController : MonoBehaviour
         _stage.transform.GetComponent<GateMovement>().StopMove();
         _stage.transform.position = new Vector3(0, 96.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
 
+        //포탈 위치 재설정
         _stageEnd.transform.SetParent(null);
-        _stageEnd.transform.position = new Vector3(0, 54.5f, 0);
+        _stageEnd.transform.position = new Vector3(0, 78f, 0);
         _stageEnd.transform.SetParent(_stage.transform);
 
         _nextStage = SetNextStage();

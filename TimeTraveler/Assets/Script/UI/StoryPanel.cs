@@ -25,7 +25,7 @@ public class StoryPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI[] stroyTitleText;
     [SerializeField] public TextMeshProUGUI[] stroyText;
 
-    private List<bool> isStoryLock = null;
+    private UnlockStoryInfo isStoryLock = null;
     
     void Start()
     {
@@ -44,11 +44,11 @@ public class StoryPanel : MonoBehaviour
         stroyText[2].text = mystroy3Text;
     }
 
-    public void SettingStory(List<bool> currentUnlockedMemory){
+    public void SettingStory(UnlockStoryInfo currentUnlockedMemory){
         isStoryLock = currentUnlockedMemory;
         for(int i=0; i<3; i++){
-            Debug.Log("SettingStory "+ i + " : " + isStoryLock[i]);
-            if(isStoryLock[i] == false){
+            Debug.Log("SettingStory "+ i + " : " + isStoryLock.CheckStory(i));
+            if(isStoryLock.CheckStory(i) == false){
                 stroyImg[i].enabled = false;
                 stroyText[i].enabled = false;
                 stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 잠김";
