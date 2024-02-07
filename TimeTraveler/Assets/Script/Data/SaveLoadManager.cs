@@ -35,6 +35,9 @@ public class GameData
     public float bgmSound;
     public float sfxSound;
 
+
+    public float heartTimetTest;
+
     public GameData()
     {
         high_score = 0;
@@ -59,6 +62,9 @@ public class GameData
 
         bgmSound = 0;
         sfxSound = 0;
+
+
+        heartTimetTest = 20f;
     }
 }
 
@@ -66,6 +72,8 @@ public class SaveLoadManager : MonoBehaviour
 {
     private string savePath;
     private GameData _gameData;
+    static bool _isInit = false;
+
     public GameData GameData
     {
         get
@@ -98,6 +106,8 @@ public class SaveLoadManager : MonoBehaviour
 
     static void Init_Instance()
     {
+        if (_isInit) return;
+
         // 인스턴스가 없으면 생성
         if (_instance == null)
         {
@@ -106,7 +116,6 @@ public class SaveLoadManager : MonoBehaviour
             // 만약 Scene에 GameManager가 없으면 새로 생성
             if (gameData == null)
             {
-                Debug.Log("SaveLoadManager 없음!");
                 gameData = new GameObject();
                 gameData.name = "SaveLoadManager";
                 gameData.AddComponent<SaveLoadManager>();
@@ -181,6 +190,10 @@ public class SaveLoadManager : MonoBehaviour
     public void SetSfxSound(float sound) { GameData.sfxSound = sound; } //sfx 소리 저장
     public float GetSfxSound() { return GameData.sfxSound; } //sfx 소리 반환
 
+
+    public void SetHeartTimeTest(float time) { GameData.heartTimetTest = time; } //하트 테스트 시간 설정
+    public float GetHeartTimeTest() { return GameData.heartTimetTest; } //하트 테스트 시간 반환
+
     public void SaveData()
     {
         // 데이터를 JSON 형식으로 변환
@@ -193,6 +206,7 @@ public class SaveLoadManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        //SaveData();
+        _isInit = true;
+        SaveData();
     }
 }

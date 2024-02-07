@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     RaycastHit[] _hits;
     RaycastHit _hit;
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff, _timeDamage, _iniTimeDamage;
-    SaveLoadManager _saveLoadManager;
     GameObject _camera;
     Animator _animator;
 
@@ -54,8 +53,6 @@ public class Player : MonoBehaviour
 
     void Init()
     {
-        _saveLoadManager = SaveLoadManager.Instance;
-
         transform.gameObject.SetActive(true);
         _colliderRange.EnableRawImage();
 

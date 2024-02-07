@@ -26,7 +26,6 @@ public class PlayGameManager : MonoBehaviour
     bool _coinBuff;
     Coroutine _coroutine;
     Player _player;
-    SaveLoadManager _saveLoadManager;
     StageController _stageController;
     GameObject _stage, _fog;
     int _scoreUp;
@@ -47,7 +46,6 @@ public class PlayGameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _saveLoadManager = SaveLoadManager.Instance;
         _stageController = StageController.Instance;
 
         _fog.SetActive(true);
