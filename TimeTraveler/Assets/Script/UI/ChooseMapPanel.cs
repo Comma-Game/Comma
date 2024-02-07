@@ -52,6 +52,7 @@ public class ChooseMapPanel : MonoBehaviour
         if(map_Check[num] == 0){
             map_Check[num] = 1;
             chooseMapList.Add(num);
+            TestConceptButton.Instance.AddTestConcept(num);
             if(chooseMapText.text == "") chooseMapText.text = map_Text[num];
             else chooseMapText.text = chooseMapText.text + " -> " + map_Text[num];
             //PrintIntList(chooseMapList);
@@ -64,6 +65,7 @@ public class ChooseMapPanel : MonoBehaviour
             map_Check[i] = 0;
             chooseMapText.text = "";
         }
+        TestConceptButton.Instance.ResetTestConcept();
         chooseMapList.Clear();
         //PrintIntList(chooseMapList);
     }

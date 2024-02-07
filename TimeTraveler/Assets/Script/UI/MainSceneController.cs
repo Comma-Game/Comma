@@ -402,6 +402,14 @@ public class MainSceneController : MonoBehaviour
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
         }
 
+        public void Plus100000Coin(){
+                // 돈 소비
+                SaveLoadManager.Instance.PlusCoin(100000);
+                SaveLoadManager.Instance.SaveData();
+                // 바뀐 금액 표시
+                ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+        }
+
         /// /////////////////////////////////////////////////////////////////
 
         // public void GameSetting(){

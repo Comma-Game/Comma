@@ -16,6 +16,7 @@ public class LoadingSceneManager : MonoBehaviour
     public Sprite[] sprites;
     private int imgNum = 0;
     private float imgTime = 0;
+    private AsyncOperation operation;
 
     public void StartSceneMove(){
         StartCoroutine(LoadAsynSceneCoroutine());
@@ -25,7 +26,7 @@ public class LoadingSceneManager : MonoBehaviour
         time = 0;
         imgTime = 0;
         imgNum = 0;
-        AsyncOperation operation = SceneManager.LoadSceneAsync("GameScene");
+        operation = SceneManager.LoadSceneAsync("GameScene");
         operation.allowSceneActivation = false;
         if(isImage == false) loadingPanel.SetActive(true);
         else turtorialPanel.SetActive(true);
@@ -51,5 +52,13 @@ public class LoadingSceneManager : MonoBehaviour
             Debug.Log(time);
             yield return null;
         }
+
+        //operation.allowSceneActivation = true;
     }
+
+    // void OnApplicationQuit()
+    // {
+    //     operation.allowSceneActivation = true;
+    //     operation = null; // 비동기 작업 객체 초기화
+    // }
 }
