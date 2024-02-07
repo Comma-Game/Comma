@@ -7,7 +7,7 @@ using System;
 [System.Serializable]
 public class UnlockStoryInfo
 {
-    List<bool> info;
+    public List<bool> info;
 
     public UnlockStoryInfo()
     {
