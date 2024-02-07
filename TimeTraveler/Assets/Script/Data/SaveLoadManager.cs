@@ -5,6 +5,21 @@ using System.IO;
 using System;
 
 [System.Serializable]
+public class UnlockStoryInfo
+{
+    List<bool> info;
+
+    public UnlockStoryInfo()
+    {
+        info = new List<bool>();
+        for (int i = 0; i < 3; i++) info.Add(false);
+    }
+
+    public void UnlockStory(int index) { info[index] = true; }
+    public bool CheckStory(int index) { return info[index]; }
+}
+
+[System.Serializable]
 public class GameData
 {
     public int high_score;
@@ -16,7 +31,7 @@ public class GameData
     public bool isGameFirst;
     public bool isBuyAd;
     public int unlockedConcept;
-    public List<List<bool>> unlockedMemory;
+    public List<UnlockStoryInfo> unlockedMemory;
     public float bgmSound;
     public float sfxSound;
 
@@ -35,11 +50,11 @@ public class GameData
         isBuyAd = false;
         unlockedConcept = 2;
 
-        unlockedMemory = new List<List<bool>>();
+        //10개의 스테이지
+        unlockedMemory = new List<UnlockStoryInfo>();
         for (int i = 0; i < 10; i++)
         {
-            unlockedMemory.Add(new List<bool>());
-            for (int j = 0; j < 3; j++) unlockedMemory[i].Add(false);
+            unlockedMemory.Add(new UnlockStoryInfo());
         }
 
         bgmSound = 0;
@@ -76,6 +91,11 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        Debug.Log("!!!!!!!!!!!!!!!!!!!Destroy SaveLoadManager!!!!!!!!!!!!!!!!!!!!");
+    }
+
     static void Init_Instance()
     {
         // 인스턴스가 없으면 생성
@@ -86,6 +106,7 @@ public class SaveLoadManager : MonoBehaviour
             // 만약 Scene에 GameManager가 없으면 새로 생성
             if (gameData == null)
             {
+                Debug.Log("SaveLoadManager 없음!");
                 gameData = new GameObject();
                 gameData.name = "SaveLoadManager";
                 gameData.AddComponent<SaveLoadManager>();
@@ -153,8 +174,8 @@ public class SaveLoadManager : MonoBehaviour
     public void SetIsBuyAd(bool isBuyAd) { GameData.isBuyAd = isBuyAd; } //광구 구매 설정
     public int GetUnlockedConcept() { return GameData.unlockedConcept; } //열린 Concept 반환
     public void SetUnlockedConcept(int unlock) { GameData.unlockedConcept = unlock; } //Concept 설정
-    public List<List<bool>> GetUnlockedMemory() { return GameData.unlockedMemory; } //먹은 기억의 조각 반환
-    public void SetUnlockedMemory(int concept, int stage) { GameData.unlockedMemory[concept][stage] = true; } //먹은 기억의 조각 설정
+    public List<UnlockStoryInfo> GetUnlockedMemory() { return GameData.unlockedMemory; } //먹은 기억의 조각 반환
+    public void SetUnlockedMemory(int concept, int stage) { GameData.unlockedMemory[concept].UnlockStory(stage); } //먹은 기억의 조각 설정
     public void SetBgmSound(float sound) { GameData.bgmSound = sound; } //bgm 소리 저장
     public float GetBgmSound() { return GameData.bgmSound; } //bgm 소리 반환
     public void SetSfxSound(float sound) { GameData.sfxSound = sound; } //sfx 소리 저장
@@ -172,6 +193,6 @@ public class SaveLoadManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        SaveData();
+        //SaveData();
     }
 }

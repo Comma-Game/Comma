@@ -13,7 +13,7 @@ public class AchievementManager : MonoBehaviour
     [SerializeField] public StoryPanel[] stroyPanelsCS;
     [SerializeField] public TextMeshProUGUI highScoreText;
     private int currentUnlockedConceptNum = 0;
-    private List<List<bool>> currentUnlockedMemory = null;
+    private List<UnlockStoryInfo> currentUnlockedMemory = null;
 
     public void Start(){
         currentUnlockedConceptNum = SaveLoadManager.Instance.GetUnlockedConcept();
