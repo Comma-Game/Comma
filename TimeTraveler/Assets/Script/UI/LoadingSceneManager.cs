@@ -35,7 +35,7 @@ public class LoadingSceneManager : MonoBehaviour
             time += Time.time;
             imgTime += Time.time;
             //slider.value = time / 1000f;
-            Debug.Log(imgTime);
+            //Debug.Log(imgTime);
             if(time > 10000){
                 operation.allowSceneActivation = true;
             }
@@ -49,7 +49,7 @@ public class LoadingSceneManager : MonoBehaviour
                     imgTime = 0;
                 }
             }
-            Debug.Log(time);
+            //Debug.Log(time);
             yield return null;
         }
 
