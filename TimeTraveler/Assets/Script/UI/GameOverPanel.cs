@@ -44,6 +44,7 @@ public class GameOverPanel : MonoBehaviour
         Debug.Log("Get2Coin");
         //SceneManager.LoadScene("MainScene");
         // 코인 두 배 획득해서 얻는 코드
+        TestConceptButton.Instance.ResetTestConcept();
     }
 
     public void acceptButton(){
@@ -51,6 +52,7 @@ public class GameOverPanel : MonoBehaviour
         Debug.Log("acceptButton");
         SceneManager.LoadScene("MainScene");
         // 메인 화면 돌아가기
+        TestConceptButton.Instance.ResetTestConcept();
     }
 
     //////////////////////////////////////////

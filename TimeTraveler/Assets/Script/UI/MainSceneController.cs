@@ -121,6 +121,10 @@ public class MainSceneController : MonoBehaviour
                 Debug.Log("GamePlay");
                 if(heartPanelCS.GetCurrentHearts() >= 1){
                         if(isGameStart == false){
+                                // 치트 사용했는지 확인하고 모든 컨셉 열어버리기
+                                if(TestConceptButton.Instance.GetTestConcept().Count > 0){
+                                        SaveLoadManager.Instance.SetUnlockedConcept(9);
+                                }
                                 // 소지 버프가 없고 상점 버프 확정 안했지만 돌렸다면 확정시키기
                                 if(mysteryBox_current_num != -1 && SaveLoadManager.Instance.GetBuff() == 0){
                                         Debug.Log("no buff but have buff");
@@ -334,12 +338,14 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void GetMysteryBox(){
-                Debug.Log("GetMysteryBox");
-                AudioManager.Instance.PlayMesteryBoxBuySFX();
-                string randomBuffText = mysteryBox_Buff_Texts[GetRandomBuffNum()];
-                mysteryBoxBuffText.text = randomBuffText;
-                // 돈 소비
-                MinusCoin(mysteryBox_coin);
+                if(SaveLoadManager.Instance.GetCoin() >= 10000){
+                        Debug.Log("GetMysteryBox");
+                        AudioManager.Instance.PlayMesteryBoxBuySFX();
+                        string randomBuffText = mysteryBox_Buff_Texts[GetRandomBuffNum()];
+                        mysteryBoxBuffText.text = randomBuffText;
+                        // 돈 소비
+                        MinusCoin(mysteryBox_coin);
+                }
 	}
 
 	public void SelectMysteryBox(){

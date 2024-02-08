@@ -11,7 +11,7 @@ public class ChooseMapPanel : MonoBehaviour
     private int[] map_Check = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     private List<int> chooseMapList = new List<int>();
     public List<int> GetChooseMapList() {return chooseMapList;}
-    private bool isCheck = false;
+    //private bool isCheck = true;
 
     private static ChooseMapPanel instance;
     // singleton
@@ -51,10 +51,15 @@ public class ChooseMapPanel : MonoBehaviour
     public void ChooseMap(int num){
         AudioManager.Instance.PlayGameButtonClick();
         if(map_Check[num] == 0){
-            if(isCheck == false && TestConceptButton.Instance.GetTestConcept().Count != 0){
-                TestConceptButton.Instance.ResetTestConcept();
-                isCheck = true;
-            }
+            Debug.Log("GetTestConcept : " +  TestConceptButton.Instance.GetTestConcept().Count);
+            // 처음 클릭이고
+            // if(isCheck){
+            //     if(TestConceptButton.Instance.GetTestConcept().Count > 0) {
+            //         TestConceptButton.Instance.ResetTestConcept();
+            //         Debug.Log("GetTestConcept Reset");
+            //     }
+            //     isCheck = false;
+            // }
             map_Check[num] = 1;
             chooseMapList.Add(num);
             TestConceptButton.Instance.AddTestConcept(num);

@@ -29,6 +29,7 @@ public class SettingPanel : MonoBehaviour
         PlayGameManager.Instance.ResumeGame(); //재개
         AudioManager.Instance.PlayGameButtonClick();
         SceneManager.LoadScene("MainScene");
+        TestConceptButton.Instance.ResetTestConcept();
     }
 
     public void ClickOpenURLButton(){
