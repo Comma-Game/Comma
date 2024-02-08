@@ -35,9 +35,9 @@ public class StoryPanel : MonoBehaviour
         stroyImg[1].sprite = mystroy2Img;
         stroyImg[2].sprite = mystroy3Img;
 
-        stroyTitleText[0].text = mystroy1TitleText;
-        stroyTitleText[1].text = mystroy2TitleText;
-        stroyTitleText[2].text = mystroy3TitleText;
+        // stroyTitleText[0].text = mystroy1TitleText;
+        // stroyTitleText[1].text = mystroy2TitleText;
+        // stroyTitleText[2].text = mystroy3TitleText;
 
         stroyText[0].text = mystroy1Text;
         stroyText[1].text = mystroy2Text;

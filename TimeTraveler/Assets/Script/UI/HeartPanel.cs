@@ -69,6 +69,7 @@ public class HeartPanel : MonoBehaviour
 
     private void LoadData()
     {
+        fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
         currentHearts = SaveLoadManager.Instance.GetHeart();
         lastFillTime = SaveLoadManager.Instance.GetExitTime();
         Debug.Log("currentHearts : " + currentHearts);

@@ -9,7 +9,7 @@ public class HeartShopPanel : MonoBehaviour
 
     public void BuyOneHeart(){
         AudioManager.Instance.PlayGameButtonClick();
-        if(HeartPanelCS.GetCurrentHearts() < 5){
+        if(HeartPanelCS.GetCurrentHearts() < 5 && SaveLoadManager.Instance.GetCoin() >= 15000){
             HeartPanelCS.AddHearts(1);
             mainSceneController.MinusCoin(15000);
         }

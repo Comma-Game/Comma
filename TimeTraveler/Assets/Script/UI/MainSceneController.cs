@@ -27,6 +27,10 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public LoadingSceneManager loadingSceneManager;
         [SerializeField] public GameObject mapChoosePanel;
         [SerializeField] public GameObject starFX;
+        [SerializeField] public GameObject tutoralPanel;
+        [SerializeField] public GameObject cheatPanel;
+        [SerializeField] public GameObject cheatCheckPanel;
+
 
         [Header("background Obj")]
         [SerializeField] public Animator Charater;
@@ -104,7 +108,7 @@ public class MainSceneController : MonoBehaviour
                 AchievementPanelCS.ChangeHighScoreText(SaveLoadManager.Instance.GetHighScore());
                 SettingClass(hpUpgradeClass, jellyUpgradeClass, energyUpgradeClass);
 
-                if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
+                //if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
 
                 // 만약 게임이 처음이면 스토리 panel 띄우기
@@ -132,7 +136,9 @@ public class MainSceneController : MonoBehaviour
                                 SettingPanel.SetActive(false);
                                 CashShopPanel.SetActive(false);
                                 mapChoosePanel.SetActive(false);
-                                starFX.SetActive(false);
+                                tutoralPanel.SetActive(false);
+                                cheatPanel.SetActive(false);
+                                cheatCheckPanel.SetActive(false);
                                 // 하트 값 소모 1
                                 if(heartPanelCS == null){
                                         heartPanelCS = heartPanel.GetComponent<HeartPanel>();
@@ -173,6 +179,7 @@ public class MainSceneController : MonoBehaviour
         private void MoveScene()
         {
                // SceneManager.LoadScene("GameScene");
+               starFX.SetActive(false);
                 loadingScene.SetActive(true);
                 loadingSceneManager.StartSceneMove();
         }

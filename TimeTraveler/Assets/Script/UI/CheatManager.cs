@@ -9,5 +9,7 @@ public class CheatManager : MonoBehaviour
 
     public void ChangeHeartTime(float time){
         heartPanelCS.SetFillCooldownMinutes(time);
+        SaveLoadManager.Instance.SetHeartTimeTest(time);
+        SaveLoadManager.Instance.SaveData();
     }
 }
