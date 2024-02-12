@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NotiMessagePanel : MonoBehaviour
 {
-    private float moveDistance = 150f; // 이동 거리
-    private float moveDuration = 1.5f; // 이동에 걸리는 시간
+    private float moveDistance = 200f; // 이동 거리
+    private float moveDuration = 2.5f; // 이동에 걸리는 시간
 
     private float elapsedTime = 0f;
     private bool isMovingUp = true;

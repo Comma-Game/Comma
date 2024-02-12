@@ -31,7 +31,7 @@ public class AchievementManager : MonoBehaviour
     }
 
     public void ChangeHighScoreText(int num){
-        highScoreText.text = "My High Score : " + num.ToString();
+        highScoreText.text = "내 최고 점수 : " + num.ToString();
     }
 
     public void OnPanel(bool isActive){

@@ -8,7 +8,6 @@ public class LoadingSceneManager : MonoBehaviour
 {
     public Slider slider;
     private float time = 0;
-
     public GameObject loadingPanel;
     public GameObject turtorialPanel;
     public bool isImage;
@@ -36,11 +35,11 @@ public class LoadingSceneManager : MonoBehaviour
             imgTime += Time.time;
             //slider.value = time / 1000f;
             //Debug.Log(imgTime);
-            if(time > 10000){
+            if(time > 15000){
                 operation.allowSceneActivation = true;
             }
             if(isImage){
-                if(imgTime > 3000){
+                if(imgTime > 5000){
                     imgNum += 1;
                     if(imgNum >= sprites.Length){
                         imgNum = 0;

@@ -12,6 +12,7 @@ public class FirstStoryPanel : MonoBehaviour
     [SerializeField] public GameObject rightButton;
     [SerializeField] public GameObject returnButton;
     private int currentNum = 0;
+    [SerializeField] public bool isSaveData;
 
     public void ClickLeftButton(){
         AudioManager.Instance.PlayGameButtonClick();
@@ -47,7 +48,9 @@ public class FirstStoryPanel : MonoBehaviour
 
     public void ClickReturnButton(){
         AudioManager.Instance.PlayGameButtonClick();
-        SaveLoadManager.Instance.SetIsGameFirst();
-        SaveLoadManager.Instance.SaveData();
+        if(isSaveData){
+            SaveLoadManager.Instance.SetIsGameFirst();
+            SaveLoadManager.Instance.SaveData();
+        }
     }
 }

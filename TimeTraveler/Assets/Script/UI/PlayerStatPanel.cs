@@ -194,7 +194,7 @@ public class PlayerStatPanel : MonoBehaviour
     ////// 그 밖에
 
     public void ChangeScoreText(float score){
-        scoreText.text = "Score : " + score.ToString();
+        scoreText.text = "현재 점수 : " + score.ToString();
     }
 
     public void ChangeScoreUpText(float scoreUp){

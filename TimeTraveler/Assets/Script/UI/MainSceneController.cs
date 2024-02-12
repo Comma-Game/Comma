@@ -8,6 +8,7 @@ using SlimUI.ModernMenu;
 public class MainSceneController : MonoBehaviour
 {
         [Header("main Object")]
+        [SerializeField] public GameObject basicButton;
         [SerializeField] public GameObject portal;
         [SerializeField] public GameObject mainPanel_Button;
         [SerializeField] public GameObject mainPanel_playerStat;
@@ -27,6 +28,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public LoadingSceneManager loadingSceneManager;
         [SerializeField] public GameObject mapChoosePanel;
         [SerializeField] public GameObject starFX;
+        [SerializeField] public GameObject tutoralAllPanel;
         [SerializeField] public GameObject tutoralPanel;
         [SerializeField] public GameObject cheatPanel;
         [SerializeField] public GameObject cheatCheckPanel;
@@ -114,6 +116,7 @@ public class MainSceneController : MonoBehaviour
                 // 만약 게임이 처음이면 스토리 panel 띄우기
                 if(isGameFirst == false){
                         FirstStoryPanel.SetActive(true);
+                        tutoralPanel.SetActive(true);
                 }
         }
 
@@ -143,6 +146,7 @@ public class MainSceneController : MonoBehaviour
                                 tutoralPanel.SetActive(false);
                                 cheatPanel.SetActive(false);
                                 cheatCheckPanel.SetActive(false);
+                                basicButton.SetActive(false);
                                 // 하트 값 소모 1
                                 if(heartPanelCS == null){
                                         heartPanelCS = heartPanel.GetComponent<HeartPanel>();
@@ -218,18 +222,18 @@ public class MainSceneController : MonoBehaviour
         /// player panel
 
         private void ChangeCoinText(int coin){
-                coinText_1.text = "Coin : " + coin.ToString();
-                coinText_2.text = "Coin : " + coin.ToString();
+                coinText_1.text = "소지금 : " + coin.ToString();
+                coinText_2.text = "소지금 : " + coin.ToString();
         }
 
         private void ChangeScoreText(int score){
-                scoreText_1.text = "Score : " + score.ToString();
-                scoreText_2.text = "Score : " + score.ToString();
+                scoreText_1.text = "최고 점수 : " + score.ToString();
+                scoreText_2.text = "최고 점수 : " + score.ToString();
         }
 
         private void ChangeBuffText(string buff){
-                buffText_1.text = "Get Buff : " + buff;
-                buffText_2.text = "Get Buff : " + buff;
+                buffText_1.text = "현재 가진 추가 능력 : " + buff;
+                buffText_2.text = "현재 가진 추가 능력 : " + buff;
         }
 
         /// /////////////////////////////////////////////////////////////////
@@ -379,21 +383,21 @@ public class MainSceneController : MonoBehaviour
 
         private void ChangeShopHpText(bool canUpgrade){
                 Debug.Log("UpgradeStatHP "+hpUpgradeClass);
-                if(canUpgrade) shopHpText.text = "Upgrade \n" + hpUpgradeCoin[hpUpgradeClass];
+                if(canUpgrade) shopHpText.text = "강화 \n" + hpUpgradeCoin[hpUpgradeClass];
                 else shopHpText.text = "Max";
                 shopHpLVText.text = "LV " + (hpUpgradeClass).ToString();
         }
 
         private void ChangeJellyText(bool canUpgrade){
                 Debug.Log("UpgradeJelly "+jellyUpgradeClass);
-                if(canUpgrade) shopStatText.text = "Upgrade \n" + jellyUpgradeCoin[jellyUpgradeClass];
+                if(canUpgrade) shopStatText.text = "강화 \n" + jellyUpgradeCoin[jellyUpgradeClass];
                 else shopStatText.text = "Max";
                 shopStatLVText.text = "LV " + (jellyUpgradeClass).ToString();
         }
 
         private void ChangeEnergyText(bool canUpgrade){
                 Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
-                if(canUpgrade) shopEnergyText.text = "Upgrade \n" + energyUpgradeCoin[energyUpgradeClass];
+                if(canUpgrade) shopEnergyText.text = "강화 \n" + energyUpgradeCoin[energyUpgradeClass];
                 else shopEnergyText.text = "Max";
                 shopEnergyLVText.text = "LV " + (energyUpgradeClass).ToString();
         }

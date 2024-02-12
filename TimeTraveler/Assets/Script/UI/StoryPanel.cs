@@ -7,6 +7,8 @@ using TMPro;
 
 public class StoryPanel : MonoBehaviour
 {
+    [SerializeField] public int conceptNum;
+
     [Header("put Story")]
     [SerializeField] public string mytitleText;
     [SerializeField] public Sprite mystroy1Img;
@@ -26,6 +28,7 @@ public class StoryPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI[] stroyText;
 
     private UnlockStoryInfo isStoryLock = null;
+    private bool[] isUnlockStroy = {false, false, false}; 
     
     void Start()
     {
@@ -49,14 +52,20 @@ public class StoryPanel : MonoBehaviour
         for(int i=0; i<3; i++){
             Debug.Log("SettingStory "+ i + " : " + isStoryLock.CheckStory(i));
             if(isStoryLock.CheckStory(i) == false){
+                isUnlockStroy[i] = false;
                 stroyImg[i].enabled = false;
                 stroyText[i].enabled = false;
                 stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 잠김";
             }else{
+                isUnlockStroy[i] = true;
                 stroyImg[i].enabled = true;
                 stroyText[i].enabled = true;
                 stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 열림";
             }
         }
+    }
+
+    public void OnStory(int storyum){
+        if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
     }
 }
