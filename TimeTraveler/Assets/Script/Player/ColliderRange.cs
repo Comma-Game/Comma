@@ -63,7 +63,7 @@ public class ColliderRange : MonoBehaviour
         gameObject.GetComponent<RawImage>().color = Color.blue;
     }
 
-    public void ReSetColor()
+    public void ResetColor()
     {
         _forceField.SetActive(false);
 

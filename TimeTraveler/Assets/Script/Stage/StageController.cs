@@ -161,7 +161,7 @@ public class StageController : MonoBehaviour
         SetStageParent();
         InstantiateStage();
 
-        TestStage(2);
+        TestStage(7);
         TestStage();
         InsertStageToQueue();
         InsertStageToQueue();

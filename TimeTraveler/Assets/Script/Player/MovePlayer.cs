@@ -27,7 +27,7 @@ public class MovePlayer : MonoBehaviour
     GameObject _camera;
     Canvas _canvas;
     bool _useSkill, _isPause;
-    float _radius, _width, _height;
+    float _radius;
     Vector2 _arrowDir;
 
     private void OnDisable()
@@ -45,16 +45,14 @@ public class MovePlayer : MonoBehaviour
         _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
         _camera = GameObject.Find("Main Camera");
-        _canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        _canvas = GameObject.Find("PlayerCanvas").GetComponent<Canvas>();
 
         _swipeRange = 1.5f * _canvas.scaleFactor;
         _swipeSpeed = 2.5f;
         _maxSpeed = 5f;
         _useSkill = false;
 
-        _radius = ((_colliderRange.sizeDelta / 2) * _canvas.scaleFactor).magnitude;
-        _width = Screen.width / 2;
-        _height = Screen.height / 2;
+        _radius = (_colliderRange.sizeDelta / 2).magnitude;
     }
 
     void Update()

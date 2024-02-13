@@ -24,7 +24,7 @@ public class PlayGameManager : MonoBehaviour
     }
 
     bool _coinBuff;
-    Coroutine _coroutine;
+    Coroutine _gameOverCoroutine, _timeCoroutine;
     Player _player;
     StageController _stageController;
     GameObject _stage, _fog;
@@ -86,8 +86,8 @@ public class PlayGameManager : MonoBehaviour
         ResumeGame();
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
 
-        if (_coroutine != null) StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(ScoreTime());
+        StopAllCoroutines();
+        _timeCoroutine = StartCoroutine(ScoreTime());
     }
 
     //젤리 파티클 활성화
@@ -98,6 +98,8 @@ public class PlayGameManager : MonoBehaviour
 
     public void EndGame()
     {
+        if (_timeCoroutine != null) StopCoroutine(_timeCoroutine);
+
         //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
 
@@ -123,8 +125,8 @@ public class PlayGameManager : MonoBehaviour
         CanvasController.Instance.ChangeResultCoinText(_coin);
         CanvasController.Instance.ChangeResultStageText(StageController.Instance.GetStageCount());
 
-        if (_coroutine != null) StopCoroutine(_coroutine);
-        _coroutine = StartCoroutine(OpenGameOverUI(2));
+        if (_gameOverCoroutine != null) StopCoroutine(_gameOverCoroutine);
+        _gameOverCoroutine = StartCoroutine(OpenGameOverUI(2));
     }
 
     public void ScoreUp(int value)

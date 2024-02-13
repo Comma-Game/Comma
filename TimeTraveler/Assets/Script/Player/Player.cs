@@ -11,19 +11,20 @@ public class Player : MonoBehaviour
     Canvas _canvas;
 
     float _hp, _maxHp, _bloodHp, _energy, _energyChargeSpeed, _sphereScale;
-    bool _isInvincible, _isPassPortal, _isCast, _isHit;
+    bool _isInvincible, _isPassPortal, _isCast, _isPoison;
     PlayGameManager _playGameManager;
-    Coroutine _coroutine;
+    Coroutine _portalCoroutine, _invincibleCoroutine, _skillCoroutine;
     ColliderRange _colliderRange;
     int _jellyScore;
     RaycastHit[] _hits;
     RaycastHit _hit;
-    float _obstacleDamageBuff, _timeDamageBuff, _healBuff, _timeDamage, _iniTimeDamage;
+    float _obstacleDamageBuff, _timeDamageBuff, _healBuff, _timeDamage;
     GameObject _camera;
     Animator _animator;
 
     //TestControlButton 없애면 같이 없앨 변수
     bool _isMobile;
+
     private void Update()
     {
         _isMobile = transform.GetComponent<MovePlayer>().enabled;
@@ -36,8 +37,7 @@ public class Player : MonoBehaviour
         _camera = GameObject.Find("Main Camera");
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        _iniTimeDamage = 3f;
-        _timeDamage = _iniTimeDamage;
+        _timeDamage = 3f;
 
         _isCast = false;
         _isPassPortal = false;
@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
 
     void Init()
     {
+        StopAllCoroutines();
+
         transform.gameObject.SetActive(true);
         _colliderRange.EnableRawImage();
 
@@ -72,8 +74,6 @@ public class Player : MonoBehaviour
         Debug.Log("Jelly : " + _jellyScore);
 
         _sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
-
-        if (_coroutine != null) StopCoroutine(_coroutine);
     }
 
     private void OnEnable()
@@ -105,13 +105,14 @@ public class Player : MonoBehaviour
             if (!_hits[i].transform.gameObject.name.Equals(collision.gameObject.name)) continue;
             if(collision.transform.CompareTag("Obstacle"))
             {
-                collision.gameObject.SetActive(false);
                 AudioManager.Instance.PlayDamgeSFX();
 
                 HitDamage(10 * _obstacleDamageBuff);
 
                 if (collision.gameObject.GetComponent<MeshExploder>() != null)
                     StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
+                
+                collision.gameObject.SetActive(false);
 
                 StageController.Instance.AddDisabled(collision.gameObject);
             }
@@ -185,7 +186,7 @@ public class Player : MonoBehaviour
         //Heal(1.8f);
         
         StopMyCoroutine();
-        _coroutine = StartCoroutine(PortalTime(0.2f));
+        _portalCoroutine = StartCoroutine(PortalTime(0.2f));
     }
 
     void TriggerGround()
@@ -215,7 +216,8 @@ public class Player : MonoBehaviour
             {
                 CanvasController.Instance.PlayerUpEnergy(100 - _energy);
                 _energy = 100;
-                _colliderRange.PrepareToSkill();
+                
+                if(!_isInvincible && !_isPoison) _colliderRange.PrepareToSkill();
             }
             else
             {
@@ -256,23 +258,17 @@ public class Player : MonoBehaviour
     }
 
     //틱 테미지 업
-    public void TimeDamageUp(int mul) 
+    public void TimeDamageUp() 
     {
-        if (_timeDamage == _iniTimeDamage)
-        {
-            _timeDamage *= mul;
-            _colliderRange.SetPoison();
-        }
+        _isPoison = true;
+        _colliderRange.SetPoison(); 
     }
 
     //틱 데미지 리셋
-    public void ResetTimeDamage()
+    public void ResetTimeDamage() 
     {
-        if(_timeDamage != _iniTimeDamage)
-        {
-            _timeDamage = _iniTimeDamage;
-            _colliderRange.ReSetColor();
-        }
+        _isPoison = false;
+        ResetColor(); 
     }
     
     //틱 데미지
@@ -287,7 +283,7 @@ public class Player : MonoBehaviour
     //장애물 데미지
     void HitDamage(float damage)
     {
-        if (!_isHit && !_isInvincible & !_isCast)
+        if (!_isInvincible && !_isCast)
         {
             Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
@@ -310,7 +306,7 @@ public class Player : MonoBehaviour
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
             StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 
-            SetInvincible(1);
+            SetGroundDamage(1);
 
             GetDamage(damage);
         }
@@ -320,9 +316,9 @@ public class Player : MonoBehaviour
     {
         if (_energy == 100)
         {
-            StopMyCoroutine();
+            if (_skillCoroutine != null) StopCoroutine(_skillCoroutine);
 
-            _coroutine = StartCoroutine(CastTime(2));
+            _skillCoroutine = StartCoroutine(CastTime(2));
             _energy = 0;
             CanvasController.Instance.PlayerDownEnergy(100);
         }
@@ -332,21 +328,15 @@ public class Player : MonoBehaviour
     {
         StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 
-        StopMyCoroutine();
-        _coroutine = StartCoroutine(HitObstacleTime(time));
+        StageController.Instance.SetVelocity(StageController.Instance.BasicSpeed);
+        _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
     }
 
-    void SetInvincible(float time)
+    void SetGroundDamage(float time)
     {
-        StopMyCoroutine();
-        _coroutine = StartCoroutine(InvincibleTime(time));
-    }
+        if (_invincibleCoroutine != null) StopCoroutine(_invincibleCoroutine);
 
-    void ChangeWindAlpha(float value)
-    {
-        Color color = _wind.GetComponent<Image>().color;
-        color.a = value;
-        _wind.GetComponent<Image>().color = color;
+        _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
     }
 
     void EndGame()
@@ -358,14 +348,15 @@ public class Player : MonoBehaviour
         _colliderRange.DisableRawImage();
         PlayGameManager.Instance.EndGame();
 
-        if (_coroutine != null) StopCoroutine(_coroutine);
+        StopAllCoroutines();
     }
 
     public void DestroyPlayer() { transform.gameObject.SetActive(false); }
 
     void ResetColor()
     {
-        if(_energy < 100) _colliderRange.ReSetColor();
+        if (_isPoison) _colliderRange.SetPoison();
+        else if (_energy < 100) _colliderRange.ResetColor();
         else _colliderRange.PrepareToSkill();
     }
 
@@ -385,9 +376,9 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(t);
 
-        ResetColor();
-
         _isInvincible = false;
+
+        ResetColor();
     }
 
     IEnumerator CastTime(float t)
@@ -422,49 +413,40 @@ public class Player : MonoBehaviour
         CanvasController.Instance.ChangeSpeedColor(0);
         StageController.Instance.ResetVelocity();
 
-        _colliderRange.ReSetColor();
-
         _isInvincible = false;
         _isCast = false;
-    }
-
-    IEnumerator HitObstacleTime(float t)
-    {
-        _isHit = true;
-
-        StageController.Instance.SetVelocity(StageController.Instance.BasicSpeed);
-        _colliderRange.SetInvincible();
-
-        yield return new WaitForSeconds(t);
 
         ResetColor();
-
-        _isHit = false;
     }
 
     //무적 및 스킬 중단
     void StopMyCoroutine()
     {
-        if (_coroutine != null)
+        ResetColor();
+
+        if (_portalCoroutine != null)
         {
-            StopCoroutine(_coroutine);
-
-            ResetColor();
-
-            if (_isCast)
-            {
-                _animator.speed = 1;
-                _colliderRange.GetComponent<ColliderRange>().DisableSkillEffect();
-
-                _animator.SetBool("UseSkill", false);
-                CanvasController.Instance.ChangeSpeedColor(0);
-                StageController.Instance.ResetVelocity();
-            }
-
-            _isCast = false;
-            _isHit = false;
+            StopCoroutine(_portalCoroutine);
             _isPassPortal = false;
+        }
+
+        if(_invincibleCoroutine != null)
+        {
+            StopCoroutine(_invincibleCoroutine);
             _isInvincible = false;
+        }
+
+        if(_skillCoroutine != null)
+        {
+            _animator.speed = 1;
+            _colliderRange.GetComponent<ColliderRange>().DisableSkillEffect();
+
+            _animator.SetBool("UseSkill", false);
+            CanvasController.Instance.ChangeSpeedColor(0);
+            StageController.Instance.ResetVelocity();
+
+            StopCoroutine(_skillCoroutine);
+            _isCast = false;
         }
     }
 
