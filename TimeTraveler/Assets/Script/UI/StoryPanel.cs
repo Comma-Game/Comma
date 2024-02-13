@@ -54,18 +54,19 @@ public class StoryPanel : MonoBehaviour
             if(isStoryLock.CheckStory(i) == false){
                 isUnlockStroy[i] = false;
                 stroyImg[i].enabled = false;
-                stroyText[i].enabled = false;
+                //stroyText[i].enabled = false;
                 stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 잠김";
             }else{
                 isUnlockStroy[i] = true;
                 stroyImg[i].enabled = true;
-                stroyText[i].enabled = true;
+                //stroyText[i].enabled = true;
                 stroyTitleText[i].text = "Story " + (i+1).ToString() + " - 열림";
             }
         }
     }
 
     public void OnStory(int storyum){
-        if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
+        //if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
+        StoryManager.Instance.ShowStory(conceptNum, storyum);
     }
 }

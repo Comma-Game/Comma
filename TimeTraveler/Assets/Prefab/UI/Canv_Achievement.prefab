@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC9D1"
+  m_text: "\uC232"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -3014,7 +3014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACF5\uB8E1"
+  m_text: "\uC6B0\uC8FC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -3570,7 +3570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2E4\uD5D8\uC2E4"
+  m_text: "\uD30C\uC774\uD504"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -3795,7 +3795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC232"
+  m_text: "\uC9D1\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -5268,7 +5268,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC7A5\uB09C\uAC10"
+  m_text: "\uACF5\uB8E1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -5780,7 +5780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBC14\uB2E4"
+  m_text: "\uD559\uAD50"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -6234,7 +6234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD589\uC131"
+  m_text: "\uC5F0\uAD6C\uC2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -6459,7 +6459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD30C\uC774\uD504"
+  m_text: "\uBC14\uB2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -7460,7 +7460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD559\uAD50"
+  m_text: "\uC7A5\uB09C\uAC10"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -8894,7 +8894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_ Planet
+      value: StoryPanel10
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9013,22 +9013,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy1Text
-      value: " \uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0??"
+      value: "\uB0AF\uC774 \uC775\uC740 \uC9D1"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy2Text
-      value: "\uC800\uAE30\uC788\uB2E4!! \uBE68\uB9AC \uC7A1\uC544!!!(\uBD88\uBC95
-        \uC5F0\uAD6C\uC6D0\uB4E4\uC774 \uCAD3\uC544\uC628\uB2E4) "
+      value: "\uBC29\uCE58\uB418\uC5C8\uB358 \uC9D1, \uADF8\uB9AC\uACE0 \uC0AC\uC9C4"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy3Text
-      value: "\uC73C\uC545! \uBB50\uC57C!! \uB0A0 \uC7A1\uC73C\uB7EC \uC624\uB294\uAC70\uC57C??(\uB2F9\uD669\uD55C
-        \uD50C\uB808\uC774\uC5B4\uAC00 \uC790\uC2E0\uB3C4 \uBAA8\uB974\uAC8C \uB2A5\uB825\uC744
-        \uC4F0\uAC8C \uB41C\uB2E4.)"
+      value: "\uC0AC\uC9C4 \uC18D \uAC00\uC871"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Forest
+      value: StoryPanel1
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9167,7 +9164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Lab
+      value: StoryPanel9
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9290,21 +9287,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy1Text
-      value: "\uBC14\uB2E4\uB2E4!! \uB180\uB7EC\uAC00\uACE0 \uC2F6\uC5C8\uB358 \uACF3\uC778\uB370!!"
+      value: "\uD559\uAD50 \uBC29\uBB38"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy2Text
-      value: "(\uBC14\uB2E4\uC5D0\uC11C \uBB3C\uB180\uC774\uB97C \uD558\uBA70 \uC990\uAE34\uB2E4.)"
+      value: "\uC0AC\uC9C4 \uC18D \uC544\uC774\uB4E4\uC758 \uC774\uB984"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy3Text
-      value: "\uADFC\uB370...\uC5ED\uC2DC \uD568\uAED8\uD558\uB294 \uAC00\uC871\uC774
-        \uC5C6\uC73C\uB2C8\uAE4C \uAE08\uBC29 \uC9C0\uB8E8\uD574\uC9C0\uB124..\uC9D1\uC5D0
-        \uAC00\uACE0\uC2F6\uB2E4.. \uADFC\uB370 \uC9D1\uC774 \uC5B4\uB514\uC600\uB354\uB77C..."
+      value: "\uAC19\uC740 \uC774\uB984"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Sea
+      value: StoryPanel2
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9442,7 +9437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_ Pipe
+      value: StoryPanel8
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9565,23 +9560,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy1Text
-      value: "\uD559\uAD50..?? \uB0B4\uAC00 \uB2E4\uB2C8\uB358 \uD559\uAD50\uB2E4!(\uD50C\uB808\uC774\uC5B4\uC758
-        \uCE5C\uAD6C\uB4E4\uC774 \uB2E4\uAC00\uC628\uB2E4)"
+      value: "\uC544\uC774\uC758 \uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy2Text
-      value: "\uCE5C\uAD6C\uB4E4..\uAD50\uC2E4..\uC120\uC0DD\uB2D8.. \uBAA8\uB450
-        \uADF8\uB300\uB85C\uC778\uB370 \uC774 \uD5C8\uC804\uD568\uC740 \uBB58\uAE4C??"
+      value: "\uB3D9\uC0DD\uC758 \uAFC8"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy3Text
-      value: "(\uD559\uAD50 \uC218\uC5C5\uC774 \uB05D\uB098\uB294 \uC885\uC774 \uC6B8\uB9AC\uACE0
-        \uCE5C\uAD6C\uB4E4\uC774 \uD50C\uB808\uC774\uC5B4\uC5D0\uAC8C \uC628\uB2E4)
-        \uCE5C\uAD6C\uB4E4 : \uB180\uC774\uD130\uAC00\uC11C \uB180\uC790!!"
+      value: "\uCC45\uC0C1 \uC704 \uC77C\uAE30\uC7A5"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_School
+      value: StoryPanel3
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9718,7 +9709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Dino
+      value: StoryPanel7
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9841,23 +9832,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy1Text
-      value: "(\uCE5C\uAD6C\uB4E4\uACFC \uD568\uAED8 \uB180\uC774\uD130\uC5D0\uC11C
-        \uC990\uAC81\uAC8C \uB17C\uB2E4)"
+      value: "\uAFC8\uC5D0\uC11C \uB098\uD0C0\uB09C \uB3D9\uC0DD"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy2Text
-      value: " (\uCE5C\uAD6C\uB4E4\uC758 \uC9C8\uBB38) \uADF8\uB098\uC800\uB098 OO\uC544
-        (\uB3D9\uC0DD\uC774\uB984)OO\uC774\uB294 \uC5B4\uB514\uAC14\uC5B4??? \uD56D\uC0C1
-        \uAC19\uC774 \uB2E4\uB154\uC796\uC544"
+      value: "\uC232\uC5D0 \uB300\uD55C \uC77C\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy3Text
-      value: "(\uB3D9\uC0DD\uC774\uB984)OO\uC774..?? \uB098\uB791 \uD56D\uC0C1 \uAC19\uC774
-        \uB2E4\uB154\uB2E4\uACE0?? \uB204\uAD6C\uC9C0..?"
+      value: "\uD589\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Playground
+      value: StoryPanel4
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -9980,22 +9967,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy1Text
-      value: "\uC5EC\uAE34.. \uC5B4\uB514\uC9C0?? \uC775\uC219\uD55C \uC9D1\uC778\uB370?"
+      value: "\uC232\uC744 \uD5A5\uD558\uC5EC"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy2Text
-      value: "(\uBB38\uC744 \uC5F4\uBA70 \uB098\uC624\uB294 \uC5C4\uB9C8) \uC654\uAD6C\uB098!?
-        \uADFC\uB370 (\uB3D9\uC0DD\uC774\uB984)OO\uC774\uB294 \uC5B4\uB514\uAC00\uACE0
-        \uB108\uB9CC \uC624\uB2C8??"
+      value: "\uD76C\uBBF8\uD55C \uBE5B"
       objectReference: {fileID: 0}
     - target: {fileID: 1721793150896003418, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: mystroy3Text
-      value: "\uB3C4\uB300\uCCB4 (\uB3D9\uC0DD\uC774\uB984)OO\uC774 \uB204\uAD6C\uAE38\uB798
-        \uC790\uAFB8 \uBD80\uB974\uB294 \uAC78\uAE4C??"
+      value: "\uB3D9\uAD74 \uC18D \uBC1D\uC740 \uBE5B"
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_House
+      value: StoryPanel5
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
@@ -10133,7 +10117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_Name
-      value: StoryPanel_Toy
+      value: StoryPanel6
       objectReference: {fileID: 0}
     - target: {fileID: 7314995575619469028, guid: 9723e9225fbe36c4793401d5fc03401c, type: 3}
       propertyPath: m_IsActive
