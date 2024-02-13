@@ -146,9 +146,19 @@ public class PlayGameManager : MonoBehaviour
 
     public void SetStage(GameObject stage) { _stage = stage; }
 
-    public void PauseGame() { Time.timeScale = 0f; } //게임 일시정지
+    //게임 일시정지
+    public void PauseGame() 
+    { 
+        Time.timeScale = 0f;
+        _player.transform.GetComponent<MovePlayer>().SetPause();
+    }
 
-    public void ResumeGame() { Time.timeScale = 1f; } //게임 재개
+    //게임 재개
+    public void ResumeGame() 
+    { 
+        Time.timeScale = 1f;
+        _player.transform.GetComponent<MovePlayer>().ResetPause();
+    } 
 
     IEnumerator ScoreTime()
     {

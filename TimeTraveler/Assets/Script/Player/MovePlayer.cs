@@ -26,7 +26,7 @@ public class MovePlayer : MonoBehaviour
     Player _player;
     GameObject _camera;
     Canvas _canvas;
-    bool _useSkill;
+    bool _useSkill, _isPause;
     float _radius, _width, _height;
     Vector2 _arrowDir;
 
@@ -59,11 +59,14 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        GetTouch();
-        CheckSpeed();
+        if (!_isPause)
+        {
+            GetTouch();
+            CheckSpeed();
 
-        ArrowRotate();
-        ArrowPosition();
+            ArrowRotate();
+            ArrowPosition();
+        }
 
         if (Input.touchCount == 0)
         {
@@ -136,6 +139,10 @@ public class MovePlayer : MonoBehaviour
     {
         _rigidbody.velocity /= 2;
     }
+
+    public void SetPause() { _isPause = true; }
+
+    public void ResetPause() { _isPause = false; }
 
     IEnumerator MoveTime()
     {

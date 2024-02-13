@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         _camera = GameObject.Find("Main Camera");
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        _iniTimeDamage = 0.9f;
+        _iniTimeDamage = 3f;
         _timeDamage = _iniTimeDamage;
 
         _isCast = false;
@@ -152,8 +152,7 @@ public class Player : MonoBehaviour
                     SaveLoadManager.Instance.SetUnlockedMemory(jelly_info[0], jelly_info[1]); //스테이지 별 먹은 기억의 조각 저장
                 }
 
-                //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                Heal(5f * _healBuff);
+                Heal(15f * _healBuff);
             }
             else
             {
@@ -183,10 +182,10 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        Heal(1.8f);
+        //Heal(1.8f);
         
         StopMyCoroutine();
-        _coroutine = StartCoroutine(PortalTime(0.5f));
+        _coroutine = StartCoroutine(PortalTime(0.2f));
     }
 
     void TriggerGround()

@@ -101,6 +101,8 @@ public class StageController : MonoBehaviour
     int _passThroughCount, _conceptCount; //_passThroughCount : 장애물에 부딪히지 않고 계속 전진하는 횟수, _conceptCount : 플레이 가능한 concept 개수
     bool[,] _isInstantiateStage;
 
+    const int MaxConceptIndex = 10;
+
     private void Awake()
     {
         //스피드 초기화
@@ -153,12 +155,13 @@ public class StageController : MonoBehaviour
     void Init()
     {
         _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-        _isInstantiateStage = new bool[_conceptCount, 3];
+        _isInstantiateStage = new bool[MaxConceptIndex, 3];
         
         SetConceptIndex();
         SetStageParent();
         InstantiateStage();
 
+        TestStage(2);
         TestStage();
         InsertStageToQueue();
         InsertStageToQueue();
@@ -168,12 +171,22 @@ public class StageController : MonoBehaviour
         MoveStage();
     }
 
+    void TestStage(int index)
+    {
+        List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
+
+        for (int j = 3; j > 0; j--)
+        {
+            int next_stage_num = Random.Range(0, j);
+            _queue.Enqueue(new StageInfo(index, stageIndex[next_stage_num]));
+            stageIndex.RemoveAt(next_stage_num);
+        }
+    }
+
     void TestStage()
     {
         List<int> testConceptList = TestConceptButton.Instance.GetTestConcept();
         int index = -1;
-        
-        Debug.Log("Test Concept Count : " + testConceptList.Count);
 
         for (int i = 0; i < testConceptList.Count; i++)
         {
@@ -190,6 +203,7 @@ public class StageController : MonoBehaviour
         }
 
         if (index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
+        _prevConcept = index;
     }
 
     //초기 Concept Index 설정
@@ -215,10 +229,6 @@ public class StageController : MonoBehaviour
     void InsertStageToQueue()
     {
         int conceptIndex = Random.Range(0, _conceptIndex.Count);
-        
-        //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //while (_conceptIndex[conceptIndex] == 5 || _conceptIndex[conceptIndex] == 7 || _conceptIndex[conceptIndex] == 8) conceptIndex = Random.Range(0, _conceptIndex.Count);
-        
         
         //컨셉을 뽑고, 이미 통과한 컨셉을 큐에 넣어줌
         if (_prevConcept != -1) _conceptIndex.Add(_prevConcept);
@@ -296,7 +306,6 @@ public class StageController : MonoBehaviour
         _prevStage.GetComponent<GateMovement>().StopMove();
         _prevStage.transform.position = new Vector3(0, 192.5f, 0);
     }
-
 
     //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
