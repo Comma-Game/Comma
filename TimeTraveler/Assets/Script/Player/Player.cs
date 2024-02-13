@@ -258,26 +258,23 @@ public class Player : MonoBehaviour
     }
 
     //틱 테미지 업
-    public void TimeDamageUp() 
+    public void TimeDamageUp()
     {
         _isPoison = true;
-        _colliderRange.SetPoison(); 
+        if (!_isInvincible) _colliderRange.SetPoison();
     }
 
     //틱 데미지 리셋
     public void ResetTimeDamage() 
     {
         _isPoison = false;
-        ResetColor(); 
+        if (!_isInvincible) ResetColor(); 
     }
     
     //틱 데미지
     public void TimeDamage()
     {
-        if (!_isPassPortal && !_isInvincible)
-        {
-            GetDamage(_timeDamage * _timeDamageBuff);
-        }
+        if (!_isPassPortal && !_isInvincible) GetDamage(_timeDamage * _timeDamageBuff);
     }
 
     //장애물 데미지
@@ -398,6 +395,7 @@ public class Player : MonoBehaviour
         AudioManager.Instance.PlaySkillSFX();
 
         //스킬 방어막으로 변경
+        _colliderRange.PrepareToSkill();
         _colliderRange.SetSkill();
 
         //최대 속도로 설정

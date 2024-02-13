@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class ColliderRange : MonoBehaviour
 {
     [SerializeField]
-    Texture _texture;
-
-    [SerializeField]
     Canvas _canvas;
 
     [SerializeField]
@@ -39,7 +36,6 @@ public class ColliderRange : MonoBehaviour
 
     public void DisableRawImage()
     {
-        gameObject.GetComponent<RawImage>().color = Color.white;
         gameObject.GetComponent<RawImage>().enabled = false;
     }
 
@@ -67,7 +63,6 @@ public class ColliderRange : MonoBehaviour
     {
         _forceField.SetActive(false);
 
-        gameObject.GetComponent<RawImage>().texture = _texture;
         gameObject.GetComponent<RawImage>().color = Color.white;
     }
 }
