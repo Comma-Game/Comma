@@ -10,6 +10,7 @@ public class TestMovePlayer : MonoBehaviour
     [SerializeField]
     float _maxSpeed;
 
+    Player _player;
     private Vector3 _sTouchPos, _eTouchPos, _force, _v;
     Rigidbody _rigidbody;
     Coroutine _coroutine;
@@ -28,6 +29,7 @@ public class TestMovePlayer : MonoBehaviour
 
     private void Awake()
     {
+        _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
 
         _swipeSpeed = 10f;
@@ -37,6 +39,7 @@ public class TestMovePlayer : MonoBehaviour
     void Update()
     {
         SetForce();
+        CheckSkill();
         //Debug.Log("Velocity : " + _rigidbody.velocity);
     }
 
@@ -62,35 +65,14 @@ public class TestMovePlayer : MonoBehaviour
         }
     }
 
-    void CheckSpeed()
-    {
-        _rigidbody.velocity = Vector3.Magnitude(_rigidbody.velocity) >= _maxSpeed ? _rigidbody.velocity.normalized * _maxSpeed : _rigidbody.velocity;
-    }
-
     public void HitObstacle()
     {
         _rigidbody.velocity /= 2;
         _v = _rigidbody.velocity;
     }
 
-    IEnumerator GetSlow()
+    void CheckSkill()
     {
-        _v = _rigidbody.velocity;
-
-        while (_slowTime > 0)
-        {
-            _slowTime -= 0.25f;
-            _rigidbody.velocity = _v * _slowTime;
-            yield return new WaitForSeconds(0.25f);
-        }
-
-        _slowTime = 1f;
-    }
-
-    IEnumerator MoveTime()
-    {
-        _rigidbody.AddForce(_force * _swipeSpeed, ForceMode.VelocityChange);
-        yield return new WaitForSeconds(1.5f);
-        _coroutine = StartCoroutine(GetSlow());
+        if (Input.GetKeyDown(KeyCode.Space)) _player.UseSkill();
     }
 }

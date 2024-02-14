@@ -12,7 +12,7 @@ public class ParticleFooling : MonoBehaviour
 
     public void Awake()
     {
-        _parent = GameObject.Find("JellyPoolManager");
+        _parent = GameObject.Find("JellyParticlePoolManager");
     }
 
     public void SetParticle(GameObject obj)
@@ -22,7 +22,6 @@ public class ParticleFooling : MonoBehaviour
 
         _count = 3;
         
-        StopAllCoroutines();
         MakeParticle();
     }
 

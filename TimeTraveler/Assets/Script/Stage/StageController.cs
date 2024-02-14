@@ -14,6 +14,19 @@ public class StageController : MonoBehaviour
         }
     }
 
+    static void Init_Instance()
+    {
+        _stageController = GameObject.Find("StageController");
+        if (!_stageController)
+        {
+            _stageController = new GameObject();
+            _stageController.name = "StageController";
+            _stageController.AddComponent<StageController>();
+        }
+
+        _instance = _stageController.GetComponent<StageController>();
+    }
+
     [SerializeField]
     private float _basicSpeed; //현재 진행하고 있는 스테이지의 기본 속도
     public float BasicSpeed
@@ -92,14 +105,32 @@ public class StageController : MonoBehaviour
 
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
+    
     GameObject _stage, _nextStage, _prevStage, _stageParent; //_stageParent : 스테이지들의 부모 오브젝트
+    GameObject _stageEnd; 
+    bool[,] _isInstantiateStage; //해당 스테이지가 생성 됐는지 확인하는 변수
+
+    int _totalStageCount, _curStageCount; //총 스테이지 수와 현재 카운트 되고 있는 스테이지 수
+
     List<int> _conceptIndex; //랜덤으로 가져올 컨셉을 저장할 리스트
-    int _prevConcept, _stageCount; //_prevConcept : 바로 전에 사용한 컨셉, _conceptIndex에 빠진 concept을 넣어주기 위한 변수
-    List<GameObject> _disabled, _explode; //비활성화된 오브젝트들과 파괴된 파편들을 저장할 리스트
-    GameObject _stageEnd;
+    int _prevConcept; //_prevConcept : 바로 전에 사용한 컨셉, _conceptIndex에 빠진 concept을 넣어주기 위한 변수
     GetStage _conceptInfo;
+
+    List<GameObject> _disabled, _explode; //비활성화된 오브젝트들과 파괴된 파편들을 저장할 리스트
     int _passThroughCount, _conceptCount; //_passThroughCount : 장애물에 부딪히지 않고 계속 전진하는 횟수, _conceptCount : 플레이 가능한 concept 개수
-    bool[,] _isInstantiateStage;
+    
+    int _stageBonusJellyIndex, _nextStageBonusJellyIndex;
+    GameObject _stageDisabledJelly; //현재 스테이지에 보너스 젤리 자리의 조각
+    GameObject _nextStageDisabledJelly; //다음 스테이지에 보너스 젤리 자리의 조각
+    List<int> _remainJelly;
+
+    int _stageBigJellyCount, _nextStageBigJellyCount;
+    List<GameObject> _stageDisabledJellys;
+    List<GameObject> _nextStageDisabledJellys;
+
+    Player _player;
+
+    float _bounsStageSpeed;
 
     const int MaxConceptIndex = 10;
 
@@ -115,13 +146,28 @@ public class StageController : MonoBehaviour
         _maxSpeed = 25f;
         _maxBasicSpeed = 12.5f;
 
+        _bounsStageSpeed = 15f;
+
         //stage 정보 초기화
-        _stageCount = 1;
+        _totalStageCount = 1;
+        _curStageCount = 1;
         _prevConcept = -1;
         _stage = null;
         _nextStage = null;
         _prevStage = null;
         _stageParent = null;
+
+        //보너스 관련 변수
+        _stageDisabledJelly = null;
+        _nextStageDisabledJelly = null;
+        _stageBonusJellyIndex = -1;
+        _nextStageBonusJellyIndex = -1;
+
+        //곰젤리 관련 변수
+        _stageBigJellyCount = -1;
+        _nextStageBigJellyCount = -1;
+        _stageDisabledJellys = new List<GameObject>();
+        _nextStageDisabledJellys = new List<GameObject>();
 
         //저장할 Obstacle 리스트 초기화
         _disabled = new List<GameObject>();
@@ -131,6 +177,8 @@ public class StageController : MonoBehaviour
 
         _stageEnd = GameObject.Find("StageEnd");
         _conceptInfo = GameObject.Find("Concept").GetComponent<GetStage>();
+
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Start()
@@ -139,40 +187,29 @@ public class StageController : MonoBehaviour
         Init();
     }
 
-    static void Init_Instance()
-    {
-        _stageController = GameObject.Find("StageController");
-        if (!_stageController)
-        {
-            _stageController = new GameObject();
-            _stageController.name = "StageController";
-            _stageController.AddComponent<StageController>();
-        }
-
-        _instance = _stageController.GetComponent<StageController>();
-    }
-
     void Init()
     {
         _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
         _isInstantiateStage = new bool[MaxConceptIndex, 3];
-        
-        SetConceptIndex();
+
         SetStageParent();
+
+        //TestStage(7);
+
+        SetConceptIndex();
         InstantiateStage();
 
-        TestStage(7);
         TestStage();
-        InsertStageToQueue();
-        InsertStageToQueue();
 
-        _nextStage = SetNextStage();
-        SetCurrentStage();
+        ResetQueue();
+        SetStageForStart();
+        
         MoveStage();
     }
 
     void TestStage(int index)
     {
+        _conceptCount = index + 1 > _conceptCount ? index + 1 : _conceptCount;
         List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
 
         for (int j = 3; j > 0; j--)
@@ -225,6 +262,22 @@ public class StageController : MonoBehaviour
         }
     }
 
+    //큐에 있는 모든 내용을 지우고 새로운 컨셉을 넣는다.
+    void ResetQueue()
+    {
+        _queue.Clear();
+        InsertStageToQueue();
+        InsertStageToQueue();
+    }
+
+    //스테이지를 새로 시작한다.
+    void SetStageForStart()
+    {
+        _nextStage = SetNextStage();
+        CheckJelly();
+        SetCurrentStage();
+    }
+
     //맵에 나타날 스테이지를 큐에 넣어주는 과정
     void InsertStageToQueue()
     {
@@ -266,6 +319,7 @@ public class StageController : MonoBehaviour
         _stageEnd.transform.SetParent(_stage.transform);
 
         _nextStage = SetNextStage();
+        CheckJelly();
         CheckMemoryStage();
     }
 
@@ -299,40 +353,106 @@ public class StageController : MonoBehaviour
         return ret;
     }
 
+    public void SetBonusJellyIndex(int index) { _nextStageBonusJellyIndex = index; }
+
+    //보너스 젤리
+    void CheckJelly()
+    {
+        if (_stageDisabledJelly != null) _stageDisabledJelly.SetActive(true);
+        _stageDisabledJelly = _nextStageDisabledJelly;
+
+        if(_stageBonusJellyIndex != -1) BonusJelly.Instance.ReturnBonusJelly(_stageBonusJellyIndex);
+        _stageBonusJellyIndex = _nextStageBonusJellyIndex;
+
+        foreach (Transform child in _nextStage.transform)
+        {
+            if(child.CompareTag("Jelly"))
+            {
+                GameObject bonus = BonusJelly.Instance.GetBonusJelly();
+
+                int childsCount = child.childCount;
+                _remainJelly = new List<int>();
+                for (int i = 0; i < childsCount; i++) _remainJelly.Add(i);
+                
+                GameObject obj = CheckMemory(child);
+                obj.SetActive(false);
+                _nextStageDisabledJelly = obj;
+
+                bonus.SetActive(true);
+                bonus.transform.SetParent(child);
+                bonus.transform.position = obj.transform.position;
+
+                CheckBigJelly(child);
+
+                break;
+            }
+        }
+    }
+
+    void CheckBigJelly(Transform child)
+    {
+        if(_stageDisabledJellys.Count > 0)
+        {
+            foreach (GameObject obj in _stageDisabledJellys) obj.SetActive(true);
+        }
+        _stageDisabledJellys = new List<GameObject>();
+        foreach (GameObject obj in _nextStageDisabledJellys) _stageDisabledJellys.Add(obj);
+        _nextStageDisabledJellys = new List<GameObject>();
+
+        if (_stageBigJellyCount != -1) { PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().ReturnObject(_stageBigJellyCount); }
+        _stageBigJellyCount = _nextStageBigJellyCount;
+        _nextStageBigJellyCount = 0;
+
+        for(int i = 0; i < _remainJelly.Count; i++)
+        {
+            GameObject obj = child.GetChild(_remainJelly[i]).gameObject;
+
+            if (!GetPercent(20) || obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) continue;
+
+            GameObject bigJelly = PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().GetObject();
+            bigJelly.SetActive(true);
+            bigJelly.transform.SetParent(child);
+            bigJelly.transform.position = obj.transform.position;
+            bigJelly.transform.localScale = new Vector3(3, 3, 3);
+
+            obj.SetActive(false);
+            _nextStageDisabledJellys.Add(bigJelly);
+            _nextStageBigJellyCount++;
+        }
+    }
+
     //비활성화된 모든 오브젝트 활성화
-    void ReturnStage()
+    void SetPrevStage()
     {
         _prevStage = _stage;
         _prevStage.GetComponent<GateMovement>().StopMove();
         _prevStage.transform.position = new Vector3(0, 192.5f, 0);
     }
 
+    public void DisablePrevStage()
+    {
+        if (_prevStage == null) return;
+        _prevStage.SetActive(false);
+        //_prevStage.transform.position = new Vector3(0, 0, 0);
+    }
+
     //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
     {
-        if (_stageCount++ % 3 == 0) _passThroughCount = _passThroughCount >= 5 ? 5 : _passThroughCount + 1;
+        if (_curStageCount++ % 3 == 0) _passThroughCount = _passThroughCount >= 5 ? 5 : _passThroughCount + 1;
+        _totalStageCount++;
 
         _speed = _basicSpeed + _passThroughCount;
         _speed = _speed > _maxBasicSpeed ? _maxBasicSpeed : _speed;
 
         //점수 관련 UI 변경
-        CanvasController.Instance.ChangeState(_stageCount);
+        CanvasController.Instance.ChangeState(_totalStageCount);
         CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
 
         ReturnStage();
+        SetPrevStage();
         SetCurrentStage();
         MoveStage();
-    }
-
-    public void DisablePrevStage() 
-    {
-        if (_prevStage == null) return;
-        
-        EnableObject();
-        DeleteExploder();
-       
-        _prevStage.SetActive(false);
-        //_prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
     void SetStageParent()
@@ -389,6 +509,8 @@ public class StageController : MonoBehaviour
     //가속도 설정
     public void SetAcceleration()
     {
+        DisablePrevStage();
+
         Debug.Log("현재 Stage : " + _stage.name);
         Debug.Log("다음 Stage : " + _nextStage.name);
         _stage.GetComponent<GateMovement>().SetAcceleration();
@@ -398,7 +520,7 @@ public class StageController : MonoBehaviour
     //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
     void CheckMemoryStage()
     {
-        if (_stageCount % 3 == 1) _nextStage.GetComponent<GateMovement>().EnableMemory();
+        if (_curStageCount % 3 == 1) _nextStage.GetComponent<GateMovement>().EnableMemory();
     }
 
     //부딪힌 장애물 리스트에 넣어주기
@@ -441,6 +563,161 @@ public class StageController : MonoBehaviour
         _disabled.Clear();
     }
 
+    //스테이지를 원상태로 되돌린다.
+    void ReturnStage()
+    {
+        EnableObject();
+        DeleteExploder();
+    }
+
+    //현재 모든 스테이지를 초기화 시킨다.
+    void DisableAllStage()
+    {
+        if (_stage != null)
+        {
+            _stage.transform.GetComponent<GateMovement>().StopMove();
+            _stage.SetActive(false);
+            _stage = null;
+        }
+
+        if (_nextStage != null)
+        {
+            _nextStage.transform.GetComponent<GateMovement>().StopMove();
+            _nextStage.SetActive(false);
+            _nextStage = null;
+        }
+
+        if (_prevStage != null)
+        {
+            _prevStage.transform.GetComponent<GateMovement>().StopMove();
+            _prevStage.SetActive(false);
+            _prevStage = null;
+        }
+
+        ReturnStage();
+    }
+
+    //보너스 스테이지에 입장하면 현재 있는 모든 스테이지의 젤리들 초기화
+    void ReturnJellys()
+    {
+        if (_nextStageDisabledJelly != null)
+        {
+            _nextStageDisabledJelly.SetActive(true);
+            _nextStageDisabledJelly = null;
+        }
+
+        if (_nextStageBonusJellyIndex != -1)
+        {
+            BonusJelly.Instance.ReturnBonusJelly(_nextStageBonusJellyIndex);
+            _nextStageBonusJellyIndex = -1;
+        }
+
+        if (_nextStageDisabledJellys.Count > 0)
+        {
+            foreach (GameObject obj in _nextStageDisabledJellys) obj.SetActive(true);
+            _nextStageDisabledJellys = new List<GameObject>();
+        }
+
+        if (_nextStageBigJellyCount != -1)
+        {
+            PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().ReturnObject(_nextStageBigJellyCount);
+            _nextStageBigJellyCount = -1;
+        }
+    }
+
+    void SetBonusStage()
+    {
+        //보너스 위치 설정
+        _stage = BonusJelly.Instance.GetBonusStage();
+        _stage.transform.position = new Vector3(0, 96.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
+        _stage.SetActive(true);
+
+        //포탈 위치 재설정
+        _stageEnd.transform.SetParent(null);
+        _stageEnd.transform.position = new Vector3(0, 78f, 0);
+        _stageEnd.transform.SetParent(_stage.transform);
+
+        foreach (Transform child in _stage.transform)
+        {
+            if (child.CompareTag("Jelly"))
+            {
+                int childsCount = child.childCount;
+                _remainJelly = new List<int>();
+                for (int i = 0; i < childsCount; i++) _remainJelly.Add(i);
+                
+                CheckBigJelly(child);
+
+                break;
+            }
+        }
+    }
+
+    //보너스 스테이지 시작
+    public void EnableBonusStage()
+    {
+        _curStageCount = 0;
+        
+        //스킬 및 무적 중지
+        _player.StopMyCoroutine();
+
+        //틱 데미지와 에너지 차징 되지 않게 설정
+        PlayGameManager.Instance.SetBonusTime();
+
+        //모든 스테이지 제거
+        DisableAllStage();
+
+        //큐에 있는 컨셉 재배치
+        ResetQueue();
+
+        //보너스 스테이지 활성화 및 다음 스테이지 설정
+        ReturnJellys();
+        SetBonusStage();
+        _nextStage = SetNextStage();
+        CheckJelly();
+
+        //보너스 스테이지 속도 일정하게 설정
+        _speed = _bounsStageSpeed;
+        MoveStage();
+    }
+
+    public void TriggerBonusJelly()
+    {
+        BonusJelly.Instance.TriggerBonusJelly(_stageBonusJellyIndex);
+    }
+
+    GameObject CheckMemory(Transform child)
+    {
+        GameObject obj;
+        
+        while (true)
+        {
+            int randomChild = GetRandomNumber(_remainJelly.Count);
+            obj = child.GetChild(_remainJelly[randomChild]).gameObject;
+            _remainJelly.RemoveAt(randomChild);
+
+            if (!obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) break;
+        }
+
+        return obj;
+    }
+
+    //확률을 가져옴
+    bool GetPercent(int p)
+    {
+        int random = Random.Range(0, 100);
+        
+        if (random > p) return false;
+        else return true;
+    }
+
+    //일정한 개수 중에서 하나를 랜덤으로 가져옴
+    int GetRandomNumber(int p)
+    {
+        int random = Random.Range(0, p);
+
+        return random;
+    }
+
     //현재 스테이지 반환
-    public int GetStageCount() { return _stageCount; }
+    public int GetStageCount() { return _totalStageCount; }
 }

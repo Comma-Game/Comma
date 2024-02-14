@@ -21,7 +21,7 @@ public class UseItem : MonoBehaviour
         switch (_buff)
         {
             case 1:
-                _player.Heal(50);
+                _player.PlusMaxHp(50);
                 break;
             case 2:
                 PlayGameManager.Instance.SetCoinBuff();

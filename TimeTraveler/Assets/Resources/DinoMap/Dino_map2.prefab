@@ -3761,7 +3761,7 @@ GameObject:
   - component: {fileID: 3091562499416308027}
   m_Layer: 0
   m_Name: Jellys
-  m_TagString: Untagged
+  m_TagString: Jelly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3775,7 +3775,7 @@ Transform:
   m_GameObject: {fileID: 2710166298411769435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15997769, y: -0.12710363, z: 0.1300323}
+  m_LocalPosition: {x: -0.1599777, y: -0.12710357, z: 0.1300323}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10615,8 +10615,8 @@ Transform:
   m_Children:
   - {fileID: 1267526328427483278}
   - {fileID: 5925104789950312820}
-  - {fileID: 7385363719898734373}
   - {fileID: 3091562499416308027}
+  - {fileID: 7385363719898734373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8582443612711743210

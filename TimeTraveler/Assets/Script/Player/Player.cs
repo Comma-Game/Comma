@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         _camera = GameObject.Find("Main Camera");
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
-        _timeDamage = 3f;
+        _timeDamage = 2f;
 
         _isCast = false;
         _isPassPortal = false;
@@ -58,22 +58,22 @@ public class Player : MonoBehaviour
         transform.gameObject.SetActive(true);
         _colliderRange.EnableRawImage();
 
-        _maxHp = 100 + CalculateHP();
+        _maxHp += 100 + CalculateHP();
         _hp = _maxHp;
         _bloodHp = _maxHp * 0.15f;
         CanvasController.Instance.InitSetting(_maxHp);
-        Debug.Log("HP : " + _hp);
 
         _energy = 100;
 
         //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         _energyChargeSpeed = 8 + CalculateChargeEnergy();
-        Debug.Log("Energy : " + _energy);
 
         _jellyScore = 70 + CalculateJelly();
-        Debug.Log("Jelly : " + _jellyScore);
 
         _sphereScale = Mathf.Max(transform.lossyScale.x, transform.lossyScale.y, transform.lossyScale.z);
+        
+        //바람 UI Enable
+        CanvasController.Instance.OnSpeedPanel(true);
     }
 
     private void OnEnable()
@@ -126,25 +126,13 @@ public class Player : MonoBehaviour
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
             //StopMyCoroutine();
-            StageController.Instance.DisablePrevStage();
-            _camera.GetComponent<ShowPlayer>().SetOpaque();
-
-            _isPassPortal = false;
-
-            //바람 UI Enable
-            CanvasController.Instance.OnSpeedPanel(true);
-
-            //ChangeWindAlpha(1);
-
             StageController.Instance.SetAcceleration();
         }
         else if (other.gameObject.CompareTag("Jelly"))
         {
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
             {
-                //젤리 소리
-                AudioManager.Instance.PlayGetPieceSFX();
-                PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
+                //PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
 
                 int[] jelly_info = other.gameObject.GetComponent<Jelly>().GetInfo();
                 if (!SaveLoadManager.Instance.GetUnlockedMemory()[jelly_info[0]].CheckStory(jelly_info[1]))
@@ -155,12 +143,11 @@ public class Player : MonoBehaviour
 
                 Heal(15f * _healBuff);
             }
-            else
-            {
-                //젤리 소리
-                AudioManager.Instance.PlayGetPieceSFX();
-                PlayGameManager.Instance.ScoreUp(_jellyScore);
-            }
+            else if(other.gameObject.GetComponent<Jelly>().CheckBigJelly()) PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
+            else PlayGameManager.Instance.ScoreUp(_jellyScore);
+
+            //젤리 소리
+            AudioManager.Instance.PlayGetPieceSFX();
 
             other.gameObject.GetComponent<Jelly>().GetParent().SetActive(false);
             
@@ -169,6 +156,21 @@ public class Player : MonoBehaviour
 
             //비활성화된 오브젝트 리스트에 넣어줌
             StageController.Instance.AddDisabled(other.gameObject.GetComponent<Jelly>().GetParent());
+        }
+        else if (other.gameObject.CompareTag("Bonus"))
+        {
+            PlayGameManager.Instance.ScoreUp(_jellyScore / 2);
+
+            //젤리 소리
+            AudioManager.Instance.PlayGetPieceSFX();
+
+            other.gameObject.transform.parent.gameObject.SetActive(false);
+
+            //파티클 활성화
+            PlayGameManager.Instance.EnableParticle(other.transform.position);
+
+            //보너스 젤리 획득
+            StageController.Instance.TriggerBonusJelly();
         }
     }
 
@@ -180,7 +182,6 @@ public class Player : MonoBehaviour
         _healBuff = 1;
     }
 
-
     void TriggerPortal()
     {
         //Heal(1.8f);
@@ -191,16 +192,16 @@ public class Player : MonoBehaviour
 
     void TriggerGround()
     {
+        //투명화 된 오브젝트 원상태로 설정
+        _camera.GetComponent<ShowPlayer>().SetOpaque();
+
         //포탈 소리
         AudioManager.Instance.PlayPortalSFX();
 
-        //바람 UI Disable
-        CanvasController.Instance.OnSpeedPanel(false);
-
-        //바람 UI Alpha
-        //ChangeWindAlpha(0);
-
         CanvasController.Instance.ChangeSpeedColor(0);
+
+        //틱 데미지와 에너지 차징을 위한 세팅
+        PlayGameManager.Instance.ResetBonusTime();
 
         //스테이지 준비
         StageController.Instance.PrepareToStage();
@@ -238,8 +239,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _hp += amount;
             CanvasController.Instance.PlayerRestoreHP(amount);
+            _hp += amount;
         }
 
         //Debug.Log("HP : " + _hp);
@@ -370,11 +371,16 @@ public class Player : MonoBehaviour
     {
         _isInvincible = true;
         _colliderRange.SetInvincible();
+        
+        //바람 UI Disable
+        CanvasController.Instance.OnSpeedPanel(false);
 
         yield return new WaitForSeconds(t);
 
+        //바람 UI Enable
+        CanvasController.Instance.OnSpeedPanel(true);
+        
         _isInvincible = false;
-
         ResetColor();
     }
 
@@ -418,20 +424,16 @@ public class Player : MonoBehaviour
     }
 
     //무적 및 스킬 중단
-    void StopMyCoroutine()
+    public void StopMyCoroutine()
     {
         ResetColor();
 
-        if (_portalCoroutine != null)
-        {
-            StopCoroutine(_portalCoroutine);
-            _isPassPortal = false;
-        }
+        if(_portalCoroutine != null) StopCoroutine(_portalCoroutine);
 
-        if(_invincibleCoroutine != null)
+        if (_invincibleCoroutine != null)
         {
             StopCoroutine(_invincibleCoroutine);
-            _isInvincible = false;
+            CanvasController.Instance.OnSpeedPanel(true);
         }
 
         if(_skillCoroutine != null)
@@ -444,8 +446,11 @@ public class Player : MonoBehaviour
             StageController.Instance.ResetVelocity();
 
             StopCoroutine(_skillCoroutine);
-            _isCast = false;
         }
+
+        _isPassPortal = false;
+        _isInvincible = false;
+        _isCast = false;
     }
 
     float CalculateHP()
@@ -500,6 +505,14 @@ public class Player : MonoBehaviour
     public void SetObstacleDamageBuff() { _obstacleDamageBuff -= 0.5f; }
 
     public void SetTimeDamageBuff() { _timeDamageBuff -= 0.15f; }
+
+    public void PlusMaxHp(float amount) 
+    { 
+        _maxHp += amount;
+        _hp = _maxHp;
+        _bloodHp = _maxHp * 0.15f;
+        CanvasController.Instance.InitSetting(_maxHp);
+    }
 
     public void SetHealBuff(float amount) { _timeDamageBuff += amount; }
 

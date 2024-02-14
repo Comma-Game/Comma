@@ -23,7 +23,7 @@ public class PlayGameManager : MonoBehaviour
         }
     }
 
-    bool _coinBuff;
+    bool _coinBuff, _isBonus;
     Coroutine _gameOverCoroutine, _timeCoroutine;
     Player _player;
     StageController _stageController;
@@ -73,6 +73,7 @@ public class PlayGameManager : MonoBehaviour
                 gameManager.AddComponent<PlayGameManager>();
                 gameManager.AddComponent<UseItem>();
                 gameManager.AddComponent<ParticleFooling>();
+                gameManager.AddComponent<BigJellyPoolManager>();
             }
 
             _instance = gameManager.GetComponent<PlayGameManager>();
@@ -85,6 +86,7 @@ public class PlayGameManager : MonoBehaviour
 
         ResumeGame();
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
+        GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
 
         StopAllCoroutines();
         _timeCoroutine = StartCoroutine(ScoreTime());
@@ -162,6 +164,10 @@ public class PlayGameManager : MonoBehaviour
         _player.transform.GetComponent<MovePlayer>().ResetPause();
     } 
 
+    public void SetBonusTime() { _isBonus = true; }
+
+    public void ResetBonusTime() { _isBonus = false; }
+
     IEnumerator ScoreTime()
     {
         while (true)
@@ -169,8 +175,12 @@ public class PlayGameManager : MonoBehaviour
             _score += ScorePerTime();
 
             CanvasController.Instance.ChangeScoreText(_score);
-            _player.TimeDamage();
-            _player.ChargeEnergy();
+            
+            if(!_isBonus) 
+            {
+                _player.TimeDamage();
+                _player.ChargeEnergy();
+            }
 
             yield return new WaitForSeconds(1f);
         }

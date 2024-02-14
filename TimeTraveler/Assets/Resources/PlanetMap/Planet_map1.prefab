@@ -8418,7 +8418,7 @@ GameObject:
   - component: {fileID: 4136826104170075461}
   m_Layer: 0
   m_Name: Jellys
-  m_TagString: Untagged
+  m_TagString: Jelly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
