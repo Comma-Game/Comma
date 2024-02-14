@@ -12265,9 +12265,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.6272724
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.00006105161, y: -0.31051707, z: -0.005772997}
 --- !u!114 &3317278899966437355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12297,7 +12297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6369592505179547955
 Transform:
   m_ObjectHideFlags: 0
@@ -15681,9 +15681,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.5980723
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.00000006917454, y: -0.29902956, z: -0.000000087327045}
 --- !u!114 &1554601865475589869
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1748,7 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8271b1c94a823fc40be6b0b5dd38d01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _texture: {fileID: 2800000, guid: c4cf9c9f7cf52f6409ef75a08a4357ac, type: 3}
   _canvas: {fileID: 1547572734}
   _skillEffect: {fileID: 513489144}
   _forceField: {fileID: 1343444980}
