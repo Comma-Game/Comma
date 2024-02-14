@@ -87,11 +87,7 @@ public class BonusJelly : MonoBehaviour
         StageController.Instance.SetBonusJellyIndex(index);
 
         GameObject obj;
-        if (_waitingBonusQueue[index].Count == 0)
-        {
-            obj = Instantiate(_bonus[index]);
-            obj.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-        }
+        if (_waitingBonusQueue[index].Count == 0) obj = Instantiate(_bonus[index]);
         else obj = _waitingBonusQueue[index].Dequeue();
 
         _usingBonusQueue[index].Enqueue(obj);

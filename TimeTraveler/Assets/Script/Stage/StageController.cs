@@ -265,7 +265,6 @@ public class StageController : MonoBehaviour
     //큐에 있는 모든 내용을 지우고 새로운 컨셉을 넣는다.
     void ResetQueue()
     {
-        _queue.Clear();
         InsertStageToQueue();
         InsertStageToQueue();
     }
@@ -368,8 +367,6 @@ public class StageController : MonoBehaviour
         {
             if(child.CompareTag("Jelly"))
             {
-                GameObject bonus = BonusJelly.Instance.GetBonusJelly();
-
                 int childsCount = child.childCount;
                 _remainJelly = new List<int>();
                 for (int i = 0; i < childsCount; i++) _remainJelly.Add(i);
@@ -378,9 +375,11 @@ public class StageController : MonoBehaviour
                 obj.SetActive(false);
                 _nextStageDisabledJelly = obj;
 
+                GameObject bonus = BonusJelly.Instance.GetBonusJelly();
                 bonus.SetActive(true);
                 bonus.transform.SetParent(child);
                 bonus.transform.position = obj.transform.position;
+                bonus.transform.localScale = new Vector3(3, 3, 3);
 
                 CheckBigJelly(child);
 
@@ -667,6 +666,7 @@ public class StageController : MonoBehaviour
         DisableAllStage();
 
         //큐에 있는 컨셉 재배치
+        _queue.Clear();
         ResetQueue();
 
         //보너스 스테이지 활성화 및 다음 스테이지 설정
