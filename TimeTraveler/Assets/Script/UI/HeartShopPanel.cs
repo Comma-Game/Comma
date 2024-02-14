@@ -6,12 +6,15 @@ public class HeartShopPanel : MonoBehaviour
 {
     [SerializeField] public HeartPanel HeartPanelCS;
     [SerializeField] public MainSceneController mainSceneController;
+    [SerializeField] public NotiMessagePanel notiMessagePanel;
 
     public void BuyOneHeart(){
         AudioManager.Instance.PlayGameButtonClick();
-        if(HeartPanelCS.GetCurrentHearts() < 5 && SaveLoadManager.Instance.GetCoin() >= 15000){
+        if(SaveLoadManager.Instance.GetCoin() >= 15000){
             HeartPanelCS.AddHearts(1);
             mainSceneController.MinusCoin(15000);
+        }else{
+            notiMessagePanel.StartMove();
         }
     }
 

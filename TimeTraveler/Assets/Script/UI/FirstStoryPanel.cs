@@ -14,6 +14,14 @@ public class FirstStoryPanel : MonoBehaviour
     private int currentNum = 0;
     [SerializeField] public bool isSaveData;
 
+    public void Reset(){
+       currentNum = 0;
+       storyImg.sprite = storySprite[currentNum];
+       leftButton.SetActive(false);
+       returnButton.SetActive(false);
+       rightButton.SetActive(true);
+    }
+
     public void ClickLeftButton(){
         AudioManager.Instance.PlayGameButtonClick();
         if(currentNum > 0){

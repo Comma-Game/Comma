@@ -32,7 +32,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject tutoralPanel;
         [SerializeField] public GameObject cheatPanel;
         [SerializeField] public GameObject cheatCheckPanel;
-
+        [SerializeField] public NotiMessagePanel notiMessagePanel;
 
         [Header("background Obj")]
         [SerializeField] public Animator Charater;
@@ -115,8 +115,7 @@ public class MainSceneController : MonoBehaviour
 
                 // 만약 게임이 처음이면 스토리 panel 띄우기
                 if(isGameFirst == false){
-                        FirstStoryPanel.SetActive(true);
-                        tutoralPanel.SetActive(true);
+                        Invoke("FirstPopUp", 1f);
                 }
         }
 
@@ -182,6 +181,11 @@ public class MainSceneController : MonoBehaviour
                         // }
                 }
                 GamePlay();
+        }
+
+        private void FirstPopUp(){
+                FirstStoryPanel.SetActive(true);
+                tutoralPanel.SetActive(true);
         }
 
         private void MoveScene()
@@ -279,7 +283,8 @@ public class MainSceneController : MonoBehaviour
                                 ChangeShopHpText(false);
                         }
                 }else{
-                        AudioManager.Instance.PlayGameButtonClick();
+                        //AudioManager.Instance.PlayGameButtonClick();
+                        notiMessagePanel.StartMove();
                 }
 	}
 
@@ -308,7 +313,8 @@ public class MainSceneController : MonoBehaviour
                                 ChangeJellyText(false);
                         }
                 }else{
-                        AudioManager.Instance.PlayGameButtonClick();
+                        //AudioManager.Instance.PlayGameButtonClick();
+                        notiMessagePanel.StartMove();
                 }                
 	}
 
@@ -337,7 +343,8 @@ public class MainSceneController : MonoBehaviour
                                 ChangeEnergyText(false);
                         }
                 }else{
-                        AudioManager.Instance.PlayGameButtonClick();
+                        //AudioManager.Instance.PlayGameButtonClick();
+                        notiMessagePanel.StartMove();
                 }
 	}
 
@@ -349,6 +356,8 @@ public class MainSceneController : MonoBehaviour
                         mysteryBoxBuffText.text = randomBuffText;
                         // 돈 소비
                         MinusCoin(mysteryBox_coin);
+                }else{
+                        notiMessagePanel.StartMove();
                 }
 	}
 

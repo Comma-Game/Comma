@@ -4516,8 +4516,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5BB\uB294 \uC870\uAC01\uACFC \uAE30\uC5B5\uC758 \uC810\uC218\uB97C
-    \uC0C1\uC2B9\uC2DC\uCF1C \uC90D\uB2C8\uB2E4."
+  m_text: "\uC870\uAC01 \uC544\uC774\uD15C \uD68D\uB4DD \uC2DC \uD68D\uB4DD \uC810\uC218
+    \uC0C1\uC2B9 \uC2DC\uCF1C\uC900\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -6846,7 +6846,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4917992519262805979
 MonoBehaviour:
   m_ObjectHideFlags: 0

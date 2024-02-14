@@ -13,7 +13,7 @@ public class HeartPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI timeText;
 
     public int maxHearts = 5; // 최대 하트 개수
-    private float fillCooldownMinutes = 30f; // 하트를 채우는데 걸리는 시간(분)
+    private float fillCooldownMinutes = 5f; // 하트를 채우는데 걸리는 시간(분)
     public void SetFillCooldownMinutes(float time) { fillCooldownMinutes = time;}
     private int currentHearts = 0;
     public int GetCurrentHearts() { return currentHearts; }
@@ -34,7 +34,8 @@ public class HeartPanel : MonoBehaviour
         Debug.Log("heartsToAdd : "+ heartsToAdd);
         if (heartsToAdd > 0)
         {
-            AddHearts(heartsToAdd);
+            if(currentHearts + heartsToAdd > maxHearts) heartsToAdd = maxHearts - currentHearts;
+            if(heartsToAdd > 0) AddHearts(heartsToAdd);
         }
         // 업데이트
         UpdateTimerText(); // 시작 시 타이머 텍스트 업데이트
@@ -69,7 +70,7 @@ public class HeartPanel : MonoBehaviour
 
     private void LoadData()
     {
-        fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
+        //fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
         currentHearts = SaveLoadManager.Instance.GetHeart();
         lastFillTime = SaveLoadManager.Instance.GetExitTime();
         Debug.Log("currentHearts : " + currentHearts);
@@ -79,14 +80,15 @@ public class HeartPanel : MonoBehaviour
 
     public void AddHearts(int amount)
     {
-        if(currentHearts + amount > 5) amount = 5 - currentHearts;
         // 하트 추가 및 마지막으로 채운 시간 업데이트
-        currentHearts = Mathf.Clamp(currentHearts + amount, 0, maxHearts);
+        currentHearts = currentHearts + amount;
         lastFillTime = DateTime.Now;
         //SaveData();
         SaveLoadManager.Instance.SetExitTime();
         ChangeHeartImg();
-        SaveLoadManager.Instance.PlusHeart();
+        for(var i = 0; i<amount; i++) {
+            SaveLoadManager.Instance.PlusHeart();
+        }
         SaveLoadManager.Instance.SaveData();
     }
 
@@ -99,7 +101,7 @@ public class HeartPanel : MonoBehaviour
     public void MinusHearts(int amount)
     {
         // 하트 추가 및 마지막으로 채운 시간 업데이트
-        currentHearts = Mathf.Clamp(currentHearts - amount, 0, maxHearts);
+        currentHearts = currentHearts - amount;
         lastFillTime = DateTime.Now;
         //SaveData();
         if(currentHearts == 4) SaveLoadManager.Instance.SetExitTime();
@@ -137,7 +139,8 @@ public class HeartPanel : MonoBehaviour
         }
         else
         {
-            timeText.text = "Fill";
+            int overNum = currentHearts - maxHearts;
+            timeText.text = "+ " + overNum;
         }
     }
 

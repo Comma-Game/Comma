@@ -31,22 +31,25 @@ public class LoadingSceneManager : MonoBehaviour
         else turtorialPanel.SetActive(true);
 
         while(!operation.isDone){
-            time += Time.time;
-            imgTime += Time.time;
+            time += Time.deltaTime;
+            imgTime += Time.deltaTime;
             //slider.value = time / 1000f;
             //Debug.Log(imgTime);
-            if(time > 15000){
+
+            // 9초 후 넘어가기
+            if(time > 9){
                 operation.allowSceneActivation = true;
             }
-            if(isImage){
-                if(imgTime > 5000){
-                    imgNum += 1;
-                    if(imgNum >= sprites.Length){
-                        imgNum = 0;
-                    }
-                    image.sprite = sprites[imgNum];
-                    imgTime = 0;
-                }
+
+            // 3초마다 컷씬 바뀜
+            if(isImage && imgTime > 3){
+                // imgNum += 1;
+                // if(imgNum >= sprites.Length){
+                //     imgNum = 0;
+                // }
+                imgNum = (imgNum + 1) % sprites.Length;
+                image.sprite = sprites[imgNum];
+                imgTime = 0;
             }
             //Debug.Log(time);
             yield return null;
