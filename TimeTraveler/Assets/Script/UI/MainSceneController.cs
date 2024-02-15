@@ -82,15 +82,17 @@ public class MainSceneController : MonoBehaviour
         };
 
         private int maxGradeNum = 30; // 5 업그레이드 가능하면 -1 해서 4로 설정
-        private int[] hpUpgradeCoin = {1200, 1320, 1450, 1590, 1740, 1910, 2100, 2310, 2540, 2790,
-                                        3465, 4315, 5390, 6715, 8390, 10465, 13065, 16315, 20390, 25465,
-                                        33085, 42985, 55855, 72595, 94345, 122635, 159415, 207235, 269395, 350185};
-        private int[] jellyUpgradeCoin = {1500, 1650, 1810, 1990, 2180, 2390, 2620, 2880, 3160, 3470,
-                                                4320, 5395, 6720, 8395, 10470, 13070, 16320, 20395, 25470, 31820,
-                                                41360, 53750, 69860, 90800, 118040, 153440, 199460, 259280, 337040, 438140};
-        private int[] energyUpgradeCoin = {1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330,
-                                                2905, 3630, 4530, 5655, 7055, 8805, 11005, 13755, 17180, 21455,
-                                                27875, 36215, 47075, 61175, 79505, 103355, 134345, 174635, 227015, 295115};
+        private int[] hpUpgradeCoin = {1200, 1416, 1668, 1956, 2298, 2694, 3162, 3720, 4386, 5160,
+                                        6435, 8035, 10035, 12535, 15660, 19560, 24435, 30535, 38160, 47685,
+                                        62917, 83045, 109605, 144677, 190949, 252037, 332677, 439109, 579621, 765093};
+        private int[] jellyUpgradeCoin = {1500, 1770, 2076, 2436, 2868, 3372, 3966, 4668, 5496, 6468,
+                                                8068, 10068, 12568, 15693, 19593, 24468, 30568, 38193, 47718, 59643,
+                                                78715, 103899, 137115, 180987, 238875, 315291, 416155, 549307, 725083, 957083};
+
+        private int[] energyUpgradeCoin = {1000, 1180, 1378, 1612, 1900, 2242, 2638, 3106, 3664, 4312,
+                                                5387, 6712, 8387, 10462, 13062, 16312, 20387, 25462, 31812, 39762,
+                                                52466, 69234, 91378, 120594, 159154, 210066, 277266, 365970, 483058, 637618};
+
 
 
         /// /////////////////////////////////////////////////////////////////
@@ -115,6 +117,7 @@ public class MainSceneController : MonoBehaviour
 
                 // 만약 게임이 처음이면 스토리 panel 띄우기
                 if(isGameFirst == false){
+                        heartPanelCS.AddHearts(30);
                         Invoke("FirstPopUp", 1f);
                 }
         }
@@ -283,8 +286,10 @@ public class MainSceneController : MonoBehaviour
                                 ChangeShopHpText(false);
                         }
                 }else{
-                        //AudioManager.Instance.PlayGameButtonClick();
-                        notiMessagePanel.StartMove();
+                        AudioManager.Instance.PlayGameButtonNoClick();
+                        if(hpUpgradeClass < maxGradeNum){
+                                notiMessagePanel.StartMove();
+                        }
                 }
 	}
 
@@ -313,8 +318,10 @@ public class MainSceneController : MonoBehaviour
                                 ChangeJellyText(false);
                         }
                 }else{
-                        //AudioManager.Instance.PlayGameButtonClick();
-                        notiMessagePanel.StartMove();
+                        AudioManager.Instance.PlayGameButtonNoClick();
+                        if(jellyUpgradeClass < maxGradeNum){
+                                notiMessagePanel.StartMove();
+                        }
                 }                
 	}
 
@@ -343,8 +350,10 @@ public class MainSceneController : MonoBehaviour
                                 ChangeEnergyText(false);
                         }
                 }else{
-                        //AudioManager.Instance.PlayGameButtonClick();
-                        notiMessagePanel.StartMove();
+                        AudioManager.Instance.PlayGameButtonNoClick();
+                        if(energyUpgradeClass < maxGradeNum){
+                                notiMessagePanel.StartMove();
+                        }
                 }
 	}
 
@@ -357,6 +366,7 @@ public class MainSceneController : MonoBehaviour
                         // 돈 소비
                         MinusCoin(mysteryBox_coin);
                 }else{
+                        AudioManager.Instance.PlayGameButtonNoClick();
                         notiMessagePanel.StartMove();
                 }
 	}

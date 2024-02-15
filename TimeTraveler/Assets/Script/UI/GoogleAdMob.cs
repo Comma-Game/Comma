@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement; // 필요
 public class GoogleAdMob : MonoBehaviour
 {
  #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-2161698454368448/5943025963";
+    private string _adUnitId = "ca-app-pub-3078473154541994/3359689681";
 #elif UNITY_IPHONE
-  private string _adUnitId = "ca-app-pub-2161698454368448/5943025963";
+  private string _adUnitId = "ca-app-pub-3078473154541994/3359689681";
 #else
   private string _adUnitId = "unused";
 #endif

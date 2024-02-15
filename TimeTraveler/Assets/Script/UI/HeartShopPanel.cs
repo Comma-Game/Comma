@@ -14,6 +14,7 @@ public class HeartShopPanel : MonoBehaviour
             HeartPanelCS.AddHearts(1);
             mainSceneController.MinusCoin(15000);
         }else{
+            AudioManager.Instance.PlayGameButtonNoClick();
             notiMessagePanel.StartMove();
         }
     }
