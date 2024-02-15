@@ -66,7 +66,7 @@ public class StoryPanel : MonoBehaviour
     }
 
     public void OnStory(int storyum){
-        //if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
-        StoryManager.Instance.ShowStory(conceptNum, storyum);
+        if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
+        //StoryManager.Instance.ShowStory(conceptNum, storyum);
     }
 }

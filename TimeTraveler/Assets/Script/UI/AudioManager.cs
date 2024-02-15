@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField] public AudioSource MesteryBoxBuySFX;
     [SerializeField] public AudioSource GameButtonClick;
+    [SerializeField] public AudioSource GameButtonNoClick;
     [SerializeField] public AudioSource PortalSFX;
     [SerializeField] public AudioSource ItemUpgradeSFX;
     [SerializeField] public AudioSource GameOverSFX;
@@ -103,6 +104,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameButtonClick(){
         GameButtonClick.Play();
+    }
+
+    public void PlayGameButtonNoClick(){
+        GameButtonNoClick.Play();
     }
 
     public void PlayPortalSFX(){
