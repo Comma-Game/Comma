@@ -665,20 +665,29 @@ public class StageController : MonoBehaviour
         //틱 데미지와 에너지 차징 되지 않게 설정
         PlayGameManager.Instance.SetBonusTime();
 
-        //보너스 스테이지 입장 시 효과 끝
+        //스킬 및 무적 중지
+        _player.StopMyCoroutine();
+
+        //플레이어 움직이지 못하게 설정
+        _player.GetComponent<MovePlayer>().enabled = false;
+
+        //보너스 스테이지 입장 시 효과 시작
         _postProcess.SetExposure();
     }
 
     //보너스 스테이지 시작
     public void EnableBonusStage()
     {
-        //스킬 및 무적 중지
-        _player.StopMyCoroutine();
-        
         //모든 스테이지 제거
         DisableAllStage();
 
         _isBounsTime = false;
+
+        //플레이어 위치 중앙으로 이동
+        _player.transform.position = new Vector3(0, 175, 0);
+
+        //플레이어 다시 움직임
+        _player.GetComponent<MovePlayer>().enabled = true;
 
         //보너스 스테이지 입장 시 효과 끝
         _postProcess.ResetExposure();
