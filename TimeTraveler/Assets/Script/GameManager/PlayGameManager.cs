@@ -46,6 +46,7 @@ public class PlayGameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 1;
         _stageController = StageController.Instance;
 
         _fog.SetActive(true);

@@ -65,8 +65,13 @@ public class BonusJelly : MonoBehaviour
         if(_bonusCount == 5)
         {
             _bonusCount = 0;
-            for (int i = 0; i < _getJelly.Length; i++) _getJelly[i] = false;
-            StageController.Instance.EnableBonusStage();
+            for (int i = 0; i < _getJelly.Length; i++)
+            {
+                _getJelly[i] = false;
+                CanvasController.Instance.isChangeCollectImg(i, false);
+            }
+
+            StageController.Instance.PrepareForBonusStage();
         }
     }
 
@@ -75,6 +80,7 @@ public class BonusJelly : MonoBehaviour
         if(!_getJelly[index])
         {
             _getJelly[index] = true;
+            CanvasController.Instance.isChangeCollectImg(index, true);
             _bonusCount++;
 
             CheckBonus();

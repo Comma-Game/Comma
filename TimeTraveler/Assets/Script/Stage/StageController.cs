@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class StageController : MonoBehaviour
 {
@@ -120,19 +121,20 @@ public class StageController : MonoBehaviour
     int _passThroughCount, _conceptCount; //_passThroughCount : 장애물에 부딪히지 않고 계속 전진하는 횟수, _conceptCount : 플레이 가능한 concept 개수
     
     int _stageBonusJellyIndex, _nextStageBonusJellyIndex;
-    GameObject _stageDisabledJelly; //현재 스테이지에 보너스 젤리 자리의 조각
-    GameObject _nextStageDisabledJelly; //다음 스테이지에 보너스 젤리 자리의 조각
     List<int> _remainJelly;
 
     int _stageBigJellyCount, _nextStageBigJellyCount;
-    List<GameObject> _stageDisabledJellys;
-    List<GameObject> _nextStageDisabledJellys;
+    List<GameObject> _stageDisabledJellys; //현재 스테이지에 보너스 젤리 자리의 조각
+    List<GameObject> _nextStageDisabledJellys; //다음 스테이지에 보너스 젤리 자리의 조각
 
     Player _player;
 
     float _bounsStageSpeed;
 
     const int MaxConceptIndex = 10;
+
+    MyPostProcess _postProcess; //보너스 스테이지 입장 시 화면 효과
+    bool _isBounsTime;
 
     private void Awake()
     {
@@ -158,8 +160,6 @@ public class StageController : MonoBehaviour
         _stageParent = null;
 
         //보너스 관련 변수
-        _stageDisabledJelly = null;
-        _nextStageDisabledJelly = null;
         _stageBonusJellyIndex = -1;
         _nextStageBonusJellyIndex = -1;
 
@@ -179,6 +179,9 @@ public class StageController : MonoBehaviour
         _conceptInfo = GameObject.Find("Concept").GetComponent<GetStage>();
 
         _player = GameObject.Find("Player").GetComponent<Player>();
+
+        _postProcess = GameObject.Find("PostProcessVolume").GetComponent<MyPostProcess>();
+        _isBounsTime = false;
     }
 
     void Start()
@@ -357,10 +360,16 @@ public class StageController : MonoBehaviour
     //보너스 젤리
     void CheckJelly()
     {
-        if (_stageDisabledJelly != null) _stageDisabledJelly.SetActive(true);
-        _stageDisabledJelly = _nextStageDisabledJelly;
+        if (_stageDisabledJellys.Count > 0)
+        {
+            foreach (GameObject obj in _stageDisabledJellys) obj.SetActive(true);
+        }
+        _stageDisabledJellys.Clear();
 
-        if(_stageBonusJellyIndex != -1) BonusJelly.Instance.ReturnBonusJelly(_stageBonusJellyIndex);
+        foreach (GameObject obj in _nextStageDisabledJellys) _stageDisabledJellys.Add(obj);
+        _nextStageDisabledJellys.Clear();
+
+        if (_stageBonusJellyIndex != -1) BonusJelly.Instance.ReturnBonusJelly(_stageBonusJellyIndex);
         _stageBonusJellyIndex = _nextStageBonusJellyIndex;
 
         foreach (Transform child in _nextStage.transform)
@@ -373,13 +382,13 @@ public class StageController : MonoBehaviour
                 
                 GameObject obj = CheckMemory(child);
                 obj.SetActive(false);
-                _nextStageDisabledJelly = obj;
+                _nextStageDisabledJellys.Add(obj);
 
                 GameObject bonus = BonusJelly.Instance.GetBonusJelly();
                 bonus.SetActive(true);
                 bonus.transform.SetParent(child);
                 bonus.transform.position = obj.transform.position;
-                bonus.transform.localScale = new Vector3(3, 3, 3);
+                bonus.transform.localScale = new Vector3(300, 300, 300);
 
                 CheckBigJelly(child);
 
@@ -390,14 +399,6 @@ public class StageController : MonoBehaviour
 
     void CheckBigJelly(Transform child)
     {
-        if(_stageDisabledJellys.Count > 0)
-        {
-            foreach (GameObject obj in _stageDisabledJellys) obj.SetActive(true);
-        }
-        _stageDisabledJellys = new List<GameObject>();
-        foreach (GameObject obj in _nextStageDisabledJellys) _stageDisabledJellys.Add(obj);
-        _nextStageDisabledJellys = new List<GameObject>();
-
         if (_stageBigJellyCount != -1) { PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().ReturnObject(_stageBigJellyCount); }
         _stageBigJellyCount = _nextStageBigJellyCount;
         _nextStageBigJellyCount = 0;
@@ -406,7 +407,7 @@ public class StageController : MonoBehaviour
         {
             GameObject obj = child.GetChild(_remainJelly[i]).gameObject;
 
-            if (!GetPercent(20) || obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) continue;
+            if (!GetPercent(15) || obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) continue;
 
             GameObject bigJelly = PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().GetObject();
             bigJelly.SetActive(true);
@@ -415,7 +416,7 @@ public class StageController : MonoBehaviour
             bigJelly.transform.localScale = new Vector3(3, 3, 3);
 
             obj.SetActive(false);
-            _nextStageDisabledJellys.Add(bigJelly);
+            _nextStageDisabledJellys.Add(obj);
             _nextStageBigJellyCount++;
         }
     }
@@ -494,6 +495,8 @@ public class StageController : MonoBehaviour
     //스테이지 속도 리셋
     public void ResetVelocity()
     {
+        if (_isBounsTime) return;
+
         _speed = _basicSpeed;
         _stage.GetComponent<GateMovement>().SetVelocity(_speed);
         _nextStage.GetComponent<GateMovement>().SetVelocity(_speed);
@@ -569,26 +572,30 @@ public class StageController : MonoBehaviour
         DeleteExploder();
     }
 
+    void StopMoveAllStage()
+    {
+        if (_stage != null) _stage.transform.GetComponent<GateMovement>().StopMove();
+        if (_nextStage != null) _nextStage.transform.GetComponent<GateMovement>().StopMove();
+        if (_prevStage != null) _prevStage.transform.GetComponent<GateMovement>().StopMove();
+    }
+
     //현재 모든 스테이지를 초기화 시킨다.
     void DisableAllStage()
     {
         if (_stage != null)
         {
-            _stage.transform.GetComponent<GateMovement>().StopMove();
             _stage.SetActive(false);
             _stage = null;
         }
 
         if (_nextStage != null)
         {
-            _nextStage.transform.GetComponent<GateMovement>().StopMove();
             _nextStage.SetActive(false);
             _nextStage = null;
         }
 
         if (_prevStage != null)
         {
-            _prevStage.transform.GetComponent<GateMovement>().StopMove();
             _prevStage.SetActive(false);
             _prevStage = null;
         }
@@ -597,14 +604,8 @@ public class StageController : MonoBehaviour
     }
 
     //보너스 스테이지에 입장하면 현재 있는 모든 스테이지의 젤리들 초기화
-    void ReturnJellys()
+    void ReturnNextStageJellys()
     {
-        if (_nextStageDisabledJelly != null)
-        {
-            _nextStageDisabledJelly.SetActive(true);
-            _nextStageDisabledJelly = null;
-        }
-
         if (_nextStageBonusJellyIndex != -1)
         {
             BonusJelly.Instance.ReturnBonusJelly(_nextStageBonusJellyIndex);
@@ -614,7 +615,7 @@ public class StageController : MonoBehaviour
         if (_nextStageDisabledJellys.Count > 0)
         {
             foreach (GameObject obj in _nextStageDisabledJellys) obj.SetActive(true);
-            _nextStageDisabledJellys = new List<GameObject>();
+            _nextStageDisabledJellys.Clear();
         }
 
         if (_nextStageBigJellyCount != -1)
@@ -651,26 +652,43 @@ public class StageController : MonoBehaviour
         }
     }
 
-    //보너스 스테이지 시작
-    public void EnableBonusStage()
+    //보너스 스테이지 들어가기 전 효과를 위한 준비
+    public void PrepareForBonusStage()
     {
         _curStageCount = 0;
-        
-        //스킬 및 무적 중지
-        _player.StopMyCoroutine();
+
+        _isBounsTime = true;
+
+        //모든 스테이지 움직임 멈춤
+        StopMoveAllStage();
 
         //틱 데미지와 에너지 차징 되지 않게 설정
         PlayGameManager.Instance.SetBonusTime();
 
+        //보너스 스테이지 입장 시 효과 끝
+        _postProcess.SetExposure();
+    }
+
+    //보너스 스테이지 시작
+    public void EnableBonusStage()
+    {
+        //스킬 및 무적 중지
+        _player.StopMyCoroutine();
+        
         //모든 스테이지 제거
         DisableAllStage();
+
+        _isBounsTime = false;
+
+        //보너스 스테이지 입장 시 효과 끝
+        _postProcess.ResetExposure();
 
         //큐에 있는 컨셉 재배치
         _queue.Clear();
         ResetQueue();
 
         //보너스 스테이지 활성화 및 다음 스테이지 설정
-        ReturnJellys();
+        ReturnNextStageJellys();
         SetBonusStage();
         _nextStage = SetNextStage();
         CheckJelly();

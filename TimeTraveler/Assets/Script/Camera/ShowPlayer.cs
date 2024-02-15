@@ -68,18 +68,19 @@ public class ShowPlayer : MonoBehaviour
 
     public void SetOpaque()
     {
+        StopAllCoroutines();
+
         foreach (Material mat in mats)
         {
             if (mat == null) continue;
 
             Color color = mat.color;
 
-            //SetMaterialRenderingMode(mat, 0f, -1);
+            SetMaterialRenderingMode(mat, 0f, -1);
             color.a = 1f;
             mat.color = color;
         }
 
-        StopAllCoroutines();
         mats.Clear();
     }
 

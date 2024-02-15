@@ -50,9 +50,9 @@ public class GateMovement : MonoBehaviour
 
     public void StopMove()
     {
+        _rigidbody.velocity = Vector3.zero;
         _isMove = false;
         _isAcc = false;
-        _rigidbody.velocity = Vector3.zero;
     }
 
     public void SetVelocity(float speed)

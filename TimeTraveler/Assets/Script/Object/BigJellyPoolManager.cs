@@ -45,11 +45,10 @@ public class BigJellyPoolManager : MonoBehaviour
         else
         {
             obj = Instantiate(_obj);
-            obj.transform.SetParent(_parent.transform);
-
+            obj.SetActive(false);
         }
 
-        obj.SetActive(true);
+        obj.transform.SetParent(_parent.transform);
         _usedQueue.Enqueue(obj);
 
         return obj;

@@ -40,8 +40,11 @@ public class ParticleFooling : MonoBehaviour
     {
         GameObject obj;
         if (_queue.Count > 0) obj = _queue.Dequeue();
-        else obj = Instantiate(_particle);
-        
+        else
+        {
+            obj = Instantiate(_particle);
+            obj.SetActive(false);
+        }
         obj.transform.position = pos;
         obj.transform.SetParent(parent);
         obj.SetActive(true);
