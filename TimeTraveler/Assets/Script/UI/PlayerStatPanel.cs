@@ -44,6 +44,11 @@ public class PlayerStatPanel : MonoBehaviour
     public GameObject scoreUpObj;
     public TextMeshProUGUI scoreUpText;
 
+    [Header("collect")]
+    [SerializeField] public Image[] collectImgs;
+    [SerializeField] public Sprite originSprite;
+    [SerializeField] public Sprite changeSprite;
+
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
@@ -204,4 +209,17 @@ public class PlayerStatPanel : MonoBehaviour
     public void OnScoreUpImg(bool isActive){
         scoreUpObj.SetActive(isActive);
     }
+
+    /////////////////////////////////////////////////////////////////////////////////
+    ////// collect
+    
+    public void isChangeCollectImg(int num, bool isChange){
+        if(num > 4) return;
+        if(isChange){
+            collectImgs[num].sprite = changeSprite;
+        }else{
+            collectImgs[num].sprite = originSprite;
+        }
+    }
+
 }

@@ -122,6 +122,10 @@ public class CanvasController : MonoBehaviour
     public void ChangeBuffImage(int num){
         playerStatPanelCS.ChangeBuffImage(num);
     }
+
+    public void isChangeCollectImg(int num, bool isChange){
+        playerStatPanelCS.isChangeCollectImg(num, isChange);
+    }
     
     /// ///////////////////////////////////////////////////////////////////
     /// Game Panel
