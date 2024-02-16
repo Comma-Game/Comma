@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Post-process Volume Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 3213154818927152055}
---- !u!114 &3213154818927152055
+  - {fileID: 7204898710956570863}
+--- !u!114 &7204898710956570863
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,25 +29,25 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   filtering:
-    overrideState: 1
-    value: {x: 54.000015, y: 99}
+    overrideState: 0
+    value: {x: 50, y: 95}
   minLuminance:
-    overrideState: 1
+    overrideState: 0
     value: 0
   maxLuminance:
-    overrideState: 1
+    overrideState: 0
     value: 0
   keyValue:
     overrideState: 1
     value: 1
   eyeAdaptation:
     overrideState: 1
-    value: 0
+    value: 1
   speedUp:
     overrideState: 1
-    value: 2
+    value: 5
   speedDown:
     overrideState: 1
     value: 1

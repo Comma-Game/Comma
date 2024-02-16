@@ -12,7 +12,7 @@ public class GameOverPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI coinText;
 
-    private int[] UnLockConceptScore = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 1000000};
+    private int[] UnLockConceptScore = {0, 0, 0, 5000, 10000, 25000, 40000, 55000, 150000, 250000};
     // {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     // {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 1000000}
 
