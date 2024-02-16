@@ -43911,7 +43911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1125493593466075096, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "150000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "250000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 1138908615529652693, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -44008,8 +44008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2015369534778175937, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "250000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
-        \uAC1C\uBC29"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2083990367857513969, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -44017,11 +44016,12 @@ PrefabInstance:
       objectReference: {fileID: 393194567648219557}
     - target: {fileID: 2346130486723547356, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: 
+      value: "5000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+        \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 2466676683306609230, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "55000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "150000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 2549869145703091732, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -44102,12 +44102,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3293514164391294841, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "10000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "25000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 3307530314409607573, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "5000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "10000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 3360817064286525482, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -44116,7 +44116,7 @@ PrefabInstance:
       objectReference: {fileID: 393194567648219557}
     - target: {fileID: 3414566026240827541, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "40000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "55000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 3600391668228562148, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -44381,7 +44381,7 @@ PrefabInstance:
       objectReference: {fileID: 393194567648219557}
     - target: {fileID: 8977427570411580690, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
       propertyPath: mytitleText
-      value: "25000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
+      value: "40000\uC810 \uC774\uC0C1 \uB2EC\uC131\uC2DC \uB2E4\uC74C \uCC28\uC6D0
         \uAC1C\uBC29"
       objectReference: {fileID: 0}
     m_RemovedComponents:
