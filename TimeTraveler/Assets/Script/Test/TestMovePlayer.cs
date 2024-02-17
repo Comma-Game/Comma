@@ -39,7 +39,6 @@ public class TestMovePlayer : MonoBehaviour
     void Update()
     {
         SetForce();
-        CheckSkill();
         //Debug.Log("Velocity : " + _rigidbody.velocity);
     }
 
@@ -69,10 +68,5 @@ public class TestMovePlayer : MonoBehaviour
     {
         _rigidbody.velocity /= 2;
         _v = _rigidbody.velocity;
-    }
-
-    void CheckSkill()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) _player.UseSkill();
     }
 }
