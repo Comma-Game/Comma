@@ -123,7 +123,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void GamePlay(){
-                Debug.Log("GamePlay");
+                //Debug.Log("GamePlay");
                 if(heartPanelCS.GetCurrentHearts() >= 1){
                         if(isGameStart == false){
                                 // 치트 사용했는지 확인하고 모든 컨셉 열어버리기
@@ -132,7 +132,7 @@ public class MainSceneController : MonoBehaviour
                                 }
                                 // 소지 버프가 없고 상점 버프 확정 안했지만 돌렸다면 확정시키기
                                 if(mysteryBox_current_num != -1 && SaveLoadManager.Instance.GetBuff() == 0){
-                                        Debug.Log("no buff but have buff");
+                                        //Debug.Log("no buff but have buff");
                                         SelectMysteryBox();
                                 }
                                 isGameStart = true;
@@ -201,7 +201,7 @@ public class MainSceneController : MonoBehaviour
 
         public void ClickShop(){
                 AudioManager.Instance.PlayGameButtonClick();
-                Debug.Log("ClickShop");
+                //Debug.Log("ClickShop");
                 shopPanel.SetActive(true);
                 AchievementPanelCS.OnPanel(false);
                 uIMenuManager.Position2();
@@ -211,7 +211,7 @@ public class MainSceneController : MonoBehaviour
 
         public void ClickAchievement(){
                 AudioManager.Instance.PlayGameButtonClick();
-                Debug.Log("ClickAchievement");
+                //Debug.Log("ClickAchievement");
                 shopPanel.SetActive(false);
                 AchievementPanelCS.OnPanel(true);
                 Canv_CashShop.SetActive(false);
@@ -219,7 +219,7 @@ public class MainSceneController : MonoBehaviour
 
         public void ClickCashShop(){
                 AudioManager.Instance.PlayGameButtonClick();
-                Debug.Log("ClickCashShop");
+                //Debug.Log("ClickCashShop");
                 shopPanel.SetActive(false);
                 AchievementPanelCS.OnPanel(false);
                 Canv_CashShop.SetActive(true);
@@ -359,7 +359,7 @@ public class MainSceneController : MonoBehaviour
 
         public void GetMysteryBox(){
                 if(SaveLoadManager.Instance.GetCoin() >= 10000){
-                        Debug.Log("GetMysteryBox");
+                        //Debug.Log("GetMysteryBox");
                         AudioManager.Instance.PlayMesteryBoxBuySFX();
                         string randomBuffText = mysteryBox_Buff_Texts[GetRandomBuffNum()];
                         mysteryBoxBuffText.text = randomBuffText;
@@ -373,7 +373,7 @@ public class MainSceneController : MonoBehaviour
 
 	public void SelectMysteryBox(){
                 if(mysteryBox_current_num != -1){
-                        Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
+                        //Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
                         AudioManager.Instance.PlayGameButtonClick();
                         ChangeBuffText(mysteryBox_Buff_Texts[mysteryBox_current_num]);
                         SaveLoadManager.Instance.SetBuff(mysteryBox_current_num+1);
@@ -382,7 +382,7 @@ public class MainSceneController : MonoBehaviour
 	}
 
         public void SetMysteryBox(int Index){
-                Debug.Log("SetMysteryBox");
+                //Debug.Log("SetMysteryBox");
                 string randomBuffText = "0";
                 if(Index == 0){
                         randomBuffText = "-";
@@ -391,7 +391,7 @@ public class MainSceneController : MonoBehaviour
                 }
                 mysteryBoxBuffText.text = randomBuffText;
                 ChangeBuffText(randomBuffText);
-                Debug.Log("SetMysteryBox");
+                //Debug.Log("SetMysteryBox");
 	}
 
         private int GetRandomBuffNum(){
@@ -401,21 +401,21 @@ public class MainSceneController : MonoBehaviour
         }
 
         private void ChangeShopHpText(bool canUpgrade){
-                Debug.Log("UpgradeStatHP "+hpUpgradeClass);
+                //Debug.Log("UpgradeStatHP "+hpUpgradeClass);
                 if(canUpgrade) shopHpText.text = "강화 \n" + hpUpgradeCoin[hpUpgradeClass];
                 else shopHpText.text = "Max";
                 shopHpLVText.text = "LV " + (hpUpgradeClass).ToString();
         }
 
         private void ChangeJellyText(bool canUpgrade){
-                Debug.Log("UpgradeJelly "+jellyUpgradeClass);
+                //Debug.Log("UpgradeJelly "+jellyUpgradeClass);
                 if(canUpgrade) shopStatText.text = "강화 \n" + jellyUpgradeCoin[jellyUpgradeClass];
                 else shopStatText.text = "Max";
                 shopStatLVText.text = "LV " + (jellyUpgradeClass).ToString();
         }
 
         private void ChangeEnergyText(bool canUpgrade){
-                Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
+                //Debug.Log("UpgradeStatEnergy "+energyUpgradeClass);
                 if(canUpgrade) shopEnergyText.text = "강화 \n" + energyUpgradeCoin[energyUpgradeClass];
                 else shopEnergyText.text = "Max";
                 shopEnergyLVText.text = "LV " + (energyUpgradeClass).ToString();
@@ -430,7 +430,7 @@ public class MainSceneController : MonoBehaviour
         }
 
         public void PlusCoin(int coin){
-                Debug.Log("PlusCoin "+ coin);
+                //Debug.Log("PlusCoin "+ coin);
                 // 돈 소비
                 SaveLoadManager.Instance.PlusCoin(coin);
                 SaveLoadManager.Instance.SaveData();

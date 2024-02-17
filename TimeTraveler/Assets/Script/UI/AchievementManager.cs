@@ -18,14 +18,14 @@ public class AchievementManager : MonoBehaviour
     public void Start(){
         currentUnlockedConceptNum = SaveLoadManager.Instance.GetUnlockedConcept();
         currentUnlockedMemory = SaveLoadManager.Instance.GetUnlockedMemory();
-        Debug.Log("currentUnlockedConceptNum : " + currentUnlockedConceptNum);
+        //Debug.Log("currentUnlockedConceptNum : " + currentUnlockedConceptNum);
         SettingAchievement(currentUnlockedConceptNum);
         SettingStroy(currentUnlockedConceptNum);
     }
 
     public void ClickStory(int number){
         AudioManager.Instance.PlayGameButtonClick();
-        Debug.Log("ClickStory : " + number);
+        //Debug.Log("ClickStory : " + number);
         DisablePanels();
         stroyPanels[number].SetActive(true);
     }

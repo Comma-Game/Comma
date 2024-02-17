@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
     public void Start(){
         float sfxSound = SaveLoadManager.Instance.GetSfxSound();
         float bgmSound = SaveLoadManager.Instance.GetBgmSound();
-        Debug.Log("sfxSound : "+ sfxSound + " bgmSound : " + bgmSound);
+        //Debug.Log("sfxSound : "+ sfxSound + " bgmSound : " + bgmSound);
         SettingSounds(sfxSound, bgmSound);
     }
 

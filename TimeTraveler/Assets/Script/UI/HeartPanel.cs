@@ -31,7 +31,7 @@ public class HeartPanel : MonoBehaviour
         TimeSpan timeSinceLastFill = DateTime.Now - lastFillTime;
         // 지난 시간 / 1개 채워지는 시간 = 총 채워진 화트 갯수
         heartsToAdd = Mathf.FloorToInt((float)timeSinceLastFill.TotalMinutes / fillCooldownMinutes);
-        Debug.Log("heartsToAdd : "+ heartsToAdd);
+        //Debug.Log("heartsToAdd : "+ heartsToAdd);
         if (heartsToAdd > 0)
         {
             if(currentHearts + heartsToAdd > maxHearts) heartsToAdd = maxHearts - currentHearts;
@@ -73,8 +73,8 @@ public class HeartPanel : MonoBehaviour
         //fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
         currentHearts = SaveLoadManager.Instance.GetHeart();
         lastFillTime = SaveLoadManager.Instance.GetExitTime();
-        Debug.Log("currentHearts : " + currentHearts);
-        Debug.Log("lastFillTime : " + lastFillTime);
+        // Debug.Log("currentHearts : " + currentHearts);
+        // Debug.Log("lastFillTime : " + lastFillTime);
         ChangeHeartImg();
     }
 

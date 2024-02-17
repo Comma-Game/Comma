@@ -120,7 +120,7 @@ public class PlayerStatPanel : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log("TakeDamage health : " + health);
+        //Debug.Log("TakeDamage health : " + health);
         healthLerpTimer = 0;
     }
 
@@ -155,6 +155,7 @@ public class PlayerStatPanel : MonoBehaviour
     public void UpEnergy(float Amount)
     {
         //Debug.Log("UpEnergy");
+        //Debug.Log("UpEnergy : " + Amount);
         energy += Amount;
         energyLerpTimer = 0;
     }
@@ -162,15 +163,16 @@ public class PlayerStatPanel : MonoBehaviour
     public void DownEnergy(float damage)
     {
         //Debug.Log("DownEnergy");
+        //Debug.Log("DownEnergy : " + damage);
         energy -= damage;
         energyLerpTimer = 0;
     }
 
     public void initSetting(float maxHp){
         maxHealth = maxHp;
-        Debug.Log("maxHealth : " + maxHealth);
+        //Debug.Log("maxHealth : " + maxHealth);
         health = maxHealth;
-        energy = maxEnergy;
+        energy = 0;
         ChangeScoreText(0);
         backgroundImgRect = backgroundImg.GetComponent<RectTransform>();
         frontHealthBarRect = frontHealthBar.GetComponent<RectTransform>();
@@ -189,7 +191,7 @@ public class PlayerStatPanel : MonoBehaviour
     ////// buff
     
     public void ChangeBuffImage(int num){
-        Debug.Log("ChangeBuffImage : " + num);
+        //Debug.Log("ChangeBuffImage : " + num);
         if(num != 0){
             buffs[num-1].SetActive(true);
         }

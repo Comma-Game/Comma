@@ -50,7 +50,7 @@ public class StoryPanel : MonoBehaviour
     public void SettingStory(UnlockStoryInfo currentUnlockedMemory){
         isStoryLock = currentUnlockedMemory;
         for(int i=0; i<3; i++){
-            Debug.Log("SettingStory "+ i + " : " + isStoryLock.CheckStory(i));
+            //Debug.Log("SettingStory "+ i + " : " + isStoryLock.CheckStory(i));
             if(isStoryLock.CheckStory(i) == false){
                 isUnlockStroy[i] = false;
                 stroyImg[i].enabled = false;
