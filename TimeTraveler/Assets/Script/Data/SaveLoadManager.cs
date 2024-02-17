@@ -7,16 +7,24 @@ using System;
 [System.Serializable]
 public class UnlockStoryInfo
 {
-    public List<bool> info;
+    public List<bool> info, unOpened;
 
     public UnlockStoryInfo()
     {
         info = new List<bool>();
-        for (int i = 0; i < 3; i++) info.Add(false);
+        unOpened = new List<bool>();
+        for (int i = 0; i < 3; i++)
+        {
+            info.Add(false);
+            unOpened.Add(false);
+        }
     }
 
     public void UnlockStory(int index) { info[index] = true; }
     public bool CheckStory(int index) { return info[index]; }
+    public void SetUnOpenedStory(int index) { unOpened[index] = true; }
+    public void ReadStory(int index) { unOpened[index] = false; }
+    public bool GetUnOpenedStory(int index) { return unOpened[index]; }
 }
 
 [System.Serializable]
@@ -189,7 +197,14 @@ public class SaveLoadManager : MonoBehaviour
     public float GetBgmSound() { return GameData.bgmSound; } //bgm 소리 반환
     public void SetSfxSound(float sound) { GameData.sfxSound = sound; } //sfx 소리 저장
     public float GetSfxSound() { return GameData.sfxSound; } //sfx 소리 반환
-
+    public void SetUnOpenedStory(int concept, int index) { GameData.unlockedMemory[concept].SetUnOpenedStory(index); } //스토리를 열람되지 않은 상태로 설정
+    public void ReadStory(int concept, int index) { GameData.unlockedMemory[concept].ReadStory(index); } //스토리를 읽은 상태로 설정
+    public List<bool> GetUnOpenedStory(int concept) //해당 컨셉의 스토리 열람 상태를 반환
+    {
+        List<bool> ret = new List<bool>();
+        for (int i = 0; i < 3; i++) ret.Add(GameData.unlockedMemory[concept].GetUnOpenedStory(i));
+        return ret;
+    }
 
     public void SetHeartTimeTest(float time) { GameData.heartTimetTest = time; } //하트 테스트 시간 설정
     public float GetHeartTimeTest() { return GameData.heartTimetTest; } //하트 테스트 시간 반환

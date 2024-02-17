@@ -34,19 +34,20 @@ public class BonusJelly : MonoBehaviour
 
     Queue<GameObject>[] _waitingBonusQueue, _usingBonusQueue;
 
-    int _bonusCount;
+    int _bonusCount, _jellyLength;
     bool[] _getJelly;
 
     private void Awake()
     {
         _bonusCount = 0;
-        _getJelly = new bool[5];
+        _jellyLength = _bonus.Length;
+        _getJelly = new bool[_jellyLength];
 
         _parent = transform.gameObject;
 
-        _waitingBonusQueue = new Queue<GameObject>[5];
-        _usingBonusQueue = new Queue<GameObject>[5];
-        for (int i = 0; i < 5; i++)
+        _waitingBonusQueue = new Queue<GameObject>[_jellyLength];
+        _usingBonusQueue = new Queue<GameObject>[_jellyLength];
+        for (int i = 0; i < _jellyLength; i++)
         {
             _waitingBonusQueue[i] = new Queue<GameObject>();
             _waitingBonusQueue[i].Enqueue(_bonus[i]);
@@ -62,7 +63,7 @@ public class BonusJelly : MonoBehaviour
 
     void CheckBonus()
     {
-        if(_bonusCount == 5)
+        if(_bonusCount == _jellyLength)
         {
             _bonusCount = 0;
             for (int i = 0; i < _getJelly.Length; i++)
@@ -89,7 +90,7 @@ public class BonusJelly : MonoBehaviour
 
     public GameObject GetBonusJelly()
     {
-        int index = Random.Range(0, 5);
+        int index = Random.Range(0, _jellyLength);
         StageController.Instance.SetBonusJellyIndex(index);
 
         GameObject obj;

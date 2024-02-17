@@ -56,8 +56,8 @@ public class StageController : MonoBehaviour
 
     static GameObject _stageController;
 
-    float[] _speed = { 10, 15, 19, 22, 24 }; //계수 별 스피드
-    float[] _maxSpeed = { 15, 19, 22, 24, 25 }; //계수 별 최대 스피드
+    float[] _speed = { 10, 13, 15, 17, 19 }; //계수 별 스피드
+    float[] _maxSpeed = { 13, 15, 17, 19, 20 }; //계수 별 최대 스피드
     float _curSpeed;
 
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
@@ -96,7 +96,7 @@ public class StageController : MonoBehaviour
         _curSpeed = _speed[0];
 
         //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        _accSpeed = 1;
+        _accSpeed = 0.7f;
         //_accSpeed = 0.5f;
 
         _bounsStageSpeed = 15f;
