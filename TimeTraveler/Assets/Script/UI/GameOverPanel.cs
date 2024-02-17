@@ -69,7 +69,7 @@ public class GameOverPanel : MonoBehaviour
     }
 
     private int CheckCurrentScoreToConceptNum(int score){
-        int num = 0;
+        int num = -1;
         for(int i=0; i<UnLockConceptScore.Length; i++){
             if(UnLockConceptScore[i] <= score){
                 num += 1;

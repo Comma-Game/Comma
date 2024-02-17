@@ -522,7 +522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5510221076780701818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -540,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216.95, y: -18.83}
-  m_SizeDelta: {x: 433.89, y: 53.7}
+  m_AnchoredPosition: {x: 239.01, y: -18.83}
+  m_SizeDelta: {x: 478.03, y: 53.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7378191186211193192
 CanvasRenderer:
@@ -4517,7 +4517,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC870\uAC01 \uC544\uC774\uD15C \uD68D\uB4DD \uC2DC \uD68D\uB4DD \uC810\uC218
-    \uC0C1\uC2B9 \uC2DC\uCF1C\uC900\uB2E4."
+    \uC0C1\uC2B9 \uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -6846,7 +6846,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4917992519262805979
 MonoBehaviour:
   m_ObjectHideFlags: 0
