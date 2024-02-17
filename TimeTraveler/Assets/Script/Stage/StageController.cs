@@ -29,26 +29,6 @@ public class StageController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _basicSpeed; //현재 진행하고 있는 스테이지의 기본 속도
-    public float BasicSpeed
-    {
-        get { return _basicSpeed; }
-    }
-
-    private float _speed; //실시간 속도
-    public float Speed
-    {
-        get
-        {
-            return _speed;
-        }
-        set
-        {
-            _speed = value;
-        }
-    }
-
-    [SerializeField]
     private float _accSpeed; //가속도
     public float AccSpeed
     {
@@ -59,34 +39,6 @@ public class StageController : MonoBehaviour
         set
         {
             _accSpeed = value;
-        }
-    }
-
-    [SerializeField]
-    private float _maxSpeed; //최대 속도
-    public float MaxSpeed
-    {
-        get
-        {
-            return _maxSpeed;
-        }
-        set
-        {
-            _maxSpeed = value;
-        }
-    }
-
-    [SerializeField]
-    private float _maxBasicSpeed; //기본 속도의 최대치
-    public float MaxBasicSpeed
-    {
-        get
-        {
-            return _maxBasicSpeed;
-        }
-        set
-        {
-            _maxBasicSpeed = value;
         }
     }
 
@@ -103,6 +55,10 @@ public class StageController : MonoBehaviour
     }
 
     static GameObject _stageController;
+
+    float[] _speed = { 10, 15, 19, 22, 24 }; //계수 별 스피드
+    float[] _maxSpeed = { 15, 19, 22, 24, 25 }; //계수 별 최대 스피드
+    float _curSpeed;
 
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
     Queue<StageInfo> _queue; //생성될 스테이지들을 저장(컨셉 2개, 즉 스테이지는 6개)
@@ -133,22 +89,20 @@ public class StageController : MonoBehaviour
 
     const int MaxConceptIndex = 10;
 
-    MyPostProcess _postProcess; //보너스 스테이지 입장 시 화면 효과
-    bool _isBounsTime;
+    bool _isSkill;
 
     private void Awake()
     {
-        //스피드 초기화
-        _basicSpeed = 7.5f;
-        _speed = _basicSpeed;
+        _curSpeed = _speed[0];
 
         //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        _accSpeed = 0.5f;
-
-        _maxSpeed = 25f;
-        _maxBasicSpeed = 12.5f;
+        _accSpeed = 1;
+        //_accSpeed = 0.5f;
 
         _bounsStageSpeed = 15f;
+
+        //계수
+        _passThroughCount = 0;
 
         //stage 정보 초기화
         _totalStageCount = 1;
@@ -180,8 +134,7 @@ public class StageController : MonoBehaviour
 
         _player = GameObject.Find("Player").GetComponent<Player>();
 
-        _postProcess = GameObject.Find("PostProcessVolume").GetComponent<MyPostProcess>();
-        _isBounsTime = false;
+        _isSkill = false;
     }
 
     void Start()
@@ -206,8 +159,8 @@ public class StageController : MonoBehaviour
 
         ResetQueue();
         SetStageForStart();
-        
-        MoveStage();
+
+        SetVelocity(_speed[_passThroughCount]);
     }
 
     void TestStage(int index)
@@ -311,8 +264,7 @@ public class StageController : MonoBehaviour
         _stage = _nextStage;
         PlayGameManager.Instance.SetStage(_stage);
 
-        //올라가고 있는 stage 정지 후 위치 재설정
-        _stage.transform.GetComponent<GateMovement>().StopMove();
+        //위치 재설정
         _stage.transform.position = new Vector3(0, 96.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
 
         //포탈 위치 재설정
@@ -425,7 +377,6 @@ public class StageController : MonoBehaviour
     void SetPrevStage()
     {
         _prevStage = _stage;
-        _prevStage.GetComponent<GateMovement>().StopMove();
         _prevStage.transform.position = new Vector3(0, 192.5f, 0);
     }
 
@@ -439,20 +390,29 @@ public class StageController : MonoBehaviour
     //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
     {
-        if (_curStageCount++ % 3 == 0) _passThroughCount = _passThroughCount >= 5 ? 5 : _passThroughCount + 1;
-        _totalStageCount++;
+        _curSpeed = GetStageVelocity();
+        if (_curStageCount == 0)
+        {
+            if(!_isSkill) _curSpeed = _speed[_passThroughCount];
+        }
+        else if (_curStageCount % 3 == 0)
+        {
+            _passThroughCount = _passThroughCount >= 4 ? 4 : _passThroughCount + 1;
+            if (!_isSkill) _curSpeed = _speed[_passThroughCount];
+        }
 
-        _speed = _basicSpeed + _passThroughCount;
-        _speed = _speed > _maxBasicSpeed ? _maxBasicSpeed : _speed;
+        _curStageCount++;
+        _totalStageCount++;
 
         //점수 관련 UI 변경
         CanvasController.Instance.ChangeState(_totalStageCount);
         CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
-
+        
         ReturnStage();
+        StopMoveAllStage();
         SetPrevStage();
         SetCurrentStage();
-        MoveStage();
+        SetVelocity(_curSpeed);
     }
 
     void SetStageParent()
@@ -463,21 +423,13 @@ public class StageController : MonoBehaviour
 
     public void MinusPassThroughCount() 
     { 
-        _passThroughCount = _passThroughCount > 0 ? --_passThroughCount : 0;
-        
+        if(_passThroughCount == 0) SetVelocity(_speed[_passThroughCount]);
+        else SetVelocity(_maxSpeed[--_passThroughCount]);
+
         //계수 UI 변경
         CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
     }
     public int GetPassThroughCount() { return _passThroughCount; }
-
-
-    //Scene에 있는 Stage 속도 설정
-    public void MoveStage()
-    {
-        if(_prevStage != null) _prevStage.GetComponent<GateMovement>().Move();
-        _stage.GetComponent<GateMovement>().Move();
-        _nextStage.GetComponent<GateMovement>().Move();
-    }
 
     //현재 스피드 반환
     public float GetStageVelocity()
@@ -488,18 +440,20 @@ public class StageController : MonoBehaviour
     //스테이지 속도 설정
     public void SetVelocity(float speed)
     {
+        _curSpeed = speed;
+
+        if (_prevStage != null) _prevStage.GetComponent<GateMovement>().SetVelocity(speed);
         _stage.GetComponent<GateMovement>().SetVelocity(speed);
         _nextStage.GetComponent<GateMovement>().SetVelocity(speed);
     }
 
-    //스테이지 속도 리셋
-    public void ResetVelocity()
+    public void SetBonusStageVelocity(float speed)
     {
-        if (_isBounsTime) return;
+        _curSpeed = speed;
 
-        _speed = _basicSpeed;
-        _stage.GetComponent<GateMovement>().SetVelocity(_speed);
-        _nextStage.GetComponent<GateMovement>().SetVelocity(_speed);
+        if (_prevStage != null) _prevStage.GetComponent<GateMovement>().SetBonusVelocity(speed);
+        _stage.GetComponent<GateMovement>().SetBonusVelocity(speed);
+        _nextStage.GetComponent<GateMovement>().SetBonusVelocity(speed);
     }
 
     public void EndGame() 
@@ -515,8 +469,8 @@ public class StageController : MonoBehaviour
 
         Debug.Log("현재 Stage : " + _stage.name);
         Debug.Log("다음 Stage : " + _nextStage.name);
-        _stage.GetComponent<GateMovement>().SetAcceleration();
-        _nextStage.GetComponent<GateMovement>().SetAcceleration();
+        //_stage.GetComponent<GateMovement>().SetAcceleration();
+        //_nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
     //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
@@ -540,8 +494,7 @@ public class StageController : MonoBehaviour
     //기본 속도 빨라지는 버프
     public void SetBasicSpeedDeBuff()
     {
-        _basicSpeed *= 1.2f;
-        _speed = _basicSpeed;
+        for (int i = 0; i < 5; i++) _speed[i] *= 1.2f;
     }
     
     //터진 파편들 리스트에 넣어주기
@@ -655,9 +608,10 @@ public class StageController : MonoBehaviour
     //보너스 스테이지 들어가기 전 효과를 위한 준비
     public void PrepareForBonusStage()
     {
-        _curStageCount = 0;
+        //스킬 사용 못하게 설정
+        _player.EnterBonusStage();
 
-        _isBounsTime = true;
+        _curStageCount = 0;
 
         //모든 스테이지 움직임 멈춤
         StopMoveAllStage();
@@ -669,10 +623,10 @@ public class StageController : MonoBehaviour
         _player.StopMyCoroutine();
 
         //플레이어 움직이지 못하게 설정
-        _player.GetComponent<MovePlayer>().enabled = false;
+        _player.DisablePlayerMove();
 
         //보너스 스테이지 입장 시 효과 시작
-        _postProcess.SetExposure();
+        MyPostProcess.Instance.SetExposure();
     }
 
     //보너스 스테이지 시작
@@ -681,16 +635,11 @@ public class StageController : MonoBehaviour
         //모든 스테이지 제거
         DisableAllStage();
 
-        _isBounsTime = false;
-
         //플레이어 위치 중앙으로 이동
         _player.transform.position = new Vector3(0, 175, 0);
 
-        //플레이어 다시 움직임
-        _player.GetComponent<MovePlayer>().enabled = true;
-
         //보너스 스테이지 입장 시 효과 끝
-        _postProcess.ResetExposure();
+        MyPostProcess.Instance.ResetExposure();
 
         //큐에 있는 컨셉 재배치
         _queue.Clear();
@@ -703,8 +652,10 @@ public class StageController : MonoBehaviour
         CheckJelly();
 
         //보너스 스테이지 속도 일정하게 설정
-        _speed = _bounsStageSpeed;
-        MoveStage();
+        SetBonusStageVelocity(_bounsStageSpeed);
+
+        //플레이어 다시 움직임
+        _player.EnablePlayerMove();
     }
 
     public void TriggerBonusJelly()
@@ -745,6 +696,27 @@ public class StageController : MonoBehaviour
         return random;
     }
 
+    public void SetSkill()
+    {
+        _isSkill = true;
+
+        if (_stage != null) _stage.transform.GetComponent<GateMovement>().SetSkill();
+        _nextStage.transform.GetComponent<GateMovement>().SetSkill();
+        _prevStage.transform.GetComponent<GateMovement>().SetSkill();
+    }
+
+    public void ResetSkill()
+    {
+        _isSkill = false;
+
+        if (_stage != null) _stage.transform.GetComponent<GateMovement>().ResetSkill();
+        _nextStage.transform.GetComponent<GateMovement>().ResetSkill();
+        _prevStage.transform.GetComponent<GateMovement>().ResetSkill();
+    }
+
     //현재 스테이지 반환
     public int GetStageCount() { return _totalStageCount; }
+    public float GetSkillSpeed() { return 30; }
+    public float GetSpeed() { return _speed[_passThroughCount]; }
+    public float GetMaxSpeed() { return _maxSpeed[_passThroughCount]; }
 }

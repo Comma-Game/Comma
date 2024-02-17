@@ -9,25 +9,7 @@ public class ColliderRange : MonoBehaviour
     Canvas _canvas;
 
     [SerializeField]
-    GameObject _skillEffect;
-
-    [SerializeField]
     GameObject _forceField;
-
-    private void Awake()
-    {
-        for (int i = 0; i < _skillEffect.transform.childCount; i++) _skillEffect.transform.GetChild(i).localScale *= _canvas.scaleFactor;
-    }
-
-    public void EnableSkillEffect()
-    {
-        _skillEffect.SetActive(true);
-    }
-
-    public void DisableSkillEffect()
-    {
-        _skillEffect.SetActive(false);
-    }
 
     public void EnableRawImage()
     {

@@ -75,7 +75,7 @@ public class MovePlayer : MonoBehaviour
             _force = Vector3.zero;
         }
     }
-
+    /*
     void GetTouch()
     {
         if(Input.touchCount > 0)
@@ -112,6 +112,39 @@ public class MovePlayer : MonoBehaviour
                     Vector3 tempDir = (_sTouchPos - _eTouchPos) * _canvas.scaleFactor;
                     _arrowDir = new Vector2(tempDir.x, tempDir.z).normalized;
                 }
+            }
+        }
+    }
+    */
+
+    void GetTouch()
+    {
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began) _sTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
+
+                if (_coroutine != null) StopCoroutine(_coroutine);
+
+                _force = (_sTouchPos - _eTouchPos) * _canvas.scaleFactor;
+
+                float dis = Vector3.Magnitude(_force);
+                if (dis < 0.1f) return;
+
+                _force = dis >= _swipeRange ? _force.normalized * _swipeRange : _force;
+                _coroutine = StartCoroutine(MoveTime());
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                _arrow.transform.GetComponent<RawImage>().enabled = true;
+                _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f)) - _camera.transform.position;
+
+                Vector3 tempDir = (_sTouchPos - _eTouchPos) * _canvas.scaleFactor;
+                _arrowDir = new Vector2(tempDir.x, tempDir.z).normalized;
             }
         }
     }

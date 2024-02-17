@@ -42,7 +42,7 @@ public class UseItem : MonoBehaviour
                 StageController.Instance.SetBasicSpeedDeBuff();
                 break;
             case 8:
-                _player.SetEnergyDeBuff();
+                _player.SetEnergyBuff();
                 break;
         }
 
