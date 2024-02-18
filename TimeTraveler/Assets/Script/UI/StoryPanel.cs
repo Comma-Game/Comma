@@ -20,6 +20,8 @@ public class StoryPanel : MonoBehaviour
     [SerializeField] public string mystroy1Text;
     [SerializeField] public string mystroy2Text;
     [SerializeField] public string mystroy3Text;
+    [SerializeField] public GameObject[] newImg;
+    [SerializeField] public GameObject[] newHeart;
 
     [Header("Story Panels")]
     [SerializeField] public TextMeshProUGUI titleText;
@@ -29,6 +31,7 @@ public class StoryPanel : MonoBehaviour
 
     private UnlockStoryInfo isStoryLock = null;
     private bool[] isUnlockStroy = {false, false, false}; 
+    private bool isFirst = false;
     
     void Start()
     {
@@ -65,8 +68,30 @@ public class StoryPanel : MonoBehaviour
         }
     }
 
-    public void OnStory(int storyum){
-        if(isUnlockStroy[storyum]) StoryManager.Instance.ShowStory(conceptNum, storyum);
+    public void OnStory(int storyNum){
+        if(isUnlockStroy[storyNum]) {
+            StoryManager.Instance.ShowStory(conceptNum, storyNum);
+            if(isFirst){
+                //스토리를 읽은 상태로 설정
+                SaveLoadManager.Instance.ReadStory(conceptNum, storyNum);
+                // 하트 갯수 추가
+                HeartPanel.Instance.AddHearts(1);
+                SettingNewStory(storyNum, false);
+                AchievementManager.Instance.DeletNewImg();
+            }
+        }
         //StoryManager.Instance.ShowStory(conceptNum, storyum);
+    }
+
+    public void SettingNewStory(int storyNum, bool isActive){
+        if(isActive == true){
+            isFirst = true;
+            newImg[storyNum].SetActive(true);
+            newHeart[storyNum].SetActive(true);
+        }else{
+            isFirst = false;
+            newImg[storyNum].SetActive(false);
+            newHeart[storyNum].SetActive(false);
+        }
     }
 }

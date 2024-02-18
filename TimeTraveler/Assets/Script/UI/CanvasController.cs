@@ -87,8 +87,12 @@ public class CanvasController : MonoBehaviour
     /// Player Stat Panel 
     
 
-    public void InitSetting(float maxHp){
-        playerStatPanelCS.initSetting(maxHp);
+    public void InitSettingHealth(float maxHp){
+        playerStatPanelCS.initSettingHealth(maxHp);
+    }
+
+    public void InitSettingEnergy(float maxEnergy){
+        playerStatPanelCS.initSettingEnergy(maxEnergy);
     }
 
     public void PlayerGetDamgeHP(float damge){

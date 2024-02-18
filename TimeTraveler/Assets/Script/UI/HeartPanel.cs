@@ -22,6 +22,31 @@ public class HeartPanel : MonoBehaviour
     private int testMobile = 0;
     private int heartsToAdd = 0;
 
+    private static HeartPanel instance;
+    // singleton
+    public static HeartPanel Instance
+    {
+        get
+        {
+            // 인스턴스가 없으면 생성
+            if (instance == null)
+            {
+                instance = FindObjectOfType<HeartPanel>();
+
+                // 만약 Scene에 GameManager가 없으면 새로 생성
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject("HeartPanel");
+                    instance = obj.AddComponent<HeartPanel>();
+                }
+            }
+            return instance;
+        }
+    }
+
+    /// ////////////////////////////////////////////////////////////////////
+    /// 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,26 +83,6 @@ public class HeartPanel : MonoBehaviour
         UpdateTimerText(); // 매 프레임마다 타이머 텍스트 업데이트
     }
 
-    private void ChangeHeartImg(){
-        for(int i=0; i<maxHearts; i++){
-            if(i < currentHearts){
-                hearts[i].sprite = onHeart;
-            }else{
-                hearts[i].sprite = offHeart;
-            }
-        }
-    }
-
-    private void LoadData()
-    {
-        //fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
-        currentHearts = SaveLoadManager.Instance.GetHeart();
-        lastFillTime = SaveLoadManager.Instance.GetExitTime();
-        // Debug.Log("currentHearts : " + currentHearts);
-        // Debug.Log("lastFillTime : " + lastFillTime);
-        ChangeHeartImg();
-    }
-
     public void AddHearts(int amount)
     {
         // 하트 추가 및 마지막으로 채운 시간 업데이트
@@ -108,6 +113,38 @@ public class HeartPanel : MonoBehaviour
         ChangeHeartImg();
         SaveLoadManager.Instance.SubtractHeart();
         SaveLoadManager.Instance.SaveData();
+    }
+
+    public void CheatAddHeart()
+    {
+        testMobile = testMobile +1;
+        if(testMobile >= 5){
+            AddHearts(1);
+            testMobile = 0;
+        }
+    }
+
+    /// ////////////////////////////////////////////////////////////////////
+    /// 
+
+    private void ChangeHeartImg(){
+        for(int i=0; i<maxHearts; i++){
+            if(i < currentHearts){
+                hearts[i].sprite = onHeart;
+            }else{
+                hearts[i].sprite = offHeart;
+            }
+        }
+    }
+
+    private void LoadData()
+    {
+        //fillCooldownMinutes = SaveLoadManager.Instance.GetHeartTimeTest();
+        currentHearts = SaveLoadManager.Instance.GetHeart();
+        lastFillTime = SaveLoadManager.Instance.GetExitTime();
+        // Debug.Log("currentHearts : " + currentHearts);
+        // Debug.Log("lastFillTime : " + lastFillTime);
+        ChangeHeartImg();
     }
 
     private void UpdateTimerText()
@@ -141,15 +178,6 @@ public class HeartPanel : MonoBehaviour
         {
             int overNum = currentHearts - maxHearts;
             timeText.text = "+ " + overNum;
-        }
-    }
-
-    public void CheatAddHeart()
-    {
-        testMobile = testMobile +1;
-        if(testMobile >= 5){
-            AddHearts(1);
-            testMobile = 0;
         }
     }
 }

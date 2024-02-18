@@ -17,8 +17,6 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public GameObject shop_HaertShopPanel;
         [SerializeField] public GameObject AchievementPanel;
         private AchievementManager AchievementPanelCS;
-        [SerializeField] public GameObject AchievementNewText;
-        [SerializeField] public GameObject AchievementNewImg;
         [SerializeField] public GameObject SettingPanel;
         [SerializeField] public GameObject CashShopPanel;
         [SerializeField] public GameObject Canv_CashShop;
@@ -45,11 +43,13 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public TextMeshProUGUI coinText_1;
         [SerializeField] public TextMeshProUGUI scoreText_1;
         [SerializeField] public TextMeshProUGUI buffText_1;
+        [SerializeField] public TextMeshProUGUI buffdetailText;
 
         [Header("player panel 2")]
         [SerializeField] public TextMeshProUGUI coinText_2;
         [SerializeField] public TextMeshProUGUI scoreText_2;
         [SerializeField] public TextMeshProUGUI buffText_2;
+        [SerializeField] public TextMeshProUGUI buffdetailText2;
 
         [Header("Shop Panels")]
         [SerializeField] public TextMeshProUGUI shopHpText;
@@ -71,14 +71,14 @@ public class MainSceneController : MonoBehaviour
 
         private int mysteryBox_coin = 10000;
         private string[] mysteryBox_Buff_Texts = {
-                "체력강화 +50",
-                "코인 1.2배",
+                "체력 강화 +50",
+                "코인 1.2배 추가 획득" ,
                 "장애물 충돌피해 50% 감소",
                 "체력감소 15% 느림",
-                "물약 회복량 30% 증가",
+                "체력 회복량 20% 증가",
                 "가속도 +20%",
                 "기본속도 +20%",
-                "최대 에너지량 감소 -20%"
+                "에너지 축적량 20% 감소"
         };
 
         private int maxGradeNum = 30; // 5 업그레이드 가능하면 -1 해서 4로 설정
@@ -239,8 +239,36 @@ public class MainSceneController : MonoBehaviour
         }
 
         private void ChangeBuffText(string buff){
-                buffText_1.text = "현재 가진 추가 능력 : " + buff;
-                buffText_2.text = "현재 가진 추가 능력 : " + buff;
+                buffText_1.text = ": " + buff;
+                buffText_2.text = ": " + buff;
+        }
+
+        private void ChangeBuffDetail(int num){
+                if(num == 0) {
+                        buffdetailText.text = "현재 캐릭터의 체력을 50만큼 추가로 올려줍니다. (Ex. 능력 적용 전 체력 100 → 능력 적용 후 체력 150)";
+                        buffdetailText2.text = "현재 캐릭터의 체력을 50만큼 추가로 올려줍니다. (Ex. 능력 적용 전 체력 100 → 능력 적용 후 체력 150)";
+                }else if(num == 1) {
+                        buffdetailText.text = "최종 획득한 코인에서 x1.2배만큼 추가로 받습니다. (Ex. 능력 적용 전 획득코인 100 → 능력 적용 후 획득코인120)";
+                        buffdetailText2.text = "최종 획득한 코인에서 x1.2배만큼 추가로 받습니다. (Ex. 능력 적용 전 획득코인 100 → 능력 적용 후 획득코인120)";
+                }else if(num == 2) {
+                        buffdetailText.text = "장애물에 부딪혔을 때 기존에 받던 피해량이 절반 감소합니다. (Ex. 기존 장애물에 부딪혔을 시 받는 피해량 10 → 추가된 능력 적용 시 받는 피해량 5)";
+                        buffdetailText2.text = "장애물에 부딪혔을 때 기존에 받던 피해량이 절반 감소합니다. (Ex. 기존 장애물에 부딪혔을 시 받는 피해량 10 → 추가된 능력 적용 시 받는 피해량 5)";
+                }else if(num == 3) {
+                        buffdetailText.text = "초당 받는 지속 데미지가 15% 만큼 적게 받습니다. (Ex. 능력 적용 전 지속 데미지 10 → 능력 적용 후 지속 데미지 8.5)";
+                        buffdetailText2.text = "초당 받는 지속 데미지가 15% 만큼 적게 받습니다. (Ex. 능력 적용 전 지속 데미지 10 → 능력 적용 후 지속 데미지 8.5)";
+                }else if(num == 4) {
+                        buffdetailText.text = "기억의 조각을 먹었을 때 회복하는 체력량이 20% 증가합니다. (Ex. 능력 적용 전 회복량 100 → 능력 적용 후 회복량 120)";
+                        buffdetailText2.text = "기억의 조각을 먹었을 때 회복하는 체력량이 20% 증가합니다. (Ex. 능력 적용 전 회복량 100 → 능력 적용 후 회복량 120)";
+                }else if(num == 5) {
+                        buffdetailText.text = "캐릭터의 떨어지는 가속도가 20% 더 빨라집니다.";
+                        buffdetailText2.text = "캐릭터의 떨어지는 가속도가 20% 더 빨라집니다.";
+                }else if(num == 6) {
+                        buffdetailText.text = "각 Stage마다 기본속도가 20% 더 빨라집니다.";
+                        buffdetailText2.text = "각 Stage마다 기본속도가 20% 더 빨라집니다.";
+                }else if(num == 7) {
+                        buffdetailText.text = "에너지의 최대 축적량이 20% 감소합니다. (Ex. 능력 적용 전 축적 에너지양 100 → 능력 적용 후 축적 에너지양 80, 최대 에너지양이 줄어들면 채워야하는 에너지의 양이 줄어 더욱 자주 스킬이 자주 발동됩니다.)";
+                        buffdetailText2.text = "에너지의 최대 축적량이 20% 감소합니다. (Ex. 능력 적용 전 축적 에너지양 100 → 능력 적용 후 축적 에너지양 80, 최대 에너지양이 줄어들면 채워야하는 에너지의 양이 줄어 더욱 자주 스킬이 자주 발동됩니다.)";
+                }
         }
 
         /// /////////////////////////////////////////////////////////////////
@@ -376,6 +404,7 @@ public class MainSceneController : MonoBehaviour
                         //Debug.Log("SelectMysteryBox : "+ (mysteryBox_current_num+1));
                         AudioManager.Instance.PlayGameButtonClick();
                         ChangeBuffText(mysteryBox_Buff_Texts[mysteryBox_current_num]);
+                        ChangeBuffDetail(mysteryBox_current_num);
                         SaveLoadManager.Instance.SetBuff(mysteryBox_current_num+1);
                         SaveLoadManager.Instance.SaveData();
                 }
@@ -388,6 +417,7 @@ public class MainSceneController : MonoBehaviour
                         randomBuffText = "-";
                 }else{
                         randomBuffText = mysteryBox_Buff_Texts[Index-1];
+                        ChangeBuffDetail(Index-1);
                 }
                 mysteryBoxBuffText.text = randomBuffText;
                 ChangeBuffText(randomBuffText);

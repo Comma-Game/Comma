@@ -7,8 +7,7 @@ using Unity.VisualScripting;
 
 public class PlayerStatPanel : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject mainPanel;
+    [SerializeField] private GameObject mainPanel;
 
     [Header("Health Settings")]
     private float health;
@@ -16,9 +15,9 @@ public class PlayerStatPanel : MonoBehaviour
     [SerializeField]
     public float maxHealth = 100;
     public float healthSpeed = 2;
-    public Image backgroundImg;
-    public Image frontHealthBar;
-    public Image backHealthBar;
+    [SerializeField] private Image backgroundImg;
+    [SerializeField] private Image frontHealthBar;
+    [SerializeField] private Image backHealthBar;
     private RectTransform backgroundImgRect;
     private RectTransform frontHealthBarRect;
     private RectTransform backHealthBarRect;
@@ -30,8 +29,12 @@ public class PlayerStatPanel : MonoBehaviour
     private float energyLerpTimer;
     public float maxEnergy = 100;
     public float energySpeed = 2;
-    public Image frontEnergyBar;
-    public Image backEnergyBar;
+    [SerializeField] private Image backgroundEnergyImg;
+    [SerializeField] private Image frontEnergyBar;
+    [SerializeField] private Image backEnergyBar;
+    private RectTransform backgroundEnergyImgRect; 
+    private RectTransform frontEnergyBarRect;
+    private RectTransform backEnergyBarRect;
     public bool checkEnergyDown = false;
     public bool checkEnergyUp = false;
 
@@ -168,11 +171,10 @@ public class PlayerStatPanel : MonoBehaviour
         energyLerpTimer = 0;
     }
 
-    public void initSetting(float maxHp){
+    public void initSettingHealth(float maxHp){
         maxHealth = maxHp;
         //Debug.Log("maxHealth : " + maxHealth);
         health = maxHealth;
-        energy = 0;
         ChangeScoreText(0);
         backgroundImgRect = backgroundImg.GetComponent<RectTransform>();
         frontHealthBarRect = frontHealthBar.GetComponent<RectTransform>();
@@ -183,6 +185,21 @@ public class PlayerStatPanel : MonoBehaviour
                 backgroundImgRect.sizeDelta = new Vector2(backgroundImgRect.sizeDelta.x + diff, backgroundImgRect.sizeDelta.y);
                 frontHealthBarRect.sizeDelta = new Vector2(frontHealthBarRect.sizeDelta.x + diff, frontHealthBarRect.sizeDelta.y);
                 backHealthBarRect.sizeDelta = new Vector2(backHealthBarRect.sizeDelta.x + diff, backHealthBarRect.sizeDelta.y);
+            }
+        }
+    }
+
+    public void initSettingEnergy(float maxEnergy){
+        //energy = maxEnergy;
+        backgroundEnergyImgRect = backgroundEnergyImg.GetComponent<RectTransform>();
+        frontEnergyBarRect = frontEnergyBar.GetComponent<RectTransform>();
+        backEnergyBarRect = backEnergyBar.GetComponent<RectTransform>();
+        if(maxEnergy != 100){
+            float diff = (maxEnergy - 100)*(backgroundEnergyImgRect.sizeDelta.x/100);
+            if(backgroundImgRect != null){
+                backgroundEnergyImgRect.sizeDelta = new Vector2(backgroundEnergyImgRect.sizeDelta.x + diff, backgroundEnergyImgRect.sizeDelta.y);
+                frontEnergyBarRect.sizeDelta = new Vector2(frontEnergyBarRect.sizeDelta.x + diff, frontEnergyBarRect.sizeDelta.y);
+                backEnergyBarRect.sizeDelta = new Vector2(backEnergyBarRect.sizeDelta.x + diff, backEnergyBarRect.sizeDelta.y);
             }
         }
     }
