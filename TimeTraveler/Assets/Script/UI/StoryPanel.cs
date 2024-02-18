@@ -71,7 +71,7 @@ public class StoryPanel : MonoBehaviour
     public void OnStory(int storyNum){
         if(isUnlockStroy[storyNum]) {
             StoryManager.Instance.ShowStory(conceptNum, storyNum);
-            if(isFirst){
+            if(newImg[storyNum].activeSelf == true){
                 //스토리를 읽은 상태로 설정
                 SaveLoadManager.Instance.ReadStory(conceptNum, storyNum);
                 // 하트 갯수 추가

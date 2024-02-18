@@ -32851,9 +32851,11 @@ MonoBehaviour:
   mainPanel: {fileID: 2339743668546450050}
   storyImg: {fileID: 2313431190640045676}
   storySprite:
-  - {fileID: 21300000, guid: 2d480843b4d694242990566279a7aac9, type: 3}
-  - {fileID: 21300000, guid: d0b53b72d4f789f42bd17545552f5d6f, type: 3}
-  - {fileID: 21300000, guid: 6d86174f09584384ca2e7881abc02a8e, type: 3}
+  - {fileID: 21300000, guid: 05b7d59a85dfd894a9bc8e2a0463543b, type: 3}
+  - {fileID: 21300000, guid: 0a75322000842234a9e2542ddc3fb914, type: 3}
+  - {fileID: 21300000, guid: 1aa468ccc34f0c541bde91383173d7a7, type: 3}
+  - {fileID: 21300000, guid: f6a1ad646faed6b41baeca3aaca71c40, type: 3}
+  - {fileID: 21300000, guid: 62a9bfd6e37e1a343a99c8e704e25a14, type: 3}
   leftButton: {fileID: 2380679760459488998}
   rightButton: {fileID: 7339488976332087635}
   returnButton: {fileID: 4482308111024067337}

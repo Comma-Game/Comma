@@ -189,7 +189,7 @@ public class StoryManager : MonoBehaviour
         dialogTexts.Add(new DialogData("나는 주머니에서 사진들을 꺼내"));
         dialogTexts.Add(new DialogData("“이 아이들을 보신 적 있으신가요? 이 학교에서 찍은 사진으로 보여서요.”", "Li"));
         dialogTexts.Add(new DialogData("선생님의 미간이 살짝 찌푸려지다가 “아-” 소리와 함께 펴지며 사진속의 아이들을 가리켰다.", "Sa"));
-        dialogTexts.Add(new DialogData("“왼쪽 아이는 OOO, 오른쪽 아이는 OOO의 동생인 ㅁㅁㅁ이었던 걸로 기억이 나네요. 둘은 형제 관계인데, 항상 학교에 같이 다니고 우애가 깊은 아이들이었죠.”"));
+        dialogTexts.Add(new DialogData("“왼쪽 아이는 Aiden, 오른쪽 아이는 Ehan의 동생인 Noah이었던 걸로 기억이 나네요. 둘은 형제 관계인데, 항상 학교에 같이 다니고 우애가 깊은 아이들이었죠.”"));
         dialogTexts.Add(new DialogData("“10년 전 쯤 사고를 당해 그 자리에서 부모님은 돌아가시고 큰 아이는 의식불명 상태가 되었는데, 동생은 실종되었다고 들었어요. 참 안타까운 사고였죠...”"));
         dialogCloseCount = 6;
         DialogManager.Show(dialogTexts);
@@ -465,7 +465,7 @@ public class StoryManager : MonoBehaviour
     private void StorySea3(){
         backgroudImg.sprite = backgroundImgSprites[9];
         dialogTexts.Add(new DialogData("둘은 또 이상한 곳으로 가면 어쩌지 라는 걱정이 들었지만 함께 있으면 어떠한 일이 생기든 이겨낼 수 있다고 생각하며 빛을 따라 이동했다.", "Sa"));
-        dialogTexts.Add(new DialogData("눈을 뜨자 “ㅇㅇㅇ아~, ㅁㅁㅁ아~ 이제 그만 집으로 가야지!” 라는 익숙한 목소리가 들려왔다."));
+        dialogTexts.Add(new DialogData("눈을 뜨자 “Ehan~, Noah~ 이제 그만 집으로 가야지!” 라는 익숙한 목소리가 들려왔다."));
         dialogTexts.Add(new DialogData("동생과 나는 소리나는 방향을 보니 그리웠던 엄마와 아빠의 모습이 보였고, 자신들이 어렸을 때의 모습으로 시간이 되돌아갔다는 것을 알게 되었고 이후 행복한 나날들을 보내게 된다."));
         dialogCloseCount = 3;
         DialogManager.Show(dialogTexts);

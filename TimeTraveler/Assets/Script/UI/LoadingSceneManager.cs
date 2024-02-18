@@ -42,7 +42,7 @@ public class LoadingSceneManager : MonoBehaviour
             }
 
             // 3초마다 컷씬 바뀜
-            if(isImage && imgTime > 3){
+            if(isImage && imgTime > 2){
                 // imgNum += 1;
                 // if(imgNum >= sprites.Length){
                 //     imgNum = 0;

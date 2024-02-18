@@ -117,7 +117,6 @@ public class MainSceneController : MonoBehaviour
 
                 // 만약 게임이 처음이면 스토리 panel 띄우기
                 if(isGameFirst == false){
-                        heartPanelCS.AddHearts(30);
                         Invoke("FirstPopUp", 1f);
                 }
         }
