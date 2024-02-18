@@ -145,7 +145,7 @@ public class PlayGameManager : MonoBehaviour
 
     public int ScorePerTime()
     {
-        _scoreUp = StageController.Instance.GetPassThroughCount() >= 5 ? 25 : StageController.Instance.GetPassThroughCount() * 5;
+        _scoreUp = StageController.Instance.GetPassThroughCount() >= 10 ? 20 : StageController.Instance.GetPassThroughCount() * 2;
         return 10 + _scoreUp;
     }
 
@@ -173,12 +173,12 @@ public class PlayGameManager : MonoBehaviour
     {
         while (true)
         {
-            _score += ScorePerTime();
-
-            CanvasController.Instance.ChangeScoreText(_score);
-            
-            if(!_isBonus) 
+            if(!_isBonus)
             {
+                _score += ScorePerTime();
+
+                CanvasController.Instance.ChangeScoreText(_score);
+
                 _player.TimeDamage();
                 _player.ChargeEnergy();
             }

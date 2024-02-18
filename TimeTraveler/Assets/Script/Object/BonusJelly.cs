@@ -30,7 +30,7 @@ public class BonusJelly : MonoBehaviour
     [SerializeField]
     GameObject _bonusMap;
 
-    GameObject _parent;
+    GameObject _parent, _stageParent;
 
     Queue<GameObject>[] _waitingBonusQueue, _usingBonusQueue;
 
@@ -59,6 +59,19 @@ public class BonusJelly : MonoBehaviour
     private void Start()
     {
         Init_Instance();
+        SetStageParent();
+    }
+
+    void SetStageParent()
+    {
+        _stageParent = GameObject.Find("StageParent");
+        if (_stageParent == null)
+        {
+            _stageParent = new GameObject();
+            _stageParent.name = "StageParent";
+        }
+
+        _bonusMap.transform.SetParent(_stageParent.transform);
     }
 
     void CheckBonus()

@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _isMobile = transform.GetComponent<MovePlayer>().enabled;
-        if(_energy >= _maxEnergy && !_isBonusTime) UseSkill();
     }
 
     private void Awake()
@@ -62,9 +61,12 @@ public class Player : MonoBehaviour
         _maxHp += CalculateHP();
         _hp = _maxHp;
         _bloodHp = _maxHp * 0.15f;
-        CanvasController.Instance.InitSetting(_maxHp);
 
-        //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //체력 UI 최대량 설정
+        CanvasController.Instance.InitSettingHealth(_maxHp);
+        //에너지 UI 최대량 설정
+        CanvasController.Instance.InitSettingEnergy(_maxEnergy);
+
         _energyChargeSpeed += CalculateChargeEnergy();
 
         _jellyScore += CalculateJelly();
@@ -88,7 +90,7 @@ public class Player : MonoBehaviour
     {
         _maxHp = 100;
         _maxEnergy = 100;
-        _energyChargeSpeed = 8;
+        _energyChargeSpeed = 5f;
         _jellyScore = 70;
         _energy = 0;
     }
@@ -148,27 +150,25 @@ public class Player : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
             {
-                //PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
-
                 int[] jelly_info = other.gameObject.GetComponent<Jelly>().GetInfo();
-                if (!SaveLoadManager.Instance.GetUnlockedMemory()[jelly_info[0]].CheckStory(jelly_info[1]))
+                if (!SaveLoadManager.Instance.GetUnlockedMemory()[jelly_info[0]].CheckStory(jelly_info[1])) //스토리가 해금되지 않았다면
                 {
                     CanvasController.Instance.OnMessagePanel(); //기억의 조각 메세지 출력
                     SaveLoadManager.Instance.SetUnlockedMemory(jelly_info[0], jelly_info[1]); //스테이지 별 먹은 기억의 조각 저장
-                    SaveLoadManager.Instance.SetUnOpenedStory(jelly_info[0], jelly_info[1]);
+                    SaveLoadManager.Instance.SetUnOpenedStory(jelly_info[0], jelly_info[1]); //스토리 열람 확인 DB 설정
                 }
 
-                Heal(15f * _healBuff);
+                Heal(10f * _healBuff);
             }
             else if (other.gameObject.GetComponent<Jelly>().CheckBigJelly())
             {
                 PlayGameManager.Instance.ScoreUp(_jellyScore * 2);
-                if(!_isBonusTime) ChargeEnergy(4);
+                if(!_isBonusTime) ChargeEnergy(2);
             }
             else
             {
                 PlayGameManager.Instance.ScoreUp(_jellyScore);
-                if (!_isBonusTime) ChargeEnergy(2);
+                if (!_isBonusTime) ChargeEnergy(1);
             }
             //젤리 소리
             AudioManager.Instance.PlayGetPieceSFX();
@@ -223,43 +223,25 @@ public class Player : MonoBehaviour
             PlayGameManager.Instance.ResetBonusTime();
         }
 
-        GroundDamage(20);
+        GroundDamage(30);
     }
 
     public void ChargeEnergy()
     {
-        if (!_isCast)
-        {
-            if (_energy + _energyChargeSpeed > _maxEnergy)
-            {
-                CanvasController.Instance.PlayerUpEnergy(_maxEnergy - _energy);
-                _energy = _maxEnergy;
-                
-                if(!_isInvincible && !_isPoison) _colliderRange.PrepareToSkill();
-            }
-            else
-            {
-                _energy += _energyChargeSpeed;
-                CanvasController.Instance.PlayerUpEnergy(_energyChargeSpeed);
-            }
-        }
+        ChargeEnergy(_energyChargeSpeed);
     }
 
-    public void ChargeEnergy(float energy)
+    public void ChargeEnergy(float e)
     {
         if (!_isCast)
         {
-            if (_energy + energy > _maxEnergy)
-            {
-                CanvasController.Instance.PlayerUpEnergy(_maxEnergy - _energy);
-                _energy = _maxEnergy;
+            _energy += e;
+            CanvasController.Instance.PlayerUpEnergy(e);
 
-                if (!_isInvincible && !_isPoison) _colliderRange.PrepareToSkill();
-            }
-            else
+            if (_energy >= _maxEnergy)
             {
-                _energy += energy;
-                CanvasController.Instance.PlayerUpEnergy(energy);
+                if (!_isInvincible && !_isPoison) _colliderRange.PrepareToSkill();
+                if (!_isBonusTime) UseSkill();
             }
         }
     }
@@ -277,7 +259,6 @@ public class Player : MonoBehaviour
             _hp += amount;
         }
 
-        //Debug.Log("HP : " + _hp);
         if (_hp > _bloodHp) CanvasController.Instance.OpenDamgePanel(false); //데미지 UI 비활성화
     }
 
@@ -315,7 +296,7 @@ public class Player : MonoBehaviour
     //장애물 데미지
     void HitDamage(float damage)
     {
-        if (!_isInvincible && !_isCast)
+        if (!_isInvincible)
         {
             Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
@@ -332,7 +313,7 @@ public class Player : MonoBehaviour
     //균열 데미지
     void GroundDamage(float damage)
     {
-        if (!_isPassPortal)
+        if (!_isInvincible && !_isPassPortal)
         {
             Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
@@ -346,11 +327,10 @@ public class Player : MonoBehaviour
 
     public void UseSkill()
     {
-        if (_skillCoroutine != null) StopCoroutine(_skillCoroutine);
+        _isCast = true;
 
+        if (_skillCoroutine != null) StopCoroutine(_skillCoroutine);
         _skillCoroutine = StartCoroutine(CastTime(2));
-        _energy = 0;
-        CanvasController.Instance.PlayerDownEnergy(100);
     }
 
     void HitObstacle(float time)
@@ -367,7 +347,6 @@ public class Player : MonoBehaviour
         //바람 UI Disable
         CanvasController.Instance.OnSpeedPanel(false);
 
-        //ChangeWindAlpha(0);
         _colliderRange.DisableRawImage();
         PlayGameManager.Instance.EndGame();
 
@@ -411,8 +390,12 @@ public class Player : MonoBehaviour
 
     IEnumerator CastTime(float t)
     {
-        _isCast = true;
+        yield return new WaitForSeconds(1);
+
         _isInvincible = true;
+
+        CanvasController.Instance.PlayerDownEnergy(_energy);
+        _energy = 0;
 
         //스킬 애니메이션 시작
         _animator.SetBool("UseSkill", true);
@@ -446,7 +429,7 @@ public class Player : MonoBehaviour
 
         _colliderRange.ResetSkill();
 
-        StageController.Instance.SetVelocity(prevSpeed);
+        StageController.Instance.ResetSkill(prevSpeed);
 
         _isCast = false;
 
@@ -459,7 +442,7 @@ public class Player : MonoBehaviour
     {
         ResetColor();
 
-        if(_portalCoroutine != null) StopCoroutine(_portalCoroutine);
+        if (_portalCoroutine != null) StopCoroutine(_portalCoroutine);
 
         if (_invincibleCoroutine != null)
         {
@@ -467,7 +450,7 @@ public class Player : MonoBehaviour
             CanvasController.Instance.OnSpeedPanel(true);
         }
 
-        if(_skillCoroutine != null)
+        if (_skillCoroutine != null)
         {
             _animator.speed = 1;
             MyPostProcess.Instance.DisableSkillEffect();
@@ -501,17 +484,7 @@ public class Player : MonoBehaviour
     float CalculateChargeEnergy()
     {
         int step = SaveLoadManager.Instance.GetUpgradeEnergy();
-        float ret = 0, cnt = 0;
-
-        while (step > 0)
-        {
-            int mul = step > 10 ? 10 : step;
-            ret += (0.06f - cnt) * mul;
-            step -= 10;
-            cnt += 0.02f;
-        }
-
-        return ret;
+        return step * 0.1f;
     }
 
     int CalculateJelly()
@@ -532,25 +505,26 @@ public class Player : MonoBehaviour
         return ret;
     }
 
-    public void SetObstacleDamageBuff() { _obstacleDamageBuff -= 0.5f; }
+    public void SetObstacleDamageBuff() { _obstacleDamageBuff -= _obstacleDamageBuff * 0.5f; }
 
-    public void SetTimeDamageBuff() { _timeDamageBuff -= 0.15f; }
+    public void SetTimeDamageBuff() { _timeDamageBuff -= _timeDamageBuff * 0.15f; }
 
     public void PlusMaxHp(float amount) 
     { 
         _maxHp += amount;
         _hp = _maxHp;
         _bloodHp = _maxHp * 0.15f;
-        CanvasController.Instance.InitSetting(_maxHp);
+        CanvasController.Instance.InitSettingHealth(_maxHp);
     }
 
-    public void SetHealBuff(float amount) { _timeDamageBuff += amount; }
+    public void SetHealBuff(float amount) { _healBuff += _healBuff * amount; }
 
     public void SetEnergyBuff()
     {
         _maxEnergy *= 0.8f;
-        
+
         //에너지 UI 최대량 설정
+        CanvasController.Instance.InitSettingEnergy(_maxEnergy);
     }
 
     public void EnterBonusStage() { _isBonusTime = true; }
@@ -558,9 +532,7 @@ public class Player : MonoBehaviour
 
     public float GetHp() { return _hp; }
 
-
-
-    //PC 테스트를 위한 함수(보너스 스테이지 입장 시 플레이어 이동 관련 기능)
+    //보너스 스테이지 입장 시 플레이어 이동 관련 기능
     public void EnablePlayerMove()
     {
         transform.GetComponent<MovePlayer>().enabled = true;

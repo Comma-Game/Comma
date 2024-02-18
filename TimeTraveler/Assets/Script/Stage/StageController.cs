@@ -56,8 +56,8 @@ public class StageController : MonoBehaviour
 
     static GameObject _stageController;
 
-    float[] _speed = { 10, 12, 14, 16, 18 }; //계수 별 스피드
-    float[] _maxSpeed = { 12, 14, 16, 18, 20 }; //계수 별 최대 스피드
+    float[] _speed = { 10, 11.5f, 13, 14.5f, 16, 17.5f, 19, 20.5f, 22, 23.5f, 25 }; //계수 별 스피드
+    float[] _maxSpeed = { 11.5f, 13, 14.5f, 16, 17.5f, 19, 20.5f, 22, 23.5f, 25, 26.5f }; //계수 별 최대 스피드
     float _curSpeed;
 
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
@@ -90,16 +90,17 @@ public class StageController : MonoBehaviour
     const int MaxConceptIndex = 10;
 
     bool _isSkill;
+    float _skillSpeed;
 
     private void Awake()
     {
         _curSpeed = _speed[0];
 
-        //테스트용!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         _accSpeed = 0.7f;
-        //_accSpeed = 0.5f;
 
         _bounsStageSpeed = 15f;
+
+        _skillSpeed = 30;
 
         //계수
         _passThroughCount = 0;
@@ -150,8 +151,6 @@ public class StageController : MonoBehaviour
 
         SetStageParent();
 
-        //TestStage(7);
-
         SetConceptIndex();
         InstantiateStage();
 
@@ -161,19 +160,6 @@ public class StageController : MonoBehaviour
         SetStageForStart();
 
         SetVelocity(_speed[_passThroughCount]);
-    }
-
-    void TestStage(int index)
-    {
-        _conceptCount = index + 1 > _conceptCount ? index + 1 : _conceptCount;
-        List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
-
-        for (int j = 3; j > 0; j--)
-        {
-            int next_stage_num = Random.Range(0, j);
-            _queue.Enqueue(new StageInfo(index, stageIndex[next_stage_num]));
-            stageIndex.RemoveAt(next_stage_num);
-        }
     }
 
     void TestStage()
@@ -397,7 +383,7 @@ public class StageController : MonoBehaviour
         }
         else if (_curStageCount % 3 == 0)
         {
-            _passThroughCount = _passThroughCount >= 4 ? 4 : _passThroughCount + 1;
+            _passThroughCount = _passThroughCount >= _speed.Length - 1 ? _speed.Length - 1 : _passThroughCount + 1;
             if (!_isSkill) _curSpeed = _speed[_passThroughCount];
         }
 
@@ -417,8 +403,12 @@ public class StageController : MonoBehaviour
 
     void SetStageParent()
     {
-        _stageParent = new GameObject();
-        _stageParent.name = "StageParent";
+        _stageParent = GameObject.Find("StageParent");
+        if(_stageParent == null)
+        {
+            _stageParent = new GameObject();
+            _stageParent.name = "StageParent";
+        }
     }
 
     public void MinusPassThroughCount() 
@@ -489,7 +479,7 @@ public class StageController : MonoBehaviour
     //기본 속도 빨라지는 버프
     public void SetBasicSpeedDeBuff()
     {
-        for (int i = 0; i < 5; i++) _speed[i] *= 1.2f;
+        for (int i = 0; i < _speed.Length; i++) _speed[i] *= 1.2f;
     }
     
     //터진 파편들 리스트에 넣어주기
@@ -579,6 +569,8 @@ public class StageController : MonoBehaviour
         _stage = BonusJelly.Instance.GetBonusStage();
         _stage.transform.position = new Vector3(0, 96.1f, 0); //첫번째 스테이지와 두번째 스테이지 위치 차이 고정
         _stage.SetActive(true);
+
+        PlayGameManager.Instance.SetStage(_stage);
 
         //포탈 위치 재설정
         _stageEnd.transform.SetParent(null);
@@ -698,12 +690,19 @@ public class StageController : MonoBehaviour
         SetVelocity(GetSkillSpeed());
     }
 
+    public void ResetSkill(float speed)
+    {
+        _isSkill = false;
+
+        SetVelocity(speed);
+    }
+
     public int GetStageCount() { return _totalStageCount; } //현재 스테이지 반환
-    public float GetSkillSpeed() { return 30; }
+    public float GetSkillSpeed() { return _skillSpeed; }
     public float GetSpeed() { return _speed[_passThroughCount]; }
     public float GetMaxSpeed() 
     {
-        if (_isSkill) return 30;
+        if (_isSkill) return _skillSpeed;
         return _maxSpeed[_passThroughCount]; 
     }
 }

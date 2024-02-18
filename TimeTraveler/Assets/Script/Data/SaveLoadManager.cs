@@ -20,11 +20,11 @@ public class UnlockStoryInfo
         }
     }
 
-    public void UnlockStory(int index) { info[index] = true; }
-    public bool CheckStory(int index) { return info[index]; }
-    public void SetUnOpenedStory(int index) { unOpened[index] = true; }
-    public void ReadStory(int index) { unOpened[index] = false; }
-    public bool GetUnOpenedStory(int index) { return unOpened[index]; }
+    public void UnlockStory(int index) { info[index] = true; } //스토리 해금 설정
+    public bool CheckStory(int index) { return info[index]; } //true 일 때 스토리 해금 상태
+    public void SetUnOpenedStory(int index) { unOpened[index] = true; } //스토리 첫 열람 설정
+    public void ReadStory(int index) { unOpened[index] = false; } //스토리 읽으면
+    public bool GetUnOpenedStory(int index) { return unOpened[index]; } //스토리 첫 열람 상태
 }
 
 [System.Serializable]

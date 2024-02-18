@@ -179,7 +179,9 @@
           },
           {
             "name": "ComputeShader",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/GameScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -566,6 +568,12 @@
             "icon": "package/com.unity.modules.imgui"
           },
           {
+            "name": "Required by ImageConversion Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.imageconversion"
+          },
+          {
             "name": "Required by Input Module",
             "scenes": [],
             "dependencyType": 2,
@@ -661,6 +669,10 @@
             "icon": "package/com.unity.modules.uielements"
           }
         ]
+      },
+      {
+        "name": "ImageConversion",
+        "dependencies": []
       },
       {
         "name": "Input",
@@ -877,6 +889,12 @@
             "scenes": [],
             "dependencyType": 2,
             "icon": "package/com.unity.modules.imgui"
+          },
+          {
+            "name": "Required by ImageConversion Module",
+            "scenes": [],
+            "dependencyType": 2,
+            "icon": "package/com.unity.modules.imageconversion"
           },
           {
             "name": "Required by Input Module",
