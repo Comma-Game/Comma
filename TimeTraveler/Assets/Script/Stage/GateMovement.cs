@@ -8,7 +8,7 @@ public class GateMovement : MonoBehaviour
     GameObject _memory;
 
     Rigidbody _rigidbody;
-    bool _isAcc, _isMove, _isBonusTime, _isSkill;
+    bool _isMove, _isBonusTime;
 
     private void Awake()
     {
@@ -18,7 +18,6 @@ public class GateMovement : MonoBehaviour
     private void OnEnable()
     {
         _isMove = false;
-        _isAcc = false;
     }
 
     private void OnDisable()
@@ -33,9 +32,7 @@ public class GateMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (_isAcc) _rigidbody.AddForce(transform.up * StageController.Instance.Speed * StageController.Instance.AccSpeed, ForceMode.Acceleration);
-        if (_isSkill) _rigidbody.AddForce(transform.up * GetVelocity() * 0.5f, ForceMode.Acceleration);
-        else if (_isMove && !_isBonusTime) _rigidbody.AddForce(transform.up * StageController.Instance.AccSpeed, ForceMode.Acceleration);
+        if (_isMove && !_isBonusTime) _rigidbody.AddForce(transform.up * StageController.Instance.AccSpeed, ForceMode.Acceleration);
     }
 
     void MakeRigidbody()
@@ -47,8 +44,6 @@ public class GateMovement : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         _isMove = false;
-        _isAcc = false;
-        _isSkill = false;
     }
 
     public void SetVelocity(float speed)
@@ -70,20 +65,10 @@ public class GateMovement : MonoBehaviour
         return _rigidbody.velocity.y;
     }
 
-    public void SetAcceleration()
-    {
-        _isAcc = true;
-    }
-
     void CheckMaxSpeed()
     {
 
-        if (_isSkill)
-        {
-            if (Mathf.Abs(_rigidbody.velocity.y) >= StageController.Instance.GetSkillSpeed())
-                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Mathf.Sign(_rigidbody.velocity.y) * StageController.Instance.GetSkillSpeed(), _rigidbody.velocity.z);
-        }
-        else if (Mathf.Abs(_rigidbody.velocity.y) >= StageController.Instance.GetMaxSpeed())
+        if (Mathf.Abs(_rigidbody.velocity.y) >= StageController.Instance.GetMaxSpeed())
         {
             //Mathf.Sign(_rigidbody.velocity.y) : y >= 0 -> 1, y < 0 -> -1 
             _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, Mathf.Sign(_rigidbody.velocity.y) * StageController.Instance.GetMaxSpeed(), _rigidbody.velocity.z);
@@ -93,15 +78,5 @@ public class GateMovement : MonoBehaviour
     public void EnableMemory()
     {
         _memory.SetActive(true);
-    }
-
-    public void SetSkill()
-    {
-        _isSkill = true;
-    }
-
-    public void ResetSkill()
-    {
-        _isSkill = false;
     }
 }
