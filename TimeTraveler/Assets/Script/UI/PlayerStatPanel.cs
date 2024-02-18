@@ -189,8 +189,9 @@ public class PlayerStatPanel : MonoBehaviour
         }
     }
 
-    public void initSettingEnergy(float maxEnergy){
-        //energy = maxEnergy;
+    public void initSettingEnergy(float maxenergy){
+        energy = 0;
+        maxEnergy = maxenergy;
         backgroundEnergyImgRect = backgroundEnergyImg.GetComponent<RectTransform>();
         frontEnergyBarRect = frontEnergyBar.GetComponent<RectTransform>();
         backEnergyBarRect = backEnergyBar.GetComponent<RectTransform>();
