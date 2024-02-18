@@ -11,11 +11,6 @@ public class ColliderRange : MonoBehaviour
     [SerializeField]
     GameObject _forceField;
 
-    public void EnableRawImage()
-    {
-        gameObject.GetComponent<RawImage>().color = Color.white;
-    }
-
     public void DisableRawImage()
     {
         gameObject.GetComponent<RawImage>().enabled = false;
@@ -43,8 +38,12 @@ public class ColliderRange : MonoBehaviour
 
     public void ResetColor()
     {
-        _forceField.SetActive(false);
-
+        ResetSkill();
         gameObject.GetComponent<RawImage>().color = Color.white;
+    }
+
+    public void ResetSkill()
+    {
+        _forceField.SetActive(false);
     }
 }

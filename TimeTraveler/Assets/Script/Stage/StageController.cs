@@ -56,8 +56,8 @@ public class StageController : MonoBehaviour
 
     static GameObject _stageController;
 
-    float[] _speed = { 10, 13, 15, 17, 19 }; //계수 별 스피드
-    float[] _maxSpeed = { 13, 15, 17, 19, 20 }; //계수 별 최대 스피드
+    float[] _speed = { 10, 12, 14, 16, 18 }; //계수 별 스피드
+    float[] _maxSpeed = { 12, 14, 16, 18, 20 }; //계수 별 최대 스피드
     float _curSpeed;
 
     GameObject[][] _stagePrefab; //리소스 파일에서 가져올 Stage 프리팹
@@ -466,11 +466,6 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         DisablePrevStage();
-
-        Debug.Log("현재 Stage : " + _stage.name);
-        Debug.Log("다음 Stage : " + _nextStage.name);
-        //_stage.GetComponent<GateMovement>().SetAcceleration();
-        //_nextStage.GetComponent<GateMovement>().SetAcceleration();
     }
 
     //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
@@ -700,23 +695,15 @@ public class StageController : MonoBehaviour
     {
         _isSkill = true;
 
-        if (_stage != null) _stage.transform.GetComponent<GateMovement>().SetSkill();
-        _nextStage.transform.GetComponent<GateMovement>().SetSkill();
-        _prevStage.transform.GetComponent<GateMovement>().SetSkill();
+        SetVelocity(GetSkillSpeed());
     }
 
-    public void ResetSkill()
-    {
-        _isSkill = false;
-
-        if (_stage != null) _stage.transform.GetComponent<GateMovement>().ResetSkill();
-        _nextStage.transform.GetComponent<GateMovement>().ResetSkill();
-        _prevStage.transform.GetComponent<GateMovement>().ResetSkill();
-    }
-
-    //현재 스테이지 반환
-    public int GetStageCount() { return _totalStageCount; }
+    public int GetStageCount() { return _totalStageCount; } //현재 스테이지 반환
     public float GetSkillSpeed() { return 30; }
     public float GetSpeed() { return _speed[_passThroughCount]; }
-    public float GetMaxSpeed() { return _maxSpeed[_passThroughCount]; }
+    public float GetMaxSpeed() 
+    {
+        if (_isSkill) return 30;
+        return _maxSpeed[_passThroughCount]; 
+    }
 }

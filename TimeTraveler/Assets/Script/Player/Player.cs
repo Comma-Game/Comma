@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         StopAllCoroutines();
 
         transform.gameObject.SetActive(true);
-        _colliderRange.EnableRawImage();
+        _colliderRange.ResetColor();
 
         _maxHp += CalculateHP();
         _hp = _maxHp;
@@ -142,7 +142,6 @@ public class Player : MonoBehaviour
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
         else if (other.gameObject.CompareTag("AccelerationZone"))
         {
-            //StopMyCoroutine();
             StageController.Instance.SetAcceleration();
         }
         else if (other.gameObject.CompareTag("Jelly"))
@@ -201,9 +200,6 @@ public class Player : MonoBehaviour
 
     void TriggerPortal()
     {
-        //Heal(1.8f);
-        
-        //StopMyCoroutine();
         _portalCoroutine = StartCoroutine(PortalTime(0.2f));
     }
 
@@ -342,7 +338,6 @@ public class Player : MonoBehaviour
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
             StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 
-            //SetGroundDamage(1);
             HitObstacle(1);
 
             GetDamage(damage);
@@ -363,13 +358,6 @@ public class Player : MonoBehaviour
         if (_invincibleCoroutine != null) StopCoroutine(_invincibleCoroutine);
 
         StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
-
-        _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
-    }
-
-    void SetGroundDamage(float time)
-    {
-        if (_invincibleCoroutine != null) StopCoroutine(_invincibleCoroutine);
 
         _invincibleCoroutine = StartCoroutine(InvincibleTime(time));
     }
@@ -456,13 +444,14 @@ public class Player : MonoBehaviour
 
         CanvasController.Instance.ChangeSpeedColor(0);
 
-        StageController.Instance.ResetSkill();
+        _colliderRange.ResetSkill();
+
         StageController.Instance.SetVelocity(prevSpeed);
 
-        _isInvincible = false;
         _isCast = false;
 
-        ResetColor();
+        if (_invincibleCoroutine != null) StopCoroutine(_invincibleCoroutine);
+        _invincibleCoroutine = StartCoroutine(InvincibleTime(2));
     }
 
     //무적 및 스킬 중단
