@@ -25,11 +25,9 @@ public class PlayGameManager : MonoBehaviour
 
     bool _coinBuff, _isBonus;
     Coroutine _gameOverCoroutine, _timeCoroutine;
-    Player _player;
-    StageController _stageController;
+    GameObject _player;
     GameObject _stage, _fog;
-    int _scoreUp;
-    int _coin;
+    int _scoreUp, _coin;
     
     private void Awake()
     {
@@ -37,7 +35,7 @@ public class PlayGameManager : MonoBehaviour
 
         Application.targetFrameRate = 30;
 
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        _player = GameObject.Find("Player");
         _fog = GameObject.Find("Fog");
 
         _score = 0;
@@ -47,7 +45,6 @@ public class PlayGameManager : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 1;
-        _stageController = StageController.Instance;
 
         _fog.SetActive(true);
     }
@@ -62,15 +59,15 @@ public class PlayGameManager : MonoBehaviour
         
     }
 
-    static void Init_Instance()
+    public static void Init_Instance()
     {
         if (!_instance)
         {
-            GameObject gameManager = GameObject.Find("GameManager");
+            GameObject gameManager = GameObject.Find("PlayGameManager");
             if (!gameManager)
             {
                 gameManager = new GameObject();
-                gameManager.name = "GameManager";
+                gameManager.name = "PlayGameManager";
                 gameManager.AddComponent<PlayGameManager>();
                 gameManager.AddComponent<UseItem>();
                 gameManager.AddComponent<ParticleFooling>();
@@ -87,7 +84,7 @@ public class PlayGameManager : MonoBehaviour
 
         ResumeGame();
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
-        GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
+        if(GameManager.Instance.GetGameMode()) GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
 
         StopAllCoroutines();
         _timeCoroutine = StartCoroutine(ScoreTime());
@@ -108,14 +105,15 @@ public class PlayGameManager : MonoBehaviour
 
         SaveLoadManager.Instance.PlusCoin(_score);
 
-        _coin = _score;
+        _coin = _score / 2;
         //버프 받으면 코인 1.2배
-        if (_coinBuff) _coin += (int)(_score * 0.2f);
+        if (_coinBuff) _coin += (int)(_coin * 0.2f);
+        
         SaveLoadManager.Instance.SetHighScore(_coin);
         
         SaveLoadManager.Instance.SaveData();
 
-        _player.DestroyPlayer();
+        _player.GetComponent<Player>().DestroyPlayer();
         _fog.SetActive(false);
 
         SetGameOverUIText();
@@ -155,14 +153,14 @@ public class PlayGameManager : MonoBehaviour
     public void PauseGame() 
     { 
         Time.timeScale = 0f;
-        _player.transform.GetComponent<MovePlayer>().SetPause();
+        _player.GetComponent<MovePlayer>().SetPause();
     }
 
     //게임 재개
     public void ResumeGame() 
     { 
         Time.timeScale = 1f;
-        _player.transform.GetComponent<MovePlayer>().ResetPause();
+        _player.GetComponent<MovePlayer>().ResetPause();
     } 
 
     public void SetBonusTime() { _isBonus = true; }
@@ -179,8 +177,8 @@ public class PlayGameManager : MonoBehaviour
 
                 CanvasController.Instance.ChangeScoreText(_score);
 
-                _player.TimeDamage();
-                _player.ChargeEnergy();
+                _player.GetComponent<Player>().TimeDamage();
+                _player.GetComponent<Player>().ChargeEnergy();
             }
 
             yield return new WaitForSeconds(1f);

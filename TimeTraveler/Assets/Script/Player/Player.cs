@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
 
     float _hp, _maxHp, _bloodHp, _energy, _maxEnergy, _energyChargeSpeed, _sphereScale;
     bool _isInvincible, _isPassPortal, _isCast, _isPoison, _isBonusTime;
-    PlayGameManager _playGameManager;
     Coroutine _portalCoroutine, _invincibleCoroutine, _skillCoroutine;
     ColliderRange _colliderRange;
     int _jellyScore;
@@ -97,7 +96,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _playGameManager = PlayGameManager.Instance;
+        PlayGameManager.Init_Instance();
     }
 
     private void OnDrawGizmos()
@@ -330,6 +329,7 @@ public class Player : MonoBehaviour
         _isCast = true;
 
         if (_skillCoroutine != null) StopCoroutine(_skillCoroutine);
+
         _skillCoroutine = StartCoroutine(CastTime(2));
     }
 
@@ -392,16 +392,8 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        if (_invincibleCoroutine != null) StopCoroutine(_invincibleCoroutine);
         _isInvincible = true;
-
-        CanvasController.Instance.PlayerDownEnergy(_energy);
-        _energy = 0;
-
-        //스킬 애니메이션 시작
-        _animator.SetBool("UseSkill", true);
-
-        //스킬 이펙트 활성화
-        MyPostProcess.Instance.EnableSkillEffect();
 
         //스킬 사용시 UI 및 소리 활성화
         CanvasController.Instance.OnSpeedPanel(true);
@@ -412,11 +404,21 @@ public class Player : MonoBehaviour
         _colliderRange.PrepareToSkill();
         _colliderRange.SetSkill();
 
+        //스킬 이펙트 활성화
+        MyPostProcess.Instance.EnableSkillEffect();
+
         //스킬 사용 이전 스피드
         float prevSpeed = StageController.Instance.GetStageVelocity();
 
         //최대 속도로 설정
         StageController.Instance.SetSkill();
+
+        //스킬 애니메이션 시작
+        _animator.SetBool("UseSkill", true);
+
+        //에너지 0으로 설정
+        CanvasController.Instance.PlayerDownEnergy(_energy);
+        _energy = 0;
 
         yield return new WaitForSeconds(t);
 

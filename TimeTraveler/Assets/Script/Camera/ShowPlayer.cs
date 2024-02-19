@@ -10,7 +10,6 @@ public class ShowPlayer : MonoBehaviour
     Vector3 dir;
     RaycastHit hit;
     List<Material> mats;
-    Coroutine _coroutine;
 
     private void Start()
     {

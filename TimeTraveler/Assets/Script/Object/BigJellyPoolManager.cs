@@ -60,7 +60,6 @@ public class BigJellyPoolManager : MonoBehaviour
         {
             GameObject obj = _usedQueue.Dequeue();
             obj.SetActive(false);
-            obj.transform.SetParent(_parent.transform);
             _queue.Enqueue(obj);
         }
     }

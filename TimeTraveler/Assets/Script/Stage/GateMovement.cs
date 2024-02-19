@@ -22,6 +22,7 @@ public class GateMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_memory == null) return;
         if (_memory.activeSelf) _memory.SetActive(false);
     }
 
@@ -77,6 +78,7 @@ public class GateMovement : MonoBehaviour
 
     public void EnableMemory()
     {
+        if (!GameManager.Instance.GetGameMode()) return;
         _memory.SetActive(true);
     }
 }

@@ -89,8 +89,12 @@ public class StageController : MonoBehaviour
 
     const int MaxConceptIndex = 10;
 
+    //스킬 관련 변수
     bool _isSkill;
     float _skillSpeed;
+
+    //true : 게임 모드, false : 튜토리얼 모드
+    bool _gameMode;
 
     private void Awake()
     {
@@ -113,6 +117,7 @@ public class StageController : MonoBehaviour
         _nextStage = null;
         _prevStage = null;
         _stageParent = null;
+        _isInstantiateStage = new bool[MaxConceptIndex, 3];
 
         //보너스 관련 변수
         _stageBonusJellyIndex = -1;
@@ -135,7 +140,7 @@ public class StageController : MonoBehaviour
 
         _player = GameObject.Find("Player").GetComponent<Player>();
 
-        _isSkill = false;
+        _isSkill = true;
     }
 
     void Start()
@@ -146,17 +151,30 @@ public class StageController : MonoBehaviour
 
     void Init()
     {
-        _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-        _isInstantiateStage = new bool[MaxConceptIndex, 3];
+        _gameMode = GameManager.Instance.GetGameMode();
 
         SetStageParent();
 
-        SetConceptIndex();
-        InstantiateStage();
+        if (_gameMode)
+        {
+            _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
 
-        TestStage();
+            SetConceptIndex();
+            InstantiateStage();
 
-        ResetQueue();
+            ResetQueue();
+        }
+        else
+        {
+            _conceptCount = 2;
+
+            SetConceptIndex();
+            InstantiateStage();
+
+            PushQueueForTutorial();
+        }
+
+        //TestStage();
         SetStageForStart();
 
         SetVelocity(_speed[_passThroughCount]);
@@ -183,6 +201,28 @@ public class StageController : MonoBehaviour
 
         if (index != -1) _conceptIndex.Remove(index); //큐에 컨셉을 삽입했으면 List에서 제거
         _prevConcept = index;
+    }
+
+    void PushQueueForTutorial()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                _queue.Enqueue(new StageInfo(i, j));
+                _isInstantiateStage[i, j] = true;
+            }
+        }
+    }
+
+    void SetStageParent()
+    {
+        _stageParent = GameObject.Find("StageParent");
+        if (_stageParent == null)
+        {
+            _stageParent = new GameObject();
+            _stageParent.name = "StageParent";
+        }
     }
 
     //초기 Concept Index 설정
@@ -384,6 +424,8 @@ public class StageController : MonoBehaviour
         else if (_curStageCount % 3 == 0)
         {
             _passThroughCount = _passThroughCount >= _speed.Length - 1 ? _speed.Length - 1 : _passThroughCount + 1;
+            CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
+
             if (!_isSkill) _curSpeed = _speed[_passThroughCount];
         }
 
@@ -392,23 +434,12 @@ public class StageController : MonoBehaviour
 
         //점수 관련 UI 변경
         CanvasController.Instance.ChangeState(_totalStageCount);
-        CanvasController.Instance.ChangeScoreUpText((float)PlayGameManager.Instance.ScorePerTime() / 10);
         
         ReturnStage();
         StopMoveAllStage();
         SetPrevStage();
         SetCurrentStage();
         SetVelocity(_curSpeed);
-    }
-
-    void SetStageParent()
-    {
-        _stageParent = GameObject.Find("StageParent");
-        if(_stageParent == null)
-        {
-            _stageParent = new GameObject();
-            _stageParent.name = "StageParent";
-        }
     }
 
     public void MinusPassThroughCount() 
@@ -647,7 +678,8 @@ public class StageController : MonoBehaviour
 
     public void TriggerBonusJelly()
     {
-        BonusJelly.Instance.TriggerBonusJelly(_stageBonusJellyIndex);
+        if(!GameManager.Instance.GetGameMode()) BonusJelly.Instance.TriggerBonusJelly(0);
+        else BonusJelly.Instance.TriggerBonusJelly(_stageBonusJellyIndex);
     }
 
     GameObject CheckMemory(Transform child)
