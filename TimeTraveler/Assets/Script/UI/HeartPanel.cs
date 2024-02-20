@@ -13,7 +13,7 @@ public class HeartPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI timeText;
 
     public int maxHearts = 5; // 최대 하트 개수
-    private float fillCooldownMinutes = 5f; // 하트를 채우는데 걸리는 시간(분)
+    private float fillCooldownMinutes = 10f; // 하트를 채우는데 걸리는 시간(분)
     public void SetFillCooldownMinutes(float time) { fillCooldownMinutes = time;}
     private int currentHearts = 0;
     public int GetCurrentHearts() { return currentHearts; }

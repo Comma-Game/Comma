@@ -43,12 +43,18 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] public TextMeshProUGUI coinText_1;
         [SerializeField] public TextMeshProUGUI scoreText_1;
         [SerializeField] public TextMeshProUGUI buffText_1;
+        [SerializeField] public TextMeshProUGUI hpText_1;
+        [SerializeField] public TextMeshProUGUI statText_1;
+        [SerializeField] public TextMeshProUGUI energyText_1;
         [SerializeField] public TextMeshProUGUI buffdetailText;
 
         [Header("player panel 2")]
         [SerializeField] public TextMeshProUGUI coinText_2;
         [SerializeField] public TextMeshProUGUI scoreText_2;
         [SerializeField] public TextMeshProUGUI buffText_2;
+        [SerializeField] public TextMeshProUGUI hpText_2;
+        [SerializeField] public TextMeshProUGUI statText_2;
+        [SerializeField] public TextMeshProUGUI energyText_2;
         [SerializeField] public TextMeshProUGUI buffdetailText2;
 
         [Header("Shop Panels")]
@@ -93,6 +99,22 @@ public class MainSceneController : MonoBehaviour
                                                 5387, 6712, 8387, 10462, 13062, 16312, 20387, 25462, 31812, 39762,
                                                 52466, 69234, 91378, 120594, 159154, 210066, 277266, 365970, 483058, 637618};
 
+        private int[] hpUpgradeValue = { 100, 115, 130, 145, 160, 175, 190, 205, 220, 235, 250,
+                                        260, 270, 280, 290, 300, 310, 320, 330, 340, 350,
+                                        355, 360, 365, 370, 375, 380, 385, 390, 395, 400 };
+
+
+        private int[] stat1UpgradeValue = { 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170,
+                                                220, 270, 320, 370, 420, 470, 520, 570, 620, 670,
+                                                770, 870, 970, 1070, 1170, 1270, 1370, 1470, 1570, 1670 };
+
+        private int[] stat2UpgradeValue = { 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340,
+                                                440, 540, 640, 740, 840, 940, 1040, 1140, 1240, 1340,
+                                                1540, 1740, 1940, 2140, 2340, 2540, 2740, 2940, 3140, 3340 };
+
+        private float[] energyUpgradeValue = { 5f, 5.1f, 5.2f, 5.3f, 5.4f, 5.5f, 5.6f, 5.7f, 5.8f, 5.9f, 6.0f,
+                                                6.1f, 6.2f, 6.3f, 6.4f, 6.5f, 6.6f, 6.7f, 6.8f, 6.9f, 7.0f,
+                                                7.1f, 7.2f, 7.3f, 7.4f, 7.5f, 7.6f, 7.7f, 7.8f, 7.9f, 8.0f };
 
 
         /// /////////////////////////////////////////////////////////////////
@@ -104,8 +126,11 @@ public class MainSceneController : MonoBehaviour
                 isBuyAD = SaveLoadManager.Instance.GetIsBuyAd();
                 AchievementPanelCS = AchievementPanel.GetComponent<AchievementManager>();
                 hpUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeHP();
+                ChangeHpText(hpUpgradeValue[hpUpgradeClass]);
                 jellyUpgradeClass = SaveLoadManager.Instance.GetUpgradeJelly();
+                ChangeStatText(stat1UpgradeValue[jellyUpgradeClass], stat2UpgradeValue[jellyUpgradeClass]);
                 energyUpgradeClass = (int)SaveLoadManager.Instance.GetUpgradeEnergy();
+                ChangeEnergyText(energyUpgradeValue[energyUpgradeClass]);
                 SetMysteryBox(SaveLoadManager.Instance.GetBuff());
                 ChangeCoinText(SaveLoadManager.Instance.GetCoin());
                 ChangeScoreText(SaveLoadManager.Instance.GetHighScore());
@@ -113,7 +138,7 @@ public class MainSceneController : MonoBehaviour
                 SettingClass(hpUpgradeClass, jellyUpgradeClass, energyUpgradeClass);
 
                 //if(SaveLoadManager.Instance.GetCoin() == 0) SaveLoadManager.Instance.PlusCoin(10000000);
-                ChangeCoinText(SaveLoadManager.Instance.GetCoin());
+                //ChangeCoinText(SaveLoadManager.Instance.GetCoin());
 
                 // 만약 게임이 처음이면 스토리 panel 띄우기
                 if(isGameFirst == false){
@@ -242,6 +267,21 @@ public class MainSceneController : MonoBehaviour
                 buffText_2.text = ": " + buff;
         }
 
+        private void ChangeHpText(int hp){
+                hpText_1.text = "현재 체력 : " + hp.ToString();
+                hpText_2.text = "현재 체력 : " + hp.ToString();
+        }
+
+        private void ChangeStatText(int stat1, int stat2){
+                statText_1.text = "균열 점수 : " + stat1.ToString() + " / 기억 점수 : " + stat2.ToString();
+                statText_2.text = "균열 점수 : " + stat1.ToString() +  " / 기억 점수 : " + stat2.ToString();
+        }
+
+        private void ChangeEnergyText(float time){
+                energyText_1.text = "에너지 초당 회복량 : " + time;
+                energyText_2.text = "에너지 초당 회복량 : " + time;
+        }
+
         private void ChangeBuffDetail(int num){
                 if(num == 0) {
                         buffdetailText.text = "현재 캐릭터의 체력을 50만큼 추가로 올려줍니다. (Ex. 능력 적용 전 체력 100 → 능력 적용 후 체력 150)";
@@ -302,6 +342,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeHP();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeShopHpText(true);
+                                // 올린 스탯 수치 표시
+                                ChangeHpText(hpUpgradeValue[hpUpgradeClass]);
                         }
                         else if((hpUpgradeClass+1) == maxGradeNum){ // 없다면
                                 // 돈 소비
@@ -311,6 +353,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeHP();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeShopHpText(false);
+                                // 올린 스탯 수치 표시
+                                ChangeHpText(hpUpgradeValue[hpUpgradeClass]);
                         }
                 }else{
                         AudioManager.Instance.PlayGameButtonNoClick();
@@ -334,6 +378,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeJelly();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeJellyText(true);
+                                // 올린 스탯 수치 표시
+                                ChangeStatText(stat1UpgradeValue[jellyUpgradeClass], stat2UpgradeValue[jellyUpgradeClass]);
                         }
                         else if((jellyUpgradeClass+1) == maxGradeNum) { 
                                 // 돈 소비
@@ -343,6 +389,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeJelly();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeJellyText(false);
+                                // 올린 스탯 수치 표시
+                                ChangeStatText(hpUpgradeValue[jellyUpgradeClass], stat2UpgradeValue[jellyUpgradeClass]);
                         }
                 }else{
                         AudioManager.Instance.PlayGameButtonNoClick();
@@ -366,6 +414,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeEnergy();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeEnergyText(true);
+                                // 올린 스탯 수치 표시
+                                ChangeEnergyText(energyUpgradeValue[energyUpgradeClass]);
                         }
                         else if((energyUpgradeClass+1) == maxGradeNum){ 
                                 // 돈 소비
@@ -375,6 +425,8 @@ public class MainSceneController : MonoBehaviour
                                 SaveLoadManager.Instance.UpgradeEnergy();
                                 SaveLoadManager.Instance.SaveData();
                                 ChangeEnergyText(false);
+                                // 올린 스탯 수치 표시
+                                ChangeEnergyText(energyUpgradeValue[energyUpgradeClass]);
                         }
                 }else{
                         AudioManager.Instance.PlayGameButtonNoClick();
