@@ -19,6 +19,12 @@ public class TutorialTrigger : MonoBehaviour
     [SerializeField]
     bool _isExit;
 
+    [SerializeField]
+    bool _isBackground;
+
+    [SerializeField]
+    bool _isCheckPortal;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -35,6 +41,8 @@ public class TutorialTrigger : MonoBehaviour
             if (_isEnergyZone) TutorialManager.Instance.ChargeEnergy();
             if (_setPlayerPosition) TutorialManager.Instance.SetPlayerPosition();
             if (_isLastStop) TutorialManager.Instance.SetMovePlayer();
+            if (_isBackground) TutorialManager.Instance.EnableBackgroundUI();
+            if (_isCheckPortal) TutorialManager.Instance.EnablePortalImage();
         }
     }
 }

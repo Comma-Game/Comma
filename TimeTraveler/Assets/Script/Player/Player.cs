@@ -172,13 +172,13 @@ public class Player : MonoBehaviour
             //젤리 소리
             AudioManager.Instance.PlayGetPieceSFX();
 
-            other.gameObject.GetComponent<Jelly>().GetParent().SetActive(false);
-            
+            //비활성화된 오브젝트 리스트에 넣어줌
+            StageController.Instance.AddDisabled(other.gameObject.transform.parent.gameObject);
+
+            other.gameObject.transform.parent.gameObject.SetActive(false);
+
             //파티클 활성화
             PlayGameManager.Instance.EnableParticle(other.transform.position);
-
-            //비활성화된 오브젝트 리스트에 넣어줌
-            StageController.Instance.AddDisabled(other.gameObject.GetComponent<Jelly>().GetParent());
         }
         else if (other.gameObject.CompareTag("Bonus"))
         {
@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
     {
         if (!_isInvincible)
         {
-            Handheld.Vibrate(); //휴대폰 진동
+            if (SaveLoadManager.Instance.GetHaptic()) Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
 
             if (_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
@@ -314,7 +314,7 @@ public class Player : MonoBehaviour
     {
         if (!_isInvincible && !_isPassPortal)
         {
-            Handheld.Vibrate(); //휴대폰 진동
+            if(SaveLoadManager.Instance.GetHaptic()) Handheld.Vibrate(); //휴대폰 진동
             _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
             StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 

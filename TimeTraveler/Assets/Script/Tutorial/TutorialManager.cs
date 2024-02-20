@@ -25,8 +25,13 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    GameObject _backgroundUI;
+
+    [SerializeField]
+    GameObject _portalImage;
+
     GameObject _player, _curUI;
-    TutorialUI _ui;
     Canvas _canvas;
     bool _isStop, _isDrag;
 
@@ -42,8 +47,6 @@ public class TutorialManager : MonoBehaviour
         
         _player = GameObject.Find("Player");
         _player.GetComponent<MovePlayer>().enabled = false;
-
-        _ui = GetComponent<TutorialUI>();
 
         _canvas = GameObject.Find("TutorialCanvas").GetComponent<Canvas>();
     }
@@ -72,8 +75,6 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        _ui.EnableExplainUI();
-
         _isStop = true;
     }
 
@@ -81,7 +82,8 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        _ui.DisableExplainUI();
+        DisableBackgroundUI();
+        DisablePortalImage();
 
         _isStop = false;
     }
@@ -95,7 +97,6 @@ public class TutorialManager : MonoBehaviour
     public void SetDragTrue() 
     { 
         _isDrag = true;
-        _ui.SetDragText();
     }
     
     public void SetDragFalse() 
@@ -103,11 +104,15 @@ public class TutorialManager : MonoBehaviour
         _isDrag = false;
 
         _curUI.SetActive(false);
-        _ui.ResetExplainText();
     }
 
     public void ChargeEnergy() { _player.GetComponent<Player>().ChargeEnergy(100); }
     public void SetPlayerPosition() { _player.transform.position = new Vector3(0, 175, 0); }
-    public void SetMovePlayer() { _player.GetComponent<MovePlayer>().enabled = true; }
+    public void SetMovePlayer() { _player.GetComponent<MovePlayer>().enabled = true; _player.GetComponent<Player>().Heal(100); }
     public void ExitTutorial() { SceneManager.LoadScene("MainScene"); }
+    public void EnableBackgroundUI() { _backgroundUI.SetActive(true); }
+    void DisableBackgroundUI() { _backgroundUI.SetActive(false); }
+    public void EnablePortalImage() { _portalImage.SetActive(true); }
+    void DisablePortalImage() { _portalImage.SetActive(false); }
+
 }

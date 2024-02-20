@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     bool _gameMode;
 
-    void Start()
+    void Awake()
     {
         Init();
     }
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
-        _gameMode = false;
+        _gameMode = true;
     }
 
     public void SetGameScene() { _gameMode = true; } //게임 씬으로 이동 시

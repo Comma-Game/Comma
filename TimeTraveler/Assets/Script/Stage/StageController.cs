@@ -338,10 +338,7 @@ public class StageController : MonoBehaviour
     //º¸³Ê½º Á©¸®
     void CheckJelly()
     {
-        if (_stageDisabledJellys.Count > 0)
-        {
-            foreach (GameObject obj in _stageDisabledJellys) obj.SetActive(true);
-        }
+        foreach (GameObject obj in _stageDisabledJellys) obj.SetActive(true);
         _stageDisabledJellys.Clear();
 
         foreach (GameObject obj in _nextStageDisabledJellys) _stageDisabledJellys.Add(obj);
@@ -359,8 +356,6 @@ public class StageController : MonoBehaviour
                 for (int i = 0; i < childsCount; i++) _remainJelly.Add(i);
                 
                 GameObject obj = CheckMemory(child);
-                obj.SetActive(false);
-                _nextStageDisabledJellys.Add(obj);
 
                 GameObject bonus = BonusJelly.Instance.GetBonusJelly();
                 bonus.SetActive(true);
@@ -368,6 +363,8 @@ public class StageController : MonoBehaviour
                 bonus.transform.position = obj.transform.position;
                 bonus.transform.localScale = new Vector3(300, 300, 300);
 
+                obj.SetActive(false);
+                _nextStageDisabledJellys.Add(obj);
                 CheckBigJelly(child);
 
                 break;
@@ -381,11 +378,11 @@ public class StageController : MonoBehaviour
         _stageBigJellyCount = _nextStageBigJellyCount;
         _nextStageBigJellyCount = 0;
 
-        for(int i = 0; i < _remainJelly.Count; i++)
+        while(_remainJelly.Count > 0)
         {
-            GameObject obj = child.GetChild(_remainJelly[i]).gameObject;
+            GameObject obj = CheckMemory(child);
 
-            if (!GetPercent(15) || obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) continue;
+            if (GetPercent(85)) continue;
 
             GameObject bigJelly = PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().GetObject();
             bigJelly.SetActive(true);
@@ -678,15 +675,15 @@ public class StageController : MonoBehaviour
 
     public void TriggerBonusJelly()
     {
-        if(!GameManager.Instance.GetGameMode()) BonusJelly.Instance.TriggerBonusJelly(0);
+        if(!_gameMode) BonusJelly.Instance.TriggerBonusJelly(0);
         else BonusJelly.Instance.TriggerBonusJelly(_stageBonusJellyIndex);
     }
 
     GameObject CheckMemory(Transform child)
     {
-        GameObject obj;
+        GameObject obj = null;
         
-        while (true)
+        while (_remainJelly.Count > 0)
         {
             int randomChild = GetRandomNumber(_remainJelly.Count);
             obj = child.GetChild(_remainJelly[randomChild]).gameObject;

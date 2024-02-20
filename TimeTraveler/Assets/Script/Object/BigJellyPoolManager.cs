@@ -32,8 +32,8 @@ public class BigJellyPoolManager : MonoBehaviour
         for (int i = 0; i < _count; i++)
         {
             GameObject obj = Instantiate(_obj);
-            obj.SetActive(false);
             obj.transform.SetParent(_parent.transform);
+            obj.SetActive(false);
             _queue.Enqueue(obj);
         }
     }
@@ -59,6 +59,7 @@ public class BigJellyPoolManager : MonoBehaviour
         for(int i = 0; i < amount; i++)
         {
             GameObject obj = _usedQueue.Dequeue();
+            obj.transform.SetParent(_parent.transform);
             obj.SetActive(false);
             _queue.Enqueue(obj);
         }

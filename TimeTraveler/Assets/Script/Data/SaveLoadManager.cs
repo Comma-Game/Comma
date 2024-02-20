@@ -217,6 +217,7 @@ public class SaveLoadManager : MonoBehaviour
         GameData.haptic = !GameData.haptic;
         return GameData.haptic;
     }
+    public bool GetHaptic() { return GameData.haptic; }
 
 
     public void SaveData()
