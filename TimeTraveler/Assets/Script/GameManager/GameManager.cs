@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         _gameMode = false;
     }
 
-    public void SetGameScene() { _gameMode = true; }
-    public void SetTutorialScene() { _gameMode = false; }
-    public bool GetGameMode() { return _gameMode; }
+    public void SetGameScene() { _gameMode = true; } //게임 씬으로 이동 시
+    public void SetTutorialScene() { _gameMode = false; } //튜토리얼 씬으로 이동 시
+    public bool GetGameMode() { return _gameMode; } //게임 모드 반환
 }

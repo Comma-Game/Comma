@@ -80,6 +80,8 @@ public class PlayGameManager : MonoBehaviour
 
     void Init()
     {
+        SaveLoadManager.Instance.PlusPlayCount();
+
         _stage = null;
 
         ResumeGame();
@@ -103,15 +105,9 @@ public class PlayGameManager : MonoBehaviour
         //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
 
-        SaveLoadManager.Instance.PlusCoin(_score);
-
         _coin = _score / 2;
         //버프 받으면 코인 1.2배
         if (_coinBuff) _coin += (int)(_coin * 0.2f);
-        
-        SaveLoadManager.Instance.SetHighScore(_coin);
-        
-        SaveLoadManager.Instance.SaveData();
 
         _player.GetComponent<Player>().DestroyPlayer();
         _fog.SetActive(false);

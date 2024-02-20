@@ -42,7 +42,8 @@ public class GameData
     public List<UnlockStoryInfo> unlockedMemory;
     public float bgmSound;
     public float sfxSound;
-
+    public int playCount;
+    public bool haptic;
 
     public float heartTimetTest;
 
@@ -70,7 +71,8 @@ public class GameData
 
         bgmSound = 0;
         sfxSound = 0;
-
+        playCount = 0;
+        haptic = true;
 
         heartTimetTest = 20f;
     }
@@ -208,6 +210,14 @@ public class SaveLoadManager : MonoBehaviour
 
     public void SetHeartTimeTest(float time) { GameData.heartTimetTest = time; } //하트 테스트 시간 설정
     public float GetHeartTimeTest() { return GameData.heartTimetTest; } //하트 테스트 시간 반환
+    public void PlusPlayCount() { GameData.playCount++; } //플레이 횟수 + 1
+    public int GetPlayCount() { return GameData.playCount; } //플레이 횟수 반환
+    public bool ToggleHaptic() //Toggle haptic
+    {
+        GameData.haptic = !GameData.haptic;
+        return GameData.haptic;
+    }
+
 
     public void SaveData()
     {
