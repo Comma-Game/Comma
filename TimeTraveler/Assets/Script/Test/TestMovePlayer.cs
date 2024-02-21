@@ -7,14 +7,8 @@ public class TestMovePlayer : MonoBehaviour
     [SerializeField]
     float _swipeSpeed;
 
-    [SerializeField]
-    float _maxSpeed;
-
-    Player _player;
-    private Vector3 _sTouchPos, _eTouchPos, _force, _v;
+    private Vector3 _sTouchPos, _eTouchPos, _force;
     Rigidbody _rigidbody;
-    Coroutine _coroutine;
-    float _slowTime;
 
     private void OnDisable()
     {
@@ -23,17 +17,14 @@ public class TestMovePlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_coroutine != null) StopCoroutine(_coroutine);
-        _slowTime = 1f;
+
     }
 
     private void Awake()
     {
-        _player = GetComponent<Player>();
         _rigidbody = GetComponent<Rigidbody>();
 
         _swipeSpeed = 10f;
-        _maxSpeed = 20f;
     }
 
     void Update()
@@ -49,12 +40,6 @@ public class TestMovePlayer : MonoBehaviour
         {
             _eTouchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
 
-            if (_coroutine != null)
-            {
-                _slowTime = 1f;
-                StopCoroutine(_coroutine);
-            }
-
             _force = _sTouchPos - _eTouchPos;
             //Debug.Log("Force.Magnitude : " + Vector3.Magnitude(_force));
             
@@ -67,6 +52,5 @@ public class TestMovePlayer : MonoBehaviour
     public void HitObstacle()
     {
         _rigidbody.velocity /= 2;
-        _v = _rigidbody.velocity;
     }
 }

@@ -30,6 +30,7 @@ public class TestControlButton : MonoBehaviour
         {
             _text.text = "Change To PC Mode";
         }
+        _text.text += "\n" + StageController.Instance.GetStageVelocity();
     }
 
     public void TogglePlayerScript()

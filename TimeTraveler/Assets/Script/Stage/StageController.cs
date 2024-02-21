@@ -140,7 +140,7 @@ public class StageController : MonoBehaviour
 
         _player = GameObject.Find("Player").GetComponent<Player>();
 
-        _isSkill = true;
+        _isSkill = false;
     }
 
     void Start()
@@ -382,7 +382,7 @@ public class StageController : MonoBehaviour
         {
             GameObject obj = CheckMemory(child);
 
-            if (GetPercent(85)) continue;
+            if (GetPercent(85) || obj == null) continue;
 
             GameObject bigJelly = PlayGameManager.Instance.GetComponent<BigJellyPoolManager>().GetObject();
             bigJelly.SetActive(true);
@@ -682,7 +682,7 @@ public class StageController : MonoBehaviour
     GameObject CheckMemory(Transform child)
     {
         GameObject obj = null;
-        
+
         while (_remainJelly.Count > 0)
         {
             int randomChild = GetRandomNumber(_remainJelly.Count);
@@ -690,6 +690,9 @@ public class StageController : MonoBehaviour
             _remainJelly.RemoveAt(randomChild);
 
             if (!obj.transform.GetChild(0).GetComponent<Jelly>().CheckMemory()) break;
+            
+            //메모리라면
+            obj = null;
         }
 
         return obj;
