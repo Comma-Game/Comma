@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
-using UnityEngine.SceneManagement; // 필요
+using UnityEngine.SceneManagement;
+using System; // 필요
 
 // ca-app-pub-3940256099942544/5224354917
 public class GoogleAdMob : MonoBehaviour
@@ -15,7 +16,9 @@ public class GoogleAdMob : MonoBehaviour
   private string _adUnitId = "unused";
 #endif
 
-    private bool is2Coin = false;
+    private RewardedInterstitialAd _rewardedInterstitialAd;
+    private int testCase = 0;
+    private int getCoin = 0;
     private static GoogleAdMob instance;
     // singleton
     public static GoogleAdMob Instance
@@ -38,114 +41,238 @@ public class GoogleAdMob : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        MobileAds.Initialize((InitializationStatus initStatus) =>
+        public void LoadAd(int testcase, int coin)
         {
-            // This callback is called once the MobileAds SDK is initialized.
-            //LoadRewardedAd();
-        });
-    }
+            testCase = testcase;
+            getCoin = coin;
+            // Clean up the old ad before loading a new one.
+            if (_rewardedInterstitialAd != null)
+            {
+                DestroyAd();
+            }
 
-    private RewardedAd rewardedAd;
+            Debug.Log("Loading rewarded interstitial ad.");
+
+            // Create our request used to load the ad.
+            var adRequest = new AdRequest();
+
+            // Send the request to load the ad.
+            RewardedInterstitialAd.Load(_adUnitId, adRequest,
+                (RewardedInterstitialAd ad, LoadAdError error) =>
+                {
+                    // If the operation failed with a reason.
+                    if (error != null)
+                    {
+                        Debug.LogError("Rewarded interstitial ad failed to load an ad with error : "
+                                        + error);
+                        return;
+                    }
+                    // If the operation failed for unknown reasons.
+                    // This is an unexpexted error, please report this bug if it happens.
+                    if (ad == null)
+                    {
+                        Debug.LogError("Unexpected error: Rewarded interstitial load event fired with null ad and null error.");
+                        return;
+                    }
+
+                    // The operation completed successfully.
+                    Debug.Log("Rewarded interstitial ad loaded with response : "
+                        + ad.GetResponseInfo());
+                    _rewardedInterstitialAd = ad;
+
+                    // Register to ad events to extend functionality.
+                    RegisterEventHandlers(ad);
+                    ShowAd();
+                });
+        }
+
+        /// <summary>
+        /// Shows the ad.
+        /// </summary>
+        public void ShowAd()
+        {
+            if (_rewardedInterstitialAd != null && _rewardedInterstitialAd.CanShowAd())
+            {
+                _rewardedInterstitialAd.Show((Reward reward) =>
+                {
+                    Debug.Log("Rewarded interstitial ad rewarded : " + reward.Amount);
+                    if(testCase == 0){ // 하트 풀 충전
+                        HeartPanel.Instance.AddFullHearts();
+                    }else if(testCase == 1){ // 코인 2배
+                        SceneManager.LoadScene("MainScene");
+                        SaveLoadManager.Instance.PlusCoin(getCoin);
+                        SaveLoadManager.Instance.SaveData();
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("Rewarded interstitial ad is not ready yet.");
+            }
+        }
+
+        /// <summary>
+        /// Destroys the ad.
+        /// </summary>
+        public void DestroyAd()
+        {
+            if (_rewardedInterstitialAd != null)
+            {
+                Debug.Log("Destroying rewarded interstitial ad.");
+                _rewardedInterstitialAd.Destroy();
+                _rewardedInterstitialAd = null;
+            }
+        }
+
+        /// <summary>
+        /// Logs the ResponseInfo.
+        /// </summary>
+        public void LogResponseInfo()
+        {
+            if (_rewardedInterstitialAd != null)
+            {
+                var responseInfo = _rewardedInterstitialAd.GetResponseInfo();
+                UnityEngine.Debug.Log(responseInfo);
+            }
+        }
+
+        protected void RegisterEventHandlers(RewardedInterstitialAd ad)
+        {
+            // Raised when the ad is estimated to have earned money.
+            ad.OnAdPaid += (AdValue adValue) =>
+            {
+                Debug.Log(String.Format("Rewarded interstitial ad paid {0} {1}.",
+                    adValue.Value,
+                    adValue.CurrencyCode));
+            };
+            // Raised when an impression is recorded for an ad.
+            ad.OnAdImpressionRecorded += () =>
+            {
+                Debug.Log("Rewarded interstitial ad recorded an impression.");
+            };
+            // Raised when a click is recorded for an ad.
+            ad.OnAdClicked += () =>
+            {
+                Debug.Log("Rewarded interstitial ad was clicked.");
+            };
+            // Raised when an ad opened full screen content.
+            ad.OnAdFullScreenContentOpened += () =>
+            {
+                Debug.Log("Rewarded interstitial ad full screen content opened.");
+            };
+            // Raised when the ad closed full screen content.
+            ad.OnAdFullScreenContentClosed += () =>
+            {
+                Debug.Log("Rewarded interstitial ad full screen content closed.");
+            };
+            // Raised when the ad failed to open full screen content.
+            ad.OnAdFullScreenContentFailed += (AdError error) =>
+            {
+                Debug.LogError("Rewarded interstitial ad failed to open full screen content" +
+                               " with error : " + error);
+            };
+        }
+}
+
+    //private RewardedAd rewardedAd;
 
     /// <summary>
     /// Loads the rewarded ad.
     /// </summary>
-    public void LoadRewardedAd(bool is2coin)
-    {
-        is2Coin = is2coin;
-        // Clean up the old ad before loading a new one.
-        if (rewardedAd != null)
-        {
-            rewardedAd.Destroy();
-            rewardedAd = null;
-        }
+    // public void LoadRewardedAd(bool is2coin, int getCoin)
+    // {
+    //     is2Coin = is2coin;
+    //     // Clean up the old ad before loading a new one.
+    //     if (rewardedAd != null)
+    //     {
+    //         rewardedAd.Destroy();
+    //         rewardedAd = null;
+    //     }
 
-        Debug.Log("Loading the rewarded ad.");
+    //     Debug.Log("Loading the rewarded ad.");
 
-        // create our request used to load the ad.
-        var adRequest = new AdRequest();
+    //     // create our request used to load the ad.
+    //     var adRequest = new AdRequest();
 
-        // send the request to load the ad.
-        RewardedAd.Load(_adUnitId, adRequest,
-            (RewardedAd ad, LoadAdError error) =>
-            {
-                // if error is not null, the load request failed.
-                if (error != null || ad == null)
-                {
-                    Debug.LogError("Rewarded ad failed to load an ad " +
-                                   "with error : " + error);
-                    return;
-                }
+    //     // send the request to load the ad.
+    //     RewardedAd.Load(_adUnitId, adRequest,
+    //         (RewardedAd ad, LoadAdError error) =>
+    //         {
+    //             // if error is not null, the load request failed.
+    //             if (error != null || ad == null)
+    //             {
+    //                 Debug.LogError("Rewarded ad failed to load an ad " +
+    //                                "with error : " + error);
+    //                 return;
+    //             }
 
-                Debug.Log("Rewarded ad loaded with response : "
-                          + ad.GetResponseInfo());
+    //             Debug.Log("Rewarded ad loaded with response : "
+    //                       + ad.GetResponseInfo());
 
-                rewardedAd = ad;
+    //             rewardedAd = ad;
 
-                RegisterEventHandlers(rewardedAd);
+    //             RegisterEventHandlers(rewardedAd);
 
-                ShowRewardedAd();
-            });
-    }
+    //             ShowRewardedAd();
+    //         });
+    // }
 
-    public void ShowRewardedAd()
-    {
-        const string rewardMsg =
-            "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
+    // public void ShowRewardedAd()
+    // {
+    //     const string rewardMsg =
+    //         "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
 
-        if (rewardedAd != null && rewardedAd.CanShowAd())
-        {
-            rewardedAd.Show((Reward reward) =>
-            {
-                // TODO: Reward the user.
-                Debug.Log(string.Format(rewardMsg, reward.Type, reward.Amount));
-            });
-        }
-    }
+    //     if (rewardedAd != null && rewardedAd.CanShowAd())
+    //     {
+    //         rewardedAd.Show((Reward reward) =>
+    //         {
+    //             // TODO: Reward the user.
+    //             Debug.Log(string.Format(rewardMsg, reward.Type, reward.Amount));
+    //         });
+    //     }
+    // }
 
-    private void RegisterEventHandlers(RewardedAd ad)
-    {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log(string.Format("Rewarded ad paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Rewarded ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            Debug.Log("Rewarded ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Rewarded ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Rewarded ad full screen content closed.");
-            //LoadRewardedAd();
-            if(is2Coin){
-                SceneManager.LoadScene("MainScene");
-            }
-            is2Coin = false;
-        };
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Debug.LogError("Rewarded ad failed to open full screen content " +
-                           "with error : " + error);
-            //LoadRewardedAd();
-        };
-    }
-}
+    // private void RegisterEventHandlers(RewardedAd ad)
+    // {
+    //     // Raised when the ad is estimated to have earned money.
+    //     ad.OnAdPaid += (AdValue adValue) =>
+    //     {
+    //         Debug.Log(string.Format("Rewarded ad paid {0} {1}.",
+    //             adValue.Value,
+    //             adValue.CurrencyCode));
+    //     };
+    //     // Raised when an impression is recorded for an ad.
+    //     ad.OnAdImpressionRecorded += () =>
+    //     {
+    //         Debug.Log("Rewarded ad recorded an impression.");
+    //     };
+    //     // Raised when a click is recorded for an ad.
+    //     ad.OnAdClicked += () =>
+    //     {
+    //         Debug.Log("Rewarded ad was clicked.");
+    //     };
+    //     // Raised when an ad opened full screen content.
+    //     ad.OnAdFullScreenContentOpened += () =>
+    //     {
+    //         Debug.Log("Rewarded ad full screen content opened.");
+    //     };
+    //     // Raised when the ad closed full screen content.
+    //     ad.OnAdFullScreenContentClosed += () =>
+    //     {
+    //         Debug.Log("Rewarded ad full screen content closed.");
+    //         //LoadRewardedAd();
+    //         if(is2Coin){
+    //             SceneManager.LoadScene("MainScene");
+    //             SaveLoadManager.Instance.PlusCoin(getCoin);
+    //             SaveLoadManager.Instance.SaveData();
+    //         }
+    //         is2Coin = false;
+    //     };
+    //     // Raised when the ad failed to open full screen content.
+    //     ad.OnAdFullScreenContentFailed += (AdError error) =>
+    //     {
+    //         Debug.LogError("Rewarded ad failed to open full screen content " +
+    //                        "with error : " + error);
+    //         //LoadRewardedAd();
+    //     };
+    // }

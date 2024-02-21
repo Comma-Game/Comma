@@ -12,6 +12,8 @@ public class GameOverPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] public TextMeshProUGUI coinText;
 
+    private float currentGetCoin = 0;
+
     private int[] UnLockConceptScore = {0, 0, 0, 5000, 10000, 25000, 40000, 55000, 150000, 250000};
     // {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     // {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 1000000}
@@ -20,6 +22,13 @@ public class GameOverPanel : MonoBehaviour
         Debug.Log("openGameOverPanel");
         AudioManager.Instance.PlayGameOverSFX();
         mainPanel.SetActive(isActive);
+        SaveLoadManager.Instance.PlusPlayCount();
+        if(SaveLoadManager.Instance.GetPlayCount()%3 == 0){
+            if(SaveLoadManager.Instance.GetIsBuyAd() == false){
+                // 광고 띄우기
+                GoogleAdMob.Instance.LoadAd(2, 0);
+            }
+        }
     }
 
     public void ChangeStageText(float stage){
@@ -29,6 +38,7 @@ public class GameOverPanel : MonoBehaviour
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
         CheckStoryUnLock(score);
+        currentGetCoin = score;
     }
 
     public void ChangeCoinText(float coin){
@@ -38,7 +48,7 @@ public class GameOverPanel : MonoBehaviour
     public void Get2Coin(){
         if(SaveLoadManager.Instance.GetIsBuyAd() == false){
             // 광고 띄우기
-            GoogleAdMob.Instance.LoadRewardedAd(true);
+            GoogleAdMob.Instance.LoadAd(1, (int)currentGetCoin);
         }
         AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("Get2Coin");
@@ -53,6 +63,9 @@ public class GameOverPanel : MonoBehaviour
         SceneManager.LoadScene("MainScene");
         // 메인 화면 돌아가기
         TestConceptButton.Instance.ResetTestConcept();
+
+        SaveLoadManager.Instance.PlusCoin((int)currentGetCoin);
+        SaveLoadManager.Instance.SaveData();
     }
 
     //////////////////////////////////////////

@@ -26,10 +26,10 @@ public class HeartShopPanel : MonoBehaviour
         if(HeartPanelCS.GetCurrentHearts() < 5){
             // 광고 무료 구매했는지 확인
             if(SaveLoadManager.Instance.GetIsBuyAd() == false){
+                Debug.Log("BuyFiveHeart AdmobReward");
                 // 광고 띄우기
-                GoogleAdMob.Instance.LoadRewardedAd(false);
+                GoogleAdMob.Instance.LoadAd(0, 0);
             }
-            HeartPanelCS.AddFullHearts();
         }
     }
 }

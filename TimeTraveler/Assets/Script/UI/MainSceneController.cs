@@ -8,63 +8,66 @@ using SlimUI.ModernMenu;
 public class MainSceneController : MonoBehaviour
 {
         [Header("main Object")]
-        [SerializeField] public GameObject basicButton;
-        [SerializeField] public GameObject portal;
-        [SerializeField] public GameObject mainPanel_Button;
-        [SerializeField] public GameObject mainPanel_playerStat;
+        [SerializeField] private GameObject basicButton;
+        [SerializeField] private GameObject portal;
+        [SerializeField] private GameObject mainPanel_Button;
+        [SerializeField] private GameObject mainPanel_playerStat;
         private float rotationSpeed = 50f;
-        [SerializeField] public GameObject shopPanel;
-        [SerializeField] public GameObject shop_HaertShopPanel;
-        [SerializeField] public GameObject AchievementPanel;
+        [SerializeField] private GameObject shopPanel;
+        [SerializeField] private GameObject shop_HaertShopPanel;
+        [SerializeField] private GameObject AchievementPanel;
         private AchievementManager AchievementPanelCS;
-        [SerializeField] public GameObject SettingPanel;
-        [SerializeField] public GameObject CashShopPanel;
-        [SerializeField] public GameObject Canv_CashShop;
-        [SerializeField] public UIMenuManager uIMenuManager;
-        [SerializeField] public GameObject FirstStoryPanel;
-        [SerializeField] public GameObject loadingScene;
-        [SerializeField] public LoadingSceneManager loadingSceneManager;
-        [SerializeField] public GameObject mapChoosePanel;
-        [SerializeField] public GameObject starFX;
-        [SerializeField] public GameObject tutoralAllPanel;
-        [SerializeField] public GameObject tutoralPanel;
-        [SerializeField] public GameObject cheatPanel;
-        [SerializeField] public GameObject cheatCheckPanel;
-        [SerializeField] public NotiMessagePanel notiMessagePanel;
+        [SerializeField] private GameObject SettingPanel;
+        [SerializeField] private GameObject CashShopPanel;
+        [SerializeField] private GameObject Canv_CashShop;
+        [SerializeField] private UIMenuManager uIMenuManager;
+        [SerializeField] private GameObject FirstStoryPanel;
+        [SerializeField] private GameObject loadingScene;
+        [SerializeField] private LoadingSceneManager loadingSceneManager;
+        [SerializeField] private GameObject mapChoosePanel;
+        [SerializeField] private GameObject starFX;
+        [SerializeField] private GameObject tutoralAllPanel;
+        [SerializeField] private GameObject tutoralPanel;
+        [SerializeField] private GameObject cheatPanel;
+        [SerializeField] private GameObject cheatCheckPanel;
+        [SerializeField] private NotiMessagePanel notiMessagePanel;
+        [SerializeField] private GameObject mainLoadingPanel; 
+        [SerializeField] private GameObject loadingPanel; 
+        [SerializeField] private GameObject TutorialGamePanel; 
 
         [Header("background Obj")]
-        [SerializeField] public Animator Charater;
+        [SerializeField] private Animator Charater;
 
         [Header("heart Panel")]
-        [SerializeField] public GameObject heartPanel;
-        [SerializeField] public HeartPanel heartPanelCS;
+        [SerializeField] private GameObject heartPanel;
+        [SerializeField] private HeartPanel heartPanelCS;
 
         [Header("player panel 1")]
-        [SerializeField] public TextMeshProUGUI coinText_1;
-        [SerializeField] public TextMeshProUGUI scoreText_1;
-        [SerializeField] public TextMeshProUGUI buffText_1;
-        [SerializeField] public TextMeshProUGUI hpText_1;
-        [SerializeField] public TextMeshProUGUI statText_1;
-        [SerializeField] public TextMeshProUGUI energyText_1;
-        [SerializeField] public TextMeshProUGUI buffdetailText;
+        [SerializeField] private TextMeshProUGUI coinText_1;
+        [SerializeField] private TextMeshProUGUI scoreText_1;
+        [SerializeField] private TextMeshProUGUI buffText_1;
+        [SerializeField] private TextMeshProUGUI hpText_1;
+        [SerializeField] private TextMeshProUGUI statText_1;
+        [SerializeField] private TextMeshProUGUI energyText_1;
+        [SerializeField] private TextMeshProUGUI buffdetailText;
 
         [Header("player panel 2")]
-        [SerializeField] public TextMeshProUGUI coinText_2;
-        [SerializeField] public TextMeshProUGUI scoreText_2;
-        [SerializeField] public TextMeshProUGUI buffText_2;
-        [SerializeField] public TextMeshProUGUI hpText_2;
-        [SerializeField] public TextMeshProUGUI statText_2;
-        [SerializeField] public TextMeshProUGUI energyText_2;
-        [SerializeField] public TextMeshProUGUI buffdetailText2;
+        [SerializeField] private TextMeshProUGUI coinText_2;
+        [SerializeField] private TextMeshProUGUI scoreText_2;
+        [SerializeField] private TextMeshProUGUI buffText_2;
+        [SerializeField] private TextMeshProUGUI hpText_2;
+        [SerializeField] private TextMeshProUGUI statText_2;
+        [SerializeField] private TextMeshProUGUI energyText_2;
+        [SerializeField] private TextMeshProUGUI buffdetailText2;
 
         [Header("Shop Panels")]
-        [SerializeField] public TextMeshProUGUI shopHpText;
-        [SerializeField] public TextMeshProUGUI shopStatText;
-        [SerializeField] public TextMeshProUGUI shopEnergyText;
-        [SerializeField] public TextMeshProUGUI shopHpLVText;
-        [SerializeField] public TextMeshProUGUI shopStatLVText;
-        [SerializeField] public TextMeshProUGUI shopEnergyLVText;
-        [SerializeField] public TextMeshProUGUI mysteryBoxBuffText;
+        [SerializeField] private TextMeshProUGUI shopHpText;
+        [SerializeField] private TextMeshProUGUI shopStatText;
+        [SerializeField] private TextMeshProUGUI shopEnergyText;
+        [SerializeField] private TextMeshProUGUI shopHpLVText;
+        [SerializeField] private TextMeshProUGUI shopStatLVText;
+        [SerializeField] private TextMeshProUGUI shopEnergyLVText;
+        [SerializeField] private TextMeshProUGUI mysteryBoxBuffText;
 
         private int hpUpgradeClass = 0;
         private int jellyUpgradeClass = 0;
@@ -198,6 +201,18 @@ public class MainSceneController : MonoBehaviour
         //         if(intList.Count == 0) Debug.Log("intList.Count : " + 0);
         // }
 
+        public void StartTutorialGame(){
+                TutorialGamePanel.SetActive(false);
+                mainLoadingPanel.SetActive(true);
+                loadingPanel.SetActive(true);
+                GameManager.Instance.SetTutorialScene(); //튜토리얼 씬으로 이동 시
+                Invoke("MoveTutorialScene", 1f);
+        }
+
+        private void MoveTutorialScene(){
+                SceneManager.LoadScene("TutorialScene");
+        }
+
         public void TestGamePlay(){
                 if(heartPanelCS.GetCurrentHearts() >= 1 && isGameStart == false) {
                         SaveLoadManager.Instance.SetUnlockedConcept(8);
@@ -213,10 +228,12 @@ public class MainSceneController : MonoBehaviour
         private void FirstPopUp(){
                 FirstStoryPanel.SetActive(true);
                 tutoralPanel.SetActive(true);
+                TutorialGamePanel.SetActive(true);
         }
 
         private void MoveScene()
         {
+                GameManager.Instance.SetGameScene(); //게임 씬으로 이동 시
                // SceneManager.LoadScene("GameScene");
                starFX.SetActive(false);
                 loadingScene.SetActive(true);
