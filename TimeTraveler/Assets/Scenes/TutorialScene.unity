@@ -10753,7 +10753,7 @@ MonoBehaviour:
   _slider: {fileID: 942035748}
   _x: -1
   _z: 0
-  _power: 100
+  _power: 90
   _arrow: {fileID: 1151604170}
 --- !u!1 &463889336
 GameObject:
@@ -45042,7 +45042,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 120
   field of view: 20
   orthographic: 0

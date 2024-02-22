@@ -106,6 +106,7 @@ public class PlayGameManager : MonoBehaviour
         StageController.Instance.SetVelocity(0);
 
         _coin = _score / 2;
+
         //버프 받으면 코인 1.2배
         if (_coinBuff) _coin += (int)(_coin * 0.2f);
 
