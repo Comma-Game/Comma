@@ -28,6 +28,7 @@ public class PlayGameManager : MonoBehaviour
     GameObject _player;
     GameObject _stage, _fog;
     int _scoreUp, _coin;
+    StageInfoUI _stageInfoUI;
     
     private void Awake()
     {
@@ -88,6 +89,8 @@ public class PlayGameManager : MonoBehaviour
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
         if(GameManager.Instance.GetGameMode()) GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
 
+        if (GameManager.Instance.GetGameMode()) _stageInfoUI = GameObject.Find("StageInfo").GetComponent<StageInfoUI>();
+
         StopAllCoroutines();
         _timeCoroutine = StartCoroutine(ScoreTime());
     }
@@ -104,7 +107,10 @@ public class PlayGameManager : MonoBehaviour
 
         //스테이지 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
-
+        
+        //StageInfo UI 비활성화
+        DisableStageInfoUI();
+        
         _coin = _score / 2;
 
         //버프 받으면 코인 1.2배
@@ -160,9 +166,32 @@ public class PlayGameManager : MonoBehaviour
         _player.GetComponent<MovePlayer>().ResetPause();
     } 
 
-    public void SetBonusTime() { _isBonus = true; }
+    //초월 공간에 들어갈 때
+    public void SetBonusTime() 
+    { 
+        _isBonus = true;
+
+        DisableStageInfoUI();
+    }
 
     public void ResetBonusTime() { _isBonus = false; }
+
+    //StageInfo에 넣어줄 값
+    public void AddStageInfoForUI(int concept, int secondStage) 
+    {
+        if (GameManager.Instance.GetGameMode()) _stageInfoUI.SetInfo(concept, secondStage); 
+    }
+
+    //포탈 통과하면 StageInfo 최신화
+    public void PlusStageInfoIndex() 
+    {
+        if (GameManager.Instance.GetGameMode()) _stageInfoUI.PlusStageIndex(); 
+    }
+
+    void DisableStageInfoUI() 
+    {
+        if (GameManager.Instance.GetGameMode()) _stageInfoUI.DisableUI();
+    }
 
     IEnumerator ScoreTime()
     {

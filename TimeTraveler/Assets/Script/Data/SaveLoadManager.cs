@@ -44,6 +44,7 @@ public class GameData
     public float sfxSound;
     public int playCount;
     public bool haptic;
+    public int remainAdsCount;
 
     public float heartTimetTest;
 
@@ -73,6 +74,8 @@ public class GameData
         sfxSound = 0;
         playCount = 0;
         haptic = true;
+
+        remainAdsCount = 3;
 
         heartTimetTest = 20f;
     }
@@ -218,7 +221,9 @@ public class SaveLoadManager : MonoBehaviour
         return GameData.haptic;
     }
     public bool GetHaptic() { return GameData.haptic; }
-
+    public int GetRemainAdsCount() { return GameData.remainAdsCount; } //광고 볼 수 있는 횟수 반환
+    public void WatchAds() { GameData.remainAdsCount--; } //광고 1회 시청
+    public void ResetRemainAdsCount() { GameData.remainAdsCount = 3; } //남은 광고 횟수 초기화
 
     public void SaveData()
     {

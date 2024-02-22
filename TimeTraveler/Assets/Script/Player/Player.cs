@@ -267,9 +267,11 @@ public class Player : MonoBehaviour
         CanvasController.Instance.PlayerGetDamgeHP(damage);
 
         if(_hp <= _bloodHp) CanvasController.Instance.OpenDamgePanel(true); //데미지 UI 활성화
-        if (_hp <= 0) EndGame();
-
-        Debug.Log("HP : " + _hp);
+        if (_hp <= 0)
+        {
+            if (GameManager.Instance.GetGameMode()) EndGame();
+            else StageController.Instance.ResetPositionForTutorial();
+        }
     }
 
     //틱 테미지 업
@@ -533,6 +535,8 @@ public class Player : MonoBehaviour
     public void ExitBonusStage() { _isBonusTime = false; }
 
     public float GetHp() { return _hp; }
+    public float GetMaxHp() { return _maxHp; }
+    public float GetEnergy() { return _energy; }
 
     //보너스 스테이지 입장 시 플레이어 이동 관련 기능
     public void EnablePlayerMove()

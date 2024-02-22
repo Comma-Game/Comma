@@ -31,6 +31,12 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     GameObject _portalImage;
 
+    [SerializeField]
+    GameObject _restart;
+
+    [SerializeField]
+    GameObject[] _moveStage;
+
     GameObject _player, _curUI;
     Canvas _canvas;
     bool _isStop, _isDrag;
@@ -108,11 +114,17 @@ public class TutorialManager : MonoBehaviour
 
     public void ChargeEnergy() { _player.GetComponent<Player>().ChargeEnergy(100); }
     public void SetPlayerPosition() { _player.transform.position = new Vector3(0, 175, 0); }
-    public void SetMovePlayer() { _player.GetComponent<MovePlayer>().enabled = true; _player.GetComponent<Player>().Heal(100); }
+    public void SetMovePlayer() { _player.GetComponent<MovePlayer>().enabled = true; }
     public void ExitTutorial() { SceneManager.LoadScene("MainScene"); }
     public void EnableBackgroundUI() { _backgroundUI.SetActive(true); }
     void DisableBackgroundUI() { _backgroundUI.SetActive(false); }
     public void EnablePortalImage() { _portalImage.SetActive(true); }
     void DisablePortalImage() { _portalImage.SetActive(false); }
-
+    public void RestartTutorial()
+    {
+        SetCurrentUI(_restart);
+        SetStopTrue();
+        SetPlayerPosition();
+    }
+    public GameObject[] MoveStage() { return _moveStage; }
 }

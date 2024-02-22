@@ -38,10 +38,10 @@ public class GameOverPanel : MonoBehaviour
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
         CheckStoryUnLock(score);
-        currentGetCoin = score;
     }
 
     public void ChangeCoinText(float coin){
+        currentGetCoin = coin;
         coinText.text = "Coin : " + coin.ToString();
     }
 

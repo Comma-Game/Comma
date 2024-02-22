@@ -86,6 +86,7 @@ public class StageController : MonoBehaviour
     Player _player;
 
     float _bounsStageSpeed;
+    bool _isBonus;
 
     const int MaxConceptIndex = 10;
 
@@ -122,6 +123,7 @@ public class StageController : MonoBehaviour
         //보너스 관련 변수
         _stageBonusJellyIndex = -1;
         _nextStageBonusJellyIndex = -1;
+        _isBonus = false;
 
         //곰젤리 관련 변수
         _stageBigJellyCount = -1;
@@ -251,9 +253,12 @@ public class StageController : MonoBehaviour
         InsertStageToQueue();
     }
 
-    //스테이지를 새로 시작한다.
+    //게임을 시작할 때
     void SetStageForStart()
     {
+        //StageInfo 상태 변경
+        PlayGameManager.Instance.PlusStageInfoIndex();
+        
         _nextStage = SetNextStage();
         CheckJelly();
         SetCurrentStage();
@@ -277,6 +282,10 @@ public class StageController : MonoBehaviour
         {
             int next_stage_num = Random.Range(0, i);
             _queue.Enqueue(new StageInfo(_conceptIndex[conceptIndex], stageIndex[next_stage_num]));
+
+            //기억 조각이 있는 stage를 StageInfoUI에 넣어준다
+            if (i == 2) PlayGameManager.Instance.AddStageInfoForUI(_conceptIndex[conceptIndex], stageIndex[next_stage_num]);
+
             stageIndex.RemoveAt(next_stage_num);
         }
 
@@ -407,12 +416,13 @@ public class StageController : MonoBehaviour
     {
         if (_prevStage == null) return;
         _prevStage.SetActive(false);
-        //_prevStage.transform.position = new Vector3(0, 0, 0);
     }
 
     //스테이지 지나면 스테이지 1 더해주고 다음 스테이지 설정
     public void PrepareToStage()
     {
+        _isBonus = false;
+
         _curSpeed = GetStageVelocity();
         if (_curStageCount == 0)
         {
@@ -426,12 +436,15 @@ public class StageController : MonoBehaviour
             if (!_isSkill) _curSpeed = _speed[_passThroughCount];
         }
 
-        _curStageCount++;
+        if(GameManager.Instance.GetGameMode()) _curStageCount++;
         _totalStageCount++;
 
-        //점수 관련 UI 변경
+        //스테이지 관련 UI 변경
         CanvasController.Instance.ChangeState(_totalStageCount);
-        
+
+        //StageInfo 상태 변경
+        PlayGameManager.Instance.PlusStageInfoIndex();
+
         ReturnStage();
         StopMoveAllStage();
         SetPrevStage();
@@ -623,6 +636,8 @@ public class StageController : MonoBehaviour
     //보너스 스테이지 들어가기 전 효과를 위한 준비
     public void PrepareForBonusStage()
     {
+        _isBonus = true;
+
         //스킬 사용 못하게 설정
         _player.EnterBonusStage();
 
@@ -631,7 +646,7 @@ public class StageController : MonoBehaviour
         //모든 스테이지 움직임 멈춤
         StopMoveAllStage();
 
-        //틱 데미지와 에너지 차징 되지 않게 설정
+        //틱 데미지와 에너지 차징 되지 않게 설정하고 StageInfo 비활성화
         PlayGameManager.Instance.SetBonusTime();
 
         //스킬 및 무적 중지
@@ -734,7 +749,49 @@ public class StageController : MonoBehaviour
     public float GetSpeed() { return _speed[_passThroughCount]; }
     public float GetMaxSpeed() 
     {
-        if (_isSkill) return _skillSpeed;
+        if (_isBonus) return _bounsStageSpeed;
+        else if (_isSkill) return _skillSpeed;
         return _maxSpeed[_passThroughCount]; 
+    }
+
+    public void ResetPositionForTutorial()
+    {
+        //스테이지들을 모두 초기화 해준 뒤
+        DisableAllStage();
+        StopMoveAllStage();
+
+        GameObject[] moveStage = TutorialManager.Instance.MoveStage();
+        _stage = moveStage[0];
+        _nextStage = moveStage[1];
+
+        //stage 초기화
+        _stage.transform.position = new Vector3(0, 96.1f, 0);
+
+        int nextAngle = Random.Range(0, 360);
+        _stage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
+        _stage.SetActive(true);
+
+        //포탈 위치 재설정
+        _stageEnd.transform.SetParent(null);
+        _stageEnd.transform.position = new Vector3(0, 78f, 0);
+        _stageEnd.transform.SetParent(_stage.transform);
+
+        //nextStage 초기화
+        _nextStage.transform.position = new Vector3(0, 0, 0);
+
+        nextAngle = Random.Range(0, 360);
+        _nextStage.transform.rotation = Quaternion.Euler(0, nextAngle, 0);
+        _nextStage.SetActive(true);
+
+        //마지막 스테이지 큐에 추가
+        _queue.Enqueue(new StageInfo(2, 2));
+
+        _player.Heal(_player.GetMaxHp() - _player.GetHp());
+        _player.ChargeEnergy(-_player.GetEnergy());
+        
+        _totalStageCount = 4;
+
+        TutorialManager.Instance.RestartTutorial();
+        SetVelocity(_curSpeed);
     }
 }
