@@ -13,7 +13,7 @@ public class GameOverPanel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI coinText;
 
     private float currentGetCoin = 0;
-    int _highScore; //최고 스코어 기록을 위한 변수
+    private int currentScore = 0;
 
     private int[] UnLockConceptScore = {0, 0, 0, 5000, 10000, 25000, 40000, 55000, 150000, 250000};
     // {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
@@ -38,9 +38,7 @@ public class GameOverPanel : MonoBehaviour
 
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
-        _highScore = (int)score;
-        SaveLoadManager.Instance.SetHighScore(_highScore);
-        CheckStoryUnLock(score);
+        currentScore = (int)score;
     }
 
     public void ChangeCoinText(float coin){
@@ -49,6 +47,8 @@ public class GameOverPanel : MonoBehaviour
     }
 
     public void Get2Coin(){
+        SaveLoadManager.Instance.SetHighScore(currentScore);
+        CheckStoryUnLock(currentScore);
         if(SaveLoadManager.Instance.GetIsBuyAd() == false){
             // 광고 띄우기
             GoogleAdMob.Instance.LoadAd(1, (int)currentGetCoin);
@@ -61,6 +61,8 @@ public class GameOverPanel : MonoBehaviour
     }
 
     public void acceptButton(){
+        SaveLoadManager.Instance.SetHighScore(currentScore);
+        CheckStoryUnLock(currentScore);
         AudioManager.Instance.PlayGameButtonClick();
         Debug.Log("acceptButton");
         SceneManager.LoadScene("MainScene");
