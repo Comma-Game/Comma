@@ -39,6 +39,7 @@ public class GameOverPanel : MonoBehaviour
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
         _highScore = (int)score;
+        SaveLoadManager.Instance.SetHighScore(_highScore);
         CheckStoryUnLock(score);
     }
 
@@ -67,7 +68,6 @@ public class GameOverPanel : MonoBehaviour
         TestConceptButton.Instance.ResetTestConcept();
 
         SaveLoadManager.Instance.PlusCoin((int)currentGetCoin);
-        SaveLoadManager.Instance.SetHighScore(_highScore);
         SaveLoadManager.Instance.SaveData();
     }
 
