@@ -1,12 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class HeartShopPanel : MonoBehaviour
 {
     [SerializeField] public HeartPanel HeartPanelCS;
     [SerializeField] public MainSceneController mainSceneController;
     [SerializeField] public NotiMessagePanel notiMessagePanel;
+    [SerializeField] public TextMeshProUGUI ADCountText;
+    private int currentRemainADCount = 0;
+
+    void Start()
+    {
+        LoadData();
+    }
+
+    void Update()
+    {
+        if(currentRemainADCount != SaveLoadManager.Instance.GetRemainAdsCount()){
+            currentRemainADCount = SaveLoadManager.Instance.GetRemainAdsCount();
+            ChangeADCountText(currentRemainADCount);
+        }
+    }
+
+    private void LoadData()
+    {
+        // 날자가 달라졌으면
+        if(IsDateChanged(DateTime.Now , SaveLoadManager.Instance.GetExitTime())){
+            Debug.Log("RemainAdsCount IsDateChanged ResetRemainAdsCount");
+            SaveLoadManager.Instance.ResetRemainAdsCount(); //남은 광고 횟수 초기화
+        }
+        currentRemainADCount = SaveLoadManager.Instance.GetRemainAdsCount();
+        ChangeADCountText(currentRemainADCount);
+    }
+
+    private bool IsDateChanged(DateTime currnetTime, DateTime lastTime)
+    {
+        bool isChanged = lastTime.Date != currnetTime.Date;
+        return isChanged;
+    }
+
+    private void ChangeADCountText(int num){
+        Debug.Log("ChangeADCountText : "+ num);
+        if(ADCountText == null) return;
+        ADCountText.text = num.ToString() + " / 3";
+    }
 
     public void BuyOneHeart(){
         AudioManager.Instance.PlayGameButtonClick();

@@ -16,6 +16,8 @@ public class GoogleAdMob : MonoBehaviour
   private string _adUnitId = "unused";
 #endif
 
+    [SerializeField] private GameObject ADPanel;
+    [SerializeField] private GameObject ADPanel2;
     private RewardedInterstitialAd _rewardedInterstitialAd;
     private int testCase = 0;
     private int getCoin = 0;
@@ -45,6 +47,8 @@ public class GoogleAdMob : MonoBehaviour
         {
             testCase = testcase;
             getCoin = coin;
+            ADPanel.SetActive(true);
+            if(ADPanel2 != null) ADPanel2.SetActive(true);
             // Clean up the old ad before loading a new one.
             if (_rewardedInterstitialAd != null)
             {
@@ -98,11 +102,15 @@ public class GoogleAdMob : MonoBehaviour
                     Debug.Log("Rewarded interstitial ad rewarded : " + reward.Amount);
                     if(testCase == 0){ // 하트 풀 충전
                         HeartPanel.Instance.AddFullHearts();
+                        //HeartPanel.Instance.AddHearts(1);
+                        SaveLoadManager.Instance.WatchAds(); //광고 1회 시청
                     }else if(testCase == 1){ // 코인 2배
                         SceneManager.LoadScene("MainScene");
-                        SaveLoadManager.Instance.PlusCoin(getCoin);
+                        SaveLoadManager.Instance.PlusCoin(getCoin*2);
                         SaveLoadManager.Instance.SaveData();
                     }
+                    ADPanel.SetActive(false);
+                    if(ADPanel2 != null) ADPanel2.SetActive(false);
                 });
             }
             else
@@ -163,11 +171,15 @@ public class GoogleAdMob : MonoBehaviour
             // Raised when the ad closed full screen content.
             ad.OnAdFullScreenContentClosed += () =>
             {
+                ADPanel.SetActive(false);
+                if(ADPanel2 != null) ADPanel2.SetActive(false);
                 Debug.Log("Rewarded interstitial ad full screen content closed.");
             };
             // Raised when the ad failed to open full screen content.
             ad.OnAdFullScreenContentFailed += (AdError error) =>
             {
+                ADPanel.SetActive(false);
+                if(ADPanel2 != null) ADPanel2.SetActive(false);
                 Debug.LogError("Rewarded interstitial ad failed to open full screen content" +
                                " with error : " + error);
             };
