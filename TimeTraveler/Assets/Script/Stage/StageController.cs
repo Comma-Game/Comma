@@ -250,7 +250,6 @@ public class StageController : MonoBehaviour
     void ResetQueue()
     {
         InsertStageToQueue();
-        InsertStageToQueue();
     }
 
     //게임을 시작할 때
@@ -318,7 +317,7 @@ public class StageController : MonoBehaviour
         GameObject ret;
 
         StageInfo next_stage_info = _queue.Dequeue(); //큐에서 나올 원소가 새로 생성될 스테이지
-        if (_queue.Count <= 3) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
+        if (_queue.Count == 0) InsertStageToQueue(); //큐에 크기가 3 이하면 새로운 컨셉 큐에 삽입
 
         int concept_index = next_stage_info.concept_index, stage_index = next_stage_info.stage_index;
         
@@ -759,7 +758,9 @@ public class StageController : MonoBehaviour
         //스테이지들을 모두 초기화 해준 뒤
         DisableAllStage();
         StopMoveAllStage();
+        PlayGameManager.Instance.SetOpaque();
 
+        //시작 stage를 다시 할당해준 뒤
         GameObject[] moveStage = TutorialManager.Instance.MoveStage();
         _stage = moveStage[0];
         _nextStage = moveStage[1];
@@ -784,13 +785,18 @@ public class StageController : MonoBehaviour
         _nextStage.SetActive(true);
 
         //마지막 스테이지 큐에 추가
-        _queue.Enqueue(new StageInfo(2, 2));
+        _queue.Clear();
+        _queue.Enqueue(new StageInfo(1, 2));
 
+        //Player의 체력과 에너지를 다시 세팅해주고
         _player.Heal(_player.GetMaxHp() - _player.GetHp());
         _player.ChargeEnergy(-_player.GetEnergy());
         
+        //표시할 스테이지를 4로 초기화 해준 뒤
         _totalStageCount = 4;
+        CanvasController.Instance.ChangeState(_totalStageCount);
 
+        //다시 시작한다
         TutorialManager.Instance.RestartTutorial();
         SetVelocity(_curSpeed);
     }

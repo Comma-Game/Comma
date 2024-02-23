@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     RaycastHit[] _hits;
     RaycastHit _hit;
     float _obstacleDamageBuff, _timeDamageBuff, _healBuff, _timeDamage;
-    GameObject _camera;
     Animator _animator;
 
     //TestControlButton 없애면 같이 없앨 변수
@@ -32,7 +31,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _colliderRange = GameObject.Find("ColliderRange").GetComponent<ColliderRange>();
-        _camera = GameObject.Find("Main Camera");
         _animator = transform.GetChild(0).GetComponent<Animator>();
 
         _timeDamage = 2f;
@@ -141,10 +139,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Portal")) TriggerPortal();
         else if (other.gameObject.CompareTag("Ground")) TriggerGround();
-        else if (other.gameObject.CompareTag("AccelerationZone"))
-        {
-            StageController.Instance.SetAcceleration();
-        }
+        else if (other.gameObject.CompareTag("AccelerationZone")) StageController.Instance.SetAcceleration();
         else if (other.gameObject.CompareTag("Jelly"))
         {
             if (other.gameObject.GetComponent<Jelly>().CheckMemory())
@@ -206,8 +201,8 @@ public class Player : MonoBehaviour
 
     void TriggerGround()
     {
-        //투명화 된 오브젝트 원상태로 설정
-        _camera.GetComponent<ShowPlayer>().SetOpaque();
+        //투명화 된 오브젝트 원상태로
+        PlayGameManager.Instance.SetOpaque();
 
         //포탈 소리
         AudioManager.Instance.PlayPortalSFX();
@@ -302,7 +297,7 @@ public class Player : MonoBehaviour
         if (!_isInvincible)
         {
             if (SaveLoadManager.Instance.GetHaptic()) Handheld.Vibrate(); //휴대폰 진동
-            _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
+            PlayGameManager.Instance.SetStress(); //카메라 진동
 
             if (_isMobile) transform.GetComponent<MovePlayer>().HitObstacle();
             else transform.GetComponent<TestMovePlayer>().HitObstacle();
@@ -319,7 +314,7 @@ public class Player : MonoBehaviour
         if (!_isInvincible && !_isPassPortal)
         {
             if(SaveLoadManager.Instance.GetHaptic()) Handheld.Vibrate(); //휴대폰 진동
-            _camera.GetComponent<StressReceiver>().InduceStress(0.2f); //카메라 진동
+            PlayGameManager.Instance.SetStress(); //카메라 진동
             StageController.Instance.MinusPassThroughCount(); //스피드 및 점수 한단계 하락
 
             HitObstacle(1);

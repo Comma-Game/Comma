@@ -51,7 +51,7 @@ public class GameData
     public GameData()
     {
         high_score = 0;
-        coin = 0;
+        coin = 100000000;
 
         upgrade = new List<int>();
         for (int i = 0; i < 3; i++) upgrade.Add(0);
@@ -65,10 +65,7 @@ public class GameData
 
         //10개의 스테이지
         unlockedMemory = new List<UnlockStoryInfo>();
-        for (int i = 0; i < 10; i++)
-        {
-            unlockedMemory.Add(new UnlockStoryInfo());
-        }
+        for (int i = 0; i < 10; i++) unlockedMemory.Add(new UnlockStoryInfo());
 
         bgmSound = 0;
         sfxSound = 0;

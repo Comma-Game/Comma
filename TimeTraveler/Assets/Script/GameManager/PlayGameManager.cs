@@ -25,7 +25,7 @@ public class PlayGameManager : MonoBehaviour
 
     bool _coinBuff, _isBonus;
     Coroutine _gameOverCoroutine, _timeCoroutine;
-    GameObject _player;
+    GameObject _player, _camera;
     GameObject _stage, _fog;
     int _scoreUp, _coin;
     StageInfoUI _stageInfoUI;
@@ -38,6 +38,7 @@ public class PlayGameManager : MonoBehaviour
 
         _player = GameObject.Find("Player");
         _fog = GameObject.Find("Fog");
+        _camera = GameObject.Find("Main Camera");
 
         _score = 0;
         _coinBuff = false;
@@ -188,17 +189,26 @@ public class PlayGameManager : MonoBehaviour
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.PlusStageIndex(); 
     }
 
+    //StageInfo UI 비활성화
     void DisableStageInfoUI() 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.DisableUI();
     }
 
+    //StageInfo의 Memory 해금 유무 UI
     public void UnlockMemoryForStageInfoUI()
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.UnlockMemery();
     }
 
-    IEnumerator ScoreTime()
+
+    //투명화 된 오브젝트 원상태로 설정
+    public void SetOpaque() { _camera.GetComponent<ShowPlayer>().SetOpaque(); }
+
+    //카메라 진동
+    public void SetStress() { _camera.GetComponent<StressReceiver>().InduceStress(0.2f); }
+
+        IEnumerator ScoreTime()
     {
         while (true)
         {
