@@ -51,7 +51,7 @@ public class GameData
     public GameData()
     {
         high_score = 0;
-        coin = 100000000;
+        coin = 0;
 
         upgrade = new List<int>();
         for (int i = 0; i < 3; i++) upgrade.Add(0);
