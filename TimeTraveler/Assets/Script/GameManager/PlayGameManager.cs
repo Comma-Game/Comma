@@ -193,6 +193,11 @@ public class PlayGameManager : MonoBehaviour
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.DisableUI();
     }
 
+    public void UnlockMemoryForStageInfoUI()
+    {
+        if (GameManager.Instance.GetGameMode()) _stageInfoUI.UnlockMemery();
+    }
+
     IEnumerator ScoreTime()
     {
         while (true)

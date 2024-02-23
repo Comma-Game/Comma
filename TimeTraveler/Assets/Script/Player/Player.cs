@@ -155,6 +155,8 @@ public class Player : MonoBehaviour
                     CanvasController.Instance.OnMessagePanel(); //기억의 조각 메세지 출력
                     SaveLoadManager.Instance.SetUnlockedMemory(jelly_info[0], jelly_info[1]); //스테이지 별 먹은 기억의 조각 저장
                     SaveLoadManager.Instance.SetUnOpenedStory(jelly_info[0], jelly_info[1]); //스토리 열람 확인 DB 설정
+
+                    PlayGameManager.Instance.UnlockMemoryForStageInfoUI(); //StafeInfo UI 열람 UI 비활성화
                 }
 
                 Heal(10f * _healBuff);

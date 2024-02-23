@@ -103,4 +103,6 @@ public class StageInfoUI : MonoBehaviour
         color.a = 0.2f;
         _image[index].GetComponent<RawImage>().color = color;
     }
+
+    public void UnlockMemery() { _unlock.enabled = false; }
 }

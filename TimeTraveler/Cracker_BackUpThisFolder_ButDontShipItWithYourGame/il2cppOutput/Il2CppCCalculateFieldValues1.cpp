@@ -12633,6 +12633,7 @@ struct GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2  : public MonoBeh
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___scoreText;
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___coinText;
 	float ___currentGetCoin;
+	int32_t ____highScore;
 	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ___UnLockConceptScore;
 };
 struct GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -19013,9 +19014,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4379[5] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4380[8] = 
 {
 	static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___mainPanel)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___storyImg)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___storySprite)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___leftButton)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___rightButton)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___returnButton)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___currentNum)),static_cast<int32_t>(offsetof(FirstStoryPanel_t60AF9D95B5806B331FB84FEA0E9A3A66D98B2B58, ___isSaveData)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4381[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4381[7] = 
 {
-	static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___mainPanel)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___stageText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___scoreText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___coinText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___currentGetCoin)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___UnLockConceptScore)),};
+	static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___mainPanel)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___stageText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___scoreText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___coinText)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___currentGetCoin)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ____highScore)),static_cast<int32_t>(offsetof(GameOverPanel_t5281C649B03D99C66A4656A4951ED9645B2837D2, ___UnLockConceptScore)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4382[8] = 
 {
 	static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___mainPanel)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___stageText)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___gameButton)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___gameButtonText)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___imageToChange)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___oriImage)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___changeImage)),static_cast<int32_t>(offsetof(GamePanel_t2DE92F39A385CF824D66D6FE573CBD323C05ED1B, ___isGameButtonClick)),};
