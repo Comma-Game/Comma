@@ -2859,7 +2859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD29C\uB85C\uB9AC\uC5BC \uC2DC\uC791"
+  m_text: "\uD29C\uD1A0\uB9AC\uC5BC \uC2DC\uC791"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
@@ -10318,7 +10318,7 @@ PrefabInstance:
     - target: {fileID: 8206358605457009696, guid: b1e781a67c6f97f4d9cfb50a61f30655, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4588843f5c116c84f96bb8d862d14638, type: 3}
+      objectReference: {fileID: 21300000, guid: d7f2e6dc90076544b93633b5e84d654a, type: 3}
     - target: {fileID: 8206358605457009698, guid: b1e781a67c6f97f4d9cfb50a61f30655, type: 3}
       propertyPath: m_Pivot.x
       value: 1
