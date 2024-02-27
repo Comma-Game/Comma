@@ -83,11 +83,30 @@ public class AchievementManager : MonoBehaviour
         if(checkAllNewStory){
             newAchievementImg.SetActive(true);
         }else{
+            // 마지막 열림 알림과 동시에 모든 스토리 해금 확인하기
+            if(newAchievementImg.activeSelf == true) CheckAllStoryUnLock();
             newAchievementImg.SetActive(false);
         }
     }
 
     /// ///////////////////////////////////////////////////////////////////
+    
+    private void CheckAllStoryUnLock(){
+        bool checkAllStoryUnLock = true;
+        for(int i=0; i < Buttons.Length; i++){
+            List<bool> newStories = SaveLoadManager.Instance.GetUnOpenedStory(i);
+            for(int j=0; j < newStories.Count; j++){
+                if(newStories[j] == false){
+                    checkAllStoryUnLock = false;
+                    break;
+                }
+            }
+            if(checkAllStoryUnLock == false) break;
+        }
+        if(checkAllStoryUnLock == true){
+            // 엔딩 이미지
+        }
+    }
 
     private void SettingAchievement(int unlockNum){
         for(int i=0; i < Buttons.Length; i++){

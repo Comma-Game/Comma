@@ -16,6 +16,7 @@ public class MainSceneController : MonoBehaviour
         [SerializeField] private GameObject shopPanel;
         [SerializeField] private GameObject shop_HaertShopPanel;
         [SerializeField] private GameObject AchievementPanel;
+        [SerializeField] private GameObject SkinShopPanel;
         private AchievementManager AchievementPanelCS;
         [SerializeField] private GameObject SettingPanel;
         [SerializeField] private GameObject CashShopPanel;
@@ -245,6 +246,7 @@ public class MainSceneController : MonoBehaviour
                 //Debug.Log("ClickShop");
                 shopPanel.SetActive(true);
                 AchievementPanelCS.OnPanel(false);
+                SkinShopPanel.SetActive(false);
                 uIMenuManager.Position2();
                 uIMenuManager.ReturnMenu();
                 Canv_CashShop.SetActive(false);
@@ -256,6 +258,15 @@ public class MainSceneController : MonoBehaviour
                 shopPanel.SetActive(false);
                 AchievementPanelCS.OnPanel(true);
                 Canv_CashShop.SetActive(false);
+                SkinShopPanel.SetActive(false);
+        }
+
+        public void ClickSkinShop(){
+                AudioManager.Instance.PlayGameButtonClick();
+                shopPanel.SetActive(false);
+                AchievementPanelCS.OnPanel(false);
+                Canv_CashShop.SetActive(false);
+                SkinShopPanel.SetActive(true);
         }
 
         public void ClickCashShop(){
@@ -264,6 +275,7 @@ public class MainSceneController : MonoBehaviour
                 shopPanel.SetActive(false);
                 AchievementPanelCS.OnPanel(false);
                 Canv_CashShop.SetActive(true);
+                SkinShopPanel.SetActive(false);
         }
 
         /// /////////////////////////////////////////////////////////////////
