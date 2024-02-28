@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8062207375565871494}
   - component: {fileID: 5140548339051784477}
   - component: {fileID: 8739298934037132245}
-  - component: {fileID: 1528663373408197511}
   - component: {fileID: 7152867395013639671}
   - component: {fileID: -3812679574553578436}
   - component: {fileID: 8558723877239705046}
+  - component: {fileID: 330846858736304069}
   m_Layer: 0
   m_Name: DirtyLake1
   m_TagString: Untagged
@@ -87,29 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1528663373408197511
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5616438026239377772}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &7152867395013639671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +139,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948b33f818bfea740bf55fdab6e4a536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &330846858736304069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616438026239377772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000001}
+  m_Center: {x: 0.00000005960466, y: -0.000000059604645, z: -0.00000008940696}

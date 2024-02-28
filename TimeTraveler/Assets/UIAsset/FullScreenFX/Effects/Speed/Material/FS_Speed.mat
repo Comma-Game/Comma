@@ -78,7 +78,7 @@ Material:
     - _Mask_Size: 0.569
     - _Smoothness: 7.04
     - _Speed: 0.5
-    - _enabled: 1
+    - _enabled: 0
     m_Colors:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Tiling: {r: 3, g: 9, b: 0, a: 0}

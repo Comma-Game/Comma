@@ -165,12 +165,12 @@ public class Player : MonoBehaviour
             {
                 PlayGameManager.Instance.ScoreUp(_jellyScore);
                 if (!_isBonusTime) ChargeEnergy(1);
+
+                //비활성화된 오브젝트 리스트에 넣어줌
+                StageController.Instance.AddDisabled(other.gameObject.transform.parent.gameObject);
             }
             //젤리 소리
             AudioManager.Instance.PlayGetPieceSFX();
-
-            //비활성화된 오브젝트 리스트에 넣어줌
-            StageController.Instance.AddDisabled(other.gameObject.transform.parent.gameObject);
 
             other.gameObject.transform.parent.gameObject.SetActive(false);
 
@@ -462,7 +462,9 @@ public class Player : MonoBehaviour
             StopCoroutine(_skillCoroutine);
         }
 
-        _isPassPortal = false;
+        if (_isPoison) ResetTimeDamage();
+
+         _isPassPortal = false;
         _isInvincible = false;
         _isCast = false;
     }

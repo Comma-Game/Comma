@@ -8026,19 +8026,20 @@ struct U3CU3Ec_t0E1743DF1718ED7BB55A76E001B03936CAA8CF46  : public RuntimeObject
 struct RaycastHitComparer_t8EF6567C19BE9FB575E01A10941FBF7DE3D3DDF1  : public RuntimeObject
 {
 };
-struct U3COpenGameOverUIU3Ed__39_tA6D34AD63BA66C1B819749B243AC09D94CAD25C5  : public RuntimeObject
+struct U3COpenGameOverUIU3Ed__41_t9DA40AE2C75C511A0F3B1077BE573741A6644C71  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	float ___time;
+	PlayGameManager_tA1222FE8DCA5F231F759F4D7470EC997DE3D4CF9* ___U3CU3E4__this;
 };
-struct U3CScoreTimeU3Ed__38_t7E74F65C20F127D79A03E0EA2E212F76A44FCA50  : public RuntimeObject
+struct U3CScoreTimeU3Ed__40_t85584674DAA1F784C73E77A9240FFFB5D167FCF0  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	PlayGameManager_tA1222FE8DCA5F231F759F4D7470EC997DE3D4CF9* ___U3CU3E4__this;
 };
-struct U3CCastTimeU3Ed__57_t24EDBD84DCC5E6D4471F7E6126D06A26893B01CB  : public RuntimeObject
+struct U3CCastTimeU3Ed__56_t82B1FEE5AB7EBDF5AEFE28B737D19E04573AB560  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -8046,14 +8047,14 @@ struct U3CCastTimeU3Ed__57_t24EDBD84DCC5E6D4471F7E6126D06A26893B01CB  : public R
 	float ___t;
 	float ___U3CprevSpeedU3E5__2;
 };
-struct U3CInvincibleTimeU3Ed__56_t539E3109F72C82EFEC40510261321564B9765BB2  : public RuntimeObject
+struct U3CInvincibleTimeU3Ed__55_t63BB75EDA7947DAA1F442DA884127ABD76AFE240  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	Player_tF98BD09D3495D2FF1922E5D34866AEAC6AE2DF74* ___U3CU3E4__this;
 	float ___t;
 };
-struct U3CPortalTimeU3Ed__55_t604A78A36170A334061CBFE1EC62C6E206A5C548  : public RuntimeObject
+struct U3CPortalTimeU3Ed__54_t94118C7EB8B70FB4D936F688741C152BC0A178D2  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -38612,6 +38613,7 @@ struct PlayGameManager_tA1222FE8DCA5F231F759F4D7470EC997DE3D4CF9  : public MonoB
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ____gameOverCoroutine;
 	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ____timeCoroutine;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____player;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____camera;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____stage;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____fog;
 	int32_t ____scoreUp;
@@ -38645,7 +38647,6 @@ struct Player_tF98BD09D3495D2FF1922E5D34866AEAC6AE2DF74  : public MonoBehaviour_
 	float ____timeDamageBuff;
 	float ____healBuff;
 	float ____timeDamage;
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____camera;
 	Animator_t8A52E42AE54F76681838FE9E632683EF3952E883* ____animator;
 	bool ____isMobile;
 };
@@ -55498,9 +55499,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4329 = { sizeof(SaveLoadMana
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4330;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4330 = { sizeof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6), -1, sizeof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4331;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4331 = { sizeof(U3COpenGameOverUIU3Ed__39_tA6D34AD63BA66C1B819749B243AC09D94CAD25C5), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4331 = { sizeof(U3COpenGameOverUIU3Ed__41_t9DA40AE2C75C511A0F3B1077BE573741A6644C71), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4332;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4332 = { sizeof(U3CScoreTimeU3Ed__38_t7E74F65C20F127D79A03E0EA2E212F76A44FCA50), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4332 = { sizeof(U3CScoreTimeU3Ed__40_t85584674DAA1F784C73E77A9240FFFB5D167FCF0), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4333;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4333 = { sizeof(PlayGameManager_tA1222FE8DCA5F231F759F4D7470EC997DE3D4CF9), -1, sizeof(PlayGameManager_tA1222FE8DCA5F231F759F4D7470EC997DE3D4CF9_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4334;
@@ -55542,11 +55543,11 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize4351 = { sizeof(ColliderRang
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4352;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4352 = { sizeof(MovePlayer_tC84F96B706D7FDC59EA861A8ED037C663448DAF4), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4353;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4353 = { sizeof(U3CCastTimeU3Ed__57_t24EDBD84DCC5E6D4471F7E6126D06A26893B01CB), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4353 = { sizeof(U3CCastTimeU3Ed__56_t82B1FEE5AB7EBDF5AEFE28B737D19E04573AB560), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4354;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4354 = { sizeof(U3CInvincibleTimeU3Ed__56_t539E3109F72C82EFEC40510261321564B9765BB2), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4354 = { sizeof(U3CInvincibleTimeU3Ed__55_t63BB75EDA7947DAA1F442DA884127ABD76AFE240), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4355;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize4355 = { sizeof(U3CPortalTimeU3Ed__55_t604A78A36170A334061CBFE1EC62C6E206A5C548), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize4355 = { sizeof(U3CPortalTimeU3Ed__54_t94118C7EB8B70FB4D936F688741C152BC0A178D2), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4356;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4356 = { sizeof(Player_tF98BD09D3495D2FF1922E5D34866AEAC6AE2DF74), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4357;

@@ -32,10 +32,10 @@ public class BonusJelly : MonoBehaviour
 
     GameObject _parent, _stageParent;
 
-    Queue<GameObject>[] _waitingBonusQueue, _usingBonusQueue;
+    Queue<GameObject>[] _waitingBonusQueue, _usedBonusQueue;
 
     int _bonusCount, _jellyLength;
-    bool[] _getJelly;
+    bool[] _getJelly; //ª°¡÷≥Î√ ∆ƒ
 
     private void Awake()
     {
@@ -46,13 +46,13 @@ public class BonusJelly : MonoBehaviour
         _parent = transform.gameObject;
 
         _waitingBonusQueue = new Queue<GameObject>[_jellyLength];
-        _usingBonusQueue = new Queue<GameObject>[_jellyLength];
+        _usedBonusQueue = new Queue<GameObject>[_jellyLength];
         for (int i = 0; i < _jellyLength; i++)
         {
             _waitingBonusQueue[i] = new Queue<GameObject>();
             _waitingBonusQueue[i].Enqueue(_bonus[i]);
 
-            _usingBonusQueue[i] = new Queue<GameObject>();
+            _usedBonusQueue[i] = new Queue<GameObject>();
         }
     }
 
@@ -110,14 +110,14 @@ public class BonusJelly : MonoBehaviour
         if (_waitingBonusQueue[index].Count == 0) obj = Instantiate(_bonus[index]);
         else obj = _waitingBonusQueue[index].Dequeue();
 
-        _usingBonusQueue[index].Enqueue(obj);
+        _usedBonusQueue[index].Enqueue(obj);
 
         return obj; 
     }
 
     public void ReturnBonusJelly(int index)
     {
-        GameObject obj = _usingBonusQueue[index].Dequeue();
+        GameObject obj = _usedBonusQueue[index].Dequeue();
         obj.transform.SetParent(_parent.transform);
         obj.SetActive(false);
 

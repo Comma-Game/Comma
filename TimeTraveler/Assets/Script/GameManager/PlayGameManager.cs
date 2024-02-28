@@ -118,7 +118,6 @@ public class PlayGameManager : MonoBehaviour
         if (_coinBuff) _coin += (int)(_coin * 0.2f);
 
         _player.GetComponent<Player>().DestroyPlayer();
-        _fog.SetActive(false);
 
         SetGameOverUIText();
     }
@@ -230,6 +229,7 @@ public class PlayGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
+        _fog.SetActive(false);
         StageController.Instance.EndGame();
         CanvasController.Instance.OpenGameOverPanel(true);
     }

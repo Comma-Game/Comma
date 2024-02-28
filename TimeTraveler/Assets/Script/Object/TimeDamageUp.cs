@@ -11,6 +11,11 @@ public class TimeDamageUp : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))

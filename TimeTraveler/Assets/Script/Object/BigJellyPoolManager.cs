@@ -42,13 +42,8 @@ public class BigJellyPoolManager : MonoBehaviour
     {
         GameObject obj;
         if (_queue.Count > 0) obj = _queue.Dequeue();
-        else
-        {
-            obj = Instantiate(_obj);
-            obj.SetActive(false);
-        }
+        else obj = Instantiate(_obj);
 
-        obj.transform.SetParent(_parent.transform);
         _usedQueue.Enqueue(obj);
 
         return obj;

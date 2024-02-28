@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6050579092243772795}
   - component: {fileID: 650836827887014702}
   - component: {fileID: 2174165303995145971}
+  - component: {fileID: 853443397383768901}
   m_Layer: 6
   m_Name: PP_Mushroom_Fantasy_Purple_08
   m_TagString: Obstacle
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 77438120441337631}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15367256, y: -0.7078003, z: -0.6865652, w: -0.06349592}
-  m_LocalPosition: {x: 0.46845335, y: 2.9234376, z: -1.6180921}
-  m_LocalScale: {x: 3.651699, y: 3.6516995, z: 3.6516995}
+  m_LocalPosition: {x: 0.519, y: 2.948, z: -1.243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -160,166 +161,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!1 &521382994764139202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6320442499453819889}
-  - component: {fileID: 3925861548311147728}
-  - component: {fileID: 5971776581889584919}
-  - component: {fileID: 4333274481219650702}
-  - component: {fileID: 8695272469689364293}
-  - component: {fileID: 6951016339847453795}
-  m_Layer: 6
-  m_Name: PP_Sunflower_04
-  m_TagString: Obstacle
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6320442499453819889
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.41875383, y: 0.5274967, z: 0.6537586, w: 0.34495252}
-  m_LocalPosition: {x: 1.484895, y: 7.8679414, z: -1.0474424}
-  m_LocalScale: {x: 2.9760036, y: 2.976004, z: 2.976004}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8856872029990273858}
-  m_LocalEulerAnglesHint: {x: -78.128, y: 296.81, z: -182.577}
---- !u!33 &3925861548311147728
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
-  m_Mesh: {fileID: -6364478861242937035, guid: 5374e258aa8b0a54b9ad017e47f849ec, type: 3}
---- !u!23 &5971776581889584919
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0799a1e95665ef14f8fe2cbcd4ba3dc4, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4333274481219650702
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6364478861242937035, guid: 5374e258aa8b0a54b9ad017e47f849ec, type: 3}
---- !u!114 &8695272469689364293
+--- !u!114 &853443397383768901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
+  m_GameObject: {fileID: 77438120441337631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  minSpeed: 1
-  maxSpeed: 5
-  minRotationSpeed: 90
-  maxRotationSpeed: 360
-  fadeWaitTime: 0.5
-  fadeTime: 2
-  useGravity: 0
-  colliderThickness: 0.125
-  useNormals: 0
-  useMeshBoundsCenter: 0
-  allowShadows: 0
-  shadersAlreadyHandleTransparency: 0
---- !u!54 &6951016339847453795
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521382994764139202}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
+  _growSpeed: 0.1
+  _maxScale: 3.5
 --- !u!1 &1389272056980819204
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +189,7 @@ GameObject:
   - component: {fileID: 8347488190421660379}
   - component: {fileID: 3625373858819059538}
   - component: {fileID: 5973016585460654564}
+  - component: {fileID: 6996447837288345284}
   m_Layer: 6
   m_Name: PP_Tree_10
   m_TagString: Obstacle
@@ -350,8 +206,8 @@ Transform:
   m_GameObject: {fileID: 1389272056980819204}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7013119, y: 0.0022340564, z: 0.08249001, w: 0.70806223}
-  m_LocalPosition: {x: 0.40912008, y: 4.5387025, z: 0.5335579}
-  m_LocalScale: {x: 0.29632434, y: 0.23449032, z: 0.2963243}
+  m_LocalPosition: {x: 0.41, y: 4.539, z: 0.544}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -480,6 +336,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &6996447837288345284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389272056980819204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growSpeed: 0.001
+  _maxScale: 0.15
 --- !u!1 &2084400466954244292
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,8 +624,9 @@ GameObject:
   - component: {fileID: 764331872074830125}
   - component: {fileID: 7304005543422622815}
   - component: {fileID: 7347864365351786219}
+  - component: {fileID: 8016057192027565318}
   m_Layer: 6
-  m_Name: PP_Grass_11 (1)
+  m_Name: Grass
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,8 +641,8 @@ Transform:
   m_GameObject: {fileID: 2937495103074099406}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5979862, y: -0.12766807, z: -0.18685237, w: -0.76889503}
-  m_LocalPosition: {x: 0.23567007, y: 2.7877107, z: 0.72665787}
-  m_LocalScale: {x: 1.5038, y: 1.9062169, z: 1.5037999}
+  m_LocalPosition: {x: 0.183, y: 2.813, z: 0.622}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -900,6 +771,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &8016057192027565318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2937495103074099406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growSpeed: 0.02
+  _maxScale: 1.5
 --- !u!1 &4766490642048108940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1143,6 @@ Transform:
   - {fileID: 146981382544942042}
   - {fileID: 8918576485288787217}
   - {fileID: 7529769807688463680}
-  - {fileID: 6320442499453819889}
   - {fileID: 933336012312685964}
   - {fileID: 5433432758971999510}
   m_Father: {fileID: 5347930408816690291}
@@ -1277,8 +1161,9 @@ GameObject:
   - component: {fileID: 8172391548241822074}
   - component: {fileID: 3523132599710576297}
   - component: {fileID: 3857338682642276684}
+  - component: {fileID: 7772408603285313681}
   m_Layer: 6
-  m_Name: PP_Hyacinth_04
+  m_Name: Grass
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,8 +1178,8 @@ Transform:
   m_GameObject: {fileID: 5492511738383833795}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5577925, y: 0.30223104, z: 0.57022035, w: -0.5218934}
-  m_LocalPosition: {x: -0.38146722, y: 3.5255342, z: -1.6595845}
-  m_LocalScale: {x: 2.961635, y: 2.961635, z: 2.9616354}
+  m_LocalPosition: {x: -0.19, y: 3.46, z: -1.368}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -1423,6 +1308,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7772408603285313681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492511738383833795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growSpeed: 0.02
+  _maxScale: 1.5
 --- !u!1 &5742217845903310150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,8 +1496,9 @@ GameObject:
   - component: {fileID: 7457461705409453944}
   - component: {fileID: 2708238189124256823}
   - component: {fileID: 6171803812140831007}
+  - component: {fileID: 7405122748834812205}
   m_Layer: 6
-  m_Name: PP_Grass_11
+  m_Name: Grass
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,8 +1513,8 @@ Transform:
   m_GameObject: {fileID: 6762727307338723964}
   serializedVersion: 2
   m_LocalRotation: {x: -0.68567514, y: -0.1713437, z: 0.08897871, w: -0.701836}
-  m_LocalPosition: {x: -0.4495579, y: 3.4159455, z: -1.4260969}
-  m_LocalScale: {x: 1.5038002, y: 1.5037999, z: 1.5038}
+  m_LocalPosition: {x: -0.40014, y: 3.4219, z: -1.2981}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -1743,6 +1643,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &7405122748834812205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762727307338723964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growSpeed: 0.02
+  _maxScale: 1.5
 --- !u!1 &7444584895911382031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +1834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5347930408816690291
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,8 +1909,9 @@ GameObject:
   - component: {fileID: 8763595979789890911}
   - component: {fileID: 6270834712475605913}
   - component: {fileID: 2681030928579875964}
+  - component: {fileID: 2070889511298290250}
   m_Layer: 6
-  m_Name: PP_Daffodil_03
+  m_Name: Grass
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2011,8 +1926,8 @@ Transform:
   m_GameObject: {fileID: 7493246918254809812}
   serializedVersion: 2
   m_LocalRotation: {x: -0.32930237, y: 0.4741816, z: 0.56501484, w: 0.589466}
-  m_LocalPosition: {x: 1.2148597, y: 7.7520967, z: -0.90872765}
-  m_LocalScale: {x: 2.2816, y: 2.2815998, z: 2.2816002}
+  m_LocalPosition: {x: 0.933, y: 7.794, z: -0.866}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8856872029990273858}
@@ -2141,6 +2056,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &2070889511298290250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7493246918254809812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae1c619a46a36c43a2bf629a457846e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growSpeed: 0.02
+  _maxScale: 1.5
 --- !u!1 &9221528673149971632
 GameObject:
   m_ObjectHideFlags: 0

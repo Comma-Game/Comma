@@ -160,6 +160,23 @@ public class StageController : MonoBehaviour
         if (_gameMode)
         {
             _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
+            
+            //테스트용***********************************************************지워야함*****************
+            _conceptCount = MaxConceptIndex;
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
+            TestStage(7);
+            TestStage(4);
 
             SetConceptIndex();
             InstantiateStage();
@@ -176,10 +193,24 @@ public class StageController : MonoBehaviour
             PushQueueForTutorial();
         }
 
-        //TestStage();
         SetStageForStart();
-
         SetVelocity(_speed[_passThroughCount]);
+    }
+
+    void TestStage(int index)
+    {
+        List<int> stageIndex = new List<int>(new int[] { 0, 1, 2 });
+
+        for (int i = 3; i > 0; i--)
+        {
+            int next_stage_num = Random.Range(0, i);
+            _queue.Enqueue(new StageInfo(index, stageIndex[next_stage_num]));
+            
+            //기억 조각이 있는 stage를 StageInfoUI에 넣어준다
+            if (i == 2) PlayGameManager.Instance.AddStageInfoForUI(index, stageIndex[next_stage_num]);
+
+            stageIndex.RemoveAt(next_stage_num);
+        }
     }
 
     void TestStage()
@@ -369,7 +400,7 @@ public class StageController : MonoBehaviour
                 bonus.SetActive(true);
                 bonus.transform.SetParent(child);
                 bonus.transform.position = obj.transform.position;
-                bonus.transform.localScale = new Vector3(300, 300, 300);
+                bonus.transform.localScale = new Vector3(3, 3, 3);
 
                 obj.SetActive(false);
                 _nextStageDisabledJellys.Add(obj);
@@ -444,7 +475,6 @@ public class StageController : MonoBehaviour
         //StageInfo 상태 변경
         PlayGameManager.Instance.PlusStageInfoIndex();
 
-        ReturnStage();
         StopMoveAllStage();
         SetPrevStage();
         SetCurrentStage();
@@ -496,6 +526,7 @@ public class StageController : MonoBehaviour
     public void SetAcceleration()
     {
         DisablePrevStage();
+        ReturnStage();
     }
 
     //1번째 스테이지일 때, 2번째 스테이지 메모리 활성화
