@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: "\uC2A4\uD1A0\uB9AC\uAC00 \uD574\uAE08\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
-  m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 2acded1c4dd07ae46be6ac1d46013c9b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -223,3 +223,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1a316d56d21f54a9741c06f0c37eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOn: 0
+  isMain: 0

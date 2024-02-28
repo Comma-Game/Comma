@@ -176,7 +176,7 @@ MonoBehaviour:
   m_text: "\uC720\uB8CC \uC0C1\uC810"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 60121bc3587169e4e84318f967ba10eb, type: 2}
-  m_sharedMaterial: {fileID: 2376423856166649281, guid: 60121bc3587169e4e84318f967ba10eb, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 393f2cb262bffc344b872a38d01d2c9b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

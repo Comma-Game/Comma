@@ -7,6 +7,7 @@ public class AchievementManager : MonoBehaviour
 {
     [Header("Story Panels")]
     [SerializeField] public GameObject mainPanel;
+    [SerializeField] public GameObject endgingPanel;
     [SerializeField] public GameObject newAchievementImg;
     [SerializeField] public GameObject[] Buttons;
     [SerializeField] public GameObject[] stroyPanels;
@@ -83,6 +84,7 @@ public class AchievementManager : MonoBehaviour
         if(checkAllNewStory){
             newAchievementImg.SetActive(true);
         }else{
+            Debug.Log("check DeletNewImg");
             // 마지막 열림 알림과 동시에 모든 스토리 해금 확인하기
             if(newAchievementImg.activeSelf == true) CheckAllStoryUnLock();
             newAchievementImg.SetActive(false);
@@ -92,11 +94,14 @@ public class AchievementManager : MonoBehaviour
     /// ///////////////////////////////////////////////////////////////////
     
     private void CheckAllStoryUnLock(){
+        Debug.Log("CheckAllStoryUnLock");
         bool checkAllStoryUnLock = true;
+        List<UnlockStoryInfo> Stories = SaveLoadManager.Instance.GetUnlockedMemory();
         for(int i=0; i < Buttons.Length; i++){
-            List<bool> newStories = SaveLoadManager.Instance.GetUnOpenedStory(i);
-            for(int j=0; j < newStories.Count; j++){
-                if(newStories[j] == false){
+            UnlockStoryInfo checkStories = Stories[i];
+            for(int j=0; j < 3; j++){
+                if(checkStories.CheckStory(j) == false){
+                    Debug.Log(i + " " + j);
                     checkAllStoryUnLock = false;
                     break;
                 }
@@ -105,6 +110,7 @@ public class AchievementManager : MonoBehaviour
         }
         if(checkAllStoryUnLock == true){
             // 엔딩 이미지
+            endgingPanel.SetActive(true);
         }
     }
 
