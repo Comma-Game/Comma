@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6840033541048027398
 Transform:
@@ -52,8 +52,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120526180037285590}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -177,7 +177,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8395235192280776545
 Transform:
@@ -210,8 +210,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319132602637789335}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -333,7 +333,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5761295859580719163
 Transform:
@@ -366,8 +366,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186603911804006267}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -490,7 +490,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5892559687685400935
 Transform:
@@ -523,8 +523,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285521777614775414}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -658,7 +658,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &546137530356942522
 Transform:
@@ -691,8 +691,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2642462395423328042}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -798,8 +798,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3875284667376573918}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -900,7 +900,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4988837759658678464
 Transform:
@@ -933,8 +933,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584791306998626273}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1060,7 +1060,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8255008662094128832
 Transform:
@@ -1093,8 +1093,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4732220426975583112}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1220,7 +1220,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7402180367536130785
 Transform:
@@ -1253,8 +1253,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4937150119095053521}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1380,7 +1380,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3343781686815631116
 Transform:
@@ -1413,8 +1413,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5364651380917759087}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1539,7 +1539,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1593754667969845951
 Transform:
@@ -1572,8 +1572,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5687931399397991454}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1699,7 +1699,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4504012220409472978
 Transform:
@@ -1732,8 +1732,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5755211401981858936}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -1858,7 +1858,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6919656759110720015
 Transform:
@@ -1891,8 +1891,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5918322319967888235}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2053,7 +2053,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1661475418077687579
 Transform:
@@ -2086,8 +2086,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6380183298823980720}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2238,7 +2238,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6569375784773685774
 Transform:
@@ -2271,8 +2271,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057784902642496102}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2397,7 +2397,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2350500550502249609
 Transform:
@@ -2433,8 +2433,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7513350960292986477}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2560,7 +2560,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3151245369803456082
 Transform:
@@ -2593,8 +2593,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7516287344852284840}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2719,7 +2719,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &503772013123021140
 Transform:
@@ -2755,8 +2755,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7676366008011395320}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2880,7 +2880,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3563165909125443405
 Transform:
@@ -2913,8 +2913,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7993550567495379105}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2986,7 +2986,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8550457107903393535
 Transform:
@@ -3019,8 +3019,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8085867633766820092}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -3094,7 +3094,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 123
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4242513904761501107
 Transform:
@@ -3127,8 +3127,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8391229970271952111}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -3256,7 +3256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1004668372880332, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4168140838661730, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
       propertyPath: m_LocalScale.x
@@ -3309,6 +3309,14 @@ PrefabInstance:
     - target: {fileID: 4168140838661730, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -261.171
+      objectReference: {fileID: 0}
+    - target: {fileID: 23728320339085940, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23728320339085940, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23728320339085940, guid: 62b11dd993aa50e42a0890a734908161, type: 3}
       propertyPath: m_Materials.Array.size
@@ -3436,6 +3444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8
@@ -3476,6 +3488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3497,6 +3513,10 @@ PrefabInstance:
     - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_Name
       value: Jelly
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3538,6 +3558,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3559,6 +3583,10 @@ PrefabInstance:
     - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_Name
       value: Jelly (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3600,6 +3628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3632,7 +3664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1553475708589566, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4169223047241396, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
       propertyPath: m_LocalScale.x
@@ -3685,6 +3717,14 @@ PrefabInstance:
     - target: {fileID: 4169223047241396, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -51.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 23931899329765380, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23931899329765380, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23931899329765380, guid: 4af7da65169b48c47b3b86e7d6323744, type: 3}
       propertyPath: m_Materials.Array.size
@@ -3816,6 +3856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.8
@@ -3856,6 +3900,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3884,6 +3932,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2804918736542239574, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: _info.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485559901127169016, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
@@ -3938,6 +3990,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356358273154470958, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3964,6 +4024,10 @@ PrefabInstance:
     - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_Name
       value: Jelly (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4005,6 +4069,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4037,7 +4105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1537529156563862, guid: 685803a48200879419cbf0f982932eb1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4293850495013322, guid: 685803a48200879419cbf0f982932eb1, type: 3}
       propertyPath: m_LocalScale.x
@@ -4090,6 +4158,14 @@ PrefabInstance:
     - target: {fileID: 4293850495013322, guid: 685803a48200879419cbf0f982932eb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -246.369
+      objectReference: {fileID: 0}
+    - target: {fileID: 23317963595796552, guid: 685803a48200879419cbf0f982932eb1, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23317963595796552, guid: 685803a48200879419cbf0f982932eb1, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23317963595796552, guid: 685803a48200879419cbf0f982932eb1, type: 3}
       propertyPath: m_Materials.Array.size

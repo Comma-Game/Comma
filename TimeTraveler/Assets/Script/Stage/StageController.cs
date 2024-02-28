@@ -119,6 +119,12 @@ public class StageController : MonoBehaviour
         _prevStage = null;
         _stageParent = null;
         _isInstantiateStage = new bool[MaxConceptIndex, 3];
+        _isInstantiateStage[7, 0] = true;
+        _isInstantiateStage[7, 1] = true;
+        _isInstantiateStage[7, 2] = true;
+        _isInstantiateStage[8, 0] = true;
+        _isInstantiateStage[8, 1] = true;
+        _isInstantiateStage[8, 2] = true;
 
         //보너스 관련 변수
         _stageBonusJellyIndex = -1;
@@ -160,7 +166,8 @@ public class StageController : MonoBehaviour
         if (_gameMode)
         {
             _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
-            
+
+            /*
             //테스트용***********************************************************지워야함*****************
             _conceptCount = MaxConceptIndex;
             TestStage(7);
@@ -177,6 +184,7 @@ public class StageController : MonoBehaviour
             TestStage(4);
             TestStage(7);
             TestStage(4);
+            */
 
             SetConceptIndex();
             InstantiateStage();

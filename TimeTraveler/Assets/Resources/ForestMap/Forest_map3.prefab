@@ -209,8 +209,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7721890390007196674}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -309,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4399479821493195954
 Transform:
   m_ObjectHideFlags: 0
@@ -446,8 +446,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -548,6 +560,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 7208770312383436556, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208770312383436556, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8377151309574368355, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.03
@@ -619,6 +639,10 @@ PrefabInstance:
     - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -722,6 +746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8
@@ -762,6 +790,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -780,6 +812,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1490849379766892529, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -851,6 +891,10 @@ PrefabInstance:
     - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -950,6 +994,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 4901155340339187106, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901155340339187106, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6075155838382831309, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.10277512
@@ -1017,6 +1069,10 @@ PrefabInstance:
     - target: {fileID: 6846767348704259191, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846767348704259191, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846767348704259192, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
       propertyPath: m_Convex
@@ -1120,6 +1176,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1490849379766892529, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1191,6 +1255,10 @@ PrefabInstance:
     - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1290,6 +1358,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2699181173809814813, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699181173809814813, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3836581064361698930, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.23505674
@@ -1361,6 +1437,10 @@ PrefabInstance:
     - target: {fileID: 4500668923149335752, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500668923149335752, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1443,6 +1523,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -1454,6 +1542,10 @@ PrefabInstance:
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108577, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Convex
@@ -1617,6 +1709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.1
@@ -1655,6 +1751,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1743,8 +1843,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1849,6 +1961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.87
@@ -1889,6 +2005,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1914,6 +2034,10 @@ PrefabInstance:
     - target: {fileID: 2804918736542239574, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: _info.Array.data[1]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485559901127169016, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448680662023731996, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1971,6 +2095,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8297021367187102883, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356358273154470958, guid: 64f1af928f8b811409b85df1c40decae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1994,6 +2126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -2005,6 +2145,10 @@ PrefabInstance:
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358959, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Convex
@@ -2168,6 +2312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.58
@@ -2208,6 +2356,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2226,6 +2378,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3916574325633068106, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -2293,6 +2453,10 @@ PrefabInstance:
     - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400482160171448049, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_Convex
@@ -2464,8 +2628,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2566,6 +2742,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -2577,6 +2761,10 @@ PrefabInstance:
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358959, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Convex
@@ -2740,6 +2928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.62
@@ -2780,6 +2972,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2798,6 +2994,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 7208770312383436556, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208770312383436556, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8377151309574368355, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.10322079
@@ -2869,6 +3073,10 @@ PrefabInstance:
     - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2972,6 +3180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jelly (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1547909864283223798, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5784266368524011956, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.64
@@ -3012,6 +3224,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806661008214698266, guid: e5c3fd79a1d1dce4b8f09a6b34574b0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3030,6 +3246,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2631254705330034779, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631254705330034779, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3805318389859771188, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.39896002
@@ -3097,6 +3321,10 @@ PrefabInstance:
     - target: {fileID: 4577034113271871886, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577034113271871886, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4577034113271871887, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_Convex
@@ -3251,8 +3479,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3421,8 +3661,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3523,6 +3775,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3916574325633068106, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -3590,6 +3850,10 @@ PrefabInstance:
     - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400482160171448049, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_Convex
@@ -3693,6 +3957,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 3239828270576206710, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239828270576206710, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4032642331417584291, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
       propertyPath: m_Name
       value: Tree
@@ -3704,6 +3976,10 @@ PrefabInstance:
     - target: {fileID: 4032642331417584291, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032642331417584291, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4032642331417584300, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
       propertyPath: m_Convex
@@ -3863,6 +4139,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -3874,6 +4158,10 @@ PrefabInstance:
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108577, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Convex
@@ -4033,6 +4321,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743074002302523173, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3916574325633068106, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -4100,6 +4396,10 @@ PrefabInstance:
     - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4400482160171448049, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
       propertyPath: m_Convex
@@ -4203,6 +4503,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 647231015710571061, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -4214,6 +4522,10 @@ PrefabInstance:
     - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1439904337943108577, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
       propertyPath: m_Convex
@@ -4389,6 +4701,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.058339864
@@ -4444,6 +4760,14 @@ PrefabInstance:
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168971709726199, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168971709726199, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4543,6 +4867,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1490849379766892529, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -4614,6 +4946,10 @@ PrefabInstance:
     - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4781,8 +5117,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2954823824624447291, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603258950968299247, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4883,6 +5231,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 359060090621398174, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1490849379766892529, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -4954,6 +5310,10 @@ PrefabInstance:
     - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5053,6 +5413,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 2631254705330034779, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631254705330034779, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3805318389859771188, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16155405
@@ -5120,6 +5488,10 @@ PrefabInstance:
     - target: {fileID: 4577034113271871886, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577034113271871886, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4577034113271871887, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
       propertyPath: m_Convex
@@ -5210,6 +5582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 1645123201969997353, guid: 292bfa542cd61114883916af45c0c4f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1645123201969997364, guid: 292bfa542cd61114883916af45c0c4f3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -5280,6 +5656,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2506318535785859809}
     m_Modifications:
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763024347283268281, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Name
       value: Grass
@@ -5291,6 +5675,10 @@ PrefabInstance:
     - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8123141273917358959, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
       propertyPath: m_Convex

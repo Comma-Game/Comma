@@ -21,7 +21,7 @@ public class FallObject : MonoBehaviour
         transform.localPosition = _pos;
         transform.localRotation = _rot;
 
-        _randomRot = Random.Range(-3, 3);
+        _randomRot = Random.Range(0.5f, 1.5f);
     }
 
     void Update()

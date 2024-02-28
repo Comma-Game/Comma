@@ -45,6 +45,9 @@ public class GameData
     public int playCount;
     public bool haptic;
     public int remainAdsCount;
+    public int currentSkinItem;
+    public List<bool> isBuySkinItems;
+    public int showAdsCount;
 
     public float heartTimetTest;
 
@@ -73,6 +76,11 @@ public class GameData
         haptic = true;
 
         remainAdsCount = 3;
+
+        currentSkinItem = 0;
+        isBuySkinItems = new List<bool>();
+        for (int i = 0; i < 10; i++) isBuySkinItems.Add(false);
+        showAdsCount = 0;
 
         heartTimetTest = 20f;
     }
@@ -221,6 +229,14 @@ public class SaveLoadManager : MonoBehaviour
     public int GetRemainAdsCount() { return GameData.remainAdsCount; } //광고 볼 수 있는 횟수 반환
     public void WatchAds() { GameData.remainAdsCount--; } //광고 1회 시청
     public void ResetRemainAdsCount() { GameData.remainAdsCount = 3; } //남은 광고 횟수 초기화
+
+    public void SetCurrentSkinItem(int num) { GameData.currentSkinItem = num; } //마지막에 선택한 트레일 번호 설정
+    public int GetCurrentSkinItem() { return GameData.currentSkinItem; } //마지막에 선택한 트레일 번호 반환
+    public void SetIsBuySkinItem(int index) { GameData.isBuySkinItems[index] = true; } //n번째 아이템 구매 설정
+    public bool GetIsBuySkinItem(int index) { return GameData.isBuySkinItems[index]; } //n번째 아이템 구매 여부 반환 
+    public void ShowAds() { GameData.showAdsCount++; } //광고 시청 횟수 + 1
+    public int GetShowAdsCount() { return GameData.showAdsCount; } //광고 시청 횟수 반환
+
 
     public void SaveData()
     {
