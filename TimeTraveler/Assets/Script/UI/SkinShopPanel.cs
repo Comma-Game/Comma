@@ -5,8 +5,8 @@ using UnityEngine;
 public class SkinShopPanel : MonoBehaviour
 {
     [SerializeField] public OneSkinItem[] oneSkinItemsCS;
-    private bool[] isTestLcokData = {true, true, true, false, false, true, false, false};  
-    private bool[] isTestBuyData = {true, false, false, false, false, true, false, false}; 
+    private bool[] isTestLockData = {true, true, true, true, false, false, false, false};  
+    private bool[] isTestBuyData = {false, false, false, false, false, false, false, false}; 
     private int currentSelectButton = 0;
 
     void Start()
@@ -22,6 +22,7 @@ public class SkinShopPanel : MonoBehaviour
     }
 
     public void SelectItem(int index){
+        SaveLoadManager.Instance.SetCurrentSkinItem(index);
         for(int i=0; i < oneSkinItemsCS.Length; i++){
             if(i != index){
                 if(isTestBuyData[i] == true){ // 구매된 아이템만 상태 바뀌기
@@ -34,9 +35,11 @@ public class SkinShopPanel : MonoBehaviour
     public void BuyItem(int index){
         // 데이터 저장 필요
         isTestBuyData[index] = true;
+        SaveLoadManager.Instance.SetIsBuySkinItem(index); 
     }
 
     private void Setting(){
+        currentSelectButton = SaveLoadManager.Instance.GetCurrentSkinItem(); 
         for(int i=0; i < oneSkinItemsCS.Length; i++){
             oneSkinItemsCS[i].ChangeIndex(i);
         }
@@ -44,15 +47,36 @@ public class SkinShopPanel : MonoBehaviour
 
     private void CheckLockOrUnLockItems(){
         for(int i=0; i < oneSkinItemsCS.Length; i++){
-            if(isTestLcokData[i] == true){
+            if(isTestLockData[i] == true){
                 oneSkinItemsCS[i].ChangeUnLockState();
+            }
+            if(i == 4){ // 업적 공룡까지
+                if(SaveLoadManager.Instance.GetUnlockedConcept() >= 4){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
+            }
+            if(i == 5){ // 모든 업적
+                if(SaveLoadManager.Instance.GetUnlockedConcept() >= 9){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
+            }
+            if(i == 6){ // 광고 플레이 횟수
+                if(SaveLoadManager.Instance.GetShowAdsCount() >= 20){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
+            }
+            if(i == 7){ // 게임 플레이 횟수
+                if(SaveLoadManager.Instance.GetPlayCount() >= 100){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
             }
         }
     }
 
     private void CheckBuyItems(){
         for(int i=0; i < oneSkinItemsCS.Length; i++){
-            if(isTestBuyData[i] == true){
+            if(SaveLoadManager.Instance.GetIsBuySkinItem(i) == true){
+                isTestBuyData[i] = SaveLoadManager.Instance.GetIsBuySkinItem(i);
                 oneSkinItemsCS[i].ChangeBuyState();
             }
         }

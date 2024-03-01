@@ -831,7 +831,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &119834508137457981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,6 +1783,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9191227707795224232}
     m_Modifications:
+    - target: {fileID: 4087378926863111107, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uAD6C\uB9E4\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137721980999907283, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uC5C5\uC801 \"\uACF5\uB8E1\" \uD574\uAE08 \uC2DC\n\uD68D\uB4DD \uAC00\uB2A5"
+      objectReference: {fileID: 0}
     - target: {fileID: 6998685422836662924, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_Name
       value: oneItem (4)
@@ -1902,7 +1910,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 483242103604766276, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2613200801456808614, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_text
@@ -1910,7 +1918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4087378926863111107, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_text
-      value: "\uAD6C\uB9E4 5000"
+      value: "\uAD6C\uB9E4 10000\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137721980999907283, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uCF54\uC778\uC73C\uB85C \n\uAD6C\uB9E4 \uAC00\uB2A5"
       objectReference: {fileID: 0}
     - target: {fileID: 6998685422836662924, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_Name
@@ -2036,6 +2048,10 @@ PrefabInstance:
     - target: {fileID: 2613200801456808614, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_text
       value: "\uAD11\uC120"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137721980999907283, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uCF54\uC778\uC73C\uB85C \n\uAD6C\uB9E4 \uAC00\uB2A5"
       objectReference: {fileID: 0}
     - target: {fileID: 6998685422836662924, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_Name
@@ -2541,6 +2557,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "\uAE30\uBCF8 \uC124\uC815"
       objectReference: {fileID: 0}
+    - target: {fileID: 4087378926863111107, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uC7A5\uCC29\uD558\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137721980999907283, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
+      propertyPath: m_text
+      value: "\uCF54\uC778\uC73C\uB85C \n\uAD6C\uB9E4 \uAC00\uB2A5"
+      objectReference: {fileID: 0}
     - target: {fileID: 6998685422836662924, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_Name
       value: oneItem
@@ -2664,7 +2688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137721980999907283, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_text
-      value: "\uC5C5\uC801 \"\uACF5\uB8E1\" \uD574\uAE08 \uC2DC\n\uD68D\uB4DD \uAC00\uB2A5"
+      value: "\uCF54\uC778\uC73C\uB85C \n\uAD6C\uB9E4 \uAC00\uB2A5"
       objectReference: {fileID: 0}
     - target: {fileID: 6998685422836662924, guid: 9f7f70a042ce12747887a3b865d5890a, type: 3}
       propertyPath: m_Name

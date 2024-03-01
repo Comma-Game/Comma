@@ -100,6 +100,7 @@ public class GoogleAdMob : MonoBehaviour
                 _rewardedInterstitialAd.Show((Reward reward) =>
                 {
                     Debug.Log("Rewarded interstitial ad rewarded : " + reward.Amount);
+                    SaveLoadManager.Instance.ShowAds(); //광고 시청 횟수 + 1
                     if(testCase == 0){ // 하트 풀 충전
                         HeartPanel.Instance.AddFullHearts();
                         //HeartPanel.Instance.AddHearts(1);
