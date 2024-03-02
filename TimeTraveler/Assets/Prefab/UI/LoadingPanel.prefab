@@ -734,6 +734,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1aa468ccc34f0c541bde91383173d7a7, type: 3}
   - {fileID: 21300000, guid: f6a1ad646faed6b41baeca3aaca71c40, type: 3}
   - {fileID: 21300000, guid: 62a9bfd6e37e1a343a99c8e704e25a14, type: 3}
+  tipText: {fileID: 7947662660352587726}
 --- !u!1 &4583662568650561150
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,8 +936,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading....
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
+  m_sharedMaterial: {fileID: 3179998236762543879, guid: 154651e169a22324b9d89fd00dc8a737, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -960,8 +961,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

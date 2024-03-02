@@ -49,8 +49,8 @@ public class PlayerStatPanel : MonoBehaviour
 
     [Header("collect")]
     [SerializeField] public Image[] collectImgs;
-    [SerializeField] public Sprite originSprite;
-    [SerializeField] public Sprite changeSprite;
+    [SerializeField] public Sprite[] originSprite;
+    [SerializeField] public Sprite[] changeSprite;
 
     void Update()
     {
@@ -236,9 +236,9 @@ public class PlayerStatPanel : MonoBehaviour
     public void isChangeCollectImg(int num, bool isChange){
         if(num > 4) return;
         if(isChange){
-            collectImgs[num].sprite = changeSprite;
+            collectImgs[num].sprite = changeSprite[num];
         }else{
-            collectImgs[num].sprite = originSprite;
+            collectImgs[num].sprite = originSprite[num];
         }
     }
 
