@@ -27,7 +27,7 @@ public class PlayGameManager : MonoBehaviour
     Coroutine _gameOverCoroutine, _timeCoroutine;
     GameObject _player, _camera;
     GameObject _stage, _fog;
-    Material[] _trail;
+    GameObject[] _trail;
     int _scoreUp, _coin;
     StageInfoUI _stageInfoUI;
     
@@ -91,8 +91,7 @@ public class PlayGameManager : MonoBehaviour
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
         if(GameManager.Instance.GetGameMode()) GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
         
-        //if (GameManager.Instance.GetGameMode()) _trail = Resources.LoadAll<Material>("TrailItem");
-        //_player.GetComponent<TrailRenderer>().material = _trail[SaveLoadManager.Instance.GetCurrentSkinItem()];
+        if (GameManager.Instance.GetGameMode()) _trail = Resources.LoadAll<GameObject>("TrailItem");
         
         if (GameManager.Instance.GetGameMode()) _stageInfoUI = GameObject.Find("StageInfo").GetComponent<StageInfoUI>();
 

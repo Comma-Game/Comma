@@ -52,7 +52,6 @@ public class RotateObjectAndCheckAngle : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log(transform.name + " " + transform.localRotation.eulerAngles);
             if(_compareX)
             {
                 if (transform.localRotation.eulerAngles.x >= _maxAngle || transform.localRotation.eulerAngles.x <= _minAngle) _pos = -_pos;
