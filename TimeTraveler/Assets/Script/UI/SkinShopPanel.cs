@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SkinShopPanel : MonoBehaviour
 {
+    [SerializeField] public GameObject newImg;
     [SerializeField] public OneSkinItem[] oneSkinItemsCS;
-    private bool[] isTestLockData = {true, true, true, true, false, false, false, false};  
-    private bool[] isTestBuyData = {false, false, false, false, false, false, false, false}; 
+    private bool[] isTestLockData = {false, false, false, false, false, false, false, false, false, false};  
+    private bool[] isTestBuyData = {false, false, false, false, false, false, false, false, false, false}; 
     private int currentSelectButton = 0;
 
     void Start()
@@ -19,6 +20,8 @@ public class SkinShopPanel : MonoBehaviour
         CheckBuyItems();
         // 마지막으로 선택했던 아이템 설정
         CheckLastSelectItem(currentSelectButton);
+        // 알림 이미지 띄워주기
+        CheckNewImg();
     }
 
     public void SelectItem(int index){
@@ -50,25 +53,33 @@ public class SkinShopPanel : MonoBehaviour
             if(isTestLockData[i] == true){
                 oneSkinItemsCS[i].ChangeUnLockState();
             }
-            if(i == 4){ // 업적 공룡까지
-                if(SaveLoadManager.Instance.GetUnlockedConcept() >= 4){
+            if(i >= 0 && i <= 4){
+                oneSkinItemsCS[i].ChangeUnLockState();
+            }
+            if(i == 5){// 광고 플레이 30 횟수
+                if(SaveLoadManager.Instance.GetShowAdsCount() >= 30){
                     oneSkinItemsCS[i].ChangeUnLockState();
                 }
             }
-            if(i == 5){ // 모든 업적
+            if(i == 6){ // 광고 플레이 50 횟수
+                if(SaveLoadManager.Instance.GetShowAdsCount() >= 50){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
+            }
+            if(i == 7){ // 광고 플레이 30 횟수
+                if(SaveLoadManager.Instance.GetShowAdsCount() >= 100){
+                    oneSkinItemsCS[i].ChangeUnLockState();
+                }
+            }
+            if(i == 8){ // 모든 스토리 읽은 후 업적 해금
                 if(SaveLoadManager.Instance.GetUnlockedConcept() >= 9){
                     oneSkinItemsCS[i].ChangeUnLockState();
                 }
             }
-            if(i == 6){ // 광고 플레이 횟수
-                if(SaveLoadManager.Instance.GetShowAdsCount() >= 20){
-                    oneSkinItemsCS[i].ChangeUnLockState();
-                }
-            }
-            if(i == 7){ // 게임 플레이 횟수
-                if(SaveLoadManager.Instance.GetPlayCount() >= 100){
-                    oneSkinItemsCS[i].ChangeUnLockState();
-                }
+            if(i == 9){ // 최초 5000점 달성 시 업적 해금
+                // if(SaveLoadManager.Instance.GetHighScore() >= 5000){
+                //     oneSkinItemsCS[i].ChangeUnLockState();
+                // }
             }
         }
     }
@@ -84,5 +95,23 @@ public class SkinShopPanel : MonoBehaviour
 
     private void CheckLastSelectItem(int num){
         oneSkinItemsCS[num].OnBuyButton();
+    }
+
+    private void CheckNewImg(){
+        if(SaveLoadManager.Instance.GetHighScore() >= 5000){
+            if(isTestBuyData[9] == false){
+                // 알림 이미지 띄워주기
+                newImg.SetActive(true);
+            }
+        }
+    }
+
+    public void CheckOverScore(){
+        if(SaveLoadManager.Instance.GetHighScore() >= 5000){
+            oneSkinItemsCS[9].ChangeUnLockState();
+            BuyItem(9);
+            oneSkinItemsCS[9].ChangeBuyState();
+            newImg.SetActive(false);
+        }
     }
 }

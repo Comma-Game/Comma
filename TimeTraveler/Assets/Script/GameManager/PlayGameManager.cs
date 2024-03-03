@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayGameManager : MonoBehaviour
 {
-    static PlayGameManager _instance; //À¯ÀÏ¼º º¸Àå
+    static PlayGameManager _instance; //ï¿½ï¿½ï¿½Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½
     public static PlayGameManager Instance
     {
         get
@@ -91,8 +91,8 @@ public class PlayGameManager : MonoBehaviour
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
         if(GameManager.Instance.GetGameMode()) GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
         
-        if (GameManager.Instance.GetGameMode()) _trail = Resources.LoadAll<Material>("TrailItem");
-        _player.GetComponent<TrailRenderer>().material = _trail[SaveLoadManager.Instance.GetCurrentSkinItem()];
+        //if (GameManager.Instance.GetGameMode()) _trail = Resources.LoadAll<Material>("TrailItem");
+        //_player.GetComponent<TrailRenderer>().material = _trail[SaveLoadManager.Instance.GetCurrentSkinItem()];
         
         if (GameManager.Instance.GetGameMode()) _stageInfoUI = GameObject.Find("StageInfo").GetComponent<StageInfoUI>();
 
@@ -100,7 +100,7 @@ public class PlayGameManager : MonoBehaviour
         _timeCoroutine = StartCoroutine(ScoreTime());
     }
 
-    //Á©¸® ÆÄÆ¼Å¬ È°¼ºÈ­
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Å¬ È°ï¿½ï¿½È­
     public void EnableParticle(Vector3 pos)
     {
         GetComponent<ParticleFooling>().EnableParticle(pos, _stage.transform);
@@ -110,15 +110,15 @@ public class PlayGameManager : MonoBehaviour
     {
         if (_timeCoroutine != null) StopCoroutine(_timeCoroutine);
 
-        //½ºÅ×ÀÌÁö ¼Óµµ 0À¸·Î ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         StageController.Instance.SetVelocity(0);
         
-        //StageInfo UI ºñÈ°¼ºÈ­
+        //StageInfo UI ï¿½ï¿½È°ï¿½ï¿½È­
         DisableStageInfoUI();
         
         _coin = _score / 2;
 
-        //¹öÇÁ ¹ÞÀ¸¸é ÄÚÀÎ 1.2¹è
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1.2ï¿½ï¿½
         if (_coinBuff) _coin += (int)(_coin * 0.2f);
 
         _player.GetComponent<Player>().DestroyPlayer();
@@ -156,21 +156,21 @@ public class PlayGameManager : MonoBehaviour
 
     public void SetStage(GameObject stage) { _stage = stage; }
 
-    //°ÔÀÓ ÀÏ½ÃÁ¤Áö
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void PauseGame() 
     { 
         Time.timeScale = 0f;
         _player.GetComponent<MovePlayer>().SetPause();
     }
 
-    //°ÔÀÓ Àç°³
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
     public void ResumeGame() 
     { 
         Time.timeScale = 1f;
         _player.GetComponent<MovePlayer>().ResetPause();
     } 
 
-    //ÃÊ¿ù °ø°£¿¡ µé¾î°¥ ¶§
+    //ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½
     public void SetBonusTime() 
     { 
         _isBonus = true;
@@ -180,35 +180,35 @@ public class PlayGameManager : MonoBehaviour
 
     public void ResetBonusTime() { _isBonus = false; }
 
-    //StageInfo¿¡ ³Ö¾îÁÙ °ª
+    //StageInfoï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void AddStageInfoForUI(int concept, int secondStage) 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.SetInfo(concept, secondStage); 
     }
 
-    //Æ÷Å» Åë°úÇÏ¸é StageInfo ÃÖ½ÅÈ­
+    //ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ StageInfo ï¿½Ö½ï¿½È­
     public void PlusStageInfoIndex() 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.PlusStageIndex(); 
     }
 
-    //StageInfo UI ºñÈ°¼ºÈ­
+    //StageInfo UI ï¿½ï¿½È°ï¿½ï¿½È­
     void DisableStageInfoUI() 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.DisableUI();
     }
 
-    //StageInfoÀÇ Memory ÇØ±Ý À¯¹« UI
+    //StageInfoï¿½ï¿½ Memory ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½ UI
     public void UnlockMemoryForStageInfoUI()
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.UnlockMemery();
     }
 
 
-    //Åõ¸íÈ­ µÈ ¿ÀºêÁ§Æ® ¿ø»óÅÂ·Î ¼³Á¤
+    //ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetOpaque() { _camera.GetComponent<ShowPlayer>().SetOpaque(); }
 
-    //Ä«¸Þ¶ó Áøµ¿
+    //Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetStress() { _camera.GetComponent<StressReceiver>().InduceStress(0.2f); }
 
         IEnumerator ScoreTime()

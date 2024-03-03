@@ -39,6 +39,9 @@ public class GameOverPanel : MonoBehaviour
     public void ChangeScoreText(float score){
         scoreText.text = "Score : " + score.ToString();
         currentScore = (int)score;
+        if(BackCheckStoryUnLock(currentScore)){
+            CanvasController.Instance.OnMessageConceptPanel();
+        }
     }
 
     public void ChangeCoinText(float coin){
@@ -84,6 +87,16 @@ public class GameOverPanel : MonoBehaviour
             SaveLoadManager.Instance.SetUnlockedConcept(currentUnlockedConceptNum+1);
             SaveLoadManager.Instance.SaveData();
         }
+    }
+
+    private bool BackCheckStoryUnLock(float score){
+        int currentUnlockedConceptNum = SaveLoadManager.Instance.GetUnlockedConcept();
+        int currentScoreToConceptNum = CheckCurrentScoreToConceptNum((int)score);
+        Debug.Log("currentUnlockedConceptNum : " + currentUnlockedConceptNum + " currentScoreToConceptNum : " + currentScoreToConceptNum);
+        if(currentScoreToConceptNum > currentUnlockedConceptNum){
+            return true;
+        }
+        return false;
     }
 
     private int CheckCurrentScoreToConceptNum(int score){
