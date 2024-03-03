@@ -170,19 +170,19 @@ public class StageController : MonoBehaviour
             /*
             //테스트용***********************************************************지워야함*****************
             _conceptCount = MaxConceptIndex;
+            TestStage(6);
             TestStage(7);
+            TestStage(8);
+            TestStage(9);
+            TestStage(3);
             TestStage(4);
-            TestStage(7);
+            TestStage(5);
             TestStage(4);
-            TestStage(7);
+            TestStage(8);
             TestStage(4);
-            TestStage(7);
+            TestStage(8);
             TestStage(4);
-            TestStage(7);
-            TestStage(4);
-            TestStage(7);
-            TestStage(4);
-            TestStage(7);
+            TestStage(8);
             TestStage(4);
             */
 

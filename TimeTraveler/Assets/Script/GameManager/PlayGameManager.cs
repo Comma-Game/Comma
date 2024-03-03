@@ -211,7 +211,7 @@ public class PlayGameManager : MonoBehaviour
     //ī�޶� ����
     public void SetStress() { _camera.GetComponent<StressReceiver>().InduceStress(0.2f); }
 
-        IEnumerator ScoreTime()
+    IEnumerator ScoreTime()
     {
         while (true)
         {
