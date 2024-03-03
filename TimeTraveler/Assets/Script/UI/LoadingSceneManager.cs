@@ -19,14 +19,15 @@ public class LoadingSceneManager : MonoBehaviour
     private float imgTime = 0;
     private AsyncOperation operation;
     public TextMeshProUGUI tipText;
-    private int[] tipList = {0,1,2,3};
+    private int[] tipList = {0,1,2,3, 4};
     private int currentTipNum = 0;
     private static readonly System.Random rng = new System.Random();
     private string[] tip_texts = {
                 "TIP: 플레이어 주변의 원이 초록색으로 변하면 상태이상 상태이다.",
                 "TIP:  맵 종류의 따라 움직이거나 크기가 바뀌는 맵이 존재한다." ,
                 "TIP: 파이프맵에서 오염된 물(초록색 물)에 닿으면 상태이상으로 체력이 감소된다.",
-                "TIP: 실험실 맵에서 불에 맞으면 상태이상으로 체력이 감소된다."
+                "TIP: 실험실 맵에서 불에 맞으면 상태이상으로 체력이 감소된다.",
+                "TIP: 공룡 맵에서 검은(화산) 연기에 맞으면 상태이상으로 체력이 감소된다."
     };
 
     public void StartSceneMove(){

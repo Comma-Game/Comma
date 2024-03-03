@@ -35927,7 +35927,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 05b7d59a85dfd894a9bc8e2a0463543b, type: 3}
   - {fileID: 21300000, guid: 0a75322000842234a9e2542ddc3fb914, type: 3}
   - {fileID: 21300000, guid: 1aa468ccc34f0c541bde91383173d7a7, type: 3}
-  - {fileID: 21300000, guid: fae32eabfab10314488eff887ec455d7, type: 3}
+  - {fileID: 21300000, guid: 464aaf349f901dd4793c53a57a7431fa, type: 3}
   - {fileID: 21300000, guid: 686efb67f8a97244db30ed53a0abf5e2, type: 3}
   leftButton: {fileID: 2380679760459488998}
   rightButton: {fileID: 7339488976332087635}
@@ -37129,7 +37129,7 @@ PrefabInstance:
     - target: {fileID: 1346353139256506780, guid: 0bb72fb663151b644938489e0e57e5b0, type: 3}
       propertyPath: sprites.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: fae32eabfab10314488eff887ec455d7, type: 3}
+      objectReference: {fileID: 21300000, guid: 464aaf349f901dd4793c53a57a7431fa, type: 3}
     - target: {fileID: 1346353139256506780, guid: 0bb72fb663151b644938489e0e57e5b0, type: 3}
       propertyPath: sprites.Array.data[4]
       value: 

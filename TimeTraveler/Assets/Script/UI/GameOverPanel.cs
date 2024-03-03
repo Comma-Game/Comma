@@ -15,7 +15,7 @@ public class GameOverPanel : MonoBehaviour
     private float currentGetCoin = 0;
     private int currentScore = 0;
 
-    private int[] UnLockConceptScore = {0, 0, 0, 5000, 10000, 25000, 40000, 55000, 150000, 250000};
+    private int[] UnLockConceptScore = {0, 0, 0, 1000, 10000, 25000, 40000, 55000, 150000, 250000};
     // {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
     // {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 1000000}
 
@@ -40,7 +40,7 @@ public class GameOverPanel : MonoBehaviour
         scoreText.text = "Score : " + score.ToString();
         currentScore = (int)score;
         if(BackCheckStoryUnLock(currentScore)){
-            CanvasController.Instance.OnMessageConceptPanel();
+            Invoke("ShowOnMessageConceptPanel", 1);
         }
     }
 
@@ -107,5 +107,9 @@ public class GameOverPanel : MonoBehaviour
             }
         }
         return num;
+    }
+
+    private void ShowOnMessageConceptPanel(){
+        CanvasController.Instance.OnMessageConceptPanel();
     }
 }
