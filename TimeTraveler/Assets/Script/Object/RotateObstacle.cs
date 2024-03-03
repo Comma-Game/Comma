@@ -10,16 +10,21 @@ public class RotateObstacle : MonoBehaviour
     [SerializeField]
     bool _random;
 
+    [SerializeField]
+    int _x;
+
+    [SerializeField]
+    int _y;
+
+    [SerializeField]
+    int _z;
+
     Vector3 _pos;
 
     void Awake()
     {
-        if (_random)
-        {
-            _pos = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
-            _moveSpeed = Random.Range(0.01f, 0.05f);
-        }
-        else _pos = new Vector3(0, -3, 0);    
+        if (_random) _pos = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2)) * _moveSpeed;
+        else _pos = new Vector3(_x, _y, _z) * _moveSpeed;    
     }
 
     private void OnEnable()
@@ -37,7 +42,7 @@ public class RotateObstacle : MonoBehaviour
         while (true)
         {
             transform.Rotate(_pos);
-            yield return new WaitForSeconds(_moveSpeed);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

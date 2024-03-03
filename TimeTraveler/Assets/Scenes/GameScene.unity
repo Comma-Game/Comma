@@ -1906,11 +1906,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4091306940754653693, guid: f6a2fb44b1c0aa84f8e434d08d4a47fe, type: 3}
   m_PrefabInstance: {fileID: 754759821}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &769268134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7565651196402541594, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
-  m_PrefabInstance: {fileID: 1233438953}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &773665559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3776,7 +3771,7 @@ PrefabInstance:
     - target: {fileID: 5376557189524566919, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: _rayPos
       value: 
-      objectReference: {fileID: 769268134}
+      objectReference: {fileID: 0}
     - target: {fileID: 5376557189524566919, guid: 024e59b114cba34449c1fbf7dc97047c, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3823,6 +3818,10 @@ PrefabInstance:
     - target: {fileID: 423543262819577443, guid: ffd553488be5ab142a31cce0be0f3e3f, type: 3}
       propertyPath: m_Name
       value: Lab_Map2
+      objectReference: {fileID: 0}
+    - target: {fileID: 423543262819577443, guid: ffd553488be5ab142a31cce0be0f3e3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5493452238162388817, guid: ffd553488be5ab142a31cce0be0f3e3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4301,6 +4300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab_Map1
       objectReference: {fileID: 0}
+    - target: {fileID: 3951686172308423202, guid: a030e39de120e2149bc326c2606ff92b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9154452779801299728, guid: a030e39de120e2149bc326c2606ff92b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4528,6 +4531,10 @@ PrefabInstance:
     - target: {fileID: 2716624841601660640, guid: b9777148075c44b44b91dce355a86d17, type: 3}
       propertyPath: m_Name
       value: Lab_Map3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2716624841601660640, guid: b9777148075c44b44b91dce355a86d17, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6369592505179547955, guid: b9777148075c44b44b91dce355a86d17, type: 3}
       propertyPath: m_LocalPosition.x
