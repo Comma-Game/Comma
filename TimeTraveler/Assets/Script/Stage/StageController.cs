@@ -168,25 +168,17 @@ public class StageController : MonoBehaviour
             _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
 
             
-            //테스트용***********************************************************지워야함*****************
+            //바다 맵 테스트용***********************************************************지워야함*****************
             _conceptCount = MaxConceptIndex;
-            TestStage(5);
-            TestStage(6);
-            TestStage(7);
-            TestStage(8);
             TestStage(9);
-            TestStage(0);
-            TestStage(1);
-            TestStage(2);
-            TestStage(3);
-            TestStage(4);
-            TestStage(8);
-            TestStage(4);
-            TestStage(8);
-            TestStage(4);
-            TestStage(8);
-            TestStage(4);
-            
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
 
             SetConceptIndex();
             InstantiateStage();

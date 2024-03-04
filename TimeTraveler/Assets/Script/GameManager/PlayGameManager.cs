@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayGameManager : MonoBehaviour
 {
-    static PlayGameManager _instance; //���ϼ� ����
+    static PlayGameManager _instance;
     public static PlayGameManager Instance
     {
         get
@@ -27,7 +27,6 @@ public class PlayGameManager : MonoBehaviour
     Coroutine _gameOverCoroutine, _timeCoroutine;
     GameObject _player, _camera;
     GameObject _stage, _fog;
-    GameObject[] _trail;
     int _scoreUp, _coin;
     StageInfoUI _stageInfoUI;
     
@@ -90,8 +89,8 @@ public class PlayGameManager : MonoBehaviour
         ResumeGame();
         GetComponent<ParticleFooling>().SetParticle(Resources.Load<GameObject>("Particle/JellyParticle"));
         if(GameManager.Instance.GetGameMode()) GetComponent<BigJellyPoolManager>().SetObject(Resources.Load<GameObject>("Jelly/BigJelly"));
-        
-        if (GameManager.Instance.GetGameMode()) _trail = Resources.LoadAll<GameObject>("TrailItem");
+
+        if (GameManager.Instance.GetGameMode()) SetTrail();
         
         if (GameManager.Instance.GetGameMode()) _stageInfoUI = GameObject.Find("StageInfo").GetComponent<StageInfoUI>();
 
@@ -99,7 +98,7 @@ public class PlayGameManager : MonoBehaviour
         _timeCoroutine = StartCoroutine(ScoreTime());
     }
 
-    //���� ��ƼŬ Ȱ��ȭ
+    //조각 파티클 활성화
     public void EnableParticle(Vector3 pos)
     {
         GetComponent<ParticleFooling>().EnableParticle(pos, _stage.transform);
@@ -109,15 +108,15 @@ public class PlayGameManager : MonoBehaviour
     {
         if (_timeCoroutine != null) StopCoroutine(_timeCoroutine);
 
-        //�������� �ӵ� 0���� ����
+        //스테이지의 속도 0으로 설정
         StageController.Instance.SetVelocity(0);
         
-        //StageInfo UI ��Ȱ��ȭ
+        //StageInfo UI 비활성화
         DisableStageInfoUI();
         
         _coin = _score / 2;
 
-        //���� ������ ���� 1.2��
+        //코인 버프 시 코인 1.2배
         if (_coinBuff) _coin += (int)(_coin * 0.2f);
 
         _player.GetComponent<Player>().DestroyPlayer();
@@ -155,21 +154,21 @@ public class PlayGameManager : MonoBehaviour
 
     public void SetStage(GameObject stage) { _stage = stage; }
 
-    //���� �Ͻ�����
+    //게임 일시정지(시간 0)
     public void PauseGame() 
     { 
         Time.timeScale = 0f;
         _player.GetComponent<MovePlayer>().SetPause();
     }
 
-    //���� �簳
+    //게임 재게(시간 1)
     public void ResumeGame() 
     { 
         Time.timeScale = 1f;
         _player.GetComponent<MovePlayer>().ResetPause();
     } 
 
-    //�ʿ� ������ �� ��
+    //보너스 맵 입장 설정
     public void SetBonusTime() 
     { 
         _isBonus = true;
@@ -179,36 +178,42 @@ public class PlayGameManager : MonoBehaviour
 
     public void ResetBonusTime() { _isBonus = false; }
 
-    //StageInfo�� �־��� ��
+    //StageInfo에 들어갈 정보 입력
     public void AddStageInfoForUI(int concept, int secondStage) 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.SetInfo(concept, secondStage); 
     }
 
-    //��Ż ����ϸ� StageInfo �ֽ�ȭ
+    //포탈 통과 시 StageInfo 설정
     public void PlusStageInfoIndex() 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.PlusStageIndex(); 
     }
 
-    //StageInfo UI ��Ȱ��ȭ
+    //StageInfo UI 비활성화
     void DisableStageInfoUI() 
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.DisableUI();
     }
 
-    //StageInfo�� Memory �ر� ���� UI
+    //StageInfo의 Memory 열람 설정
     public void UnlockMemoryForStageInfoUI()
     {
         if (GameManager.Instance.GetGameMode()) _stageInfoUI.UnlockMemery();
     }
 
 
-    //����ȭ �� ������Ʈ �����·� ����
+    //투명화 되어 있는 오브젝트 원상태로 변환
     public void SetOpaque() { _camera.GetComponent<ShowPlayer>().SetOpaque(); }
 
-    //ī�޶� ����
+    //카메라 흔들리는 효과
     public void SetStress() { _camera.GetComponent<StressReceiver>().InduceStress(0.2f); }
+
+    public void SetTrail()
+    {
+        GameObject trail = Resources.LoadAll<GameObject>("TrailItem")[SaveLoadManager.Instance.GetCurrentSkinItem()];
+        Instantiate(trail, _player.transform);
+    }
 
     IEnumerator ScoreTime()
     {

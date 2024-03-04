@@ -16,7 +16,7 @@ public class UnlockStoryInfo
         for (int i = 0; i < 3; i++)
         {
             info.Add(false);
-            unOpened.Add(false);
+            unOpened.Add(false); //초기값 false
         }
     }
 
@@ -64,7 +64,8 @@ public class GameData
         buff = 0;
         isGameFirst = false;
         isBuyAd = false;
-        unlockedConcept = 2;
+
+        unlockedConcept = 2; //초기 값 2
 
         //10개의 스테이지
         unlockedMemory = new List<UnlockStoryInfo>();
@@ -79,8 +80,9 @@ public class GameData
 
         currentSkinItem = 0;
         isBuySkinItems = new List<bool>();
-        for (int i = 0; i < 10; i++) isBuySkinItems.Add(false);
-        showAdsCount = 0;
+
+        for (int i = 0; i < 10; i++) isBuySkinItems.Add(false); //초기 값 : false
+        showAdsCount = 0; //초기 값 : 0
 
         heartTimetTest = 20f;
     }
