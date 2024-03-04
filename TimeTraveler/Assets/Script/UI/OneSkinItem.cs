@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Video;
 
 public class OneSkinItem : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class OneSkinItem : MonoBehaviour
     [SerializeField] public GameObject lockImg;
     [SerializeField] public Button buyButton;
     [SerializeField] public TextMeshProUGUI buyText;
+    [SerializeField] public VideoPlayer video;
     private MainSceneController mainSceneController;
     private int getCoin = 0;
     private bool isBuy = false;
@@ -20,6 +22,7 @@ public class OneSkinItem : MonoBehaviour
 
     private void Start(){
         mainSceneController = GameObject.Find("MainSceneController").GetComponent<MainSceneController>();
+        //Invoke("StopVideo", 2);
     }
 
     /// ////////////////////////////////////////////////////
@@ -81,7 +84,15 @@ public class OneSkinItem : MonoBehaviour
         backImg.color = new Color(1.0f, 1.0f, 1.0f);
     }
 
+    public void ClickVideo(){
+        video.Play();
+    }
+
     /// ////////////////////////////////////////////////////
+    
+    private void StopVideo(){
+        video.Stop();
+    }
 
     private void SendSelectData(){
         skinShopPanel.SelectItem(index);

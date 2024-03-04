@@ -1196,6 +1196,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5896254514169270830, guid: ffd473af06d03d041bfb588b30075bd1, type: 3}
   m_PrefabInstance: {fileID: 1223709319}
   m_PrefabAsset: {fileID: 0}
+--- !u!328 &77053196 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 6361768594513851887, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &79519395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1827,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8921703226894790513, guid: 5f4a12136fa9b2342ba8fd3a3c964f49, type: 3}
   m_PrefabInstance: {fileID: 192617936925144598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &138297443 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 795033406993778580, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &143727648 stripped
 RectTransform:
@@ -3899,10 +3909,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!328 &492120194 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 2501341130611154081, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512397194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4835321194913258319, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
   m_PrefabInstance: {fileID: 8347576890723467751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &522340242 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 4678074637270765328, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &535125762
 GameObject:
@@ -4567,6 +4587,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &671800561 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 5838230361022935305, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &703677285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8057180820613036201, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -6011,6 +6036,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e00abe95899a248b9e83e6605eaec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &898402403 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 3563620452064387067, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &899149640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6292,6 +6322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e65d01065a2a645b31555551a7c907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &942149548 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 5248278478340903059, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1000734878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7609143755611412095, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
@@ -8575,6 +8610,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4954039507844302994, guid: 0b72b52eb7754834cadc7c17dc3416b6, type: 3}
   m_PrefabInstance: {fileID: 8347576890723467751}
   m_PrefabAsset: {fileID: 0}
+--- !u!328 &1348126742 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 1875615791740513009, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1366339240
 GameObject:
   m_ObjectHideFlags: 0
@@ -10299,6 +10339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &1830126743 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 1447251365875862224, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832084833
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,6 +10540,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!328 &1866975882 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 8410263079215543677, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+  m_PrefabInstance: {fileID: 1092584827505689749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873986293
 GameObject:
   m_ObjectHideFlags: 0
@@ -34998,6 +35048,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4269246589639497883, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6653957701581137325}
     - targetCorrespondingSourceObject: {fileID: 3552840448309828474, guid: 83e7ab2ad76ec2644a04f0907ec7bab9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -40895,6 +40948,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6637ba8c19f805d4da3f8e1f8b6929c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6653957701581137325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653957701581137320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8ae799f475e094eb73109f522ea9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  video1: {fileID: 942149548}
+  video2: {fileID: 138297443}
+  video3: {fileID: 898402403}
+  video4: {fileID: 1866975882}
+  video5: {fileID: 492120194}
+  video6: {fileID: 1348126742}
+  video7: {fileID: 522340242}
+  video8: {fileID: 671800561}
+  video9: {fileID: 77053196}
+  video10: {fileID: 1830126743}
 --- !u!1 &6681813599807196447
 GameObject:
   m_ObjectHideFlags: 0

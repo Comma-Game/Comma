@@ -4816,10 +4816,10 @@ RectTransform:
   - {fileID: 1444331119}
   - {fileID: 1289697104}
   - {fileID: 773665560}
+  - {fileID: 67927562}
   - {fileID: 1472535956}
   - {fileID: 1937977742}
   - {fileID: 2056531675}
-  - {fileID: 67927562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
