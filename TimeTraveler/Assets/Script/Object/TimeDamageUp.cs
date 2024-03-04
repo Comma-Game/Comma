@@ -15,16 +15,25 @@ public class TimeDamageUp : MonoBehaviour
     {
         StopAllCoroutines();
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
             _player = other.transform.GetComponent<Player>();
-            _player.TimeDamageUp();
-            StartCoroutine(TimeDamage());
+            if(_player.TimeDamageUp()) StartCoroutine(TimeDamage()); //무적, 중독 상태가 아니라면
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            _player = other.transform.GetComponent<Player>();
+            if (_player.TimeDamageUp()) StartCoroutine(TimeDamage()); //무적, 중독 상태가 아니라면
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -37,7 +46,7 @@ public class TimeDamageUp : MonoBehaviour
 
     IEnumerator TimeDamage()
     {
-        while (_player.GetHp() > 0)
+        while (_player.GetHp() > 0 && !_player.GetIsInvincible())
         {
             _player.TimeDamage();
 

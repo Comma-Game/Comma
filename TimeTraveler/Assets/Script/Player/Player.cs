@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         _isCast = false;
         _isPassPortal = false;
         _isInvincible = false;
+        _isPoison = false;
 
         Init_Buff();
         Init_PlayerSetting();
@@ -126,7 +127,7 @@ public class Player : MonoBehaviour
                 HitDamage(10 * _obstacleDamageBuff);
 
                 if (collision.gameObject.GetComponent<MeshExploder>() != null)
-                    StageController.Instance.MakeExploder(collision.transform.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
+                    StageController.Instance.MakeExploder(collision.transform.parent.parent, collision.gameObject.GetComponent<MeshExploder>().Explode());
                 
                 collision.gameObject.SetActive(false);
 
@@ -272,10 +273,17 @@ public class Player : MonoBehaviour
     }
 
     //틱 테미지 업
-    public void TimeDamageUp()
+    public bool TimeDamageUp()
     {
-        _isPoison = true;
-        if (!_isInvincible) _colliderRange.SetPoison();
+        if (!_isInvincible && !_isPoison)
+        {
+            _colliderRange.SetPoison();
+            _isPoison = true;
+
+            return true;
+        }
+
+        return false;
     }
 
     //틱 데미지 리셋
@@ -356,8 +364,7 @@ public class Player : MonoBehaviour
 
     void ResetColor()
     {
-        if (_isPoison) _colliderRange.SetPoison();
-        else if (_energy < _maxEnergy) _colliderRange.ResetColor();
+        if (_energy < _maxEnergy) _colliderRange.ResetColor();
         else _colliderRange.PrepareToSkill();
     }
 
@@ -532,6 +539,7 @@ public class Player : MonoBehaviour
 
     public void EnterBonusStage() { _isBonusTime = true; }
     public void ExitBonusStage() { _isBonusTime = false; }
+    public bool GetIsInvincible() { return _isInvincible; }
 
     public float GetHp() { return _hp; }
     public float GetMaxHp() { return _maxHp; }

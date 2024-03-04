@@ -9,6 +9,8 @@ public class UseItem : MonoBehaviour
 
     void Start()
     {
+        if (!GameManager.Instance.GetGameMode()) return;
+
         _player = GameObject.Find("Player").GetComponent<Player>();
         _buff = SaveLoadManager.Instance.GetBuff();
 

@@ -167,21 +167,25 @@ public class StageController : MonoBehaviour
         {
             _conceptCount = SaveLoadManager.Instance.GetUnlockedConcept() + 1;
 
-            
-            //바다 맵 테스트용***********************************************************지워야함*****************
-            _conceptCount = MaxConceptIndex;
-            TestStage(9);
-            TestStage(5);
-            TestStage(9);
-            TestStage(5);
-            TestStage(9);
-            TestStage(5);
-            TestStage(9);
-            TestStage(5);
-            TestStage(9);
+            //테스트용***********************************************************지워야함*****************
+            //_conceptCount = MaxConceptIndex;
 
             SetConceptIndex();
             InstantiateStage();
+            
+            //공룡 바다 맵 테스트용***********************************************************지워야함*****************
+            /*
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            TestStage(5);
+            TestStage(9);
+            _conceptIndex.RemoveAt(_prevConcept);
+            */
 
             ResetQueue();
         }
@@ -213,6 +217,8 @@ public class StageController : MonoBehaviour
 
             stageIndex.RemoveAt(next_stage_num);
         }
+
+        _prevConcept = index;
     }
 
     void TestStage()

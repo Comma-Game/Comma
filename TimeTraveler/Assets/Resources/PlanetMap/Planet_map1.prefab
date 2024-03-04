@@ -5363,7 +5363,7 @@ GameObject:
   - component: {fileID: 3453254104308527567}
   - component: {fileID: 2874220335127296370}
   - component: {fileID: 404739968049369668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sun
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

@@ -481,10 +481,10 @@ public class MeshExploder : MonoBehaviour {
 			return null;
 		} else {
 			var explosion = SetUpExplosionPiece(explosionPieceName);
-			
+			Debug.Log("PRESCALED : " + preScaled);
 			explosion.AddComponent<MeshExplosion>().Go(
 				preparation, minSpeed, maxSpeed, minRotationSpeed, maxRotationSpeed, useGravity,
-				preScaled ? Vector3.one : transform.lossyScale);
+				(preScaled ? Vector3.one : transform.lossyScale) / 2);
 
 			return explosion;
 		}
